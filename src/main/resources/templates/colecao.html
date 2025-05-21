@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
--->
-<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -14,8 +9,29 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             padding: 40px;
             text-align: center;
         }
+
         h1 {
             color: #f26b1d;
+        }
+
+        .galeria {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .galeria img {
+            width: 280px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .galeria img:hover {
+            transform: scale(1.05);
         }
     </style>
 </head>
@@ -23,6 +39,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     <h1>Coleção 2025</h1>
     <p>Conheça as peças exclusivas da nova coleção da Tatiart.</p>
 
+    <div class="galeria">
+        <img src="/images/arte1.jpg" alt="Arte 1">
+        <img src="/images/arte2.jpg" alt="Arte 2">
+        <img src="/images/arte3.jpg" alt="Arte 3">
+    </div>
+
+    <br>
     <a href="/">Voltar para o início</a>
 </body>
 </html>
