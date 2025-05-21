@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Coleção Tatiart</title>
@@ -40,9 +40,11 @@
     <p>Conheça as peças exclusivas da nova coleção da Tatiart.</p>
 
     <div class="galeria">
-        <img src="/images/arte1.jpg" alt="Arte 1">
-        <img src="/images/arte2.jpg" alt="Arte 2">
-        <img src="/images/arte3.jpg" alt="Arte 3">
+        <div th:each="produto : ${produtos}">
+            <img th:src="@{/images/{img}(img=${produto.imagem})}" th:alt="${produto.nome}">
+            <h3 th:text="${produto.nome}"></h3>
+            <p th:text="${produto.descricao}"></p>
+        </div>
     </div>
 
     <br>
