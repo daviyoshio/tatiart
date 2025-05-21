@@ -15,6 +15,7 @@ public class HomeController {
 
     @GetMapping("/")
     public String index() {
-        return "index"; // Carrega src/main/resources/templates/index.html
+        return "index"; // carrega index.html da pasta templates
     }
 }
+
