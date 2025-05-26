@@ -1,127 +1,441 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>Página Inicial - Tatiart</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            margin: 0;
-            padding: 0;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personare - Produtos Personalizados</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            burgundy: {
+              50: "#FCF4F4",
+              100: "#F9E9E9",
+              200: "#F3D3D3",
+              300: "#EDBDBD",
+              400: "#E7A7A7",
+              500: "#E19191",
+              600: "#DB7B7B",
+              700: "#D56565",
+              800: "#6D1F2F", // Main color for headings - troquei
+              900: "#6C1919"
+            },
+            beige: {
+              50: "#FFFCF5",
+              100: "#FFF9EB",
+              200: "#FFF3D6",
+              300: "#FFEEC2",
+              400: "#FFE8AD",
+              500: "#FFE399",
+              600: "#FFDD84",
+              700: "#FFD870",
+              800: "#F5F2EA", // Background color - troquei
+              900: "#DCC9A6"
+            }
+          },
+          fontFamily: {
+            'playfair': ['"Playfair Display"', 'serif'],
+            'sans': ['Inter', 'sans-serif'],
+          },
         }
-
-        nav {
-            background-color: #f26b1d;
-            display: flex;
-            justify-content: space-around;
-            padding: 16px 0;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .banner {
-            background-color: #f2f2f2;
-            height: 300px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .banner h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        .banner .botoes {
-            display: flex;
-            gap: 20px;
-        }
-
-        .banner .botoes a {
-            background-color: #f26b1d;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 8px;
-        }
-
-        .categorias {
-            text-align: center;
-            padding: 60px 20px;
-        }
-
-        .categorias h2 {
-            font-size: 24px;
-            color: #f26b1d;
-            margin-bottom: 24px;
-        }
-
-        .categorias-grid {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
-
-        .categoria {
-            width: 160px;
-        }
-
-        .categoria img {
-            width: 100%;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .categoria img:hover {
-            transform: scale(1.05);
-        }
-
-        .categoria h3 {
-            margin-top: 10px;
-            font-size: 18px;
-            color: #333;
-        }
-    </style>
+      }
+    }
+  </script>
 </head>
-<body>
 
-    <!-- NAVBAR -->
-    <div th:replace="fragments/navbar :: navbar"></div>
 
-    <!-- BANNER -->
-    <div class="banner">
-        <h1>"Banner"</h1>
-        <div class="botoes">
-            <a href="#">Botão 1</a>
-            <a href="#">Botão 2</a>
-        </div>
+<body class="font-sans">
+  <!-- Header/Navigation -->
+  <header class="sticky top-0 bg-white z-50 shadow-sm">
+    <div class="container mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
+      <a href="/" class="text-burgundy-800 font-playfair text-2xl md:text-3xl font-bold">Tatiart</a>
+      
+      <button id="mobile-menu-button" class="md:hidden text-burgundy-800">
+        <i class="fas fa-bars text-xl"></i>
+      </button>
+      
+      <nav class="hidden md:flex space-x-8">
+        <a href="index.html" class="text-burgundy-800 hover:text-burgundy-600 font-medium">Home</a>
+        <a href="produtos.html" class="text-burgundy-800 hover:text-burgundy-600 font-medium">Produtos</a>
+        <a href="sobre-a-tati.html" class="text-burgundy-800 hover:text-burgundy-600 font-medium">Sobre Nós</a>
+        <a href="#" class="text-burgundy-800 hover:text-burgundy-600 font-medium">Contato</a>
+      </nav>
     </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden bg-white w-full">
+      <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+        <a href="index.html" class="text-burgundy-800 hover:text-burgundy-600 font-medium py-2">Home</a>
+        <a href="produtos.html" class="text-burgundy-800 hover:text-burgundy-600 font-medium py-2">Produtos</a>
+        <a href="sobre-a-tati.html" class="text-burgundy-800 hover:text-burgundy-600 font-medium py-2">Sobre Nós</a>
+        <a href="#" class="text-burgundy-800 hover:text-burgundy-600 font-medium py-2">Contato</a>
+      </div>
+    </div>
+  </header>
 
-    <!-- CATEGORIAS -->
-    <section class="categorias">
-        <h2>Escolha sua categoria personalizada</h2>
-        <div class="categorias-grid">
-            <div class="categoria">
-                <img src="/images/bolsas-icon.png" alt="Bolsa personalizada">
-                <h3>Bolsas</h3>
-            </div>
-            <div class="categoria">
-                <img src="/images/canecas-icon.png" alt="Caneca personalizada">
-                <h3>Canecas</h3>
-            </div>
-            <div class="categoria">
-                <img src="/images/necessaires-icon.png" alt="Necessaire personalizada">
-                <h3>Necessaires</h3>
-            </div>
+  <!-- Hero Section with improved height -->
+  <section class="bg-burgundy-800 py-32 md:py-48 relative">
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1616046229478-9901c5536a45?q=80&w=1000" alt="Banner Background" class="w-full h-full object-cover opacity-20">
+    </div>
+    <div class="container mx-auto px-4 md:px-6 text-center relative z-10">
+      <h1 class="font-playfair text-4xl md:text-6xl font-bold text-white mb-6">
+        Produtos personalizados com estilo e significado
+      </h1>
+      <p class="text-lg md:text-xl text-white max-w-3xl mx-auto mb-10">
+        Transformamos momentos especiais em lembranças tangíveis através de criações artesanais únicas.
+      </p>
+      <a href="produtos.html" class="inline-block bg-white hover:bg-gray-100 text-burgundy-800 font-medium px-8 py-3 rounded transition-colors">
+        Conheça Nossos Produtos
+        <i class="fas fa-chevron-right ml-2"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- Product Categories - Updated with more sophisticated design -->
+  <section class="bg-beige-800 py-16 md:py-20">
+    <div class="container mx-auto px-4 md:px-6">
+      <h2 class="font-playfair text-3xl md:text-4xl font-bold text-burgundy-800 mb-12 text-center">
+        Conheça Nossas Categorias
+      </h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 px-4 md:px-16">
+        <!-- Category 1 - Canecas -->
+        <div class="group relative overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl w-full max-w-[27rem] mx-auto">
+          <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-burgundy-900/30 via-burgundy-800/10 to-transparent z-10"></div>
+          <img src="/images/Home/Caneca - Categoria.png" alt="Canecas Personalizadas" class="w-full h-56 object-cover object-center transition-transform duration-500 group-hover:scale-105">
+          <div class="absolute bottom-0 left-0 right-0 pb-2 pt-4 px-4 z-20">
+            <h3 class="font-playfair text-lg font-bold text-white text-center tracking-wide">Canecas Personalizadas</h3>
+          </div>
         </div>
-    </section>
 
+        <!-- Category 2 - Necessaires -->
+        <div class="group relative overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl w-full max-w-[27rem] mx-auto">
+          <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-burgundy-900/30 via-burgundy-800/10 to-transparent z-10"></div>
+          <img src="/images/Home/Necessaire - Categoria.png" alt="Necessaires" class="w-full h-56 object-cover object-center transition-transform duration-500 group-hover:scale-105">
+          <div class="absolute bottom-0 left-0 right-0 pb-2 pt-4 px-4 z-20">
+            <h3 class="font-playfair text-lg font-bold text-white text-center tracking-wide">Necessaires</h3>
+          </div>
+        </div>
+
+        <!-- Category 3 - Bolsas -->
+        <div class="group relative overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl w-full max-w-[27rem] mx-auto">
+          <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-burgundy-900/30 via-burgundy-800/10 to-transparent z-10"></div>
+          <img src="/images/Home/ChatGPT Image 25 de mai. de 2025, 23_03_04.png" alt="Bolsas" class="w-full h-56 object-cover object-center transition-transform duration-500 group-hover:scale-105">
+          <div class="absolute bottom-0 left-0 right-0 pb-2 pt-4 px-4 z-20">
+            <h3 class="font-playfair text-lg font-bold text-white text-center tracking-wide">Bolsas</h3>
+          </div>
+        </div>
+        
+        <!-- Category 4 - Mochilas -->
+        <div class="group relative overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl w-full max-w-[27rem] mx-auto">
+          <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-burgundy-900/30 via-burgundy-800/10 to-transparent z-10"></div>
+          <img src="/images/Home/Mochila - Categoria.png" alt="Mochilas" class="w-full h-56 object-cover object-center transition-transform duration-500 group-hover:scale-105">
+          <div class="absolute bottom-0 left-0 right-0 pb-2 pt-4 px-4 z-20">
+            <h3 class="font-playfair text-lg font-bold text-white text-center tracking-wide">Mochilas</h3>
+          </div>
+        </div>
+        
+        <!-- Category 5 - Estojos -->
+        <div class="group relative overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl w-full max-w-[27rem] mx-auto">
+          <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-burgundy-900/30 via-burgundy-800/10 to-transparent z-10"></div>
+          <img src="/images/Home/KitEstojos - Categoria.jpg" alt="Estojos" class="w-full h-56 object-cover object-center transition-transform duration-500 group-hover:scale-105">
+          <div class="absolute bottom-0 left-0 right-0 pb-2 pt-4 px-4 z-20">
+            <h3 class="font-playfair text-lg font-bold text-white text-center tracking-wide">Estojos</h3>
+          </div>
+        </div>
+        
+        <!-- Category 6 - Linha Baby -->
+        <div class="group relative overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl w-full max-w-[27rem] mx-auto">
+          <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-burgundy-900/30 via-burgundy-800/10 to-transparent z-10"></div>
+          <img src="/images/Home/LinhaBaby - Categoria.png" alt="Linha Baby" class="w-full h-56 object-cover object-center transition-transform duration-500 group-hover:scale-105">
+          <div class="absolute bottom-0 left-0 right-0 pb-2 pt-4 px-4 z-20">
+            <h3 class="font-playfair text-lg font-bold text-white text-center tracking-wide">Linha Baby</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="py-16 md:py-24">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="flex flex-col lg:flex-row items-center gap-12">
+        <div class="w-full lg:w-1/2">
+          <img src="https://images.unsplash.com/photo-1616046229478-9901c5536a45?q=80&w=1000" alt="Nossa Essência Artesanal" class="rounded-lg shadow-lg w-full h-auto">
+        </div>
+        <div class="w-full lg:w-1/2">
+          <h2 class="font-playfair text-3xl md:text-5xl font-bold text-burgundy-800 mb-6 text-center">
+            Nossa Essência Artesanal
+          </h2>
+          <div class="space-y-4 text-gray-600">
+            <p>
+              Na Tatiart, acreditamos que cada presente deve contar uma história. Nossa paixão está em transformar momentos e emoções em produtos únicos, feitos com cuidado e atenção aos detalhes.
+            </p>
+            <p>
+              A marca nasceu em 2020, durante a pandemia, pelas mãos de Tatiane — mãe, esposa e ex-CLT que buscava estar mais próxima da família e reencontrar propósito em meio às incertezas daquele período. O que começou como um passatempo para confortar pessoas queridas logo se tornou a Tatiart, uma microempresa no Capão Redondo, zona sul de São Paulo, onde Tatiane cuida de todo o processo, do ateliê em sua própria casa.
+            </p>
+            <p>
+              Nosso propósito é criar produtos que são a sua cara: totalmente personalizados para emocionar, surpreender e eternizar momentos especiais. Na Tatiart, cada detalhe pode ser escolhido por você — Seja uma mensagem especial, uma combinação de cores, nomes, datas ou desenhos exclusivos — garantindo que cada presente seja único e reflitam exatamente o que você deseja transmitir
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="bg-beige-800 py-16 md:py-20">
+    <div class="container mx-auto px-4 md:px-6">
+      <h2 class="font-playfair text-3xl md:text-5xl font-bold text-burgundy-800 mb-4 text-center">
+        O Que Nossos Clientes Dizem
+      </h2>
+      <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
+        A satisfação dos nossos clientes é nossa maior recompensa. Confira algumas das avaliações de quem já confiou em nossos produtos personalizados.
+      </p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Testimonial 1 -->
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all hover:-translate-y-2">
+          <div class="flex items-center mb-4">
+            <div class="w-10 h-10 rounded-full bg-burgundy-200 flex items-center justify-center font-bold text-burgundy-800 mr-3">
+              M
+            </div>
+            <div>
+              <h4 class="font-bold">Maria Silva</h4>
+              <p class="text-sm text-gray-500">Caneca Personalizada</p>
+            </div>
+          </div>
+          <div class="flex text-yellow-400 mb-3">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="text-gray-600 italic">
+            A caneca personalizada que comprei foi perfeita como presente! O acabamento é excelente e a entrega foi rápida. Com certeza comprarei novamente.
+          </p>
+        </div>
+        
+        <!-- Testimonial 2 -->
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all hover:-translate-y-2">
+          <div class="flex items-center mb-4">
+            <div class="w-10 h-10 rounded-full bg-burgundy-200 flex items-center justify-center font-bold text-burgundy-800 mr-3">
+              C
+            </div>
+            <div>
+              <h4 class="font-bold">Carlos Oliveira</h4>
+              <p class="text-sm text-gray-500">Necessaire Bordada</p>
+            </div>
+          </div>
+          <div class="flex text-yellow-400 mb-3">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="text-gray-600 italic">
+            Encomendei uma necessaire com o nome da minha esposa bordado e ela amou! O material é de ótima qualidade e o bordado ficou impecável.
+          </p>
+        </div>
+        
+        <!-- Testimonial 3 -->
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all hover:-translate-y-2">
+          <div class="flex items-center mb-4">
+            <div class="w-10 h-10 rounded-full bg-burgundy-200 flex items-center justify-center font-bold text-burgundy-800 mr-3">
+              A
+            </div>
+            <div>
+              <h4 class="font-bold">Ana Souza</h4>
+              <p class="text-sm text-gray-500">Mochila Personalizada</p>
+            </div>
+          </div>
+          <div class="flex text-yellow-400 mb-3">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+          <p class="text-gray-600 italic">
+            Comprei uma mochila personalizada para minha filha e superou minhas expectativas. O material é resistente e as cores ficaram vibrantes mesmo após várias lavagens.
+          </p>
+        </div>
+        
+        <!-- Testimonial 4 -->
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all hover:-translate-y-2">
+          <div class="flex items-center mb-4">
+            <div class="w-10 h-10 rounded-full bg-burgundy-200 flex items-center justify-center font-bold text-burgundy-800 mr-3">
+              P
+            </div>
+            <div>
+              <h4 class="font-bold">Pedro Santos</h4>
+              <p class="text-sm text-gray-500">Kit Linha Baby</p>
+            </div>
+          </div>
+          <div class="flex text-yellow-400 mb-3">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="text-gray-600 italic">
+            O kit baby que comprei para o nascimento do meu sobrinho foi um sucesso! Todos elogiaram a qualidade e o carinho nos detalhes personalizados.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Instagram Section -->
+  <section class="py-16 md:py-20 ">
+    <div class="container mx-auto px-4 md:px-6">
+      <h2 class="font-playfair text-3xl md:text-5xl font-bold text-burgundy-800 mb-4 text-center">
+        Conheça Nosso Instagram
+      </h2>
+      <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
+        Siga-nos para inspirações, novidades e bastidores do processo criativo.
+      </p>
+      
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <a href="https://instagram.com" target="_blank" class="relative group overflow-hidden rounded-lg">
+          <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?q=80&w=1000" alt="Instagram post" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+          <div class="absolute inset-0 bg-black bg-opacity-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <i class="fab fa-instagram text-white text-4xl"></i>
+          </div>
+        </a>
+        <a href="https://instagram.com" target="_blank" class="relative group overflow-hidden rounded-lg">
+          <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1000" alt="Instagram post" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+          <div class="absolute inset-0 bg-black bg-opacity-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <i class="fab fa-instagram text-white text-4xl"></i>
+          </div>
+        </a>
+        <a href="https://instagram.com" target="_blank" class="relative group overflow-hidden rounded-lg">
+          <img src="https://images.unsplash.com/photo-1627483262268-9c2b5b2834b5?q=80&w=1000" alt="Instagram post" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+          <div class="absolute inset-0 bg-black bg-opacity-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <i class="fab fa-instagram text-white text-4xl"></i>
+          </div>
+        </a>
+        <a href="https://instagram.com" target="_blank" class="relative group overflow-hidden rounded-lg">
+          <img src="https://images.unsplash.com/photo-1534126511673-b6899657816a?q=80&w=1000" alt="Instagram post" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+          <div class="absolute inset-0 bg-black bg-opacity-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <i class="fab fa-instagram text-white text-4xl"></i>
+          </div>
+        </a>
+        <a href="https://instagram.com" target="_blank" class="relative group overflow-hidden rounded-lg">
+          <img src="https://images.unsplash.com/photo-1581044777550-4cfa60707c03?q=80&w=1000" alt="Instagram post" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+          <div class="absolute inset-0 bg-black bg-opacity-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <i class="fab fa-instagram text-white text-4xl"></i>
+          </div>
+        </a>
+        <a href="https://instagram.com" target="_blank" class="relative group overflow-hidden rounded-lg">
+          <img src="https://images.unsplash.com/photo-1586078130702-d208859b6223?q=80&w=1000" alt="Instagram post" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+          <div class="absolute inset-0 bg-black bg-opacity-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <i class="fab fa-instagram text-white text-4xl"></i>
+          </div>
+        </a>
+      </div>
+      
+      <div class="text-center mt-10">
+        <a href="https://instagram.com" target="_blank" class="inline-flex items-center bg-burgundy-800 hover:bg-burgundy-900 text-white px-6 py-3 rounded transition-colors">
+          <i class="fab fa-instagram mr-2"></i> Ver no Instagram
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="bg-burgundy-800 py-16 md:py-20 text-center text-white">
+    <div class="container mx-auto px-4 md:px-6">
+      <h2 class="font-playfair text-3xl md:text-5xl font-bold mb-6">
+        Pronto para criar algo especial?
+      </h2>
+      <p class="text-lg md:text-xl mb-10 max-w-3xl mx-auto">
+        Estamos ansiosos para ajudar a transformar suas ideias em realidade. Entre em contato para iniciar seu projeto personalizado.
+      </p>
+      <a href="#" class="inline-flex items-center bg-white hover:bg-gray-100 text-burgundy-800 px-8 py-3 rounded-md font-medium transition-colors">
+        <i class="fab fa-whatsapp mr-2 text-xl"></i> Fale conosco pelo WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-beige-800 pt-12 pb-6 border-t border-gray-200">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <!-- Brand -->
+        <div>
+          <h3 class="font-playfair text-xl font-bold text-burgundy-800 mb-4">Tatiart</h3>
+          <p class="text-gray-600 mb-4">
+            Produtos personalizados criados com carinho e atenção aos detalhes.
+          </p>
+        </div>
+        
+        <!-- Navigation -->
+        <div>
+          <h3 class="font-playfair text-xl font-bold text-burgundy-800 mb-4">Navegação</h3>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="text-gray-600 hover:text-burgundy-700">Home</a></li>
+            <li><a href="produtos.html" class="text-gray-600 hover:text-burgundy-700">Produtos</a></li>
+            <li><a href="#" class="text-gray-600 hover:text-burgundy-700">Sobre Nós</a></li>
+            <li><a href="#" class="text-gray-600 hover:text-burgundy-700">Contato</a></li>
+          </ul>
+        </div>
+        
+        <!-- Products -->
+        <div>
+          <h3 class="font-playfair text-xl font-bold text-burgundy-800 mb-4">Produtos</h3>
+          <ul class="space-y-2">
+            <li><a href="produtos.html" class="text-gray-600 hover:text-burgundy-700">Canecas</a></li>
+            <li><a href="produtos.html" class="text-gray-600 hover:text-burgundy-700">Necessaires</a></li>
+            <li><a href="produtos.html" class="text-gray-600 hover:text-burgundy-700">Mochilas</a></li>
+            <li><a href="produtos.html" class="text-gray-600 hover:text-burgundy-700">Linha Baby</a></li>
+          </ul>
+        </div>
+        
+        <!-- Contact -->
+        <div>
+          <h3 class="font-playfair text-xl font-bold text-burgundy-800 mb-4">Contato</h3>
+          <ul class="space-y-2">
+            <li class="flex items-center gap-2">
+              <i class="far fa-envelope text-burgundy-700"></i>
+              <a href="mailto:contato@tatiart.com" class="text-gray-600 hover:text-burgundy-700">contato@tatiart.com</a>
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fas fa-phone text-burgundy-700"></i>
+              <a href="tel:+5511999999999" class="text-gray-600 hover:text-burgundy-700">(11) 99999-9999</a>
+            </li>
+          </ul>
+          <div class="flex gap-4 mt-4">
+            <a href="https://instagram.com" target="_blank" class="text-burgundy-700 hover:text-burgundy-900 text-xl">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://facebook.com" target="_blank" class="text-burgundy-700 hover:text-burgundy-900 text-xl">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://pinterest.com" target="_blank" class="text-burgundy-700 hover:text-burgundy-900 text-xl">
+              <i class="fab fa-pinterest-p"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-200 pt-6">
+        <p class="text-center text-gray-500 text-sm">
+          © 2025 Tatiart. Todos os direitos reservados.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
 </body>
 </html>
