@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${produto.titulo}">Produto</title>
+    <link rel="stylesheet" href="/css/estilo.css">
+</head>
+<body>
+
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+<section class="banner">
+    <img th:src="${produto.banner}" alt="Banner do Produto" class="banner-img">
+</section>
+
+<section class="produto-detalhes">
+  <div class="container">
+    <div class="info">
+      <h2 th:text="${produto.titulo}"></h2>
+      <p th:text="${produto.descricao}"></p>
+
+      <ul class="beneficios">
+        <li th:each="b : ${produto.beneficios}" th:text="${b}"></li>
+      </ul>
+
+      <div class="botoes">
+        <a href="https://wa.me/SEUNUMERO?text=Quero%20uma%20caneca%20personalizada%20da%20Tatiart!" target="_blank" class="btn-personalizar">Quero Personalizar a Minha</a>
+      </div>
+    </div>
+
+    <div class="galeria">
+      <img th:each="img : ${produto.imagens}" th:src="${img}" alt="Caneca Tatiart" />
+    </div>
+  </div>
+</section>
+
+
+</body>
+</html>
