@@ -229,3 +229,8 @@ blockquote::before {
   color: var(--burgundy-light);
   opacity: 0.3;
 }
+
+/*Elfysgiht*/
+.eapps-widget-toolbar {
+  display: none !important;
+}
