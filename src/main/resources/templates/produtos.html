@@ -1,71 +1,663 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>Produtos - Tatiart</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            margin: 0;
-            padding: 0;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produtos - Tatiart</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            burgundy: {
+              50: "#FCF4F4",
+              100: "#F9E9E9",
+              200: "#F3D3D3",
+              300: "#EDBDBD",
+              400: "#E7A7A7",
+              500: "#E19191",
+              600: "#DB7B7B",
+              700: "#D56565",
+              800: "#6D1F2F",
+              900: "#6C1919"
+            },
+            beige: {
+              50: "#FFFCF5",
+              100: "#FFF9EB",
+              200: "#FFF3D6",
+              300: "#FFEEC2",
+              400: "#FFE8AD",
+              500: "#FFE399",
+              600: "#FFDD84",
+              700: "#FFD870",
+              800: "#F5F2EA",
+              900: "#DCC9A6"
+            }
+          },
+          fontFamily: {
+            'playfair': ['"Playfair Display"', 'serif'],
+            'sans': ['Inter', 'sans-serif'],
+          },
         }
-
-        .galeria-produtos {
-            padding: 40px 20px;
-            max-width: 1200px;
-            margin: auto;
-            text-align: center;
-        }
-
-        .galeria {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 32px;
-            margin-top: 20px;
-        }
-
-        .produto {
-            width: 260px;
-            border: 1px solid #ddd;
-            border-radius: 12px;
-            padding: 16px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        }
-
-        .produto img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
-
-        .produto a {
-            display: block;
-            margin-top: 10px;
-            color: #f26b1d;
-            text-decoration: none;
-            font-weight: bold;
-        }
-    </style>
+      }
+    }
+  </script>
 </head>
-<body>
-
-<!-- NAVBAR -->
-<!-- NAVBAR COM FRAGMENTO -->
-<div th:replace="fragments/navbar :: navbar"></div>
-
-<!-- GALERIA DE PRODUTOS -->
-<section class="galeria-produtos">
-    <h2>Todos os Produtos</h2>
-    <div class="galeria" th:if="${produtos}">
-        <div class="produto" th:each="p : ${produtos}">
-            <img th:src="${p.banner}" th:alt="${p.titulo}">
-            <h3 th:text="${p.titulo}"></h3>
-            <p th:text="${p.descricao}"></p>
-            <a th:href="@{'/produtos/' + ${#strings.toLowerCase(p.titulo.split(' ')[0])}}">Ver detalhes</a>
-        </div>
+<body class="font-sans">
+  <!-- Header/Navigation -->
+  <header class="sticky top-0 bg-white z-50 shadow-sm">
+    <div class="container mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
+      <a href="/" class="text-burgundy-800 font-playfair text-xl md:text-2xl lg:text-3xl font-bold">Tatiart</a>
+      
+      <button id="mobile-menu-button" class="md:hidden text-burgundy-800">
+        <i class="fas fa-bars text-xl"></i>
+      </button>
+      
+      <nav class="hidden md:flex space-x-6 lg:space-x-8">
+        <a href="index.html" class="text-burgundy-800 hover:text-burgundy-600 font-medium text-sm lg:text-base">Home</a>
+        <a href="produtos.html" class="text-burgundy-800 hover:text-burgundy-600 font-medium text-sm lg:text-base">Produtos</a>
+        <a href="sobre-a-tati.html" class="text-burgundy-800 hover:text-burgundy-600 font-medium text-sm lg:text-base">Sobre Nós</a>
+        <a href="contato.html" class="text-burgundy-800 hover:text-burgundy-600 font-medium text-sm lg:text-base">Contato</a>
+      </nav>
     </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden bg-white w-full">
+      <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+        <a href="index.html" class="text-burgundy-800 hover:text-burgundy-600 font-medium py-2">Home</a>
+        <a href="produtos.html" class="text-burgundy-800 hover:text-burgundy-600 font-medium py-2">Produtos</a>
+        <a href="sobre-a-tati.html" class="text-burgundy-800 hover:text-burgundy-600 font-medium py-2">Sobre Nós</a>
+        <a href="contato.html" class="text-burgundy-800 hover:text-burgundy-600 font-medium py-2">Contato</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="bg-burgundy-800 py-20 md:py-32 lg:py-44 relative">
+    <div class="container mx-auto px-4 md:px-6 text-center text-white">
+      <h1 class="font-playfair text-2xl md:text-4xl lg:text-6xl font-bold mb-4 md:mb-6">
+        Nossos Produtos Personalizados
+      </h1>
+      <p class="text-base md:text-lg lg:text-xl max-w-3xl mx-auto mb-8 md:mb-10 px-4">
+        Conheça nossa linha exclusiva de produtos personalizáveis, feitos com cuidado artesanal e atenção aos detalhes.
+      </p>
+      <a href="#processo" class="inline-block bg-white hover:bg-gray-100 text-burgundy-800 font-medium px-6 md:px-8 py-2 md:py-3 rounded transition-colors text-sm md:text-base">
+        Ver processo de personalização
+      </a>
+    </div>
+  </section>
+
+  <!-- Process Section 1 (Desktop/Tablet) -->
+  <section id="processo" class="bg-beige-800 py-16 md:py-24 hidden md:block">
+    <div class="container mx-auto px-4 md:px-6">
+      <h2 class="font-playfair text-3xl md:text-5xl font-bold text-burgundy-800 mb-6 text-center">
+        Processo de Personalização
+      </h2>
+      <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
+        Conheça o passo a passo para criar seu produto personalizado, desde a escolha até a entrega.
+      </p>
+      <div class="relative max-w-4xl mx-auto">
+        <!-- Timeline Line -->
+        <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 bg-burgundy-300 transform -translate-x-1/2"></div>
+        
+        <!-- Step 1 -->
+        <div class="relative flex flex-col md:flex-row items-center mb-12">
+          <div class="md:w-1/2 md:pr-12 md:text-right">
+            <h3 class="font-playfair text-xl font-bold text-burgundy-800 mb-2">Escolha do Produto</h3>
+            <p class="text-gray-600">Selecione entre nossa ampla variedade de produtos personalizáveis.</p>
+          </div>
+          <div class="bg-white rounded-full p-4 shadow-md z-10 my-4 md:my-0">
+            <div class="bg-burgundy-800 rounded-full w-10 h-10 flex items-center justify-center text-white font-bold">1</div>
+          </div>
+          <div class="md:w-1/2 md:pl-12 md:text-left"></div>
+        </div>
+        
+        <!-- Step 2 -->
+        <div class="relative flex flex-col md:flex-row items-center mb-12">
+          <div class="md:w-1/2 md:pr-12 md:text-right order-1 md:order-none"></div>
+          <div class="bg-white rounded-full p-4 shadow-md z-10 my-4 md:my-0 order-2 md:order-none">
+            <div class="bg-burgundy-800 rounded-full w-10 h-10 flex items-center justify-center text-white font-bold">2</div>
+          </div>
+          <div class="md:w-1/2 md:pl-12 md:text-left order-3 md:order-none">
+            <h3 class="font-playfair text-xl font-bold text-burgundy-800 mb-2">Personalização</h3>
+            <p class="text-gray-600">Defina como deseja personalizar: texto, imagem, cores e outros detalhes.</p>
+          </div>
+        </div>
+        
+        <!-- Step 3 -->
+        <div class="relative flex flex-col md:flex-row items-center mb-12">
+          <div class="md:w-1/2 md:pr-12 md:text-right">
+            <h3 class="font-playfair text-xl font-bold text-burgundy-800 mb-2">Aprovação do Design</h3>
+            <p class="text-gray-600">Enviamos uma prévia do design para sua aprovação antes da produção.</p>
+          </div>
+          <div class="bg-white rounded-full p-4 shadow-md z-10 my-4 md:my-0">
+            <div class="bg-burgundy-800 rounded-full w-10 h-10 flex items-center justify-center text-white font-bold">3</div>
+          </div>
+          <div class="md:w-1/2 md:pl-12 md:text-left"></div>
+        </div>
+        
+        <!-- Step 4 -->
+        <div class="relative flex flex-col md:flex-row items-center mb-12">
+          <div class="md:w-1/2 md:pr-12 md:text-right order-1 md:order-none"></div>
+          <div class="bg-white rounded-full p-4 shadow-md z-10 my-4 md:my-0 order-2 md:order-none">
+            <div class="bg-burgundy-800 rounded-full w-10 h-10 flex items-center justify-center text-white font-bold">4</div>
+          </div>
+          <div class="md:w-1/2 md:pl-12 md:text-left order-3 md:order-none">
+            <h3 class="font-playfair text-xl font-bold text-burgundy-800 mb-2">Produção Artesanal</h3>
+            <p class="text-gray-600">Produzimos seu item com cuidado artesanal e atenção aos detalhes.</p>
+          </div>
+        </div>
+        
+        <!-- Step 5 -->
+        <div class="relative flex flex-col md:flex-row items-center">
+          <div class="md:w-1/2 md:pr-12 md:text-right">
+            <h3 class="font-playfair text-xl font-bold text-burgundy-800 mb-2">Entrega</h3>
+            <p class="text-gray-600">Embalamos com carinho e enviamos para o endereço desejado.</p>
+          </div>
+          <div class="bg-white rounded-full p-4 shadow-md z-10 my-4 md:my-0">
+            <div class="bg-burgundy-800 rounded-full w-10 h-10 flex items-center justify-center text-white font-bold">5</div>
+          </div>
+          <div class="md:w-1/2 md:pl-12 md:text-left"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section 1 (Mobile) -->
+  <section id="processo-mobile" class="bg-beige-800 py-10 block md:hidden">
+    <div class="container mx-auto px-4">
+      <h2 class="font-playfair text-3xl font-bold text-burgundy-800 mb-6 text-center">
+        Processo de Personalização
+      </h2>
+      <p class="text-center text-gray-600 mb-10 max-w-3xl mx-auto">
+        Conheça o passo a passo para criar seu produto personalizado, desde a escolha até a entrega.
+      </p>
+      <div class="space-y-8">
+        <!-- Step 1 -->
+        <div class="flex items-center justify-between">
+          <div>
+            <h3 class="font-playfair text-lg font-bold text-burgundy-800 mb-1">Escolha do Produto</h3>
+            <p class="text-gray-600 text-sm">Selecione entre nossa ampla variedade de produtos personalizáveis.</p>
+          </div>
+          <div class="bg-white rounded-full p-2 shadow-md flex-shrink-0 ml-4">
+            <div class="bg-burgundy-800 rounded-full w-8 h-8 flex items-center justify-center text-white font-bold">1</div>
+          </div>
+        </div>
+        <!-- Step 2 -->
+        <div class="flex items-center justify-between">
+          <div>
+            <h3 class="font-playfair text-lg font-bold text-burgundy-800 mb-1">Personalização</h3>
+            <p class="text-gray-600 text-sm">Defina como deseja personalizar: texto, imagem, cores e outros detalhes.</p>
+          </div>
+          <div class="bg-white rounded-full p-2 shadow-md flex-shrink-0 ml-4">
+            <div class="bg-burgundy-800 rounded-full w-8 h-8 flex items-center justify-center text-white font-bold">2</div>
+          </div>
+        </div>
+        <!-- Step 3 -->
+        <div class="flex items-center justify-between">
+          <div>
+            <h3 class="font-playfair text-lg font-bold text-burgundy-800 mb-1">Aprovação do Design</h3>
+            <p class="text-gray-600 text-sm">Enviamos uma prévia do design para sua aprovação antes da produção.</p>
+          </div>
+          <div class="bg-white rounded-full p-2 shadow-md flex-shrink-0 ml-4">
+            <div class="bg-burgundy-800 rounded-full w-8 h-8 flex items-center justify-center text-white font-bold">3</div>
+          </div>
+        </div>
+        <!-- Step 4 -->
+        <div class="flex items-center justify-between">
+          <div>
+            <h3 class="font-playfair text-lg font-bold text-burgundy-800 mb-1">Produção Artesanal</h3>
+            <p class="text-gray-600 text-sm">Produzimos seu item com cuidado artesanal e atenção aos detalhes.</p>
+          </div>
+          <div class="bg-white rounded-full p-2 shadow-md flex-shrink-0 ml-4">
+            <div class="bg-burgundy-800 rounded-full w-8 h-8 flex items-center justify-center text-white font-bold">4</div>
+          </div>
+        </div>
+        <!-- Step 5 -->
+        <div class="flex items-center justify-between">
+          <div>
+            <h3 class="font-playfair text-lg font-bold text-burgundy-800 mb-1">Entrega</h3>
+            <p class="text-gray-600 text-sm">Embalamos com carinho e enviamos para o endereço desejado.</p>
+          </div>
+          <div class="bg-white rounded-full p-2 shadow-md flex-shrink-0 ml-4">
+            <div class="bg-burgundy-800 rounded-full w-8 h-8 flex items-center justify-center text-white font-bold">5</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Categories -->
+  <section class="py-12 md:py-16 lg:py-24">
+    <div class="container mx-auto px-4 md:px-6">
+      <h2 class="font-playfair text-2xl md:text-3xl lg:text-5xl font-bold text-burgundy-800 mb-4 text-center">
+        Categorias de Produtos
+      </h2>
+      <p class="text-center text-gray-600 mb-12 md:mb-16 max-w-3xl mx-auto px-4 text-sm md:text-base">
+        Explore nossa variedade de produtos personalizáveis para encontrar o item perfeito para sua necessidade.
+      </p>
+
+      <!-- Categoria 1: Canecas -->
+      <div class="mb-16 md:mb-24">
+        <div class="flex flex-col lg:flex-row items-start lg:items-center gap-6 md:gap-8 mb-8">
+          <div class="lg:w-1/3 w-full">
+            <h3 class="font-playfair text-2xl md:text-3xl font-bold text-burgundy-800 mb-4">Canecas Personalizadas</h3>
+            <p class="text-gray-600 mb-6 text-sm md:text-base">
+              Nossas canecas personalizadas são perfeitas para presentear em ocasiões especiais ou para uso diário. Disponíveis em diversos modelos e materiais, podem ser personalizadas com fotos, frases ou designs exclusivos.
+            </p>
+            <a href="#" class="inline-flex items-center text-burgundy-700 hover:text-burgundy-900 font-medium text-sm md:text-base">
+              Ver mais opções <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+          <div class="lg:w-2/3 w-full">
+            <div class="relative">
+              <div class="flex overflow-x-auto gap-4 carousel-container pb-4" id="canecas-carousel" style="scroll-snap-type: x mandatory; scrollbar-width: none; -ms-overflow-style: none;">
+                <div class="min-w-[200px] md:min-w-[250px] bg-white rounded-lg overflow-hidden shadow-md flex-shrink-0" style="scroll-snap-align: start;">
+                  <img src="images\Produtos\Caneca\Caneca 1.jpg" alt="Caneca branca simples" class="w-full h-48 md:h-64 object-cover">
+                </div>
+                <div class="min-w-[200px] md:min-w-[250px] bg-white rounded-lg overflow-hidden shadow-md flex-shrink-0" style="scroll-snap-align: start;">
+                  <img src="images\Produtos\Caneca\Caneca 5.jpg" alt="Caneca preta com design" class="w-full h-48 md:h-64 object-cover">
+                </div>
+                <div class="min-w-[200px] md:min-w-[250px] bg-white rounded-lg overflow-hidden shadow-md flex-shrink-0" style="scroll-snap-align: start;">
+                  <img src="images\Produtos\Caneca\Caneca 3.jpg" alt="Caneca temática" class="w-full h-48 md:h-64 object-cover">
+                </div>
+                <div class="min-w-[200px] md:min-w-[250px] bg-white rounded-lg overflow-hidden shadow-md flex-shrink-0" style="scroll-snap-align: start;">
+                  <img src="images\Produtos\Caneca\Caneca 4.jpg" alt="Caneca colorida" class="w-full h-48 md:h-64 object-cover">
+                </div>
+              </div>
+              <button class="hidden md:block absolute left-2 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow-md text-burgundy-800 hover:text-burgundy-600 carousel-prev z-10">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="hidden md:block absolute right-2 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow-md text-burgundy-800 hover:text-burgundy-600 carousel-next z-10">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Categoria 2: Necessaires -->
+      <div class="mb-16 md:mb-24">
+        <div class="flex flex-col lg:flex-row items-start lg:items-center gap-6 md:gap-8 mb-8">
+          <div class="lg:w-1/3 w-full">
+            <h3 class="font-playfair text-2xl md:text-3xl font-bold text-burgundy-800 mb-4">Necessaires Personalizadas</h3>
+            <p class="text-gray-600 mb-6 text-sm md:text-base">
+              Nossas necessaires são práticas, estilosas e totalmente personalizáveis. Disponíveis em diferentes tamanhos e materiais, são perfeitas para organizar seus itens essenciais ou para presentear alguém especial.
+            </p>
+            <a href="#" class="inline-flex items-center text-burgundy-700 hover:text-burgundy-900 font-medium text-sm md:text-base">
+              Ver mais opções <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+          <div class="lg:w-2/3 w-full">
+            <div class="relative">
+              <div class="flex overflow-x-auto gap-4 carousel-container pb-4" id="necessaires-carousel" style="scroll-snap-type: x mandatory; scrollbar-width: none; -ms-overflow-style: none;">
+                <div class="min-w-[200px] md:min-w-[250px] bg-white rounded-lg overflow-hidden shadow-md flex-shrink-0" style="scroll-snap-align: start;">
+                  <img src="images\Produtos\Necessaires\Necessaire 1.jpg" alt="Necessaire floral" class="w-full h-48 md:h-64 object-cover">
+                </div>
+                <div class="min-w-[200px] md:min-w-[250px] bg-white rounded-lg overflow-hidden shadow-md flex-shrink-0" style="scroll-snap-align: start;">
+                  <img src="images\Produtos\Necessaires\Necessaire 5.jpg" alt="Kit necessaire personalizada" class="w-full h-48 md:h-64 object-cover">
+                </div>
+                <div class="min-w-[200px] md:min-w-[250px] bg-white rounded-lg overflow-hidden shadow-md flex-shrink-0" style="scroll-snap-align: start;">
+                  <img src="images\Produtos\Necessaires\Necessaire 3.jpg" alt="Necessaire com estampa" class="w-full h-48 md:h-64 object-cover">
+                </div>
+                <div class="min-w-[200px] md:min-w-[250px] bg-white rounded-lg overflow-hidden shadow-md flex-shrink-0" style="scroll-snap-align: start;">
+                  <img src="images\Produtos\Necessaires\Necessaire 4.jpg" alt="Necessaire premium" class="w-full h-48 md:h-64 object-cover">
+                </div>
+              </div>
+              <button class="hidden md:block absolute left-2 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow-md text-burgundy-800 hover:text-burgundy-600 carousel-prev z-10">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="hidden md:block absolute right-2 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow-md text-burgundy-800 hover:text-burgundy-600 carousel-next z-10">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Categoria 3: Mochilas -->
+      <div class="mb-16 md:mb-24">
+        <div class="flex flex-col lg:flex-row items-start lg:items-center gap-6 md:gap-8 mb-8">
+          <div class="lg:w-1/3 w-full">
+            <h3 class="font-playfair text-2xl md:text-3xl font-bold text-burgundy-800 mb-4">Mochilas Personalizadas</h3>
+            <p class="text-gray-600 mb-6 text-sm md:text-base">
+              Nossas mochilas personalizadas combinam funcionalidade e estilo para o dia a dia. Com vários tamanhos e modelos, são ideais para escola, trabalho ou viagens, e podem ser customizadas com nomes, estampas ou designs exclusivos.
+            </p>
+            <a href="#" class="inline-flex items-center text-burgundy-700 hover:text-burgundy-900 font-medium text-sm md:text-base">
+              Ver mais opções <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+          <div class="lg:w-2/3 w-full">
+            <div class="relative">
+              <div class="flex overflow-x-auto gap-4 carousel-container pb-4" id="mochilas-carousel" style="scroll-snap-type: x mandatory; scrollbar-width: none; -ms-overflow-style: none;">
+                <div class="min-w-[200px] md:min-w-[250px] bg-white rounded-lg overflow-hidden shadow-md flex-shrink-0" style="scroll-snap-align: start;">
+                  <img src="images\Produtos\Mochila\Mochila 5.jpg" alt="Mochila rosa" class="w-full h-48 md:h-64 object-cover">
+                </div>
+                <div class="min-w-[200px] md:min-w-[250px] bg-white rounded-lg overflow-hidden shadow-md flex-shrink-0" style="scroll-snap-align: start;">
+                  <img src="images\Produtos\Mochila\Mochila 2.jpg" alt="Mochila azul" class="w-full h-48 md:h-64 object-cover">
+                </div>
+                <div class="min-w-[200px] md:min-w-[250px] bg-white rounded-lg overflow-hidden shadow-md flex-shrink-0" style="scroll-snap-align: start;">
+                  <img src="images\Produtos\Mochila\Mochila 3.jpg" alt="Mochila preta" class="w-full h-48 md:h-64 object-cover">
+                </div>
+                <div class="min-w-[200px] md:min-w-[250px] bg-white rounded-lg overflow-hidden shadow-md flex-shrink-0" style="scroll-snap-align: start;">
+                  <img src="images\Produtos\Mochila\Mochila 4.jpg" alt="Mochila infantil" class="w-full h-48 md:h-64 object-cover">
+                </div>
+              </div>
+              <button class="hidden md:block absolute left-2 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow-md text-burgundy-800 hover:text-burgundy-600 carousel-prev z-10">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="hidden md:block absolute right-2 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow-md text-burgundy-800 hover:text-burgundy-600 carousel-next z-10">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Categoria 4: Bolsas -->
+      <div>
+        <div class="flex flex-col lg:flex-row items-start lg:items-center gap-6 md:gap-8 mb-8">
+          <div class="lg:w-1/3 w-full">
+            <h3 class="font-playfair text-2xl md:text-3xl font-bold text-burgundy-800 mb-4">Bolsas Personalizadas</h3>
+            <p class="text-gray-600 mb-6 text-sm md:text-base">
+              Nossas bolsas personalizadas unem praticidade, elegância e exclusividade para acompanhar você em qualquer ocasião. Disponíveis em diversos modelos, tamanhos e materiais, são ideais para o dia a dia, trabalho, viagens ou para presentear alguém especial. Personalize com nomes, iniciais, estampas ou frases e torne sua bolsa única, do seu jeito.
+            </p>
+            <a href="#" class="inline-flex items-center text-burgundy-700 hover:text-burgundy-900 font-medium text-sm md:text-base">
+              Ver mais opções <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+          <div class="lg:w-2/3 w-full">
+            <div class="relative">
+              <div class="flex overflow-x-auto gap-4 carousel-container pb-4" id="baby-carousel" style="scroll-snap-type: x mandatory; scrollbar-width: none; -ms-overflow-style: none;">
+                <div class="min-w-[200px] md:min-w-[250px] bg-white rounded-lg overflow-hidden shadow-md flex-shrink-0" style="scroll-snap-align: start;">
+                  <img src="images\Produtos\Bolsa\Bolsa 1.jpg" alt="Bolsa na piscina" class="w-full h-48 md:h-64 object-cover">
+                </div>
+                <div class="min-w-[200px] md:min-w-[250px] bg-white rounded-lg overflow-hidden shadow-md flex-shrink-0" style="scroll-snap-align: start;">
+                  <img src="images\Produtos\Bolsa\Bolsa 2.jpg" alt="Brinquedos de bebê" class="w-full h-48 md:h-64 object-cover">
+                </div>
+                <div class="min-w-[200px] md:min-w-[250px] bg-white rounded-lg overflow-hidden shadow-md flex-shrink-0" style="scroll-snap-align: start;">
+                  <img src="images\Produtos\Bolsa\Bolsa 3.jpg" alt="Bolsa com roupinha de urso" class="w-full h-48 md:h-64 object-cover">
+                </div>
+                <div class="min-w-[200px] md:min-w-[250px] bg-white rounded-lg overflow-hidden shadow-md flex-shrink-0" style="scroll-snap-align: start;">
+                  <img src="images\Produtos\Bolsa\Bolsa 4.png" alt="Bolsa premium" class="w-full h-48 md:h-64 object-cover">
+                </div>
+              </div>
+              <button class="hidden md:block absolute left-2 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow-md text-burgundy-800 hover:text-burgundy-600 carousel-prev z-10">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="hidden md:block absolute right-2 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow-md text-burgundy-800 hover:text-burgundy-600 carousel-next z-10">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Categoria 5: Estojos -->
+      <div class="mb-16 md:mb-24">
+        <div class="flex flex-col lg:flex-row items-start lg:items-center gap-6 md:gap-8 mb-8">
+          <div class="lg:w-1/3 w-full">
+            <h3 class="font-playfair text-2xl md:text-3xl font-bold text-burgundy-800 mb-4">Estojos Personalizados</h3>
+            <p class="text-gray-600 mb-6 text-sm md:text-base">
+              Nossos estojos personalizados são perfeitos para organizar material escolar ou de escritório. Com diferentes tamanhos e compartimentos, podem ser personalizados com nomes, personagens favoritos ou designs exclusivos.
+            </p>
+            <a href="#" class="inline-flex items-center text-burgundy-700 hover:text-burgundy-900 font-medium text-sm md:text-base">
+              Ver mais opções <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+          <div class="lg:w-2/3 w-full">
+            <div class="relative">
+              <div class="flex overflow-x-auto gap-4 carousel-container pb-4" id="estojos-carousel" style="scroll-snap-type: x mandatory; scrollbar-width: none; -ms-overflow-style: none;">
+                <div class="min-w-[200px] md:min-w-[250px] bg-white rounded-lg overflow-hidden shadow-md flex-shrink-0" style="scroll-snap-align: start;">
+                  <img src="images\Produtos\Estojo\Estojo 5.jpg" alt="Estojo colorido" class="w-full h-48 md:h-64 object-cover">
+                </div>
+                <div class="min-w-[200px] md:min-w-[250px] bg-white rounded-lg overflow-hidden shadow-md flex-shrink-0" style="scroll-snap-align: start;">
+                  <img src="images\Produtos\Estojo\Estojo 2.jpg" alt="Estojo com código" class="w-full h-48 md:h-64 object-cover">
+                </div>
+                <div class="min-w-[200px] md:min-w-[250px] bg-white rounded-lg overflow-hidden shadow-md flex-shrink-0" style="scroll-snap-align: start;">
+                  <img src="images\Produtos\Estojo\Estojo 6.jpg" alt="Estojo com biscoitos" class="w-full h-48 md:h-64 object-cover">
+                </div>
+                <div class="min-w-[200px] md:min-w-[250px] bg-white rounded-lg overflow-hidden shadow-md flex-shrink-0" style="scroll-snap-align: start;">
+                  <img src="images\Produtos\Estojo\Estojo 4.jpg" alt="Estojo temático" class="w-full h-48 md:h-64 object-cover">
+                </div>
+              </div>
+              <button class="hidden md:block absolute left-2 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow-md text-burgundy-800 hover:text-burgundy-600 carousel-prev z-10">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="hidden md:block absolute right-2 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow-md text-burgundy-800 hover:text-burgundy-600 carousel-next z-10">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Categoria 6: Linha Baby -->
+      <div>
+        <div class="flex flex-col lg:flex-row items-start lg:items-center gap-6 md:gap-8 mb-8">
+          <div class="lg:w-1/3 w-full">
+            <h3 class="font-playfair text-2xl md:text-3xl font-bold text-burgundy-800 mb-4">Linha Baby</h3>
+            <p class="text-gray-600 mb-6 text-sm md:text-base">
+              Nossa linha baby traz produtos delicados e seguros para os pequenos. Com opções como toalhas personalizadas, roupinhas, acessórios e lembrancinhas para chá de bebê, cada item pode ser customizado com o nome do bebê ou tema escolhido pelos pais.
+            </p>
+            <a href="#" class="inline-flex items-center text-burgundy-700 hover:text-burgundy-900 font-medium text-sm md:text-base">
+              Ver mais opções <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+          <div class="lg:w-2/3 w-full">
+            <div class="relative">
+              <div class="flex overflow-x-auto gap-4 carousel-container pb-4" id="baby-carousel" style="scroll-snap-type: x mandatory; scrollbar-width: none; -ms-overflow-style: none;">
+                <div class="min-w-[200px] md:min-w-[250px] bg-white rounded-lg overflow-hidden shadow-md flex-shrink-0" style="scroll-snap-align: start;">
+                  <img src="images\Produtos\Linha Baby\Linha Baby 1.jpg" alt="Bebê na piscina" class="w-full h-48 md:h-64 object-cover">
+                </div>
+                <div class="min-w-[200px] md:min-w-[250px] bg-white rounded-lg overflow-hidden shadow-md flex-shrink-0" style="scroll-snap-align: start;">
+                  <img src="images\Produtos\Linha Baby\Linha Baby 6.jpg" alt="Brinquedos de bebê" class="w-full h-48 md:h-64 object-cover">
+                </div>
+                <div class="min-w-[200px] md:min-w-[250px] bg-white rounded-lg overflow-hidden shadow-md flex-shrink-0" style="scroll-snap-align: start;">
+                  <img src="images\Produtos\Linha Baby\Linha Baby 3.jpg" alt="Bebê com roupinha de urso" class="w-full h-48 md:h-64 object-cover">
+                </div>
+                <div class="min-w-[200px] md:min-w-[250px] bg-white rounded-lg overflow-hidden shadow-md flex-shrink-0" style="scroll-snap-align: start;">
+                  <img src="images\Produtos\Linha Baby\Linha Baby 4.jpg" alt="Linha baby premium" class="w-full h-48 md:h-64 object-cover">
+                </div>
+              </div>
+              <button class="hidden md:block absolute left-2 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow-md text-burgundy-800 hover:text-burgundy-600 carousel-prev z-10">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="hidden md:block absolute right-2 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow-md text-burgundy-800 hover:text-burgundy-600 carousel-next z-10">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- FAQ Section -->
+<section class="bg-beige-800 py-12 md:py-16 lg:py-24">
+  <div class="container mx-auto px-4 md:px-6">
+    <div class="text-center mb-12 md:mb-16">
+      <div class="bg-beige-200 rounded-full w-12 h-12 md:w-16 md:h-16 mx-auto mb-6 flex items-center justify-center">
+        <i class="fas fa-question text-burgundy-800 text-lg md:text-2xl"></i>
+      </div>
+      <h2 class="font-playfair text-2xl md:text-3xl lg:text-5xl font-bold text-burgundy-800 mb-4">
+        Perguntas Frequentes
+      </h2>
+      <p class="text-gray-600 max-w-3xl mx-auto px-4 text-sm md:text-base">
+        Encontre respostas para as dúvidas mais comuns sobre nossos produtos personalizados.
+      </p>
+    </div>
+
+    <div class="max-w-3xl mx-auto space-y-4 md:space-y-6">
+      <!-- FAQ Item 1 -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <button class="flex justify-between items-center w-full px-4 md:px-6 py-3 md:py-4 text-left focus:outline-none faq-toggle hover:bg-gray-50 transition-colors duration-200">
+          <span class="font-playfair font-bold text-burgundy-800 text-sm md:text-base pr-4">Qual o prazo de produção dos itens personalizados?</span>
+          <i class="fas fa-chevron-down text-burgundy-700 flex-shrink-0"></i>
+        </button>
+        <div class="px-4 md:px-6 pb-3 md:pb-4 faq-content">
+          <p class="text-gray-600 text-sm md:text-base">
+            O prazo médio é de 7 a 10 dias úteis, dependendo da complexidade do produto e da personalização desejada. Para grandes quantidades, o prazo pode ser maior.
+          </p>
+        </div>
+      </div>
+
+      <!-- FAQ Item 2 -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <button class="flex justify-between items-center w-full px-4 md:px-6 py-3 md:py-4 text-left focus:outline-none faq-toggle hover:bg-gray-50 transition-colors duration-200">
+          <span class="font-playfair font-bold text-burgundy-800 text-sm md:text-base pr-4">Posso solicitar amostras antes de fazer um pedido grande?</span>
+          <i class="fas fa-chevron-down text-burgundy-700 flex-shrink-0"></i>
+        </button>
+        <div class="px-4 md:px-6 pb-3 md:pb-4 faq-content hidden">
+          <p class="text-gray-600 text-sm md:text-base">
+            Sim, oferecemos a possibilidade de amostra paga para pedidos corporativos ou grandes eventos. O valor da amostra é deduzido do pedido final quando confirmado.
+          </p>
+        </div>
+      </div>
+
+      <!-- FAQ Item 3 -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <button class="flex justify-between items-center w-full px-4 md:px-6 py-3 md:py-4 text-left focus:outline-none faq-toggle hover:bg-gray-50 transition-colors duration-200">
+          <span class="font-playfair font-bold text-burgundy-800 text-sm md:text-base pr-4">Quais métodos de personalização vocês utilizam?</span>
+          <i class="fas fa-chevron-down text-burgundy-700 flex-shrink-0"></i>
+        </button>
+        <div class="px-4 md:px-6 pb-3 md:pb-4 faq-content hidden">
+          <p class="text-gray-600 text-sm md:text-base">
+            Utilizamos diversos métodos, conforme o material e o produto: impressão digital, sublimação, bordado, gravação a laser, transfer, serigrafia e pintura manual.
+          </p>
+        </div>
+      </div>
+
+      <!-- FAQ Item 4 -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <button class="flex justify-between items-center w-full px-4 md:px-6 py-3 md:py-4 text-left focus:outline-none faq-toggle hover:bg-gray-50 transition-colors duration-200">
+          <span class="font-playfair font-bold text-burgundy-800 text-sm md:text-base pr-4">Qual a quantidade mínima para pedidos?</span>
+          <i class="fas fa-chevron-down text-burgundy-700 flex-shrink-0"></i>
+        </button>
+        <div class="px-4 md:px-6 pb-3 md:pb-4 faq-content hidden">
+          <p class="text-gray-600 text-sm md:text-base">
+            Aceitamos pedidos a partir de 1 unidade para clientes individuais. Para pedidos corporativos ou eventos, temos condições especiais a partir de 20 unidades.
+          </p>
+        </div>
+      </div>
+
+      <!-- FAQ Item 5 -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <button class="flex justify-between items-center w-full px-4 md:px-6 py-3 md:py-4 text-left focus:outline-none faq-toggle hover:bg-gray-50 transition-colors duration-200">
+          <span class="font-playfair font-bold text-burgundy-800 text-sm md:text-base pr-4">Como funciona o envio dos produtos?</span>
+          <i class="fas fa-chevron-down text-burgundy-700 flex-shrink-0"></i>
+        </button>
+        <div class="px-4 md:px-6 pb-3 md:pb-4 faq-content hidden">
+          <p class="text-gray-600 text-sm md:text-base">
+            Trabalhamos com envios para todo Brasil através de Correios e transportadoras. O prazo e valor do frete serão calculados no momento da compra, com base no seu CEP e peso do pedido.
+          </p>
+        </div>
+      </div>
+
+      <!-- FAQ Item 6 -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <button class="flex justify-between items-center w-full px-4 md:px-6 py-3 md:py-4 text-left focus:outline-none faq-toggle hover:bg-gray-50 transition-colors duration-200">
+          <span class="font-playfair font-bold text-burgundy-800 text-sm md:text-base pr-4">Posso acompanhar a produção do meu pedido?</span>
+          <i class="fas fa-chevron-down text-burgundy-700 flex-shrink-0"></i>
+        </button>
+        <div class="px-4 md:px-6 pb-3 md:pb-4 faq-content hidden">
+          <p class="text-gray-600 text-sm md:text-base">
+            Sim, mantemos nossos clientes informados sobre cada etapa do processo de produção. Você receberá atualizações por e-mail e poderá entrar em contato conosco para mais informações a qualquer momento.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
+  <!-- CTA Section -->
+  <section class="bg-burgundy-800 py-12 md:py-16 lg:py-20 text-center text-white">
+    <div class="container mx-auto px-4 md:px-6">
+      <h2 class="font-playfair text-2xl md:text-3xl lg:text-5xl font-bold mb-4 md:mb-6">
+        Pronto para criar algo especial?
+      </h2>
+      <p class="text-base md:text-lg lg:text-xl mb-8 md:mb-10 max-w-3xl mx-auto px-4">
+        Estamos ansiosos para ajudar a transformar suas ideias em realidade. Entre em contato para iniciar seu projeto personalizado.
+      </p>
+      <a href="#" class="inline-flex items-center bg-white hover:bg-gray-100 text-burgundy-800 px-6 md:px-8 py-2 md:py-3 rounded-md font-medium transition-colors text-sm md:text-base">
+        <i class="fab fa-whatsapp mr-2 text-lg md:text-xl"></i> Fale conosco pelo WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-beige-800 pt-8 md:pt-12 pb-6 border-t border-gray-200">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-8 md:mb-12">
+        <!-- Brand -->
+        <div>
+          <h3 class="font-playfair text-lg md:text-xl font-bold text-burgundy-800 mb-4">Tatiart</h3>
+          <p class="text-gray-600 mb-4 text-sm md:text-base">
+            Produtos personalizados criados com carinho e atenção aos detalhes.
+          </p>
+        </div>
+        
+        <!-- Navigation -->
+        <div>
+          <h3 class="font-playfair text-lg md:text-xl font-bold text-burgundy-800 mb-4">Navegação</h3>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="text-gray-600 hover:text-burgundy-700 text-sm md:text-base">Home</a></li>
+            <li><a href="produtos.html" class="text-gray-600 hover:text-burgundy-700 text-sm md:text-base">Produtos</a></li>
+            <li><a href="#" class="text-gray-600 hover:text-burgundy-700 text-sm md:text-base">Sobre Nós</a></li>
+            <li><a href="#" class="text-gray-600 hover:text-burgundy-700 text-sm md:text-base">Contato</a></li>
+          </ul>
+        </div>
+        
+        <!-- Products -->
+        <div>
+          <h3 class="font-playfair text-lg md:text-xl font-bold text-burgundy-800 mb-4">Produtos</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-600 hover:text-burgundy-700 text-sm md:text-base">Canecas</a></li>
+            <li><a href="#" class="text-gray-600 hover:text-burgundy-700 text-sm md:text-base">Necessaires</a></li>
+            <li><a href="#" class="text-gray-600 hover:text-burgundy-700 text-sm md:text-base">Mochilas</a></li>
+            <li><a href="#" class="text-gray-600 hover:text-burgundy-700 text-sm md:text-base">Linha Baby</a></li>
+          </ul>
+        </div>
+        
+        <!-- Contact -->
+        <div>
+          <h3 class="font-playfair text-lg md:text-xl font-bold text-burgundy-800 mb-4">Contato</h3>
+          <ul class="space-y-2">
+            <li class="flex items-center gap-2">
+              <i class="far fa-envelope text-burgundy-700 text-sm"></i>
+              <a href="mailto:contato@tatiart.com" class="text-gray-600 hover:text-burgundy-700 text-sm md:text-base">contato@tatiart.com</a>
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fas fa-phone text-burgundy-700 text-sm"></i>
+              <a href="tel:+5511999999999" class="text-gray-600 hover:text-burgundy-700 text-sm md:text-base">(11) 99999-9999</a>
+            </li>
+          </ul>
+          <div class="flex gap-4 mt-4">
+            <a href="https://instagram.com" target="_blank" class="text-burgundy-700 hover:text-burgundy-900 text-lg md:text-xl">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://facebook.com" target="_blank" class="text-burgundy-700 hover:text-burgundy-900 text-lg md:text-xl">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://pinterest.com" target="_blank" class="text-burgundy-700 hover:text-burgundy-900 text-lg md:text-xl">
+              <i class="fab fa-pinterest-p"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-200 pt-6">
+        <p class="text-center text-gray-500 text-xs md:text-sm">
+          © 2025 Tatiart. Todos os direitos reservados.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="produtos.js"></script>
 </body>
 </html>

@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class TatiartApplication {
 
-    @Value("${server.port}")
+    @Value("${server.port:8080}")
     private String porta;
 
     public static void main(String[] args) {
