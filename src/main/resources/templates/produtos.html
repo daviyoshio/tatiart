@@ -50,30 +50,7 @@
 <body class="font-sans">
   <!-- Header/Navigation -->
   <header class="sticky top-0 bg-white z-50 shadow-sm">
-    <div class="container mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
-      <a href="/" class="text-burgundy-800 font-playfair text-xl md:text-2xl lg:text-3xl font-bold">Tatiart</a>
-      
-      <button id="mobile-menu-button" class="md:hidden text-burgundy-800">
-        <i class="fas fa-bars text-xl"></i>
-      </button>
-      
-      <nav class="hidden md:flex space-x-6 lg:space-x-8">
-        <a href="index.html" class="text-burgundy-800 hover:text-burgundy-600 font-medium text-sm lg:text-base">Home</a>
-        <a href="produtos.html" class="text-burgundy-800 hover:text-burgundy-600 font-medium text-sm lg:text-base">Produtos</a>
-        <a href="sobre-a-tati.html" class="text-burgundy-800 hover:text-burgundy-600 font-medium text-sm lg:text-base">Sobre Nós</a>
-        <a href="contato.html" class="text-burgundy-800 hover:text-burgundy-600 font-medium text-sm lg:text-base">Contato</a>
-      </nav>
-    </div>
-    
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="md:hidden hidden bg-white w-full">
-      <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
-        <a href="index.html" class="text-burgundy-800 hover:text-burgundy-600 font-medium py-2">Home</a>
-        <a href="produtos.html" class="text-burgundy-800 hover:text-burgundy-600 font-medium py-2">Produtos</a>
-        <a href="sobre-a-tati.html" class="text-burgundy-800 hover:text-burgundy-600 font-medium py-2">Sobre Nós</a>
-        <a href="contato.html" class="text-burgundy-800 hover:text-burgundy-600 font-medium py-2">Contato</a>
-      </div>
-    </div>
+    <div th:replace="fragments/navbar :: navbar"></div>
   </header>
 
   <!-- Hero Banner -->
