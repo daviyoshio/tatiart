@@ -51,9 +51,7 @@
 
 <body class="font-sans">
   <!-- Header/Navigation -->
-  <header class="sticky top-0 bg-white z-50 shadow-sm">
-    <div th:replace="fragments/navbar :: navbar"></div>
-  </header>
+  <div th:replace="~{fragments/navbar :: navbar}"></div>
 
   <!-- Hero Section with improved height -->
   <section class="bg-burgundy-800 py-32 md:py-48 relative">
@@ -72,7 +70,7 @@
         <i class="fas fa-chevron-right ml-2"></i>
       </a>
     </div>
-  </section>Ï
+  </section>
 
   <!-- Product Categories - Updated with more sophisticated design -->
   <section class="bg-beige-800 py-16 md:py-20">
