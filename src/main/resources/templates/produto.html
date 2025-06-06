@@ -174,63 +174,71 @@
                     </div>
                 </div>
 
-                <!-- Aqui nós iteramos sobre a lista que o controller colocou em "depoimentos" -->
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 py-12"
-                     th:each="depo : ${depoimentos}">
+                <!-- Percorre cada depoimento vindo do controller (model.addAttribute("depoimentos", ...)) -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 py-12" th:each="depo : ${depoimentos}">
 
                     <div class="bg-white rounded-2xl shadow-lg overflow-hidden testimonial-card">
-                        <!-- bloco de texto do depoimento -->
-                        <div th:if="${depo.subtitulo != null}"
+
+                        <!-- Se existir um “subtítulo” (por exemplo, horário ou “Stories”), usa este bloco -->
+                        <div th:if="${depo.subtitulo} != null"
                              class="testimonial-text p-4"
                              th:classappend="
-                             depo.bgColor != null ? ' ' + depo.bgColor + ' border-l-4 ' + depo.borderColor + ' order-2 md:order-1' 
+                             depo.bgColor != null ?
+                             ' ' + depo.bgColor + ' border-l-4 ' + depo.borderColor + ' order-2 md:order-1'
                              : ' bg-white order-2 md:order-1'">
+
                             <div class="flex items-center space-x-2 mb-2">
                                 <div th:class="'w-8 h-8 rounded-full flex items-center justify-center ' + 
-                                     (depo.borderColor.contains('green') ? 'bg-green-500' :
-                                     depo.borderColor.contains('pink')  ? 'bg-pink-500'  :
+                                     (depo.borderColor.contains('green')    ? 'bg-green-500'    :
+                                     depo.borderColor.contains('pink')     ? 'bg-pink-500'     :
                                      depo.borderColor.contains('burgundy') ? 'bg-burgundy-500' :
-                                     depo.borderColor.contains('blue')  ? 'bg-blue-500' : '')">
+                                     depo.borderColor.contains('blue')     ? 'bg-blue-500'     :
+                                     'bg-gray-200')">
                                     <span class="text-white text-xs font-bold" th:text="${depo.inicial}">I</span>
                                 </div>
                                 <span class="text-sm font-medium text-gray-700" th:text="${depo.nome}">Nome</span>
                                 <span class="text-xs text-gray-500" th:text="${depo.subtitulo}">Subtítulo</span>
                             </div>
+
                             <p class="text-sm text-gray-700 italic" th:text="${depo.texto}">
-                                "Texto do depoimento"
+                                “Texto do depoimento”
                             </p>
                         </div>
 
-                        <!-- caso não haja subtítulo (ex.: horário ou “Stories”), mostramos só nome + texto + estrelas -->
-                        <div th:if="${depo.subtitulo == null}"
+                        <!-- Se NÃO houver um subtítulo (por ex. só mostra nome + texto + estrelas) -->
+                        <div th:if="${depo.subtitulo} == null"
                              class="testimonial-text p-4 bg-white order-2 md:order-1">
+
                             <div class="flex items-center space-x-2 mb-2">
                                 <div th:class="'w-8 h-8 rounded-full flex items-center justify-center ' + 
-                                     (depo.borderColor.contains('green') ? 'bg-green-500' :
-                                     depo.borderColor.contains('pink')  ? 'bg-pink-500'  :
+                                     (depo.borderColor.contains('green')    ? 'bg-green-500'    :
+                                     depo.borderColor.contains('pink')     ? 'bg-pink-500'     :
                                      depo.borderColor.contains('burgundy') ? 'bg-burgundy-500' :
-                                     depo.borderColor.contains('blue')  ? 'bg-blue-500' : '')">
+                                     depo.borderColor.contains('blue')     ? 'bg-blue-500'     :
+                                     'bg-gray-200')">
                                     <span class="text-white text-xs font-bold" th:text="${depo.inicial}">I</span>
                                 </div>
                                 <span class="text-sm font-medium text-gray-700" th:text="${depo.nome}">Nome</span>
                             </div>
+
                             <p class="text-sm text-gray-700 italic" th:text="${depo.texto}">
-                                "Texto do depoimento"
+                                “Texto do depoimento”
                             </p>
 
-                            <!-- se houver avaliação em estrelas, exibimos a quantidade -->
-                            <div th:if="${depo.estrelas != null}" class="flex items-center space-x-1 mt-2">
-                                <span th:each="star : ${#numbers.sequence(1, depo.estrelas)}" class="text-yellow-400">★</span>
+                            <!-- Exibe estrelas só se existir valor em depo.estrelas -->
+                            <div th:if="${depo.estrelas} != null" class="flex items-center space-x-1 mt-2">
+                                <span class="text-yellow-400" th:each="star : ${#numbers.sequence(1, depo.estrelas)}">★</span>
                             </div>
                         </div>
 
-                        <!-- imagem do depoimento -->
+                        <!-- Imagem do depoimento (não faz distinção de subtítulo ou não) -->
                         <div class="testimonial-image order-1 md:order-2">
                             <img th:src="@{${depo.imagem}}"
                                  th:alt="${'Depoimento de ' + depo.nome}"
                                  class="w-full h-48 object-cover" />
                         </div>
                     </div>
+
                 </div>
 
                 <div class="text-center mt-12">
@@ -240,6 +248,7 @@
                 </div>
             </div>
         </section>
+
 
         <!-- 100% Personalization Section -->
         <section class="w-full py-12 md:py-24 lg:py-32 bg-beige-50">
