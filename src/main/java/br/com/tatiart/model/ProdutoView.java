@@ -1,12 +1,17 @@
 package br.com.tatiart.model;
 
+import java.util.List;
+
 public class ProdutoView {
+
     private String titulo;
     private String descricao;
     private String[] beneficios;
     private String[] imagens;
     private String[] atributos;
     private String banner;
+
+    private List<Feature> features;
 
     public ProdutoView() {
     }
@@ -67,6 +72,12 @@ public class ProdutoView {
     public void setBanner(String banner) {
         this.banner = banner;
     }
-    
-    
+
+    public List<Feature> getFeatures() {
+        return features;
+    }
+
+    public void setFeatures(List<Feature> features) {
+        this.features = features;
+    }
 }

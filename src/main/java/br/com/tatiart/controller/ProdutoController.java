@@ -1,7 +1,10 @@
 package br.com.tatiart.controller;
 
+import br.com.tatiart.model.Feature;
 import br.com.tatiart.model.ProdutoView;
+import br.com.tatiart.model.Testimonial;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -49,6 +52,7 @@ public class ProdutoController {
     @GetMapping("/produtos/{tipo}")
     public String paginaProduto(@PathVariable String tipo, Model model) {
         ProdutoView produto = new ProdutoView();
+        List<Testimonial> depoimentos = new ArrayList<>();
 
         if (tipo.equalsIgnoreCase("canecas")) {
             produto.setTitulo("Canecas Personalizadas");
@@ -79,6 +83,84 @@ public class ProdutoController {
 
             produto.setBanner("/images/canecas-icon.png");
 
+            List<Feature> featuresCanecas = Arrays.asList(
+                    new Feature("palette",
+                            "Design que Emociona",
+                            "Cada design é único e pensado especialmente para você. Trabalhamos com amor para transformar suas ideias em arte."),
+                    new Feature("heart",
+                            "Qualidade que Dura Gerações",
+                            "Materiais premium e técnicas profissionais: cores que não saem, acabamento resistente a micro-ondas e lava-louças."),
+                    new Feature("gift",
+                            "Embalagem que Surpreende",
+                            "A emoção começa antes mesmo de abrir: embalagem exclusiva que destaca cada detalhe."),
+                    new Feature("users",
+                            "Atendimento Humanizado",
+                            "Você não é só mais um cliente: faz parte da nossa família. Acompanhamos seu pedido do início ao fim.")
+            );
+            produto.setFeatures(featuresCanecas);
+
+            // Depoimentos para "Canecas"
+            depoimentos.add(new Testimonial(
+                    "Maria Santos",
+                    "M",
+                    "Hoje 14:32",
+                    "“Gente, olha que PERFEITA ficou a caneca da minha mãe! 😭❤️ Ela chorou quando viu. Muito obrigada, ficou exatamente como eu imaginei!”",
+                    "/images/Produtos/Caneca/Depoimento 1.png",
+                    "green-50",
+                    "green-500",
+                    null
+            ));
+            depoimentos.add(new Testimonial(
+                    "Ana Clara",
+                    "A",
+                    "",
+                    "“Minha sogra AMOU as frases! Disse que finalmente alguém entende ela 😂 Qualidade incrível!”",
+                    "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=200&fit=crop&crop=center",
+                    "",
+                    "",
+                    5
+            ));
+            depoimentos.add(new Testimonial(
+                    "@juliana_mae_de_3",
+                    "J",
+                    "Stories",
+                    "“Gente, que caneca MARAVILHOSA! 100% personalizada, exatamente como eu queria. Recomendo demais! 🥰”",
+                    "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop&crop=center",
+                    "pink-50",
+                    "pink-500",
+                    null
+            ));
+            depoimentos.add(new Testimonial(
+                    "Carla Mendes",
+                    "C",
+                    "",
+                    "“O kit ficou LINDO! A embalagem, o cuidado com cada detalhe... Minha mãe se emocionou muito ❤️”",
+                    "/images/Produtos/Caneca/caneca mae avo etc.jpeg",
+                    "",
+                    "",
+                    5
+            ));
+            depoimentos.add(new Testimonial(
+                    "Roberta Lima",
+                    "R",
+                    "Vídeo",
+                    "“Fiz um vídeo mostrando como ficou perfeita! Cada detalhe pensado com carinho. Nota 1000!”",
+                    "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=200&fit=crop&crop=center",
+                    "blue-50",
+                    "blue-500",
+                    null
+            ));
+            depoimentos.add(new Testimonial(
+                    "Empresa TechCorp",
+                    "E",
+                    "Email",
+                    "“Fizemos 100 canecas personalizadas para o Dia das Mães. Todas as funcionárias ficaram emocionadas! Qualidade excepcional.”",
+                    "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=300&h=200&fit=crop&crop=center",
+                    "",
+                    "",
+                    5
+            ));
+
         } else if (tipo.equalsIgnoreCase("necessaires")) {
             produto.setTitulo("Necessaires Personalizadas");
             produto.setDescricao("Nossas necessaires são práticas, duráveis e com estilo único.");
@@ -97,6 +179,53 @@ public class ProdutoController {
                 "Produção artesanal e sustentável"
             });
             produto.setBanner("/images/necessaires-icon.png");
+
+            List<Feature> featuresNecessaires = Arrays.asList(
+                    new Feature("users",
+                            "Praticidade e Estilo",
+                            "Compactas e cheias de personalidade: cabe tudo que você precisa para o dia a dia."),
+                    new Feature("palette",
+                            "Estampas Exclusivas",
+                            "Modelos únicos, feitos à mão: cada estampa conta uma história."),
+                    new Feature("gift",
+                            "Presente Perfeito",
+                            "Uma necessaire personalizada é um presente que agrada todos os estilos."),
+                    new Feature("heart",
+                            "Durabilidade",
+                            "Tecido resistente e acabamento impecável: para durar por muito tempo.")
+            );
+            produto.setFeatures(featuresNecessaires);
+            // Depoimentos para "Necessaires"
+            depoimentos.add(new Testimonial(
+                    "Beatriz Ramos",
+                    "B",
+                    "Hoje 09:45",
+                    "“Minha necessaire chegou perfeita! Adorei cada detalhe.”",
+                    "/images/Produtos/Necessaire/depo1.png",
+                    "green-50",
+                    "green-500",
+                    null
+            ));
+            depoimentos.add(new Testimonial(
+                    "Carolina Silva",
+                    "C",
+                    "",
+                    "“A estampa é linda e o material é super resistente. Recomendo muito!”",
+                    "/images/Produtos/Necessaire/depo2.png",
+                    "",
+                    "",
+                    4
+            ));
+            depoimentos.add(new Testimonial(
+                    "Fernanda Oliveira",
+                    "F",
+                    "Stories",
+                    "“Usei em uma viagem e minha bolsa nunca ficou tão organizada. Que tiro certeiro!”",
+                    "https://images.unsplash.com/photo-1589308078054-8328c3f9a8b1?w=300&h=200&fit=crop&crop=center",
+                    "pink-50",
+                    "pink-500",
+                    null
+            ));
 
         } else if (tipo.equalsIgnoreCase("bolsas")) {
             produto.setTitulo("Bolsas da Tatiart");
@@ -117,6 +246,54 @@ public class ProdutoController {
             });
             produto.setBanner("/images/bolsas-icon.png");
 
+            List<Feature> featuresBolsas = Arrays.asList(
+                    new Feature("users",
+                            "Conforto e Praticidade",
+                            "Alças reforçadas e design ergonômico para usar o dia todo sem desconforto."),
+                    new Feature("sparkles",
+                            "Modelos Exclusivos",
+                            "Cada bolsa é única: escolha cores, estampas e detalhes que combinam com seu estilo."),
+                    new Feature("gift",
+                            "Ideal para Presentear",
+                            "Perfeita para presentear em datas especiais: design diferenciado e utilidade real."),
+                    new Feature("heart",
+                            "Sustentabilidade",
+                            "Confeccionada com materiais ecológicos e produção artesanal responsável.")
+            );
+            produto.setFeatures(featuresBolsas);
+
+            // Depoimentos para "Bolsas"
+            depoimentos.add(new Testimonial(
+                    "Juliana Souza",
+                    "J",
+                    "Hoje 11:20",
+                    "“A bolsa é linda e super prática. Uso para tudo!”",
+                    "/images/Produtos/Bolsa/depo1.png",
+                    "green-50",
+                    "green-500",
+                    null
+            ));
+            depoimentos.add(new Testimonial(
+                    "Mariana Lima",
+                    "M",
+                    "",
+                    "“Recebi elogios no trabalho. A qualidade é excepcional.”",
+                    "/images/Produtos/Bolsa/depo2.png",
+                    "",
+                    "",
+                    5
+            ));
+            depoimentos.add(new Testimonial(
+                    "Patrícia Andrade",
+                    "P",
+                    "Stories",
+                    "“Leve, espaçosa e muito estilosa. Perfeita para o dia a dia!”",
+                    "https://images.unsplash.com/photo-1600180758890-1234abcd5678?w=300&h=200&fit=crop&crop=center",
+                    "pink-50",
+                    "pink-500",
+                    null
+            ));
+
         } else if (tipo.equalsIgnoreCase("mochilas")) {
             produto.setTitulo("Mochilas Personalizadas");
             produto.setDescricao("Funcionalidade e estilo para o dia a dia...");
@@ -133,11 +310,169 @@ public class ProdutoController {
                 "Confeccionada à mão"
             });
             produto.setBanner("/images/mochilas-icon.png");
+
+            List<Feature> featuresMochilas = Arrays.asList(
+                    new Feature("users",
+                            "Espaço Inteligente",
+                            "Compartimentos bem distribuídos: cabe tudo sem ficar pesado."),
+                    new Feature("heart",
+                            "Durabilidade Prolongada",
+                            "Material resistente à água e costura reforçada para uso diário."),
+                    new Feature("gift",
+                            "Perfeita para Presentear",
+                            "Um presente útil e personalizado, ideal para estudantes e profissionais."),
+                    new Feature("sparkles",
+                            "Estilo Moderno",
+                            "Disponível em cores e estampas exclusivas criadas pela Tatiart.")
+            );
+            produto.setFeatures(featuresMochilas);
+
+            // Depoimentos para "Mochilas"
+            depoimentos.add(new Testimonial(
+                    "Ricardo Santos",
+                    "R",
+                    "Hoje 08:30",
+                    "“Usei em uma trilha e ela aguentou tudo! Muito resistente.”",
+                    "/images/Produtos/Mochila/depo1.png",
+                    "green-50",
+                    "green-500",
+                    null
+            ));
+            depoimentos.add(new Testimonial(
+                    "Gabriela Costa",
+                    "G",
+                    "",
+                    "“É perfeita para levar no trabalho e na faculdade. Recomendo 100%!”",
+                    "/images/Produtos/Mochila/depo2.png",
+                    "",
+                    "",
+                    5
+            ));
+
+        } else if (tipo.equalsIgnoreCase("estojo") || tipo.equalsIgnoreCase("estojos")) {
+            produto.setTitulo("Estojo Escolar");
+            produto.setDescricao("Estojos personalizados para estudantes de todas as idades.");
+            produto.setBeneficios(new String[]{
+                "Compartimentos práticos",
+                "Fecho em zíper reforçado",
+                "Estampas criativas à sua escolha"
+            });
+            produto.setImagens(new String[]{
+                "/images/estojo/estojo1.png",
+                "/images/estojo/estojo2.png",
+                "/images/estojo/estojo3.png",
+                "/images/estojo/estojo4.png"
+            });
+            produto.setAtributos(new String[]{
+                "Bolso interno para canetas",
+                "Revestimento impermeável",
+                "Alça para transporte",
+                "Acabamento reforçado"
+            });
+            produto.setBanner("/images/estojo-icon.png");
+
+            List<Feature> featuresEstojo = Arrays.asList(
+                    new Feature("users",
+                            "Organização na Medida",
+                            "Múltiplos compartimentos para canetas, lápis e borrachas."),
+                    new Feature("shield",
+                            "Resistente e Durável",
+                            "Materiais de alta qualidade que não rasgam facilmente."),
+                    new Feature("gift",
+                            "Personalização Exclusiva",
+                            "Escolha estampas, cores e nome gravado para deixar único."),
+                    new Feature("heart",
+                            "Perfeito para Presentear",
+                            "Ideal para voltar às aulas com estilo e praticidade.")
+            );
+            produto.setFeatures(featuresEstojo);
+
+            // Depoimentos para "Estojo"
+            depoimentos.add(new Testimonial(
+                    "Letícia Fernandes",
+                    "L",
+                    "Hoje 10:15",
+                    "“Isso aqui é um luxo! Coube todas as minhas canetas e mais.”",
+                    "/images/Produtos/Estojo/depo1.png",
+                    "green-50",
+                    "green-500",
+                    null
+            ));
+            depoimentos.add(new Testimonial(
+                    "Camila Rocha",
+                    "C",
+                    "",
+                    "“Muito prático e resistente. Já garanti dois para a família inteira.”",
+                    "/images/Produtos/Estojo/depo2.png",
+                    "",
+                    "",
+                    5
+            ));
+
+        } else if (tipo.equalsIgnoreCase("linha baby") || tipo.equalsIgnoreCase("linhababy")) {
+            produto.setTitulo("Linha Baby");
+            produto.setDescricao("Peças exclusivas para os primeiros meses do bebê.");
+            produto.setBeneficios(new String[]{
+                "Tecidos ultra suaves",
+                "Tamanho adequado para recém-nascidos",
+                "Estampas delicadas e hipoalergênicas"
+            });
+            produto.setImagens(new String[]{
+                "/images/linhababy/baby1.png",
+                "/images/linhababy/baby2.png",
+                "/images/linhababy/baby3.png"
+            });
+            produto.setAtributos(new String[]{
+                "100% algodão orgânico",
+                "Costura reforçada sem irritar a pele",
+                "Livre de substâncias químicas"
+            });
+            produto.setBanner("/images/linhababy-icon.png");
+
+            List<Feature> featuresLinhaBaby = Arrays.asList(
+                    new Feature("heart",
+                            "Toque Suave",
+                            "Tecidos ultra macios que protegem a pele delicada do bebê."),
+                    new Feature("users",
+                            "Design Seguro",
+                            "Costuras reforçadas e sem peças pequenas que possam se soltar."),
+                    new Feature("gift",
+                            "Kit Completo",
+                            "Conjunto de body, touca e mantinha para presentear com carinho."),
+                    new Feature("sparkles",
+                            "Antialérgico",
+                            "Certificado livre de substâncias tóxicas e hipoalergênico.")
+            );
+            produto.setFeatures(featuresLinhaBaby);
+
+            // Depoimentos para "Linha Baby"
+            depoimentos.add(new Testimonial(
+                    "Mariana Alves",
+                    "M",
+                    "Hoje 07:50",
+                    "“As roupinhas são incríveis, super macias. Meu bebê usa 24 horas por dia!”",
+                    "/images/Produtos/LinhaBaby/depo1.png",
+                    "green-50",
+                    "green-500",
+                    null
+            ));
+            depoimentos.add(new Testimonial(
+                    "Ana Paula",
+                    "A",
+                    "",
+                    "“Comprei um body e um macacãozinho: não largo mais! Ótima qualidade.”",
+                    "/images/Produtos/LinhaBaby/depo2.png",
+                    "",
+                    "",
+                    5
+            ));
+
         } else {
             return "redirect:/produtos";
         }
 
         model.addAttribute("produto", produto);
+        model.addAttribute("depoimentos", depoimentos);
         return "produto";
     }
 }

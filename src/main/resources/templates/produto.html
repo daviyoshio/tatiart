@@ -115,7 +115,6 @@
                 </div>
             </div>
         </section>
-//parei aqui
         <!-- Features Section -->
         <section class="w-full py-12 md:py-24 lg:py-32 bg-beige-50">
             <div class="container mx-auto px-4 md:px-6">
@@ -124,72 +123,40 @@
                         <span class="bg-burgundy-100 text-burgundy-800 px-3 py-1 rounded-full text-sm font-medium">
                             💎 Por que Escolher a MugCraft
                         </span>
-                        <h2 class="text-3xl font-bold tracking-tight sm:text-5xl font-playfair text-burgundy-900">
-                            Não é Só uma Caneca, é uma Declaração de Amor
-                        </h2>
-                        <p class="max-w-4xl text-burgundy-700 text-xl">
-                            Entendemos que por trás de cada pedido existe uma história, um sentimento, uma vontade de demonstrar
-                            carinho. Por isso, cuidamos de cada detalhe como se fosse para nossa própria família.
+                        <h2 class="text-3xl font-bold tracking-tight sm:text-5xl font-playfair text-burgundy-900"
+                            th:text="${produto.titulo}">Título do Produto</h2>
+                        <p class="max-w-4xl text-burgundy-700 text-xl" th:text="${produto.descricao}">
+                            Descrição do produto aqui
                         </p>
                     </div>
                 </div>
-                <div class="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-2 lg:gap-12">
-                    <div class="grid gap-6">
+
+                <div class="mx-auto grid max-w-5xl items-center gap-6 py-12 
+                     lg:grid-cols-2 lg:gap-12"
+                     th:if="${produto.features != null}">
+                    <div class="grid gap-6"
+                         th:each="feature, iterStat : ${produto.features}"
+                         th:classappend="${iterStat.index % 2 == 1} ? ' lg:col-start-2' : ''">
                         <div class="border border-beige-200 bg-white shadow-lg rounded-lg p-6">
                             <div class="flex items-center space-x-2 mb-4">
                                 <div class="flex items-center justify-center w-10 h-10 bg-burgundy-100 rounded-lg">
-                                    <i data-lucide="palette" class="h-5 w-5 text-burgundy-800"></i>
+                                    <i th:attr="data-lucide=${feature.icon}" class="h-5 w-5 text-burgundy-800"></i>
                                 </div>
-                                <h3 class="text-lg font-semibold text-burgundy-900">Design que Emociona</h3>
+                                <h3 class="text-lg font-semibold text-burgundy-900"
+                                    th:text="${feature.title}">
+                                    Título da Feature
+                                </h3>
                             </div>
-                            <p class="text-burgundy-700">
-                                <strong>Cada design é único e pensado especialmente para você.</strong> Nós
-                                trabalhamos com amor para transformar suas ideias em arte que toca o coração.
-                            </p>
-                        </div>
-                        <div class="border border-beige-200 bg-white shadow-lg rounded-lg p-6">
-                            <div class="flex items-center space-x-2 mb-4">
-                                <div class="flex items-center justify-center w-10 h-10 bg-burgundy-100 rounded-lg">
-                                    <i data-lucide="heart" class="h-5 w-5 text-burgundy-800"></i>
-                                </div>
-                                <h3 class="text-lg font-semibold text-burgundy-900">Qualidade que Dura Gerações</h3>
-                            </div>
-                            <p class="text-burgundy-700">
-                                <strong>Materiais premium e técnicas profissionais.</strong> Suas canecas vão resistir ao tempo e
-                                às lavagens, mantendo as cores vibrantes e as memórias intactas.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="grid gap-6">
-                        <div class="border border-beige-200 bg-white shadow-lg rounded-lg p-6">
-                            <div class="flex items-center space-x-2 mb-4">
-                                <div class="flex items-center justify-center w-10 h-10 bg-burgundy-100 rounded-lg">
-                                    <i data-lucide="gift" class="h-5 w-5 text-burgundy-800"></i>
-                                </div>
-                                <h3 class="text-lg font-semibold text-burgundy-900">Embalagem que Surpreende</h3>
-                            </div>
-                            <p class="text-burgundy-700">
-                                <strong>A emoção começa antes mesmo de abrir.</strong> Embalagens cuidadosamente preparadas para
-                                que o momento da entrega seja inesquecível.
-                            </p>
-                        </div>
-                        <div class="border border-beige-200 bg-white shadow-lg rounded-lg p-6">
-                            <div class="flex items-center space-x-2 mb-4">
-                                <div class="flex items-center justify-center w-10 h-10 bg-burgundy-100 rounded-lg">
-                                    <i data-lucide="users" class="h-5 w-5 text-burgundy-800"></i>
-                                </div>
-                                <h3 class="text-lg font-semibold text-burgundy-900">Atendimento Humanizado</h3>
-                            </div>
-                            <p class="text-burgundy-700">
-                                <strong>Você não é só mais um cliente, é parte da nossa família.</strong> Acompanhamos seu pedido
-                                do início ao fim, garantindo que tudo saia perfeito.
+                            <p class="text-burgundy-700" th:text="${feature.description}">
+                                Descrição da feature aqui
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
+        //parei aqui
+        <!-- Real Testimonials Gallery -->
         <!-- Real Testimonials Gallery -->
         <section id="depoimentos" class="w-full py-12 md:py-24 lg:py-32 bg-white">
             <div class="container mx-auto px-4 md:px-6">
@@ -202,142 +169,66 @@
                             Clientes Apaixonadas Compartilham
                         </h2>
                         <p class="max-w-2xl mx-auto text-burgundy-700 text-xl">
-                            Veja as fotos e mensagens reais que recebemos todos os dias. Cada sorriso é uma história de amor
-                            realizada.
+                            Veja as fotos e mensagens reais que recebemos todos os dias. Cada sorriso é uma história de amor realizada.
                         </p>
                     </div>
                 </div>
 
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 py-12">
-                    <!-- Depoimento 1 -->
+                <!-- Aqui nós iteramos sobre a lista que o controller colocou em "depoimentos" -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 py-12"
+                     th:each="depo : ${depoimentos}">
+
                     <div class="bg-white rounded-2xl shadow-lg overflow-hidden testimonial-card">
-                        <div class="testimonial-text p-4 bg-green-50 border-l-4 border-green-500 order-2 md:order-1">
+                        <!-- bloco de texto do depoimento -->
+                        <div th:if="${depo.subtitulo != null}"
+                             class="testimonial-text p-4"
+                             th:classappend="
+                             depo.bgColor != null ? ' ' + depo.bgColor + ' border-l-4 ' + depo.borderColor + ' order-2 md:order-1' 
+                             : ' bg-white order-2 md:order-1'">
                             <div class="flex items-center space-x-2 mb-2">
-                                <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
-                                    <span class="text-white text-xs font-bold">M</span>
+                                <div th:class="'w-8 h-8 rounded-full flex items-center justify-center ' + 
+                                     (depo.borderColor.contains('green') ? 'bg-green-500' :
+                                     depo.borderColor.contains('pink')  ? 'bg-pink-500'  :
+                                     depo.borderColor.contains('burgundy') ? 'bg-burgundy-500' :
+                                     depo.borderColor.contains('blue')  ? 'bg-blue-500' : '')">
+                                    <span class="text-white text-xs font-bold" th:text="${depo.inicial}">I</span>
                                 </div>
-                                <span class="text-sm font-medium text-gray-700">Maria Santos</span>
-                                <span class="text-xs text-gray-500">Hoje 14:32</span>
+                                <span class="text-sm font-medium text-gray-700" th:text="${depo.nome}">Nome</span>
+                                <span class="text-xs text-gray-500" th:text="${depo.subtitulo}">Subtítulo</span>
                             </div>
-                            <p class="text-sm text-gray-700 italic">
-                                "Gente, olha que PERFEITA ficou a caneca da minha mãe! 😭❤️ Ela chorou quando viu. Muito obrigada,
-                                ficou exatamente como eu imaginei!"
+                            <p class="text-sm text-gray-700 italic" th:text="${depo.texto}">
+                                "Texto do depoimento"
                             </p>
                         </div>
-                        <img src="images\Produtos\Caneca\Depoimento 1.png" 
-                             alt="Cliente feliz com caneca" 
-                             class="testimonial-image w-full h-48 object-cover order-1 md:order-2">
-                    </div>
 
-                    <!-- Depoimento 2 -->
-                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden testimonial-card">
-                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=200&fit=crop&crop=center" 
-                             alt="Cliente mostrando caneca" 
-                             class="testimonial-image w-full h-48 object-cover order-1">
-                        <div class="testimonial-text p-4 order-2">
+                        <!-- caso não haja subtítulo (ex.: horário ou “Stories”), mostramos só nome + texto + estrelas -->
+                        <div th:if="${depo.subtitulo == null}"
+                             class="testimonial-text p-4 bg-white order-2 md:order-1">
                             <div class="flex items-center space-x-2 mb-2">
-                                <div class="w-8 h-8 bg-burgundy-100 rounded-full flex items-center justify-center">
-                                    <span class="text-burgundy-800 text-xs font-bold">A</span>
+                                <div th:class="'w-8 h-8 rounded-full flex items-center justify-center ' + 
+                                     (depo.borderColor.contains('green') ? 'bg-green-500' :
+                                     depo.borderColor.contains('pink')  ? 'bg-pink-500'  :
+                                     depo.borderColor.contains('burgundy') ? 'bg-burgundy-500' :
+                                     depo.borderColor.contains('blue')  ? 'bg-blue-500' : '')">
+                                    <span class="text-white text-xs font-bold" th:text="${depo.inicial}">I</span>
                                 </div>
-                                <span class="text-sm font-medium text-burgundy-900">Ana Clara</span>
+                                <span class="text-sm font-medium text-gray-700" th:text="${depo.nome}">Nome</span>
                             </div>
-                            <p class="text-sm text-burgundy-700 italic">
-                                "Minha sogra AMOU as frases! Disse que finalmente alguém entende ela 😂 Qualidade incrível!"
+                            <p class="text-sm text-gray-700 italic" th:text="${depo.texto}">
+                                "Texto do depoimento"
                             </p>
-                            <div class="flex items-center space-x-1 mt-2">
-                                <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
-                            </div>
-                        </div>
-                    </div>
 
-                    <!-- Depoimento 3 -->
-                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden testimonial-card">
-                        <div class="testimonial-text p-4 bg-pink-50 border-l-4 border-pink-500 order-2 md:order-1">
-                            <div class="flex items-center space-x-2 mb-2">
-                                <div class="w-8 h-8 bg-pink-500 rounded-full flex items-center justify-center">
-                                    <span class="text-white text-xs font-bold">J</span>
-                                </div>
-                                <span class="text-sm font-medium text-gray-700">@juliana_mae_de_3</span>
-                                <span class="text-xs text-gray-500">Stories</span>
+                            <!-- se houver avaliação em estrelas, exibimos a quantidade -->
+                            <div th:if="${depo.estrelas != null}" class="flex items-center space-x-1 mt-2">
+                                <span th:each="star : ${#numbers.sequence(1, depo.estrelas)}" class="text-yellow-400">★</span>
                             </div>
-                            <p class="text-sm text-gray-700 italic">
-                                "Gente, que caneca MARAVILHOSA! 100% personalizada, exatamente como eu queria. Recomendo demais! 🥰"
-                            </p>
                         </div>
-                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop&crop=center" 
-                             alt="Stories Instagram cliente" 
-                             class="testimonial-image w-full h-48 object-cover order-1 md:order-2">
-                    </div>
 
-                    <!-- Depoimento 4 -->
-                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden testimonial-card">
-                        <img src="images\Produtos\Caneca\caneca mae avo etc.jpeg" 
-                             alt="Kit presente personalizado" 
-                             class="testimonial-image w-full h-48 object-cover order-1">
-                        <div class="testimonial-text p-4 order-2">
-                            <div class="flex items-center space-x-2 mb-2">
-                                <div class="w-8 h-8 bg-burgundy-100 rounded-full flex items-center justify-center">
-                                    <span class="text-burgundy-800 text-xs font-bold">C</span>
-                                </div>
-                                <span class="text-sm font-medium text-burgundy-900">Carla Mendes</span>
-                            </div>
-                            <p class="text-sm text-burgundy-700 italic">
-                                "O kit ficou LINDO! A embalagem, o cuidado com cada detalhe... Minha mãe se emocionou muito ❤️"
-                            </p>
-                            <div class="flex items-center space-x-1 mt-2">
-                                <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Depoimento 5 -->
-                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden testimonial-card">
-                        <div class="testimonial-text p-4 bg-blue-50 border-l-4 border-blue-500 order-2 md:order-1">
-                            <div class="flex items-center space-x-2 mb-2">
-                                <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
-                                    <span class="text-white text-xs font-bold">R</span>
-                                </div>
-                                <span class="text-sm font-medium text-gray-700">Roberta Lima</span>
-                                <span class="text-xs text-gray-500">Vídeo</span>
-                            </div>
-                            <p class="text-sm text-gray-700 italic">
-                                "Fiz um vídeo mostrando como ficou perfeita! Cada detalhe pensado com carinho. Nota 1000!"
-                            </p>
-                        </div>
-                        <div class="testimonial-image relative order-1 md:order-2">
-                            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=200&fit=crop&crop=center" 
-                                 alt="Vídeo review cliente" 
-                                 class="w-full h-48 object-cover">
-                            <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
-                                <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
-                                    <div class="w-0 h-0 border-l-4 border-l-burgundy-800 border-t-2 border-t-transparent border-b-2 border-b-transparent ml-1"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Depoimento 6 -->
-                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden testimonial-card">
-                        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=300&h=200&fit=crop&crop=center" 
-                             alt="Caneca corporativa" 
-                             class="testimonial-image w-full h-48 object-cover order-1">
-                        <div class="testimonial-text order-2">
-                            <div class="p-4 bg-blue-50 border-l-4 border-blue-500">
-                                <div class="flex items-center space-x-2 mb-2">
-                                    <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
-                                        <span class="text-white text-xs font-bold">E</span>
-                                    </div>
-                                    <span class="text-sm font-medium text-gray-700">Empresa TechCorp</span>
-                                    <span class="text-xs text-gray-500">Email</span>
-                                </div>
-                                <p class="text-sm text-gray-700 italic">
-                                    "Fizemos 100 canecas personalizadas para o Dia das Mães. Todas as funcionárias ficaram emocionadas!
-                                    Qualidade excepcional."
-                                </p>
-                            </div>
-                            <div class="p-4 bg-gray-50">
-                                <p class="text-xs text-gray-600">📧 Avaliação: ⭐⭐⭐⭐⭐ (5/5)</p>
-                            </div>
+                        <!-- imagem do depoimento -->
+                        <div class="testimonial-image order-1 md:order-2">
+                            <img th:src="@{${depo.imagem}}"
+                                 th:alt="${'Depoimento de ' + depo.nome}"
+                                 class="w-full h-48 object-cover" />
                         </div>
                     </div>
                 </div>
