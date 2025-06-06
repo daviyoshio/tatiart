@@ -84,7 +84,8 @@
                     <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mb-12"
                          th:with="imgs=${produto.imagens}"
                          th:each="idx : ${#numbers.sequence(0,5)}">
-                        <!-- Se existir imagem naquele índice -->
+
+                        <!-- Correto para array: .length, sem parênteses e com ortografia certa -->
                         <div th:if="${imgs != null and idx < imgs.length}" class="space-y-4">
                             <a th:href="@{${imgs[idx]}}" target="_blank">
                                 <img th:src="@{${imgs[idx]}}"
@@ -92,22 +93,23 @@
                                      class="w-full h-80 mx-auto object-cover rounded-lg shadow-lg hover-scale" />
                             </a>
                             <div class="text-center">
-                                <!-- Aqui mostramos o título do produto (ou poderia ser uma legenda específica) -->
                                 <h3 class="font-semibold text-burgundy-900"
                                     th:text="${produto.titulo}">
                                     Nome do Produto
                                 </h3>
-                                <!-- Se quiser, exiba também a descrição ou algum atributo fixo abaixo de cada imagem -->
                                 <p class="text-sm text-burgundy-600"
-                                   th:text="${produto.atributos != null && produto.atributos.length > idx ? produto.atributos[idx] : produto.descricao}"
+                                   th:text="${produto.atributos != null && produto.atributos.length > idx 
+                                   ? produto.atributos[idx] 
+                                   : produto.descricao}">
                                     Descrição ou Atributo
                                 </p>
                             </div>
                         </div>
 
-                        <!-- Se não existir imagem naquele índice, apenas pular (gera espaços vazios, mas sem tags img) -->
-                        <div th:if="${imgs == null or idx >= imgs.size()}" class=""></div>
+                        <!-- Aqui também deve usar imgs.length, não size() nem length() -->
+                        <div th:if="${imgs == null or idx >= imgs.length}" class=""></div>
                     </div>
+
                 </div>
             </section>
             <!-- Features Section -->
