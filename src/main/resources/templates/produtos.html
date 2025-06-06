@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -224,9 +224,10 @@
             <p class="text-gray-600 mb-6 text-sm md:text-base">
               Nossas canecas personalizadas são perfeitas para presentear em ocasiões especiais ou para uso diário. Disponíveis em diversos modelos e materiais, podem ser personalizadas com fotos, frases ou designs exclusivos.
             </p>
-            <a href="#" class="inline-flex items-center text-burgundy-700 hover:text-burgundy-900 font-medium text-sm md:text-base">
-              Ver mais opções <i class="fas fa-arrow-right ml-2"></i>
+            <a th:href="@{/produtos/canecas}" class="inline-flex items-center text-burgundy-700 hover:text-burgundy-900 font-medium text-sm md:text-base">
+                Ver mais opções <i class="fas fa-arrow-right ml-2"></i>
             </a>
+
           </div>
           <div class="lg:w-2/3 w-full">
             <div class="relative">
@@ -263,8 +264,8 @@
             <p class="text-gray-600 mb-6 text-sm md:text-base">
               Nossas necessaires são práticas, estilosas e totalmente personalizáveis. Disponíveis em diferentes tamanhos e materiais, são perfeitas para organizar seus itens essenciais ou para presentear alguém especial.
             </p>
-            <a href="#" class="inline-flex items-center text-burgundy-700 hover:text-burgundy-900 font-medium text-sm md:text-base">
-              Ver mais opções <i class="fas fa-arrow-right ml-2"></i>
+            <a th:href="@{/produtos/necessaires}" class="inline-flex items-center text-burgundy-700 hover:text-burgundy-900 font-medium text-sm md:text-base">
+                Ver mais opções <i class="fas fa-arrow-right ml-2"></i>
             </a>
           </div>
           <div class="lg:w-2/3 w-full">
@@ -302,7 +303,7 @@
             <p class="text-gray-600 mb-6 text-sm md:text-base">
               Nossas mochilas personalizadas combinam funcionalidade e estilo para o dia a dia. Com vários tamanhos e modelos, são ideais para escola, trabalho ou viagens, e podem ser customizadas com nomes, estampas ou designs exclusivos.
             </p>
-            <a href="#" class="inline-flex items-center text-burgundy-700 hover:text-burgundy-900 font-medium text-sm md:text-base">
+            <a th:href="@{/produtos/mochilas}" class="inline-flex items-center text-burgundy-700 hover:text-burgundy-900 font-medium text-sm md:text-base">
               Ver mais opções <i class="fas fa-arrow-right ml-2"></i>
             </a>
           </div>
@@ -341,9 +342,10 @@
             <p class="text-gray-600 mb-6 text-sm md:text-base">
               Nossas bolsas personalizadas unem praticidade, elegância e exclusividade para acompanhar você em qualquer ocasião. Disponíveis em diversos modelos, tamanhos e materiais, são ideais para o dia a dia, trabalho, viagens ou para presentear alguém especial. Personalize com nomes, iniciais, estampas ou frases e torne sua bolsa única, do seu jeito.
             </p>
-            <a href="#" class="inline-flex items-center text-burgundy-700 hover:text-burgundy-900 font-medium text-sm md:text-base">
+            <a th:href="@{/produtos/bolsas}" class="inline-flex items-center text-burgundy-700 hover:text-burgundy-900 font-medium text-sm md:text-base">
               Ver mais opções <i class="fas fa-arrow-right ml-2"></i>
             </a>
+
           </div>
           <div class="lg:w-2/3 w-full">
             <div class="relative">
@@ -380,7 +382,7 @@
             <p class="text-gray-600 mb-6 text-sm md:text-base">
               Nossos estojos personalizados são perfeitos para organizar material escolar ou de escritório. Com diferentes tamanhos e compartimentos, podem ser personalizados com nomes, personagens favoritos ou designs exclusivos.
             </p>
-            <a href="#" class="inline-flex items-center text-burgundy-700 hover:text-burgundy-900 font-medium text-sm md:text-base">
+            <a th:href="@{/produtos/estojos}" class="inline-flex items-center text-burgundy-700 hover:text-burgundy-900 font-medium text-sm md:text-base">
               Ver mais opções <i class="fas fa-arrow-right ml-2"></i>
             </a>
           </div>
@@ -419,7 +421,7 @@
             <p class="text-gray-600 mb-6 text-sm md:text-base">
               Nossa linha baby traz produtos delicados e seguros para os pequenos. Com opções como toalhas personalizadas, roupinhas, acessórios e lembrancinhas para chá de bebê, cada item pode ser customizado com o nome do bebê ou tema escolhido pelos pais.
             </p>
-            <a href="#" class="inline-flex items-center text-burgundy-700 hover:text-burgundy-900 font-medium text-sm md:text-base">
+            <a th:href="@{/produtos/linha-baby}" class="inline-flex items-center text-burgundy-700 hover:text-burgundy-900 font-medium text-sm md:text-base">
               Ver mais opções <i class="fas fa-arrow-right ml-2"></i>
             </a>
           </div>

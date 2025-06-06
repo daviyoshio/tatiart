@@ -106,7 +106,23 @@ public class ProdutoController {
                 "Feita com tecidos resistentes e ecológicos"
             });
             produto.setBanner("/images/bolsas-icon.png");
-
+            
+        } else if (tipo.equalsIgnoreCase("mochilas")) {
+            produto.setTitulo("Mochilas Personalizadas");
+            produto.setDescricao("Funcionalidade e estilo para o dia a dia...");
+            produto.setBeneficios(new String[]{
+                "Vários tamanhos e modelos",
+                "Personalização com nomes e estampas"
+            });
+            produto.setImagens(new String[]{
+                "/images/mochilas/mochila1.png",
+                "/images/mochilas/mochila2.png"
+            });
+            produto.setAtributos(new String[]{
+                "Material resistente",
+                "Confeccionada à mão"
+            });
+            produto.setBanner("/images/mochilas-icon.png");
         } else {
             return "redirect:/produtos";
         }

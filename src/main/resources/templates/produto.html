@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
+<html xmlns:th="http://www.thymeleaf.org">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MugCraft - Canecas Personalizadas</title>
@@ -13,73 +12,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
     
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <script src="main.js"></script>
     
     <script src="tailwind.config.js"></script>
-    
-    <style>
-        .shadow-custom {
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-        }
-        
-        .bg-gradient-hero {
-            background: linear-gradient(135deg, #FFFCF5 0%, #FFF9EB 100%);
-        }
-        
-        .bg-gradient-cta {
-            background: linear-gradient(135deg, #6D1F2F 0%, #6C1919 100%);
-        }
-        
-        .hover-scale {
-            transition: transform 0.3s ease;
-        }
-        
-        .hover-scale:hover {
-            transform: scale(1.05);
-        }
-        
-        .mobile-menu {
-            display: none;
-        }
-        
-        .mobile-menu.active {
-            display: block;
-        }
-        
-        @media (max-width: 768px) {
-            .desktop-nav {
-                display: none;
-            }
-        }
-
-        /* Testimonials alternating layout for mobile */
-        @media (max-width: 767px) {
-            .testimonial-card {
-                display: flex;
-                flex-direction: column;
-            }
-            
-            .testimonial-card:nth-child(even) .testimonial-text {
-                order: 1;
-            }
-            
-            .testimonial-card:nth-child(even) .testimonial-image {
-                order: 2;
-            }
-            
-            .testimonial-card:nth-child(odd) .testimonial-text {
-                order: 2;
-            }
-            
-            .testimonial-card:nth-child(odd) .testimonial-image {
-                order: 1;
-            }
-        }
-    </style>
-</head>
+</head>s
 <body class="font-sans bg-beige-50">
     <!-- Header -->
     <div th:replace="~{fragments/navbar :: navbar}"></div>
