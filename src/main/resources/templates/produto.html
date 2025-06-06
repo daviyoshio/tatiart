@@ -85,7 +85,7 @@
                          th:with="imgs=${produto.imagens}"
                          th:each="idx : ${#numbers.sequence(0,5)}">
                         <!-- Se existir imagem naquele índice -->
-                        <div th:if="${imgs != null and idx < imgs.lenght()}" class="space-y-4">
+                        <div th:if="${imgs != null and idx < imgs.lenght}" class="space-y-4">
                             <a th:href="@{${imgs[idx]}}" target="_blank">
                                 <img th:src="@{${imgs[idx]}}"
                                      th:alt="${produto.titulo + ' - imagem ' + (idx+1)}"
