@@ -1,709 +1,710 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title th:text="${produto.titulo}">Título do Produto</title>
-    <meta name="description" content="Crie canecas únicas e personalizadas para presentes, empresas e eventos especiais.">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title th:text="${produto.titulo}">Título do Produto</title>
+        <meta name="description" content="Crie canecas únicas e personalizadas para presentes, empresas e eventos especiais.">
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+        <!-- Tailwind CSS -->
+        <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" th:href="@{/css/style.css}">
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" th:href="@{/css/style.css}">
 
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-    <script src="main.js"></script>
+        <!-- Lucide Icons -->
+        <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+        <script src="main.js"></script>
 
-    <script src="tailwind.config.js"></script>
-</head>s
-<body class="font-sans bg-beige-50">
-    <!-- Header -->
-    <div th:replace="~{fragments/navbar :: navbar}"></div>
-    <main>
-        <!-- Hero Section -->
-        <section class="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-gradient-hero">
-            <div class="container mx-auto px-4 md:px-6">
-                <div class="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
+        <script src="tailwind.config.js"></script>
+    </head>
+    <body class="font-sans bg-beige-50">
+        <!-- Header -->
+        <div th:replace="~{fragments/navbar :: navbar}"></div>
+        <main>
+            <!-- Hero Section -->
+            <section class="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-gradient-hero">
+                <div class="container mx-auto px-4 md:px-6">
+                    <div class="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
 
-                    <!-- Coluna de Texto -->
-                    <div class="flex flex-col justify-center space-y-6">
-                        <div class="space-y-4">
-                            <!-- Título principal dinâmico -->
-                            <h1 class="text-4xl font-bold tracking-tight sm:text-6xl xl:text-7xl font-playfair text-burgundy-900"
-                                th:text="${produto.titulo}">Título do Produto</h1>
-                            <!-- Subtítulo ou slogan dinâmico -->
-                            <span class="block text-burgundy-700"
-                                  th:text="${produto.descricao}">Descrição do produto aqui.</span>
-                        </div>
-
-                        <!-- Botões: você pode deixar fixos ou também acionar rotas dinâmicas -->
-                        <div class="flex flex-col gap-3 sm:flex-row">
-                            <a th:href="@{/produtos/{tipo}(tipo=${#strings.toLowerCase(produto.titulo)})}"
-                               class="h-14 px-8 bg-burgundy-800 hover:bg-burgundy-900 text-beige-50 shadow-lg text-lg rounded-md font-medium flex items-center justify-center">
-                                💝 Criar Agora
-                                <i data-lucide="arrow-right" class="ml-2 h-5 w-5"></i>
-                            </a>
-                            <a th:href="@{/produtos}" 
-                               class="h-14 px-8 border border-burgundy-800 text-burgundy-800 hover:bg-burgundy-50 text-lg rounded-md font-medium">
-                                Ver Galeria
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Coluna de Imagem -->
-                    <div class="flex items-center justify-center">
-                        <img th:src="@{${produto.imagens[0]}}"
-                             th:alt="${produto.titulo} + ' – imagem principal'"
-                             class="mx-auto w-full h-[400px] md:h-[500px] lg:h-[600px] xl:h-[700px] max-w-xl lg:max-w-2xl xl:max-w-3xl overflow-hidden rounded-xl object-cover shadow-custom" />
-                    </div>
-
-                </div>
-            </div>
-        </section>
-        <!-- Galeria de Produtos -->
-        <section id="galeria" class="w-full py-12 md:py-24 lg:py-32 bg-white">
-            <div class="container mx-auto px-4 md:px-6">
-                <div class="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-                    <span class="bg-burgundy-100 text-burgundy-800 px-3 py-1 rounded-full text-sm font-medium">
-                        📸 Galeria
-                    </span>
-                    <h2 class="text-3xl font-bold tracking-tight sm:text-5xl font-playfair text-burgundy-900">
-                        Imagens de <span th:text="${produto.titulo}">Produto</span>
-                    </h2>
-                    <p class="max-w-4xl text-burgundy-700 text-xl">
-                        Veja cada detalhe deste produto em alta resolução. Clique para ampliar.
-                    </p>
-                </div>
-
-                <!-- Grid para até 6 imagens (se houver menos, exibe somente as existentes) -->
-                <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mb-12"
-                     th:with="imgs=${produto.imagens}"
-                     th:each="idx : ${#numbers.sequence(0,5)}">
-                    <!-- Se existir imagem naquele índice -->
-                    <div th:if="${imgs != null and idx < imgs.size()}" class="space-y-4">
-                        <a th:href="@{${imgs[idx]}}" target="_blank">
-                            <img th:src="@{${imgs[idx]}}"
-                                 th:alt="${produto.titulo + ' - imagem ' + (idx+1)}"
-                                 class="w-full h-80 mx-auto object-cover rounded-lg shadow-lg hover-scale" />
-                        </a>
-                        <div class="text-center">
-                            <!-- Aqui mostramos o título do produto (ou poderia ser uma legenda específica) -->
-                            <h3 class="font-semibold text-burgundy-900"
-                                th:text="${produto.titulo}">
-                                Nome do Produto
-                            </h3>
-                            <!-- Se quiser, exiba também a descrição ou algum atributo fixo abaixo de cada imagem -->
-                            <p class="text-sm text-burgundy-600"
-                               th:text="${produto.atributos != null && produto.atributos.size() > idx ? produto.atributos[idx] : produto.descricao}">
-                                Descrição ou Atributo
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Se não existir imagem naquele índice, apenas pular (gera espaços vazios, mas sem tags img) -->
-                    <div th:if="${imgs == null or idx >= imgs.size()}" class=""></div>
-                </div>
-            </div>
-        </section>
-        <!-- Features Section -->
-        <section class="w-full py-12 md:py-24 lg:py-32 bg-beige-50">
-            <div class="container mx-auto px-4 md:px-6">
-                <div class="flex flex-col items-center justify-center space-y-4 text-center">
-                    <div class="space-y-2">
-                        <span class="bg-burgundy-100 text-burgundy-800 px-3 py-1 rounded-full text-sm font-medium">
-                            💎 Por que Escolher a MugCraft
-                        </span>
-                        <h2 class="text-3xl font-bold tracking-tight sm:text-5xl font-playfair text-burgundy-900"
-                            th:text="${produto.titulo}">Título do Produto</h2>
-                        <p class="max-w-4xl text-burgundy-700 text-xl" th:text="${produto.descricao}">
-                            Descrição do produto aqui
-                        </p>
-                    </div>
-                </div>
-
-                <div class="mx-auto grid max-w-5xl items-center gap-6 py-12 
-                     lg:grid-cols-2 lg:gap-12"
-                     th:if="${produto.features != null}">
-                    <div class="grid gap-6"
-                         th:each="feature, iterStat : ${produto.features}"
-                         th:classappend="${iterStat.index % 2 == 1} ? ' lg:col-start-2' : ''">
-                        <div class="border border-beige-200 bg-white shadow-lg rounded-lg p-6">
-                            <div class="flex items-center space-x-2 mb-4">
-                                <div class="flex items-center justify-center w-10 h-10 bg-burgundy-100 rounded-lg">
-                                    <i th:attr="data-lucide=${feature.icon}" class="h-5 w-5 text-burgundy-800"></i>
-                                </div>
-                                <h3 class="text-lg font-semibold text-burgundy-900"
-                                    th:text="${feature.title}">
-                                    Título da Feature
-                                </h3>
+                        <!-- Coluna de Texto -->
+                        <div class="flex flex-col justify-center space-y-6">
+                            <div class="space-y-4">
+                                <!-- Título principal dinâmico -->
+                                <h1 class="text-4xl font-bold tracking-tight sm:text-6xl xl:text-7xl font-playfair text-burgundy-900"
+                                    th:text="${produto.titulo}">Título do Produto</h1>
+                                <!-- Subtítulo ou slogan dinâmico -->
+                                <span class="block text-burgundy-700"
+                                      th:text="${produto.descricao}">Descrição do produto aqui.</span>
                             </div>
-                            <p class="text-burgundy-700" th:text="${feature.description}">
-                                Descrição da feature aqui
-                            </p>
+
+                            <!-- Botões: você pode deixar fixos ou também acionar rotas dinâmicas -->
+                            <div class="flex flex-col gap-3 sm:flex-row">
+                                <a th:href="@{/produtos/{tipo}(tipo=${#strings.toLowerCase(produto.titulo)})}"
+                                   class="h-14 px-8 bg-burgundy-800 hover:bg-burgundy-900 text-beige-50 shadow-lg text-lg rounded-md font-medium flex items-center justify-center">
+                                    💝 Criar Agora
+                                    <i data-lucide="arrow-right" class="ml-2 h-5 w-5"></i>
+                                </a>
+                                <a th:href="@{/produtos}" 
+                                   class="h-14 px-8 border border-burgundy-800 text-burgundy-800 hover:bg-burgundy-50 text-lg rounded-md font-medium">
+                                    Ver Galeria
+                                </a>
+                            </div>
                         </div>
+
+                        <!-- Coluna de Imagem -->
+                        <div class="flex items-center justify-center">
+                            <img th:src="@{${produto.imagens[0]}}"
+                                 th:alt="${produto.titulo} + ' – imagem principal'"
+                                 class="mx-auto w-full h-[400px] md:h-[500px] lg:h-[600px] xl:h-[700px] max-w-xl lg:max-w-2xl xl:max-w-3xl overflow-hidden rounded-xl object-cover shadow-custom" />
+                        </div>
+
                     </div>
                 </div>
-            </div>
-        </section>
-        //parei aqui
-        <!-- Real Testimonials Gallery -->
-        <!-- Real Testimonials Gallery -->
-        <section id="depoimentos" class="w-full py-12 md:py-24 lg:py-32 bg-white">
-            <div class="container mx-auto px-4 md:px-6">
-                <div class="flex flex-col items-center justify-center space-y-4 text-center">
-                    <div class="space-y-2">
+            </section>
+            <!-- Galeria de Produtos -->
+            <section id="galeria" class="w-full py-12 md:py-24 lg:py-32 bg-white">
+                <div class="container mx-auto px-4 md:px-6">
+                    <div class="flex flex-col items-center justify-center space-y-4 text-center mb-12">
                         <span class="bg-burgundy-100 text-burgundy-800 px-3 py-1 rounded-full text-sm font-medium">
-                            Depoimentos Reais
+                            📸 Galeria
                         </span>
                         <h2 class="text-3xl font-bold tracking-tight sm:text-5xl font-playfair text-burgundy-900">
-                            Clientes Apaixonadas Compartilham
+                            Imagens de <span th:text="${produto.titulo}">Produto</span>
                         </h2>
-                        <p class="max-w-2xl mx-auto text-burgundy-700 text-xl">
-                            Veja as fotos e mensagens reais que recebemos todos os dias. Cada sorriso é uma história de amor realizada.
+                        <p class="max-w-4xl text-burgundy-700 text-xl">
+                            Veja cada detalhe deste produto em alta resolução. Clique para ampliar.
                         </p>
                     </div>
+
+                    <!-- Grid para até 6 imagens (se houver menos, exibe somente as existentes) -->
+                    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mb-12"
+                         th:with="imgs=${produto.imagens}"
+                         th:each="idx : ${#numbers.sequence(0,5)}">
+                        <!-- Se existir imagem naquele índice -->
+                        <div th:if="${imgs != null and idx < imgs.size()}" class="space-y-4">
+                            <a th:href="@{${imgs[idx]}}" target="_blank">
+                                <img th:src="@{${imgs[idx]}}"
+                                     th:alt="${produto.titulo + ' - imagem ' + (idx+1)}"
+                                     class="w-full h-80 mx-auto object-cover rounded-lg shadow-lg hover-scale" />
+                            </a>
+                            <div class="text-center">
+                                <!-- Aqui mostramos o título do produto (ou poderia ser uma legenda específica) -->
+                                <h3 class="font-semibold text-burgundy-900"
+                                    th:text="${produto.titulo}">
+                                    Nome do Produto
+                                </h3>
+                                <!-- Se quiser, exiba também a descrição ou algum atributo fixo abaixo de cada imagem -->
+                                <p class="text-sm text-burgundy-600"
+                                   th:text="${produto.atributos != null && produto.atributos.length > idx ? produto.atributos[idx] : produto.descricao}"
+                                    Descrição ou Atributo
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Se não existir imagem naquele índice, apenas pular (gera espaços vazios, mas sem tags img) -->
+                        <div th:if="${imgs == null or idx >= imgs.size()}" class=""></div>
+                    </div>
                 </div>
+            </section>
+            <!-- Features Section -->
+            <section class="w-full py-12 md:py-24 lg:py-32 bg-beige-50">
+                <div class="container mx-auto px-4 md:px-6">
+                    <div class="flex flex-col items-center justify-center space-y-4 text-center">
+                        <div class="space-y-2">
+                            <span class="bg-burgundy-100 text-burgundy-800 px-3 py-1 rounded-full text-sm font-medium">
+                                💎 Por que Escolher a MugCraft
+                            </span>
+                            <h2 class="text-3xl font-bold tracking-tight sm:text-5xl font-playfair text-burgundy-900"
+                                th:text="${produto.titulo}">Título do Produto</h2>
+                            <p class="max-w-4xl text-burgundy-700 text-xl" th:text="${produto.descricao}">
+                                Descrição do produto aqui
+                            </p>
+                        </div>
+                    </div>
 
-                <!-- Percorre cada depoimento vindo do controller (model.addAttribute("depoimentos", ...)) -->
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 py-12" th:each="depo : ${depoimentos}">
-
-                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden testimonial-card">
-
-                        <!-- Se existir um “subtítulo” (por exemplo, horário ou “Stories”), usa este bloco -->
-                        <div th:if="${depo.subtitulo} != null"
-                             class="testimonial-text p-4"
-                             th:classappend="
-                             depo.bgColor != null ?
-                             ' ' + depo.bgColor + ' border-l-4 ' + depo.borderColor + ' order-2 md:order-1'
-                             : ' bg-white order-2 md:order-1'">
-
-                            <div class="flex items-center space-x-2 mb-2">
-                                <div th:class="'w-8 h-8 rounded-full flex items-center justify-center ' + 
-                                     (depo.borderColor.contains('green')    ? 'bg-green-500'    :
-                                     depo.borderColor.contains('pink')     ? 'bg-pink-500'     :
-                                     depo.borderColor.contains('burgundy') ? 'bg-burgundy-500' :
-                                     depo.borderColor.contains('blue')     ? 'bg-blue-500'     :
-                                     'bg-gray-200')">
-                                    <span class="text-white text-xs font-bold" th:text="${depo.inicial}">I</span>
+                    <div class="mx-auto grid max-w-5xl items-center gap-6 py-12 
+                         lg:grid-cols-2 lg:gap-12"
+                         th:if="${produto.features != null}">
+                        <div class="grid gap-6"
+                             th:each="feature, iterStat : ${produto.features}"
+                             th:classappend="${iterStat.index % 2 == 1} ? ' lg:col-start-2' : ''">
+                            <div class="border border-beige-200 bg-white shadow-lg rounded-lg p-6">
+                                <div class="flex items-center space-x-2 mb-4">
+                                    <div class="flex items-center justify-center w-10 h-10 bg-burgundy-100 rounded-lg">
+                                        <i th:attr="data-lucide=${feature.icon}" class="h-5 w-5 text-burgundy-800"></i>
+                                    </div>
+                                    <h3 class="text-lg font-semibold text-burgundy-900"
+                                        th:text="${feature.title}">
+                                        Título da Feature
+                                    </h3>
                                 </div>
-                                <span class="text-sm font-medium text-gray-700" th:text="${depo.nome}">Nome</span>
-                                <span class="text-xs text-gray-500" th:text="${depo.subtitulo}">Subtítulo</span>
+                                <p class="text-burgundy-700" th:text="${feature.description}">
+                                    Descrição da feature aqui
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            //parei aqui
+            <!-- Real Testimonials Gallery -->
+            <!-- Real Testimonials Gallery -->
+            <section id="depoimentos" class="w-full py-12 md:py-24 lg:py-32 bg-white">
+                <div class="container mx-auto px-4 md:px-6">
+                    <div class="flex flex-col items-center justify-center space-y-4 text-center">
+                        <div class="space-y-2">
+                            <span class="bg-burgundy-100 text-burgundy-800 px-3 py-1 rounded-full text-sm font-medium">
+                                Depoimentos Reais
+                            </span>
+                            <h2 class="text-3xl font-bold tracking-tight sm:text-5xl font-playfair text-burgundy-900">
+                                Clientes Apaixonadas Compartilham
+                            </h2>
+                            <p class="max-w-2xl mx-auto text-burgundy-700 text-xl">
+                                Veja as fotos e mensagens reais que recebemos todos os dias. Cada sorriso é uma história de amor realizada.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Percorre cada depoimento vindo do controller (model.addAttribute("depoimentos", ...)) -->
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 py-12" th:each="depo : ${depoimentos}">
+
+                        <div class="bg-white rounded-2xl shadow-lg overflow-hidden testimonial-card">
+
+                            <!-- Se existir um “subtítulo” (por exemplo, horário ou “Stories”), usa este bloco -->
+                            <div th:if="${depo.subtitulo} != null"
+                                 class="testimonial-text p-4"
+                                 th:classappend="
+                                 depo.bgColor != null ?
+                                 ' ' + depo.bgColor + ' border-l-4 ' + depo.borderColor + ' order-2 md:order-1'
+                                 : ' bg-white order-2 md:order-1'">
+
+                                <div class="flex items-center space-x-2 mb-2">
+                                    <div th:class="'w-8 h-8 rounded-full flex items-center justify-center ' + 
+                                         (depo.borderColor.contains('green')    ? 'bg-green-500'    :
+                                         depo.borderColor.contains('pink')     ? 'bg-pink-500'     :
+                                         depo.borderColor.contains('burgundy') ? 'bg-burgundy-500' :
+                                         depo.borderColor.contains('blue')     ? 'bg-blue-500'     :
+                                         'bg-gray-200')">
+                                        <span class="text-white text-xs font-bold" th:text="${depo.inicial}">I</span>
+                                    </div>
+                                    <span class="text-sm font-medium text-gray-700" th:text="${depo.nome}">Nome</span>
+                                    <span class="text-xs text-gray-500" th:text="${depo.subtitulo}">Subtítulo</span>
+                                </div>
+
+                                <p class="text-sm text-gray-700 italic" th:text="${depo.texto}">
+                                    “Texto do depoimento”
+                                </p>
                             </div>
 
-                            <p class="text-sm text-gray-700 italic" th:text="${depo.texto}">
-                                “Texto do depoimento”
+                            <!-- Se NÃO houver um subtítulo (por ex. só mostra nome + texto + estrelas) -->
+                            <div th:if="${depo.subtitulo} == null"
+                                 class="testimonial-text p-4 bg-white order-2 md:order-1">
+
+                                <div class="flex items-center space-x-2 mb-2">
+                                    <div th:class="'w-8 h-8 rounded-full flex items-center justify-center ' + 
+                                         (depo.borderColor.contains('green')    ? 'bg-green-500'    :
+                                         depo.borderColor.contains('pink')     ? 'bg-pink-500'     :
+                                         depo.borderColor.contains('burgundy') ? 'bg-burgundy-500' :
+                                         depo.borderColor.contains('blue')     ? 'bg-blue-500'     :
+                                         'bg-gray-200')">
+                                        <span class="text-white text-xs font-bold" th:text="${depo.inicial}">I</span>
+                                    </div>
+                                    <span class="text-sm font-medium text-gray-700" th:text="${depo.nome}">Nome</span>
+                                </div>
+
+                                <p class="text-sm text-gray-700 italic" th:text="${depo.texto}">
+                                    “Texto do depoimento”
+                                </p>
+
+                                <!-- Exibe estrelas só se existir valor em depo.estrelas -->
+                                <div th:if="${depo.estrelas} != null" class="flex items-center space-x-1 mt-2">
+                                    <span class="text-yellow-400" th:each="star : ${#numbers.sequence(1, depo.estrelas)}">★</span>
+                                </div>
+                            </div>
+
+                            <!-- Imagem do depoimento (não faz distinção de subtítulo ou não) -->
+                            <div class="testimonial-image order-1 md:order-2">
+                                <img th:src="@{${depo.imagem}}"
+                                     th:alt="${'Depoimento de ' + depo.nome}"
+                                     class="w-full h-48 object-cover" />
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="text-center mt-12">
+                        <button class="border border-burgundy-800 text-burgundy-800 hover:bg-burgundy-800 hover:text-beige-50 px-8 py-3 rounded-md font-medium">
+                            Ver Mais Depoimentos
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- 100% Personalization Section -->
+            <section class="w-full py-12 md:py-24 lg:py-32 bg-beige-50">
+                <div class="container mx-auto px-4 md:px-6">
+                    <div class="text-center mb-16">
+                        <p class="text-burgundy-600 font-medium mb-2">100% Personalizado</p>
+                        <h2 class="text-3xl font-bold tracking-tight sm:text-5xl font-playfair text-burgundy-900 mb-4">
+                            Sua Imaginação é o Limite
+                        </h2>
+                        <p class="text-burgundy-700 max-w-3xl mx-auto text-lg">
+                            Não trabalhamos com modelos prontos. <strong>Cada caneca é única</strong>, criada especialmente para
+                            você. Desde a primeira ideia até o produto final, tudo é pensado nos mínimos detalhes.
+                        </p>
+                    </div>
+
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <div class="space-y-8">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-burgundy-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="palette" class="h-6 w-6 text-burgundy-800"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-playfair font-semibold text-burgundy-900 mb-2">Design Exclusivo</h3>
+                                    <p class="text-burgundy-700">
+                                        Criamos o design do zero baseado na sua história, personalidade e preferências.
+                                        <strong>Nenhuma caneca é igual à outra.</strong>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-burgundy-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="heart" class="h-6 w-6 text-burgundy-800"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-playfair font-semibold text-burgundy-900 mb-2">Mensagens Únicas</h3>
+                                    <p class="text-burgundy-700">
+                                        Suas palavras, suas frases especiais, suas memórias. Transformamos sentimentos em arte visual que
+                                        toca o coração.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-burgundy-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="sparkles" class="h-6 w-6 text-burgundy-800"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-playfair font-semibold text-burgundy-900 mb-2">Detalhes Especiais</h3>
+                                    <p class="text-burgundy-700">
+                                        Cores favoritas, datas importantes, símbolos significativos. Cada elemento tem um propósito e
+                                        conta parte da sua história.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-burgundy-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="users" class="h-6 w-6 text-burgundy-800"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-playfair font-semibold text-burgundy-900 mb-2">Consultoria Pessoal</h3>
+                                    <p class="text-burgundy-700">
+                                        Nossa equipe trabalha junto com você para entender sua visão e transformá-la em realidade.
+                                        <strong>Você participa de todo o processo.</strong>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="relative">
+                            <div class="grid grid-cols-2 gap-4">
+                                <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=200&h=200&fit=crop&crop=center" 
+                                     alt="Processo de personalização" 
+                                     class="w-full h-48 object-cover rounded-lg shadow-lg">
+                                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=200&h=200&fit=crop&crop=center" 
+                                     alt="Design personalizado" 
+                                     class="w-full h-48 object-cover rounded-lg shadow-lg mt-8">
+                            </div>
+                            <div class="absolute -bottom-4 -left-4 bg-burgundy-800 text-beige-50 px-4 py-2 rounded-lg shadow-lg">
+                                <p class="text-sm font-medium">✨ 100% Único</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- How It Works Section -->
+            <section class="w-full py-12 md:py-24 lg:py-32 bg-white">
+                <div class="container mx-auto px-4 md:px-6">
+                    <div class="text-center mb-16">
+                        <p class="text-burgundy-600 font-medium mb-2">Como Funciona</p>
+                        <h2 class="text-3xl font-bold tracking-tight sm:text-5xl font-playfair text-burgundy-900 mb-4">
+                            Do Sonho à Realidade em 4 Passos
+                        </h2>
+                        <p class="text-burgundy-700 max-w-2xl mx-auto">
+                            Nosso processo é simples, mas cada etapa é cuidadosamente pensada para garantir que sua caneca seja
+                            perfeita.
+                        </p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div class="text-center">
+                            <div class="relative mb-6">
+                                <div class="w-20 h-20 bg-burgundy-800 rounded-full flex items-center justify-center mx-auto">
+                                    <span class="text-2xl font-bold text-beige-50">1</span>
+                                </div>
+                                <div class="absolute -top-2 -right-2 w-6 h-6 bg-burgundy-600 rounded-full flex items-center justify-center">
+                                    <i data-lucide="heart" class="h-3 w-3 text-beige-50"></i>
+                                </div>
+                            </div>
+                            <h3 class="text-xl font-playfair font-semibold text-burgundy-900 mb-3">Conte Sua História</h3>
+                            <p class="text-burgundy-700 text-sm leading-relaxed">
+                                Compartilhe conosco sua ideia, suas memórias especiais, fotos, frases ou qualquer inspiração que você
+                                tenha.
                             </p>
                         </div>
 
-                        <!-- Se NÃO houver um subtítulo (por ex. só mostra nome + texto + estrelas) -->
-                        <div th:if="${depo.subtitulo} == null"
-                             class="testimonial-text p-4 bg-white order-2 md:order-1">
-
-                            <div class="flex items-center space-x-2 mb-2">
-                                <div th:class="'w-8 h-8 rounded-full flex items-center justify-center ' + 
-                                     (depo.borderColor.contains('green')    ? 'bg-green-500'    :
-                                     depo.borderColor.contains('pink')     ? 'bg-pink-500'     :
-                                     depo.borderColor.contains('burgundy') ? 'bg-burgundy-500' :
-                                     depo.borderColor.contains('blue')     ? 'bg-blue-500'     :
-                                     'bg-gray-200')">
-                                    <span class="text-white text-xs font-bold" th:text="${depo.inicial}">I</span>
+                        <div class="text-center">
+                            <div class="relative mb-6">
+                                <div class="w-20 h-20 bg-burgundy-800 rounded-full flex items-center justify-center mx-auto">
+                                    <span class="text-2xl font-bold text-beige-50">2</span>
                                 </div>
-                                <span class="text-sm font-medium text-gray-700" th:text="${depo.nome}">Nome</span>
+                                <div class="absolute -top-2 -right-2 w-6 h-6 bg-burgundy-600 rounded-full flex items-center justify-center">
+                                    <i data-lucide="palette" class="h-3 w-3 text-beige-50"></i>
+                                </div>
                             </div>
-
-                            <p class="text-sm text-gray-700 italic" th:text="${depo.texto}">
-                                “Texto do depoimento”
+                            <h3 class="text-xl font-playfair font-semibold text-burgundy-900 mb-3">Criamos o Design</h3>
+                            <p class="text-burgundy-700 text-sm leading-relaxed">
+                                Nossa equipe de designers cria um projeto exclusivo baseado na sua história. Você aprova antes da
+                                produção.
                             </p>
-
-                            <!-- Exibe estrelas só se existir valor em depo.estrelas -->
-                            <div th:if="${depo.estrelas} != null" class="flex items-center space-x-1 mt-2">
-                                <span class="text-yellow-400" th:each="star : ${#numbers.sequence(1, depo.estrelas)}">★</span>
-                            </div>
                         </div>
 
-                        <!-- Imagem do depoimento (não faz distinção de subtítulo ou não) -->
-                        <div class="testimonial-image order-1 md:order-2">
-                            <img th:src="@{${depo.imagem}}"
-                                 th:alt="${'Depoimento de ' + depo.nome}"
-                                 class="w-full h-48 object-cover" />
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="text-center mt-12">
-                    <button class="border border-burgundy-800 text-burgundy-800 hover:bg-burgundy-800 hover:text-beige-50 px-8 py-3 rounded-md font-medium">
-                        Ver Mais Depoimentos
-                    </button>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- 100% Personalization Section -->
-        <section class="w-full py-12 md:py-24 lg:py-32 bg-beige-50">
-            <div class="container mx-auto px-4 md:px-6">
-                <div class="text-center mb-16">
-                    <p class="text-burgundy-600 font-medium mb-2">100% Personalizado</p>
-                    <h2 class="text-3xl font-bold tracking-tight sm:text-5xl font-playfair text-burgundy-900 mb-4">
-                        Sua Imaginação é o Limite
-                    </h2>
-                    <p class="text-burgundy-700 max-w-3xl mx-auto text-lg">
-                        Não trabalhamos com modelos prontos. <strong>Cada caneca é única</strong>, criada especialmente para
-                        você. Desde a primeira ideia até o produto final, tudo é pensado nos mínimos detalhes.
-                    </p>
-                </div>
-
-                <div class="grid lg:grid-cols-2 gap-12 items-center">
-                    <div class="space-y-8">
-                        <div class="flex items-start space-x-4">
-                            <div class="w-12 h-12 bg-burgundy-100 rounded-full flex items-center justify-center flex-shrink-0">
-                                <i data-lucide="palette" class="h-6 w-6 text-burgundy-800"></i>
+                        <div class="text-center">
+                            <div class="relative mb-6">
+                                <div class="w-20 h-20 bg-burgundy-800 rounded-full flex items-center justify-center mx-auto">
+                                    <span class="text-2xl font-bold text-beige-50">3</span>
+                                </div>
+                                <div class="absolute -top-2 -right-2 w-6 h-6 bg-burgundy-600 rounded-full flex items-center justify-center">
+                                    <i data-lucide="coffee" class="h-3 w-3 text-beige-50"></i>
+                                </div>
                             </div>
-                            <div>
-                                <h3 class="text-xl font-playfair font-semibold text-burgundy-900 mb-2">Design Exclusivo</h3>
-                                <p class="text-burgundy-700">
-                                    Criamos o design do zero baseado na sua história, personalidade e preferências.
-                                    <strong>Nenhuma caneca é igual à outra.</strong>
-                                </p>
-                            </div>
+                            <h3 class="text-xl font-playfair font-semibold text-burgundy-900 mb-3">Produção Artesanal</h3>
+                            <p class="text-burgundy-700 text-sm leading-relaxed">
+                                Sua caneca é produzida com materiais premium e técnicas especiais para garantir qualidade e
+                                durabilidade.
+                            </p>
                         </div>
 
-                        <div class="flex items-start space-x-4">
-                            <div class="w-12 h-12 bg-burgundy-100 rounded-full flex items-center justify-center flex-shrink-0">
-                                <i data-lucide="heart" class="h-6 w-6 text-burgundy-800"></i>
+                        <div class="text-center">
+                            <div class="relative mb-6">
+                                <div class="w-20 h-20 bg-burgundy-800 rounded-full flex items-center justify-center mx-auto">
+                                    <span class="text-2xl font-bold text-beige-50">4</span>
+                                </div>
+                                <div class="absolute -top-2 -right-2 w-6 h-6 bg-burgundy-600 rounded-full flex items-center justify-center">
+                                    <i data-lucide="gift" class="h-3 w-3 text-beige-50"></i>
+                                </div>
                             </div>
-                            <div>
-                                <h3 class="text-xl font-playfair font-semibold text-burgundy-900 mb-2">Mensagens Únicas</h3>
-                                <p class="text-burgundy-700">
-                                    Suas palavras, suas frases especiais, suas memórias. Transformamos sentimentos em arte visual que
-                                    toca o coração.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start space-x-4">
-                            <div class="w-12 h-12 bg-burgundy-100 rounded-full flex items-center justify-center flex-shrink-0">
-                                <i data-lucide="sparkles" class="h-6 w-6 text-burgundy-800"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-playfair font-semibold text-burgundy-900 mb-2">Detalhes Especiais</h3>
-                                <p class="text-burgundy-700">
-                                    Cores favoritas, datas importantes, símbolos significativos. Cada elemento tem um propósito e
-                                    conta parte da sua história.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start space-x-4">
-                            <div class="w-12 h-12 bg-burgundy-100 rounded-full flex items-center justify-center flex-shrink-0">
-                                <i data-lucide="users" class="h-6 w-6 text-burgundy-800"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-playfair font-semibold text-burgundy-900 mb-2">Consultoria Pessoal</h3>
-                                <p class="text-burgundy-700">
-                                    Nossa equipe trabalha junto com você para entender sua visão e transformá-la em realidade.
-                                    <strong>Você participa de todo o processo.</strong>
-                                </p>
-                            </div>
+                            <h3 class="text-xl font-playfair font-semibold text-burgundy-900 mb-3">Entrega Especial</h3>
+                            <p class="text-burgundy-700 text-sm leading-relaxed">
+                                Embalamos com carinho e enviamos para você. O momento da entrega será inesquecível!
+                            </p>
                         </div>
                     </div>
 
-                    <div class="relative">
-                        <div class="grid grid-cols-2 gap-4">
-                            <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=200&h=200&fit=crop&crop=center" 
-                                 alt="Processo de personalização" 
-                                 class="w-full h-48 object-cover rounded-lg shadow-lg">
-                            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=200&h=200&fit=crop&crop=center" 
-                                 alt="Design personalizado" 
-                                 class="w-full h-48 object-cover rounded-lg shadow-lg mt-8">
-                        </div>
-                        <div class="absolute -bottom-4 -left-4 bg-burgundy-800 text-beige-50 px-4 py-2 rounded-lg shadow-lg">
-                            <p class="text-sm font-medium">✨ 100% Único</p>
-                        </div>
+                    <div class="text-center mt-12">
+                        <button class="bg-burgundy-800 text-beige-50 hover:bg-burgundy-900 px-8 py-4 rounded-md font-medium">
+                            Começar Minha Caneca Agora
+                        </button>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- How It Works Section -->
-        <section class="w-full py-12 md:py-24 lg:py-32 bg-white">
-            <div class="container mx-auto px-4 md:px-6">
-                <div class="text-center mb-16">
-                    <p class="text-burgundy-600 font-medium mb-2">Como Funciona</p>
-                    <h2 class="text-3xl font-bold tracking-tight sm:text-5xl font-playfair text-burgundy-900 mb-4">
-                        Do Sonho à Realidade em 4 Passos
-                    </h2>
-                    <p class="text-burgundy-700 max-w-2xl mx-auto">
-                        Nosso processo é simples, mas cada etapa é cuidadosamente pensada para garantir que sua caneca seja
-                        perfeita.
-                    </p>
-                </div>
-
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div class="text-center">
-                        <div class="relative mb-6">
-                            <div class="w-20 h-20 bg-burgundy-800 rounded-full flex items-center justify-center mx-auto">
-                                <span class="text-2xl font-bold text-beige-50">1</span>
-                            </div>
-                            <div class="absolute -top-2 -right-2 w-6 h-6 bg-burgundy-600 rounded-full flex items-center justify-center">
-                                <i data-lucide="heart" class="h-3 w-3 text-beige-50"></i>
-                            </div>
-                        </div>
-                        <h3 class="text-xl font-playfair font-semibold text-burgundy-900 mb-3">Conte Sua História</h3>
-                        <p class="text-burgundy-700 text-sm leading-relaxed">
-                            Compartilhe conosco sua ideia, suas memórias especiais, fotos, frases ou qualquer inspiração que você
-                            tenha.
-                        </p>
-                    </div>
-
-                    <div class="text-center">
-                        <div class="relative mb-6">
-                            <div class="w-20 h-20 bg-burgundy-800 rounded-full flex items-center justify-center mx-auto">
-                                <span class="text-2xl font-bold text-beige-50">2</span>
-                            </div>
-                            <div class="absolute -top-2 -right-2 w-6 h-6 bg-burgundy-600 rounded-full flex items-center justify-center">
-                                <i data-lucide="palette" class="h-3 w-3 text-beige-50"></i>
-                            </div>
-                        </div>
-                        <h3 class="text-xl font-playfair font-semibold text-burgundy-900 mb-3">Criamos o Design</h3>
-                        <p class="text-burgundy-700 text-sm leading-relaxed">
-                            Nossa equipe de designers cria um projeto exclusivo baseado na sua história. Você aprova antes da
-                            produção.
-                        </p>
-                    </div>
-
-                    <div class="text-center">
-                        <div class="relative mb-6">
-                            <div class="w-20 h-20 bg-burgundy-800 rounded-full flex items-center justify-center mx-auto">
-                                <span class="text-2xl font-bold text-beige-50">3</span>
-                            </div>
-                            <div class="absolute -top-2 -right-2 w-6 h-6 bg-burgundy-600 rounded-full flex items-center justify-center">
-                                <i data-lucide="coffee" class="h-3 w-3 text-beige-50"></i>
-                            </div>
-                        </div>
-                        <h3 class="text-xl font-playfair font-semibold text-burgundy-900 mb-3">Produção Artesanal</h3>
-                        <p class="text-burgundy-700 text-sm leading-relaxed">
-                            Sua caneca é produzida com materiais premium e técnicas especiais para garantir qualidade e
-                            durabilidade.
-                        </p>
-                    </div>
-
-                    <div class="text-center">
-                        <div class="relative mb-6">
-                            <div class="w-20 h-20 bg-burgundy-800 rounded-full flex items-center justify-center mx-auto">
-                                <span class="text-2xl font-bold text-beige-50">4</span>
-                            </div>
-                            <div class="absolute -top-2 -right-2 w-6 h-6 bg-burgundy-600 rounded-full flex items-center justify-center">
-                                <i data-lucide="gift" class="h-3 w-3 text-beige-50"></i>
-                            </div>
-                        </div>
-                        <h3 class="text-xl font-playfair font-semibold text-burgundy-900 mb-3">Entrega Especial</h3>
-                        <p class="text-burgundy-700 text-sm leading-relaxed">
-                            Embalamos com carinho e enviamos para você. O momento da entrega será inesquecível!
-                        </p>
-                    </div>
-                </div>
-
-                <div class="text-center mt-12">
-                    <button class="bg-burgundy-800 text-beige-50 hover:bg-burgundy-900 px-8 py-4 rounded-md font-medium">
-                        Começar Minha Caneca Agora
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Types of Personalization -->
-        <section class="w-full py-12 md:py-24 lg:py-32 bg-beige-50">
-            <div class="container mx-auto px-4 md:px-6">
-                <div class="text-center mb-16">
-                    <p class="text-burgundy-600 font-medium mb-2">Tipos de Personalização</p>
-                    <h2 class="text-3xl font-bold tracking-tight sm:text-5xl font-playfair text-burgundy-900 mb-4">
-                        Infinitas Possibilidades
-                    </h2>
-                    <p class="text-burgundy-700 max-w-2xl mx-auto">
-                        Não importa qual seja sua ideia, nós transformamos em realidade. Veja alguns dos tipos mais populares.
-                    </p>
-                </div>
-
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white rounded-lg p-6">
-                        <div class="text-center mb-4">
-                            <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <i data-lucide="heart" class="h-8 w-8 text-pink-600"></i>
-                            </div>
-                            <h3 class="text-burgundy-900 font-playfair font-semibold">Para Mães e Avós</h3>
-                        </div>
-                        <ul class="space-y-2 text-sm text-burgundy-700">
-                            <li>• Datas especiais (nascimento dos filhos/netos)</li>
-                            <li>• Frases marcantes que toda mãe fala</li>
-                            <li>• Fotos da família</li>
-                            <li>• Mensagens de amor dos filhos</li>
-                            <li>• Desenhos das crianças</li>
-                        </ul>
-                    </div>
-
-                    <div class="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white rounded-lg p-6">
-                        <div class="text-center mb-4">
-                            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <i data-lucide="users" class="h-8 w-8 text-blue-600"></i>
-                            </div>
-                            <h3 class="text-burgundy-900 font-playfair font-semibold">Casais e Relacionamentos</h3>
-                        </div>
-                        <ul class="space-y-2 text-sm text-burgundy-700">
-                            <li>• Data do primeiro encontro</li>
-                            <li>• Fotos do casal</li>
-                            <li>• Frases especiais entre vocês</li>
-                            <li>• Coordenadas de lugares importantes</li>
-                            <li>• Linha do tempo do relacionamento</li>
-                        </ul>
-                    </div>
-
-                    <div class="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white rounded-lg p-6">
-                        <div class="text-center mb-4">
-                            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <i data-lucide="sparkles" class="h-8 w-8 text-green-600"></i>
-                            </div>
-                            <h3 class="text-burgundy-900 font-playfair font-semibold">Motivacional</h3>
-                        </div>
-                        <ul class="space-y-2 text-sm text-burgundy-700">
-                            <li>• Frases inspiradoras personalizadas</li>
-                            <li>• Metas e objetivos</li>
-                            <li>• Versículos bíblicos</li>
-                            <li>• Mantras pessoais</li>
-                            <li>• Conquistas e vitórias</li>
-                        </ul>
-                    </div>
-
-                    <div class="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white rounded-lg p-6">
-                        <div class="text-center mb-4">
-                            <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <i data-lucide="gift" class="h-8 w-8 text-purple-600"></i>
-                            </div>
-                            <h3 class="text-burgundy-900 font-playfair font-semibold">Datas Especiais</h3>
-                        </div>
-                        <ul class="space-y-2 text-sm text-burgundy-700">
-                            <li>• Aniversários únicos</li>
-                            <li>• Formaturas e conquistas</li>
-                            <li>• Aposentadoria</li>
-                            <li>• Nascimento de bebês</li>
-                            <li>• Bodas e aniversários de casamento</li>
-                        </ul>
-                    </div>
-
-                    <div class="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white rounded-lg p-6">
-                        <div class="text-center mb-4">
-                            <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <i data-lucide="coffee" class="h-8 w-8 text-orange-600"></i>
-                            </div>
-                            <h3 class="text-burgundy-900 font-playfair font-semibold">Profissional</h3>
-                        </div>
-                        <ul class="space-y-2 text-sm text-burgundy-700">
-                            <li>• Logo da empresa</li>
-                            <li>• Nome e cargo personalizado</li>
-                            <li>• Brindes corporativos</li>
-                            <li>• Eventos e convenções</li>
-                            <li>• Presentes para equipe</li>
-                        </ul>
-                    </div>
-
-                    <div class="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white rounded-lg p-6">
-                        <div class="text-center mb-4">
-                            <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <i data-lucide="palette" class="h-8 w-8 text-red-600"></i>
-                            </div>
-                            <h3 class="text-burgundy-900 font-playfair font-semibold">Arte Personalizada</h3>
-                        </div>
-                        <ul class="space-y-2 text-sm text-burgundy-700">
-                            <li>• Ilustrações exclusivas</li>
-                            <li>• Retratos artísticos</li>
-                            <li>• Pets e animais de estimação</li>
-                            <li>• Paisagens especiais</li>
-                            <li>• Arte abstrata personalizada</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="text-center mt-12">
-                    <p class="text-burgundy-700 mb-6">
-                        <strong>Não encontrou sua ideia aqui?</strong> Não se preocupe! Criamos qualquer tipo de personalização.
-                    </p>
-                    <button class="border border-burgundy-800 text-burgundy-800 hover:bg-burgundy-800 hover:text-beige-50 px-8 py-3 rounded-md font-medium">
-                        Falar Sobre Minha Ideia
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Final CTA Section -->
-        <section class="w-full py-12 md:py-24 lg:py-32 bg-gradient-cta">
-            <div class="container mx-auto px-4 md:px-6">
-                <div class="flex flex-col items-center justify-center space-y-4 text-center">
-                    <div class="space-y-2">
-                        <h2 class="text-3xl font-bold tracking-tight sm:text-5xl font-playfair text-beige-50">
-                            Não Deixe Esse Momento Passar...
+            <!-- Types of Personalization -->
+            <section class="w-full py-12 md:py-24 lg:py-32 bg-beige-50">
+                <div class="container mx-auto px-4 md:px-6">
+                    <div class="text-center mb-16">
+                        <p class="text-burgundy-600 font-medium mb-2">Tipos de Personalização</p>
+                        <h2 class="text-3xl font-bold tracking-tight sm:text-5xl font-playfair text-burgundy-900 mb-4">
+                            Infinitas Possibilidades
                         </h2>
-                        <p class="max-w-2xl text-beige-100 text-xl">
-                            <strong>A vida é feita de momentos únicos.</strong> Que tal transformar o próximo em uma lembrança
-                            eterna? Sua caneca personalizada está a apenas um clique de distância.
-                            <strong>Vamos criar magia juntos?</strong>
+                        <p class="text-burgundy-700 max-w-2xl mx-auto">
+                            Não importa qual seja sua ideia, nós transformamos em realidade. Veja alguns dos tipos mais populares.
                         </p>
                     </div>
-                    <div class="flex flex-col gap-2 sm:flex-row">
-                        <button class="h-12 px-8 bg-beige-50 hover:bg-beige-100 text-burgundy-900 shadow-lg rounded-md font-medium flex items-center justify-center">
-                            ❤️ SIM! Quero Criar Minha Caneca Agora
-                            <i data-lucide="arrow-right" class="ml-2 h-4 w-4"></i>
+
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white rounded-lg p-6">
+                            <div class="text-center mb-4">
+                                <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <i data-lucide="heart" class="h-8 w-8 text-pink-600"></i>
+                                </div>
+                                <h3 class="text-burgundy-900 font-playfair font-semibold">Para Mães e Avós</h3>
+                            </div>
+                            <ul class="space-y-2 text-sm text-burgundy-700">
+                                <li>• Datas especiais (nascimento dos filhos/netos)</li>
+                                <li>• Frases marcantes que toda mãe fala</li>
+                                <li>• Fotos da família</li>
+                                <li>• Mensagens de amor dos filhos</li>
+                                <li>• Desenhos das crianças</li>
+                            </ul>
+                        </div>
+
+                        <div class="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white rounded-lg p-6">
+                            <div class="text-center mb-4">
+                                <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <i data-lucide="users" class="h-8 w-8 text-blue-600"></i>
+                                </div>
+                                <h3 class="text-burgundy-900 font-playfair font-semibold">Casais e Relacionamentos</h3>
+                            </div>
+                            <ul class="space-y-2 text-sm text-burgundy-700">
+                                <li>• Data do primeiro encontro</li>
+                                <li>• Fotos do casal</li>
+                                <li>• Frases especiais entre vocês</li>
+                                <li>• Coordenadas de lugares importantes</li>
+                                <li>• Linha do tempo do relacionamento</li>
+                            </ul>
+                        </div>
+
+                        <div class="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white rounded-lg p-6">
+                            <div class="text-center mb-4">
+                                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <i data-lucide="sparkles" class="h-8 w-8 text-green-600"></i>
+                                </div>
+                                <h3 class="text-burgundy-900 font-playfair font-semibold">Motivacional</h3>
+                            </div>
+                            <ul class="space-y-2 text-sm text-burgundy-700">
+                                <li>• Frases inspiradoras personalizadas</li>
+                                <li>• Metas e objetivos</li>
+                                <li>• Versículos bíblicos</li>
+                                <li>• Mantras pessoais</li>
+                                <li>• Conquistas e vitórias</li>
+                            </ul>
+                        </div>
+
+                        <div class="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white rounded-lg p-6">
+                            <div class="text-center mb-4">
+                                <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <i data-lucide="gift" class="h-8 w-8 text-purple-600"></i>
+                                </div>
+                                <h3 class="text-burgundy-900 font-playfair font-semibold">Datas Especiais</h3>
+                            </div>
+                            <ul class="space-y-2 text-sm text-burgundy-700">
+                                <li>• Aniversários únicos</li>
+                                <li>• Formaturas e conquistas</li>
+                                <li>• Aposentadoria</li>
+                                <li>• Nascimento de bebês</li>
+                                <li>• Bodas e aniversários de casamento</li>
+                            </ul>
+                        </div>
+
+                        <div class="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white rounded-lg p-6">
+                            <div class="text-center mb-4">
+                                <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <i data-lucide="coffee" class="h-8 w-8 text-orange-600"></i>
+                                </div>
+                                <h3 class="text-burgundy-900 font-playfair font-semibold">Profissional</h3>
+                            </div>
+                            <ul class="space-y-2 text-sm text-burgundy-700">
+                                <li>• Logo da empresa</li>
+                                <li>• Nome e cargo personalizado</li>
+                                <li>• Brindes corporativos</li>
+                                <li>• Eventos e convenções</li>
+                                <li>• Presentes para equipe</li>
+                            </ul>
+                        </div>
+
+                        <div class="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white rounded-lg p-6">
+                            <div class="text-center mb-4">
+                                <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <i data-lucide="palette" class="h-8 w-8 text-red-600"></i>
+                                </div>
+                                <h3 class="text-burgundy-900 font-playfair font-semibold">Arte Personalizada</h3>
+                            </div>
+                            <ul class="space-y-2 text-sm text-burgundy-700">
+                                <li>• Ilustrações exclusivas</li>
+                                <li>• Retratos artísticos</li>
+                                <li>• Pets e animais de estimação</li>
+                                <li>• Paisagens especiais</li>
+                                <li>• Arte abstrata personalizada</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-12">
+                        <p class="text-burgundy-700 mb-6">
+                            <strong>Não encontrou sua ideia aqui?</strong> Não se preocupe! Criamos qualquer tipo de personalização.
+                        </p>
+                        <button class="border border-burgundy-800 text-burgundy-800 hover:bg-burgundy-800 hover:text-beige-50 px-8 py-3 rounded-md font-medium">
+                            Falar Sobre Minha Ideia
                         </button>
-                        <button class="h-12 px-8 border border-beige-50 text-beige-50 hover:bg-beige-50 hover:text-burgundy-900 rounded-md font-medium">
-                            📱 Falar no WhatsApp
-                        </button>
                     </div>
-                    <div class="flex flex-wrap items-center justify-center gap-4 text-sm text-beige-200">
-                        <div class="flex items-center space-x-1">
-                            <i data-lucide="clock" class="h-4 w-4 text-green-400"></i>
-                            <span><strong>Entrega rápida</strong> em 3-5 dias</span>
+                </div>
+            </section>
+
+            <!-- Final CTA Section -->
+            <section class="w-full py-12 md:py-24 lg:py-32 bg-gradient-cta">
+                <div class="container mx-auto px-4 md:px-6">
+                    <div class="flex flex-col items-center justify-center space-y-4 text-center">
+                        <div class="space-y-2">
+                            <h2 class="text-3xl font-bold tracking-tight sm:text-5xl font-playfair text-beige-50">
+                                Não Deixe Esse Momento Passar...
+                            </h2>
+                            <p class="max-w-2xl text-beige-100 text-xl">
+                                <strong>A vida é feita de momentos únicos.</strong> Que tal transformar o próximo em uma lembrança
+                                eterna? Sua caneca personalizada está a apenas um clique de distância.
+                                <strong>Vamos criar magia juntos?</strong>
+                            </p>
                         </div>
-                        <div class="flex items-center space-x-1">
-                            <i data-lucide="heart" class="h-4 w-4 text-red-400"></i>
-                            <span><strong>Satisfação</strong> 100% garantida</span>
+                        <div class="flex flex-col gap-2 sm:flex-row">
+                            <button class="h-12 px-8 bg-beige-50 hover:bg-beige-100 text-burgundy-900 shadow-lg rounded-md font-medium flex items-center justify-center">
+                                ❤️ SIM! Quero Criar Minha Caneca Agora
+                                <i data-lucide="arrow-right" class="ml-2 h-4 w-4"></i>
+                            </button>
+                            <button class="h-12 px-8 border border-beige-50 text-beige-50 hover:bg-beige-50 hover:text-burgundy-900 rounded-md font-medium">
+                                📱 Falar no WhatsApp
+                            </button>
                         </div>
-                        <div class="flex items-center space-x-1">
-                            <i data-lucide="sparkles" class="h-4 w-4 text-yellow-400"></i>
-                            <span><strong>Atendimento</strong> humanizado</span>
+                        <div class="flex flex-wrap items-center justify-center gap-4 text-sm text-beige-200">
+                            <div class="flex items-center space-x-1">
+                                <i data-lucide="clock" class="h-4 w-4 text-green-400"></i>
+                                <span><strong>Entrega rápida</strong> em 3-5 dias</span>
+                            </div>
+                            <div class="flex items-center space-x-1">
+                                <i data-lucide="heart" class="h-4 w-4 text-red-400"></i>
+                                <span><strong>Satisfação</strong> 100% garantida</span>
+                            </div>
+                            <div class="flex items-center space-x-1">
+                                <i data-lucide="sparkles" class="h-4 w-4 text-yellow-400"></i>
+                                <span><strong>Atendimento</strong> humanizado</span>
+                            </div>
+                        </div>
+                        <p class="text-xs text-beige-300 max-w-md">
+                            ⚡ <strong>ATENÇÃO:</strong> Devido à alta demanda, estamos com prazo de entrega de 3-5 dias. Garante já
+                            a sua antes que o prazo aumente!
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer id="contato" class="w-full py-6 bg-burgundy-900">
+            <div class="container mx-auto px-4 md:px-6">
+                <div class="grid gap-8 lg:grid-cols-4">
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-2">
+                            <div class="flex items-center justify-center w-8 h-8 bg-beige-50 rounded-lg">
+                                <i data-lucide="coffee" class="h-5 w-5 text-burgundy-900"></i>
+                            </div>
+                            <span class="text-xl font-bold font-playfair text-beige-50">MugCraft</span>
+                        </div>
+                        <p class="text-sm text-beige-200">
+                            <strong>Transformamos momentos em lembranças eternas.</strong> Cada caneca é feita com amor, carinho e a
+                            dedicação de quem entende que os melhores presentes tocam o coração.
+                        </p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-beige-200 hover:text-beige-50">
+                                <i data-lucide="facebook" class="h-5 w-5"></i>
+                            </a>
+                            <a href="#" class="text-beige-200 hover:text-beige-50">
+                                <i data-lucide="instagram" class="h-5 w-5"></i>
+                            </a>
+                            <a href="#" class="text-beige-200 hover:text-beige-50">
+                                <i data-lucide="mail" class="h-5 w-5"></i>
+                            </a>
+                            <a href="#" class="text-beige-200 hover:text-beige-50">
+                                <i data-lucide="phone" class="h-5 w-5"></i>
+                            </a>
                         </div>
                     </div>
-                    <p class="text-xs text-beige-300 max-w-md">
-                        ⚡ <strong>ATENÇÃO:</strong> Devido à alta demanda, estamos com prazo de entrega de 3-5 dias. Garante já
-                        a sua antes que o prazo aumente!
-                    </p>
+                    <div class="space-y-4">
+                        <h4 class="text-sm font-semibold text-beige-50">Nossos Produtos</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="#" class="text-beige-200 hover:text-beige-50">Canecas para Mães</a></li>
+                            <li><a href="#" class="text-beige-200 hover:text-beige-50">Canecas Motivacionais</a></li>
+                            <li><a href="#" class="text-beige-200 hover:text-beige-50">Kits Família</a></li>
+                            <li><a href="#" class="text-beige-200 hover:text-beige-50">Brindes Corporativos</a></li>
+                        </ul>
+                    </div>
+                    <div class="space-y-4">
+                        <h4 class="text-sm font-semibold text-beige-50">Empresa</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="#" class="text-beige-200 hover:text-beige-50">Nossa História</a></li>
+                            <li><a href="#" class="text-beige-200 hover:text-beige-50">Como Funciona</a></li>
+                            <li><a href="#" class="text-beige-200 hover:text-beige-50">Galeria de Trabalhos</a></li>
+                            <li><a href="#" class="text-beige-200 hover:text-beige-50">Depoimentos</a></li>
+                        </ul>
+                    </div>
+                    <div class="space-y-4">
+                        <h4 class="text-sm font-semibold text-beige-50">Atendimento</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="#" class="text-beige-200 hover:text-beige-50">WhatsApp: (11) 99999-9999</a></li>
+                            <li><a href="#" class="text-beige-200 hover:text-beige-50">Política de Troca</a></li>
+                            <li><a href="#" class="text-beige-200 hover:text-beige-50">Rastreamento</a></li>
+                            <li><a href="#" class="text-beige-200 hover:text-beige-50">Dúvidas Frequentes</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-8 pt-8 border-t border-burgundy-700">
+                    <div class="flex flex-col sm:flex-row justify-between items-center">
+                        <p class="text-xs text-beige-200">© 2024 MugCraft. Feito com ❤️ para famílias que se amam.</p>
+                        <div class="flex space-x-4 mt-4 sm:mt-0">
+                            <a href="#" class="text-xs text-beige-200 hover:text-beige-50">Política de Privacidade</a>
+                            <a href="#" class="text-xs text-beige-200 hover:text-beige-50">Termos de Uso</a>
+                            <a href="#" class="text-xs text-beige-200 hover:text-beige-50">Cookies</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
-    </main>
+        </footer>
 
-    <!-- Footer -->
-    <footer id="contato" class="w-full py-6 bg-burgundy-900">
-        <div class="container mx-auto px-4 md:px-6">
-            <div class="grid gap-8 lg:grid-cols-4">
-                <div class="space-y-4">
-                    <div class="flex items-center space-x-2">
-                        <div class="flex items-center justify-center w-8 h-8 bg-beige-50 rounded-lg">
-                            <i data-lucide="coffee" class="h-5 w-5 text-burgundy-900"></i>
-                        </div>
-                        <span class="text-xl font-bold font-playfair text-beige-50">MugCraft</span>
-                    </div>
-                    <p class="text-sm text-beige-200">
-                        <strong>Transformamos momentos em lembranças eternas.</strong> Cada caneca é feita com amor, carinho e a
-                        dedicação de quem entende que os melhores presentes tocam o coração.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-beige-200 hover:text-beige-50">
-                            <i data-lucide="facebook" class="h-5 w-5"></i>
-                        </a>
-                        <a href="#" class="text-beige-200 hover:text-beige-50">
-                            <i data-lucide="instagram" class="h-5 w-5"></i>
-                        </a>
-                        <a href="#" class="text-beige-200 hover:text-beige-50">
-                            <i data-lucide="mail" class="h-5 w-5"></i>
-                        </a>
-                        <a href="#" class="text-beige-200 hover:text-beige-50">
-                            <i data-lucide="phone" class="h-5 w-5"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="space-y-4">
-                    <h4 class="text-sm font-semibold text-beige-50">Nossos Produtos</h4>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="#" class="text-beige-200 hover:text-beige-50">Canecas para Mães</a></li>
-                        <li><a href="#" class="text-beige-200 hover:text-beige-50">Canecas Motivacionais</a></li>
-                        <li><a href="#" class="text-beige-200 hover:text-beige-50">Kits Família</a></li>
-                        <li><a href="#" class="text-beige-200 hover:text-beige-50">Brindes Corporativos</a></li>
-                    </ul>
-                </div>
-                <div class="space-y-4">
-                    <h4 class="text-sm font-semibold text-beige-50">Empresa</h4>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="#" class="text-beige-200 hover:text-beige-50">Nossa História</a></li>
-                        <li><a href="#" class="text-beige-200 hover:text-beige-50">Como Funciona</a></li>
-                        <li><a href="#" class="text-beige-200 hover:text-beige-50">Galeria de Trabalhos</a></li>
-                        <li><a href="#" class="text-beige-200 hover:text-beige-50">Depoimentos</a></li>
-                    </ul>
-                </div>
-                <div class="space-y-4">
-                    <h4 class="text-sm font-semibold text-beige-50">Atendimento</h4>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="#" class="text-beige-200 hover:text-beige-50">WhatsApp: (11) 99999-9999</a></li>
-                        <li><a href="#" class="text-beige-200 hover:text-beige-50">Política de Troca</a></li>
-                        <li><a href="#" class="text-beige-200 hover:text-beige-50">Rastreamento</a></li>
-                        <li><a href="#" class="text-beige-200 hover:text-beige-50">Dúvidas Frequentes</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="mt-8 pt-8 border-t border-burgundy-700">
-                <div class="flex flex-col sm:flex-row justify-between items-center">
-                    <p class="text-xs text-beige-200">© 2024 MugCraft. Feito com ❤️ para famílias que se amam.</p>
-                    <div class="flex space-x-4 mt-4 sm:mt-0">
-                        <a href="#" class="text-xs text-beige-200 hover:text-beige-50">Política de Privacidade</a>
-                        <a href="#" class="text-xs text-beige-200 hover:text-beige-50">Termos de Uso</a>
-                        <a href="#" class="text-xs text-beige-200 hover:text-beige-50">Cookies</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+        <!-- JS -->
+        <script>
+            // Initialize Lucide icons
+            lucide.createIcons();
 
-    <!-- JS -->
-    <script>
-        // Initialize Lucide icons
-        lucide.createIcons();
+            // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
 
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('active');
+            });
 
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
-        });
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        // Close mobile menu if open
+                        mobileMenu.classList.remove('active');
+                    }
+                });
+            });
 
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    // Close mobile menu if open
-                    mobileMenu.classList.remove('active');
+            // Add scroll effect to header
+            window.addEventListener('scroll', () => {
+                const header = document.querySelector('header');
+                if (window.scrollY > 100) {
+                    header.style.backgroundColor = 'rgba(255, 252, 245, 0.98)';
+                } else {
+                    header.style.backgroundColor = 'rgba(255, 252, 245, 0.95)';
                 }
             });
-        });
 
-        // Add scroll effect to header
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.backgroundColor = 'rgba(255, 252, 245, 0.98)';
-            } else {
-                header.style.backgroundColor = 'rgba(255, 252, 245, 0.95)';
-            }
-        });
-
-        // Add hover effects to cards
-        document.querySelectorAll('.hover-scale').forEach(element => {
-            element.addEventListener('mouseenter', () => {
-                element.style.transform = 'scale(1.05)';
+            // Add hover effects to cards
+            document.querySelectorAll('.hover-scale').forEach(element => {
+                element.addEventListener('mouseenter', () => {
+                    element.style.transform = 'scale(1.05)';
+                });
+                element.addEventListener('mouseleave', () => {
+                    element.style.transform = 'scale(1)';
+                });
             });
-            element.addEventListener('mouseleave', () => {
-                element.style.transform = 'scale(1)';
-            });
-        });
-    </script>
-</body>
+        </script>
+    </body>
 </html>
