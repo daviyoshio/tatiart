@@ -2,22 +2,22 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MugCraft - Canecas Personalizadas</title>
+    <title th:text="${produto.titulo}">Título do Produto</title>
     <meta name="description" content="Crie canecas únicas e personalizadas para presentes, empresas e eventos especiais.">
-    
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" th:href="@{/css/style.css}">
-    
+
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <script src="main.js"></script>
-    
+
     <script src="tailwind.config.js"></script>
 </head>s
 <body class="font-sans bg-beige-50">
@@ -28,120 +28,94 @@
         <section class="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-gradient-hero">
             <div class="container mx-auto px-4 md:px-6">
                 <div class="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
+
+                    <!-- Coluna de Texto -->
                     <div class="flex flex-col justify-center space-y-6">
                         <div class="space-y-4">
-                            <h1 class="text-4xl font-bold tracking-tight sm:text-6xl xl:text-7xl font-playfair text-burgundy-900">
-                                Canecas que Contam
-                                <span class="block text-burgundy-700">Histórias Únicas</span>
-                            </h1>
-                            <p class="max-w-2xl text-burgundy-700 text-xl leading-relaxed">
-                                Transforme momentos especiais em lembranças eternas. Cada caneca é 100% personalizada e feita com
-                                amor para emocionar quem você ama.
-                            </p>
+                            <!-- Título principal dinâmico -->
+                            <h1 class="text-4xl font-bold tracking-tight sm:text-6xl xl:text-7xl font-playfair text-burgundy-900"
+                                th:text="${produto.titulo}">Título do Produto</h1>
+                            <!-- Subtítulo ou slogan dinâmico -->
+                            <span class="block text-burgundy-700"
+                                  th:text="${produto.descricao}">Descrição do produto aqui.</span>
                         </div>
+
+                        <!-- Botões: você pode deixar fixos ou também acionar rotas dinâmicas -->
                         <div class="flex flex-col gap-3 sm:flex-row">
-                            <button class="h-14 px-8 bg-burgundy-800 hover:bg-burgundy-900 text-beige-50 shadow-lg text-lg rounded-md font-medium flex items-center justify-center">
-                                💝 Criar Minha Caneca
+                            <a th:href="@{/produtos/{tipo}(tipo=${#strings.toLowerCase(produto.titulo)})}"
+                               class="h-14 px-8 bg-burgundy-800 hover:bg-burgundy-900 text-beige-50 shadow-lg text-lg rounded-md font-medium flex items-center justify-center">
+                                💝 Criar Agora
                                 <i data-lucide="arrow-right" class="ml-2 h-5 w-5"></i>
-                            </button>
-                            <button class="h-14 px-8 border border-burgundy-800 text-burgundy-800 hover:bg-burgundy-50 text-lg rounded-md font-medium">
+                            </a>
+                            <a th:href="@{/produtos}" 
+                               class="h-14 px-8 border border-burgundy-800 text-burgundy-800 hover:bg-burgundy-50 text-lg rounded-md font-medium">
                                 Ver Galeria
-                            </button>
+                            </a>
                         </div>
-                        <p class="text-sm text-burgundy-600">
+
+                        <!-- Texto de destaque dinâmico (ex.: número de clientes ou prazos variáveis) -->
+                        <p class="text-sm text-burgundy-600"
+                           th:utext="|✨ <strong>${produto.extraInfo}</strong> • Entrega em ${produto.prazo} dias • Satisfação garantida|">
                             ✨ <strong>Mais de 10.000 famílias emocionadas</strong> • Entrega em 3-5 dias • Satisfação garantida
                         </p>
                     </div>
+
+                    <!-- Coluna de Imagem -->
                     <div class="flex items-center justify-center">
-                        <img src="images\Produtos\Caneca\Caneca 2.jpg" 
-                             alt="Caneca personalizada" 
-                             class="mx-auto w-full h-[400px] md:h-[500px] lg:h-[600px] xl:h-[700px] max-w-xl lg:max-w-2xl xl:max-w-3xl overflow-hidden rounded-xl object-cover shadow-custom">
+                        <img th:src="@{${produto.imagens[0]}}"
+                             th:alt="${produto.titulo} + ' – imagem principal'"
+                             class="mx-auto w-full h-[400px] md:h-[500px] lg:h-[600px] xl:h-[700px] max-w-xl lg:max-w-2xl xl:max-w-3xl overflow-hidden rounded-xl object-cover shadow-custom" />
                     </div>
+
                 </div>
             </div>
         </section>
-
         <!-- Galeria de Produtos -->
         <section id="galeria" class="w-full py-12 md:py-24 lg:py-32 bg-white">
             <div class="container mx-auto px-4 md:px-6">
                 <div class="flex flex-col items-center justify-center space-y-4 text-center mb-12">
                     <span class="bg-burgundy-100 text-burgundy-800 px-3 py-1 rounded-full text-sm font-medium">
-                        ✨ Nossos Trabalhos
+                        📸 Galeria
                     </span>
                     <h2 class="text-3xl font-bold tracking-tight sm:text-5xl font-playfair text-burgundy-900">
-                        Cada Caneca é uma Obra de Arte
+                        Imagens de <span th:text="${produto.titulo}">Produto</span>
                     </h2>
                     <p class="max-w-4xl text-burgundy-700 text-xl">
-                        Veja como transformamos ideias simples em presentes que <strong>emocionam de verdade</strong>. Cada
-                        detalhe é pensado para tocar o coração de quem recebe.
+                        Veja cada detalhe deste produto em alta resolução. Clique para ampliar.
                     </p>
                 </div>
 
-                <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mb-12">
-                    <div class="space-y-4">
-                        <img src="images\Produtos\Caneca\Caneca 1.jpg" 
-                             alt="Caneca para mães" 
-                             class="w-full h-80 mx-auto object-cover rounded-lg shadow-lg hover-scale">
+                <!-- Grid para até 6 imagens (se houver menos, exibe somente as existentes) -->
+                <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mb-12"
+                     th:with="imgs=${produto.imagens}"
+                     th:each="idx : ${#numbers.sequence(0,5)}">
+                    <!-- Se existir imagem naquele índice -->
+                    <div th:if="${imgs != null and idx < imgs.size()}" class="space-y-4">
+                        <a th:href="@{${imgs[idx]}}" target="_blank">
+                            <img th:src="@{${imgs[idx]}}"
+                                 th:alt="${produto.titulo + ' - imagem ' + (idx+1)}"
+                                 class="w-full h-80 mx-auto object-cover rounded-lg shadow-lg hover-scale" />
+                        </a>
                         <div class="text-center">
-                            <h3 class="font-semibold text-burgundy-900">Para Mães Guerreiras</h3>
-                            <p class="text-sm text-burgundy-600">Designs que celebram a maternidade muito amor</p>
+                            <!-- Aqui mostramos o título do produto (ou poderia ser uma legenda específica) -->
+                            <h3 class="font-semibold text-burgundy-900"
+                                th:text="${produto.titulo}">
+                                Nome do Produto
+                            </h3>
+                            <!-- Se quiser, exiba também a descrição ou algum atributo fixo abaixo de cada imagem -->
+                            <p class="text-sm text-burgundy-600"
+                               th:text="${produto.atributos != null && produto.atributos.size() > idx ? produto.atributos[idx] : produto.descricao}">
+                                Descrição ou Atributo
+                            </p>
                         </div>
                     </div>
 
-                    <div class="space-y-4">
-                        <img src="images\Produtos\Caneca\Caneca 2.jpg" 
-                             alt="Caneca com frases engraçadas" 
-                             class="w-full h-80 mx-auto object-cover rounded-lg shadow-lg hover-scale">
-                        <div class="text-center">
-                            <h3 class="font-semibold text-burgundy-900">Frases que Arrancam Risadas</h3>
-                            <p class="text-sm text-burgundy-600">Porque toda mãe merece rir das próprias frases</p>
-                        </div>
-                    </div>
-
-                    <div class="space-y-4">
-                        <img src="images\Produtos\Caneca\Caneca 3.jpg" 
-                             alt="Kit presente elegante" 
-                             class="w-full h-80 mx-auto object-cover rounded-lg shadow-lg hover-scale">
-                        <div class="text-center">
-                            <h3 class="font-semibold text-burgundy-900">Kit Presente Luxuoso</h3>
-                            <p class="text-sm text-burgundy-600">Kit completo lindo de canecas com o design que você escolher</p>
-                        </div>
-                    </div>
-
-                    <div class="space-y-4">
-                        <img src="images\Produtos\Caneca\Caneca Frase Choro.png" 
-                             alt="Kit presente elegante" 
-                             class="w-full h-80 mx-auto object-cover rounded-lg shadow-lg hover-scale">
-                        <div class="text-center">
-                            <h3 class="font-semibold text-burgundy-900">Mensagens que Inspiram</h3>
-                            <p class="text-sm text-burgundy-600">Para começar cada dia com esperança e força</p>
-                        </div>
-                    </div>
-
-                    <div class="space-y-4">
-                        <img src="images\Produtos\Caneca\Caneca Heineken Danilo.png" 
-                             alt="Caneca de Chopp Personalizada" 
-                             class="w-full h-80 mx-auto object-cover rounded-lg shadow-lg hover-scale">
-                        <div class="text-center">
-                            <h3 class="font-semibold text-burgundy-900">Suas Sextas Mais Especiais</h3>
-                            <p class="text-sm text-burgundy-600">Aquela caneca personalizada que vai fazer seu happy hour único! Seu nome, seu momento!</p>
-                        </div>
-                    </div>
-
-                    <div class="space-y-4">
-                        <img src="images\Produtos\Caneca\caneca com colher pet.jpeg" 
-                             alt="Caneca Personalizada com Fotos do Pet" 
-                             class="w-full h-80 mx-auto object-cover rounded-lg shadow-lg hover-scale">
-                        <div class="text-center">
-                            <h3 class="font-semibold text-burgundy-900">Amor de Pet em Cada Gole</h3>
-                            <p class="text-sm text-burgundy-600">Eternize momentos especiais com seu melhor amigo. Colher exclusiva para deixar seu café ainda mais doce!</p>
-                        </div>
-                    </div>
-
+                    <!-- Se não existir imagem naquele índice, apenas pular (gera espaços vazios, mas sem tags img) -->
+                    <div th:if="${imgs == null or idx >= imgs.size()}" class=""></div>
                 </div>
             </div>
         </section>
-
+//parei aqui
         <!-- Features Section -->
         <section class="w-full py-12 md:py-24 lg:py-32 bg-beige-50">
             <div class="container mx-auto px-4 md:px-6">

@@ -16,30 +16,30 @@ public class ProdutoController {
         List<ProdutoView> produtos = new ArrayList<>();
 
         produtos.add(new ProdutoView(
-            "Canecas Personalizadas",
-            "Canecas feitas sob medida com seu nome ou frase favorita.",
-            new String[]{"Durável", "Criativa"},
-            new String[]{"/images/canecas/caneca1.png"},
-            new String[]{"Cerâmica de alta qualidade"},
-            "/images/canecas-icon.png"
+                "Canecas Personalizadas",
+                "Canecas feitas sob medida com seu nome ou frase favorita.",
+                new String[]{"Durável", "Criativa"},
+                new String[]{"/images/canecas/caneca1.png"},
+                new String[]{"Cerâmica de alta qualidade"},
+                "/images/canecas-icon.png"
         ));
 
         produtos.add(new ProdutoView(
-            "Necessaires",
-            "Compactas, estilosas e funcionais para o dia a dia.",
-            new String[]{"Tecido resistente", "Estampas exclusivas"},
-            new String[]{"/images/necessaires/necessaire1.png"},
-            new String[]{"Feita à mão"},
-            "/images/necessaires-icon.png"
+                "Necessaires",
+                "Compactas, estilosas e funcionais para o dia a dia.",
+                new String[]{"Tecido resistente", "Estampas exclusivas"},
+                new String[]{"/images/necessaires/necessaire1.png"},
+                new String[]{"Feita à mão"},
+                "/images/necessaires-icon.png"
         ));
 
         produtos.add(new ProdutoView(
-            "Bolsas",
-            "Bolsas artesanais que unem beleza e utilidade.",
-            new String[]{"Design exclusivo", "Feita à mão"},
-            new String[]{"/images/bolsas/bolsa1.png"},
-            new String[]{"Material sustentável"},
-            "/images/bolsas-icon.png"
+                "Bolsas",
+                "Bolsas artesanais que unem beleza e utilidade.",
+                new String[]{"Design exclusivo", "Feita à mão"},
+                new String[]{"/images/bolsas/bolsa1.png"},
+                new String[]{"Material sustentável"},
+                "/images/bolsas-icon.png"
         ));
 
         model.addAttribute("produtos", produtos);
@@ -61,12 +61,22 @@ public class ProdutoController {
             produto.setImagens(new String[]{
                 "/images/canecas/caneca1.png",
                 "/images/canecas/caneca2.png",
-                "/images/canecas/caneca3.png"
+                "/images/canecas/caneca3.png",
+                "/images/canecas/caneca4.png",
+                "/images/canecas/caneca5.png",
+                "/images/canecas/caneca6.png"
             });
+
+            // --- (Opcional) AQUI você popula legendas/atributos, paralelamente --- 
             produto.setAtributos(new String[]{
-                "Feita com cerâmica premium",
-                "Estampa resistente a micro-ondas e lava-louças"
+                "Imagem 1: vista frontal",
+                "Imagem 2: detalhe da alça",
+                "Imagem 3: vista lateral",
+                "Imagem 4: fundo personalizado",
+                "Imagem 5: close na estampa",
+                "Imagem 6: embalagem"
             });
+
             produto.setBanner("/images/canecas-icon.png");
 
         } else if (tipo.equalsIgnoreCase("necessaires")) {
@@ -106,7 +116,7 @@ public class ProdutoController {
                 "Feita com tecidos resistentes e ecológicos"
             });
             produto.setBanner("/images/bolsas-icon.png");
-            
+
         } else if (tipo.equalsIgnoreCase("mochilas")) {
             produto.setTitulo("Mochilas Personalizadas");
             produto.setDescricao("Funcionalidade e estilo para o dia a dia...");
