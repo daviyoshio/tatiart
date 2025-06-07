@@ -147,7 +147,7 @@
                             </p>
                         </div>
                         <div class="flex items-center justify-center">
-                            <img src="images\Produtos\Caneca\Caneca 2.jpg" 
+                            <img src="images/Produtos/Caneca/Caneca 2.jpg" 
                                  alt="Caneca personalizada" 
                                  class="mx-auto w-full h-[400px] md:h-[500px] lg:h-[600px] xl:h-[700px] max-w-xl lg:max-w-2xl xl:max-w-3xl overflow-hidden rounded-xl object-cover shadow-custom">
                         </div>
@@ -178,7 +178,7 @@
                         <div th:each="img, iter : ${produto.imagens}" class="space-y-4">
                             <img th:src="@{${img}}"
                                  th:alt="${produto.atributos[iter.index]}"
-                                 class="w-full h-80 mx-auto object-cover rounded-lg shadow-lg hover-scale"/>
+                                 class="w-full h-80 mx-auto object-cover rounded-lg shadow-lg hover-scale">
 
                             <div class="text-center">
                                 <h3 class="font-semibold text-burgundy-900"
