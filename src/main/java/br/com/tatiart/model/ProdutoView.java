@@ -10,9 +10,10 @@ public class ProdutoView {
     private String[] imagens;
     private String[] atributos;
     private String banner;
+    private String categoria;
 
     private List<Feature> features;
-    
+
     // → Novo campo extraInfo
     private String extraInfo;
 
@@ -83,8 +84,7 @@ public class ProdutoView {
     public void setFeatures(List<Feature> features) {
         this.features = features;
     }
-    
-    
+
     public String getExtraInfo() {
         return extraInfo;
     }
@@ -92,4 +92,13 @@ public class ProdutoView {
     public void setExtraInfo(String extraInfo) {
         this.extraInfo = extraInfo;
     }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
 }

@@ -68,6 +68,7 @@ public class ProdutoController {
 
         if (tipo.equalsIgnoreCase("canecas")) {
             produto.setTitulo("Canecas Personalizadas");
+            produto.setCategoria("canecas");
             produto.setDescricao("Nossas canecas personalizadas combinam praticidade e originalidade...");
             produto.setBeneficios(new String[]{
                 "Cerâmica resistente de alta qualidade",
@@ -175,6 +176,7 @@ public class ProdutoController {
 
         } else if (tipo.equalsIgnoreCase("necessaires")) {
             produto.setTitulo("Necessaires Personalizadas");
+            produto.setCategoria("necessaires");
             produto.setDescricao("Nossas necessaires são práticas, duráveis e com estilo único.");
             produto.setBeneficios(new String[]{
                 "Tecido reforçado com zíper resistente",
@@ -241,6 +243,7 @@ public class ProdutoController {
 
         } else if (tipo.equalsIgnoreCase("bolsas")) {
             produto.setTitulo("Bolsas da Tatiart");
+            produto.setCategoria("bolsas");
             produto.setDescricao("Estilo, utilidade e personalização em cada detalhe.");
             produto.setBeneficios(new String[]{
                 "Alças reforçadas",
@@ -308,6 +311,7 @@ public class ProdutoController {
 
         } else if (tipo.equalsIgnoreCase("mochilas")) {
             produto.setTitulo("Mochilas Personalizadas");
+            produto.setCategoria("mochilas");
             produto.setDescricao("Funcionalidade e estilo para o dia a dia...");
             produto.setBeneficios(new String[]{
                 "Vários tamanhos e modelos",
@@ -363,6 +367,7 @@ public class ProdutoController {
 
         } else if (tipo.equalsIgnoreCase("estojo") || tipo.equalsIgnoreCase("estojos")) {
             produto.setTitulo("Estojo Escolar");
+            produto.setCategoria("estojo");
             produto.setDescricao("Estojos personalizados para estudantes de todas as idades.");
             produto.setBeneficios(new String[]{
                 "Compartimentos práticos",
@@ -423,6 +428,7 @@ public class ProdutoController {
 
         } else if (tipo.equalsIgnoreCase("linha baby") || tipo.equalsIgnoreCase("linhababy")) {
             produto.setTitulo("Linha Baby");
+            produto.setCategoria("linha baby");
             produto.setDescricao("Peças exclusivas para os primeiros meses do bebê.");
             produto.setBeneficios(new String[]{
                 "Tecidos ultra suaves",
