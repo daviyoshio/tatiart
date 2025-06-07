@@ -1,193 +1,239 @@
+
+Gemini
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
+
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title th:text="${produto.titulo}">Título do Produto</title>
+        <title>MugCraft - Canecas Personalizadas</title>
         <meta name="description" content="Crie canecas únicas e personalizadas para presentes, empresas e eventos especiais.">
 
         <!-- Tailwind CSS -->
         <script src="https://cdn.tailwindcss.com"></script>
 
         <!-- Google Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-        <link rel="stylesheet" href="/styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet">
 
         <!-- Lucide Icons -->
         <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-        <script>
-            tailwind.config = {
-                theme: {
-                    extend: {
-                        colors: {
-                            burgundy: {
-                                50: "#FCF4F4",
-                                100: "#F9E9E9",
-                                200: "#F3D3D3",
-                                300: "#EDBDBD",
-                                400: "#E7A7A7",
-                                500: "#E19191",
-                                600: "#DB7B7B",
-                                700: "#D56565",
-                                800: "#6D1F2F", // Main color for headings - troquei
-                                900: "#6C1919"
-                            },
-                            beige: {
-                                50: "#FFFCF5",
-                                100: "#FFF9EB",
-                                200: "#FFF3D6",
-                                300: "#FFEEC2",
-                                400: "#FFE8AD",
-                                500: "#FFE399",
-                                600: "#FFDD84",
-                                700: "#FFD870",
-                                800: "#F5F2EA", // Background color - troquei
-                                900: "#DCC9A6"
-                            }
-                        },
-                        fontFamily: {
-                            'playfair': ['"Playfair Display"', 'serif'],
-                            'sans': ['Inter', 'sans-serif'],
-                        },
-                    }
-                }
-            }
-        </script>
+        <script src="main.js"></script>
 
         <script src="tailwind.config.js"></script>
+
+        <style>
+            .shadow-custom {
+                box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            }
+
+            .bg-gradient-hero {
+                background: linear-gradient(135deg, #FFFCF5 0%, #FFF9EB 100%);
+            }
+
+            .bg-gradient-cta {
+                background: linear-gradient(135deg, #6D1F2F 0%, #6C1919 100%);
+            }
+
+            .hover-scale {
+                transition: transform 0.3s ease;
+            }
+
+            .hover-scale:hover {
+                transform: scale(1.05);
+            }
+
+            .mobile-menu {
+                display: none;
+            }
+
+            .mobile-menu.active {
+                display: block;
+            }
+
+            @media (max-width: 768px) {
+                .desktop-nav {
+                    display: none;
+                }
+            }
+
+            /* Testimonials alternating layout for mobile */
+            @media (max-width: 767px) {
+                .testimonial-card {
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                .testimonial-card:nth-child(even) .testimonial-text {
+                    order: 1;
+                }
+
+                .testimonial-card:nth-child(even) .testimonial-image {
+                    order: 2;
+                }
+
+                .testimonial-card:nth-child(odd) .testimonial-text {
+                    order: 2;
+                }
+
+                .testimonial-card:nth-child(odd) .testimonial-image {
+                    order: 1;
+                }
+            }
+        </style>
     </head>
     <body class="font-sans bg-beige-50">
         <!-- Header -->
-        <div th:replace="~{fragments/navbar :: navbar}"></div>
+        <header class="sticky top-0 z-50 w-full border-b border-beige-200 bg-beige-50/95 backdrop-blur">
+            <div class="container mx-auto flex h-16 items-center justify-between px-4">
+                <div class="flex items-center space-x-2">
+                    <div class="flex items-center justify-center w-8 h-8 bg-burgundy-800 rounded-lg">
+                        <i data-lucide="coffee" class="h-5 w-5 text-beige-50"></i>
+                    </div>
+                    <span class="text-xl font-bold font-playfair text-burgundy-900">MugCraft</span>
+                </div>
+
+                <nav class="desktop-nav hidden md:flex items-center space-x-6">
+                    <a href="#galeria" class="text-sm font-medium text-burgundy-800 hover:text-burgundy-900 transition-colors">
+                        Galeria
+                    </a>
+                    <a href="#depoimentos" class="text-sm font-medium text-burgundy-800 hover:text-burgundy-900 transition-colors">
+                        Depoimentos
+                    </a>
+                    <a href="#precos" class="text-sm font-medium text-burgundy-800 hover:text-burgundy-900 transition-colors">
+                        Preços
+                    </a>
+                    <a href="#contato" class="text-sm font-medium text-burgundy-800 hover:text-burgundy-900 transition-colors">
+                        Contato
+                    </a>
+                </nav>
+
+                <div class="flex items-center space-x-4">
+                    <button class="hidden md:inline-flex text-sm font-medium text-burgundy-800 hover:text-burgundy-900 px-3 py-2">
+                        Entrar
+                    </button>
+                    <button class="bg-burgundy-800 hover:bg-burgundy-900 text-beige-50 px-4 py-2 rounded-md text-sm font-medium">
+                        Quero Minha Caneca
+                    </button>
+                    <button id="mobile-menu-btn" class="md:hidden p-2">
+                        <i data-lucide="menu" class="h-4 w-4"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="mobile-menu md:hidden bg-beige-50 border-t border-beige-200">
+                <nav class="container mx-auto px-4 py-4 space-y-2">
+                    <a href="#galeria" class="block text-sm font-medium text-burgundy-800 hover:text-burgundy-900 py-2">Galeria</a>
+                    <a href="#depoimentos" class="block text-sm font-medium text-burgundy-800 hover:text-burgundy-900 py-2">Depoimentos</a>
+                    <a href="#precos" class="block text-sm font-medium text-burgundy-800 hover:text-burgundy-900 py-2">Preços</a>
+                    <a href="#contato" class="block text-sm font-medium text-burgundy-800 hover:text-burgundy-900 py-2">Contato</a>
+                </nav>
+            </div>
+        </header>
+
         <main>
             <!-- Hero Section -->
             <section class="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-gradient-hero">
                 <div class="container mx-auto px-4 md:px-6">
                     <div class="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
-
-                        <!-- Coluna de Texto -->
                         <div class="flex flex-col justify-center space-y-6">
                             <div class="space-y-4">
-                                <!-- Título principal dinâmico -->
-                                <h1 class="text-4xl font-bold tracking-tight sm:text-6xl xl:text-7xl font-playfair text-burgundy-900"
-                                    th:text="${produto.titulo}">Título do Produto</h1>
-                                <!-- Subtítulo ou slogan dinâmico -->
-                                <span class="block text-burgundy-700"
-                                      th:text="${produto.descricao}">Descrição do produto aqui.</span>
+                                <h1 class="text-4xl font-bold tracking-tight sm:text-6xl xl:text-7xl font-playfair text-burgundy-900" th:text="${produto.titulo}">Título</h1>
+                                <p class="max-w-2xl text-burgundy-700 text-xl leading-relaxed" th:text="${produto.descricao}">Descrição</p>
                             </div>
-
-                            <!-- Botões: você pode deixar fixos ou também acionar rotas dinâmicas -->
                             <div class="flex flex-col gap-3 sm:flex-row">
-                                <a th:href="@{/produtos/{tipo}(tipo=${#strings.toLowerCase(produto.titulo)})}"
-                                   class="h-14 px-8 bg-burgundy-800 hover:bg-burgundy-900 text-beige-50 shadow-lg text-lg rounded-md font-medium flex items-center justify-center">
-                                    💝 Criar Agora
+                                <button class="h-14 px-8 bg-burgundy-800 hover:bg-burgundy-900 text-beige-50 shadow-lg text-lg rounded-md font-medium flex items-center justify-center">
+                                    💝 Criar Minha Caneca
                                     <i data-lucide="arrow-right" class="ml-2 h-5 w-5"></i>
-                                </a>
-                                <a th:href="@{/produtos}" 
-                                   class="h-14 px-8 border border-burgundy-800 text-burgundy-800 hover:bg-burgundy-50 text-lg rounded-md font-medium">
+                                </button>
+                                <button class="h-14 px-8 border border-burgundy-800 text-burgundy-800 hover:bg-burgundy-50 text-lg rounded-md font-medium">
                                     Ver Galeria
-                                </a>
+                                </button>
                             </div>
+                            <p class="text-sm text-burgundy-600">
+                                ✨ <strong>Mais de 10.000 famílias emocionadas</strong> • Entrega em 3-5 dias • Satisfação garantida
+                            </p>
                         </div>
-
-                        <!-- Coluna de Imagem -->
                         <div class="flex items-center justify-center">
-                            <img th:src="@{${produto.imagens[0]}}"
-                                 th:alt="${produto.titulo} + ' – imagem principal'"
-                                 class="mx-auto w-full h-[400px] md:h-[500px] lg:h-[600px] xl:h-[700px] max-w-xl lg:max-w-2xl xl:max-w-3xl overflow-hidden rounded-xl object-cover shadow-custom" />
+                            <img src="images\Produtos\Caneca\Caneca 2.jpg" 
+                                 alt="Caneca personalizada" 
+                                 class="mx-auto w-full h-[400px] md:h-[500px] lg:h-[600px] xl:h-[700px] max-w-xl lg:max-w-2xl xl:max-w-3xl overflow-hidden rounded-xl object-cover shadow-custom">
                         </div>
-
                     </div>
                 </div>
             </section>
+
             <!-- Galeria de Produtos -->
             <section id="galeria" class="w-full py-12 md:py-24 lg:py-32 bg-white">
                 <div class="container mx-auto px-4 md:px-6">
+
+                    <!-- Cabeçalho da seção -->
                     <div class="flex flex-col items-center justify-center space-y-4 text-center mb-12">
                         <span class="bg-burgundy-100 text-burgundy-800 px-3 py-1 rounded-full text-sm font-medium">
-                            📸 Galeria
+                            ✨ Nossos Trabalhos
                         </span>
-                        <h2 class="text-3xl font-bold tracking-tight sm:text-5xl font-playfair text-burgundy-900">
-                            Imagens de <span th:text="${produto.titulo}">Produto</span>
-                        </h2>
-                        <p class="max-w-4xl text-burgundy-700 text-xl">
-                            Veja cada detalhe deste produto em alta resolução. Clique para ampliar.
+
+                        <h2 class="text-3xl font-bold tracking-tight sm:text-5xl font-playfair text-burgundy-900"
+                            th:text="${produto.titulo}">Título do Produto</h2>
+
+                        <p class="max-w-4xl text-burgundy-700 text-xl" th:text="${produto.descricao}">
+                            Descrição do produto aqui...
                         </p>
                     </div>
 
-                    <!-- Grid para até 6 imagens (se houver menos, exibe somente as existentes) -->
-                    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mb-12"
-                         th:with="imgs=${produto.imagens}"
-                         th:each="idx : ${#numbers.sequence(0,5)}">
+                    <!-- Galeria dinamizada -->
+                    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mb-12">
+                        <div th:each="img, iter : ${produto.imagens}" class="space-y-4">
+                            <img th:src="@{${img}}"
+                                 th:alt="${produto.atributos[iter.index]}"
+                                 class="w-full h-80 mx-auto object-cover rounded-lg shadow-lg hover-scale"/>
 
-                        <!-- Correto para array: .length, sem parênteses e com ortografia certa -->
-                        <div th:if="${imgs != null and idx < imgs.length}" class="space-y-4">
-                            <a th:href="@{${imgs[idx]}}" target="_blank">
-                                <img th:src="@{${imgs[idx]}}"
-                                     th:alt="${produto.titulo + ' - imagem ' + (idx+1)}"
-                                     class="w-full h-80 mx-auto object-cover rounded-lg shadow-lg hover-scale" />
-                            </a>
                             <div class="text-center">
                                 <h3 class="font-semibold text-burgundy-900"
-                                    th:text="${produto.titulo}">
-                                    Nome do Produto
-                                </h3>
-                                <p class="text-sm text-burgundy-600"
-                                   th:text="${produto.atributos != null && produto.atributos.length > idx 
-                                   ? produto.atributos[idx] 
-                                   : produto.descricao}">
-                                    Descrição ou Atributo
+                                    th:text="${produto.atributos[iter.index]}">Legenda da imagem</h3>
+                                <p class="text-sm text-burgundy-600">
+                                    <span th:if="${produto.beneficios != null && produto.beneficios.length > iter.index}"
+                                          th:text="${produto.beneficios[iter.index]}">
+                                        Benefício referente à imagem
+                                    </span>
                                 </p>
                             </div>
                         </div>
-
-                        <!-- Aqui também deve usar imgs.length, não size() nem length() -->
-                        <div th:if="${imgs == null or idx >= imgs.length}" class=""></div>
                     </div>
-
                 </div>
             </section>
             <!-- Features Section -->
-            <section class="w-full py-12 md:py-24 lg:py-32 bg-beige-50">
+            <section id="features" class="w-full py-12 md:py-24 lg:py-32 bg-white">
                 <div class="container mx-auto px-4 md:px-6">
-                    <div class="flex flex-col items-center justify-center space-y-4 text-center">
-                        <div class="space-y-2">
-                            <span class="bg-burgundy-100 text-burgundy-800 px-3 py-1 rounded-full text-sm font-medium">
-                                💎 Por que Escolher a MugCraft
-                            </span>
-                            <h2 class="text-3xl font-bold tracking-tight sm:text-5xl font-playfair text-burgundy-900"
-                                th:text="${produto.titulo}">Título do Produto</h2>
-                            <p class="max-w-4xl text-burgundy-700 text-xl" th:text="${produto.descricao}">
-                                Descrição do produto aqui
-                            </p>
-                        </div>
+                    <div class="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+                        <span class="bg-burgundy-100 text-burgundy-800 px-3 py-1 rounded-full text-sm font-medium">
+                            💎 Por que Escolher
+                        </span>
+                        <h2 class="text-3xl font-bold tracking-tight sm:text-5xl font-playfair text-burgundy-900">
+                            Não é só um produto, é uma experiência
+                        </h2>
+                        <p class="max-w-3xl text-burgundy-700 text-xl">
+                            Descubra o que torna nossas <span th:text="${produto.titulo}">canecas</span> tão especiais:
+                        </p>
                     </div>
 
-                    <div class="mx-auto grid max-w-5xl items-center gap-6 py-12 
-                         lg:grid-cols-2 lg:gap-12"
-                         th:if="${produto.features != null}">
-                        <div class="grid gap-6"
-                             th:each="feature, iterStat : ${produto.features}"
-                             th:classappend="${iterStat.index % 2 == 1} ? ' lg:col-start-2' : ''">
-                            <div class="border border-beige-200 bg-white shadow-lg rounded-lg p-6">
-                                <div class="flex items-center space-x-2 mb-4">
-                                    <div class="flex items-center justify-center w-10 h-10 bg-burgundy-100 rounded-lg">
-                                        <i th:attr="data-lucide=${feature.icon}" class="h-5 w-5 text-burgundy-800"></i>
-                                    </div>
-                                    <h3 class="text-lg font-semibold text-burgundy-900"
-                                        th:text="${feature.title}">
-                                        Título da Feature
-                                    </h3>
+                    <div class="grid lg:grid-cols-2 gap-6 max-w-5xl mx-auto">
+                        <div th:each="f : ${produto.features}" class="border border-beige-200 bg-white shadow-lg rounded-lg p-6">
+                            <div class="flex items-center space-x-2 mb-4">
+                                <div class="flex items-center justify-center w-10 h-10 bg-burgundy-100 rounded-lg">
+                                    <i th:attr="data-lucide=${f.icone}" class="h-5 w-5 text-burgundy-800"></i>
                                 </div>
-                                <p class="text-burgundy-700" th:text="${feature.description}">
-                                    Descrição da feature aqui
-                                </p>
+                                <h3 class="text-lg font-semibold text-burgundy-900" th:text="${f.titulo}">Título da Feature</h3>
                             </div>
+                            <p class="text-burgundy-700" th:text="${f.descricao}">Descrição da Feature</p>
                         </div>
                     </div>
                 </div>
             </section>
+
+
             <!-- Real Testimonials Gallery -->
             <section id="depoimentos" class="w-full py-12 md:py-24 lg:py-32 bg-white">
                 <div class="container mx-auto px-4 md:px-6">
@@ -200,76 +246,41 @@
                                 Clientes Apaixonadas Compartilham
                             </h2>
                             <p class="max-w-2xl mx-auto text-burgundy-700 text-xl">
-                                Veja as fotos e mensagens reais que recebemos todos os dias. Cada sorriso é uma história de amor realizada.
+                                Veja as fotos e mensagens reais que recebemos todos os dias. Cada sorriso é uma história de amor
+                                realizada.
                             </p>
                         </div>
                     </div>
 
-                    <!-- Percorre cada depoimento vindo do controller (model.addAttribute("depoimentos", ...)) -->
-                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 py-12" th:each="depo : ${depoimentos}">
-
-                        <div class="bg-white rounded-2xl shadow-lg overflow-hidden testimonial-card">
-
-                            <!-- Se existir um “subtítulo” (por exemplo, horário ou “Stories”), usa este bloco -->
-                            <div th:if="${depo.subtitulo} != null"
-                                 class="testimonial-text p-4"
-                                 th:classappend="
-                                 depo.bgColor != null ?
-                                 ' ' + depo.bgColor + ' border-l-4 ' + depo.borderColor + ' order-2 md:order-1'
-                                 : ' bg-white order-2 md:order-1'">
-
-                                <div class="flex items-center space-x-2 mb-2">
-                                    <div th:class="'w-8 h-8 rounded-full flex items-center justify-center ' + 
-                                         (depo.borderColor.contains('green')    ? 'bg-green-500'    :
-                                         depo.borderColor.contains('pink')     ? 'bg-pink-500'     :
-                                         depo.borderColor.contains('burgundy') ? 'bg-burgundy-500' :
-                                         depo.borderColor.contains('blue')     ? 'bg-blue-500'     :
-                                         'bg-gray-200')">
-                                        <span class="text-white text-xs font-bold" th:text="${depo.inicial}">I</span>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 py-12">
+                        <div th:each="d : ${produto.depoimentos}" class="bg-white rounded-2xl shadow-lg overflow-hidden testimonial-card">
+                            <div th:if="${d.imagem != null}" class="testimonial-image relative order-1 md:order-2">
+                                <img th:src="@{${d.imagem}}" alt="Imagem do depoimento" class="w-full h-48 object-cover">
+                                <div th:if="${d.contexto == 'Vídeo'}" class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
+                                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
+                                        <div class="w-0 h-0 border-l-4 border-l-burgundy-800 border-t-2 border-t-transparent border-b-2 border-b-transparent ml-1"></div>
                                     </div>
-                                    <span class="text-sm font-medium text-gray-700" th:text="${depo.nome}">Nome</span>
-                                    <span class="text-xs text-gray-500" th:text="${depo.subtitulo}">Subtítulo</span>
-                                </div>
-
-                                <p class="text-sm text-gray-700 italic" th:text="${depo.texto}">
-                                    “Texto do depoimento”
-                                </p>
-                            </div>
-
-                            <!-- Se NÃO houver um subtítulo (por ex. só mostra nome + texto + estrelas) -->
-                            <div th:if="${depo.subtitulo} == null"
-                                 class="testimonial-text p-4 bg-white order-2 md:order-1">
-
-                                <div class="flex items-center space-x-2 mb-2">
-                                    <div th:class="'w-8 h-8 rounded-full flex items-center justify-center ' + 
-                                         (depo.borderColor.contains('green')    ? 'bg-green-500'    :
-                                         depo.borderColor.contains('pink')     ? 'bg-pink-500'     :
-                                         depo.borderColor.contains('burgundy') ? 'bg-burgundy-500' :
-                                         depo.borderColor.contains('blue')     ? 'bg-blue-500'     :
-                                         'bg-gray-200')">
-                                        <span class="text-white text-xs font-bold" th:text="${depo.inicial}">I</span>
-                                    </div>
-                                    <span class="text-sm font-medium text-gray-700" th:text="${depo.nome}">Nome</span>
-                                </div>
-
-                                <p class="text-sm text-gray-700 italic" th:text="${depo.texto}">
-                                    “Texto do depoimento”
-                                </p>
-
-                                <!-- Exibe estrelas só se existir valor em depo.estrelas -->
-                                <div th:if="${depo.estrelas} != null" class="flex items-center space-x-1 mt-2">
-                                    <span class="text-yellow-400" th:each="star : ${#numbers.sequence(1, depo.estrelas)}">★</span>
                                 </div>
                             </div>
 
-                            <!-- Imagem do depoimento (não faz distinção de subtítulo ou não) -->
-                            <div class="testimonial-image order-1 md:order-2">
-                                <img th:src="@{${depo.imagem}}"
-                                     th:alt="${'Depoimento de ' + depo.nome}"
-                                     class="w-full h-48 object-cover" />
+                            <div th:class="'testimonial-text p-4 ' + (d.corFundo != null ? 'bg-' + d.corFundo : '') + 
+                                 (d.borda != null ? ' border-l-4 border-' + d.borda : '') + ' order-2 md:order-1'">
+                                <div class="flex items-center space-x-2 mb-2">
+                                    <div th:class="'w-8 h-8 rounded-full flex items-center justify-center ' + 
+                                         (d.borda != null ? 'bg-' + d.borda : 'bg-burgundy-100')">
+                                        <span th:text="${d.inicial}" th:class="'text-xs font-bold ' + 
+                                              (d.borda != null ? 'text-white' : 'text-burgundy-800')"></span>
+                                    </div>
+                                    <span class="text-sm font-medium text-gray-700" th:text="${d.nome}">Nome</span>
+                                    <span th:if="${d.contexto != null}" class="text-xs text-gray-500" th:text="${d.contexto}">Contexto</span>
+                                </div>
+                                <p class="text-sm italic text-gray-700" th:text="${d.mensagem}">Mensagem</p>
+
+                                <div th:if="${d.nota != null}" class="flex items-center space-x-1 mt-2">
+                                    <span class="text-yellow-400" th:utext="${'⭐'.repeat(d.nota)}">⭐⭐⭐⭐⭐</span>
+                                </div>
                             </div>
                         </div>
-
                     </div>
 
                     <div class="text-center mt-12">
@@ -279,7 +290,6 @@
                     </div>
                 </div>
             </section>
-
 
             <!-- 100% Personalization Section -->
             <section class="w-full py-12 md:py-24 lg:py-32 bg-beige-50">
@@ -330,6 +340,7 @@
                     </div>
                 </div>
             </section>
+
             <!-- How It Works Section -->
             <section class="w-full py-12 md:py-24 lg:py-32 bg-white">
                 <div class="container mx-auto px-4 md:px-6">
@@ -434,6 +445,7 @@
                 </div>
             </section>
         </main>
+
         <!-- Footer -->
         <footer id="contato" class="w-full py-6 bg-burgundy-900">
             <div class="container mx-auto px-4 md:px-6">
@@ -506,6 +518,7 @@
         </footer>
 
         <!-- JS -->
+        <script src="https://unpkg.com/lucide@latest"></script>
         <script>
             // Initialize Lucide icons
             lucide.createIcons();
