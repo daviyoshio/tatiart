@@ -15,26 +15,18 @@ public class Produto {
     private String nome;
     private String descricao;
     private String imagem;
+    private String fraseCta;      // ex: "❤️ SIM! Quero Criar Minha Caneca Agora"
+    private String frasePrazo; 
 
-    public Produto() {
-    }
-
-    public Produto(Long id, String nome, String descricao, String imagem) {
+    public Produto(Long id, String nome, String descricao, String imagem, String fraseCta, String frasePrazo) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
         this.imagem = imagem;
+        this.fraseCta = fraseCta;
+        this.frasePrazo = frasePrazo;
     }
 
-    public Produto(String nome, String descricao, String imagem) {
-        this.nome = nome;
-        this.descricao = descricao;
-        this.imagem = imagem;
-    }
-    
-    
-
-    // Getters e Setters
     public Long getId() {
         return id;
     }
@@ -66,4 +58,27 @@ public class Produto {
     public void setImagem(String imagem) {
         this.imagem = imagem;
     }
+
+    public String getFraseCta() {
+        return fraseCta;
+    }
+
+    public void setFraseCta(String fraseCta) {
+        this.fraseCta = fraseCta;
+    }
+
+    public String getFrasePrazo() {
+        return frasePrazo;
+    }
+
+    public void setFrasePrazo(String frasePrazo) {
+        this.frasePrazo = frasePrazo;
+    }
+    
+// ex: "⚡ ATENÇÃO: Devido à alta demanda, estamos com prazo de entrega..."
+
+    public Produto() {
+    }
+
+
 }

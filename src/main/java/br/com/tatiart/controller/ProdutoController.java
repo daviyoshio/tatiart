@@ -1,6 +1,9 @@
 package br.com.tatiart.controller;
 
+import br.com.tatiart.model.CtaFinal;
+import br.com.tatiart.model.Etapa;
 import br.com.tatiart.model.Feature;
+import br.com.tatiart.model.Personalizacao;
 import br.com.tatiart.model.ProdutoView;
 import br.com.tatiart.model.Testimonial;
 import java.util.ArrayList;
@@ -13,6 +16,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 public class ProdutoController {
+
+    private List<Etapa> gerarEtapasPadrao() {
+        return Arrays.asList(
+                new Etapa(1, "heart", "Conte Sua História", "Compartilhe conosco sua ideia, fotos, frases ou qualquer inspiração."),
+                new Etapa(2, "palette", "Criamos o Design", "Nossa equipe cria um projeto exclusivo com sua aprovação."),
+                new Etapa(3, "coffee", "Produção Artesanal", "Produzimos com materiais premium e técnicas especiais."),
+                new Etapa(4, "gift", "Entrega Especial", "Embalamos com carinho e enviamos para você.")
+        );
+    }
 
     @GetMapping("/produtos")
     public String listarProdutos(Model model) {
@@ -473,6 +485,87 @@ public class ProdutoController {
 
         model.addAttribute("produto", produto);
         model.addAttribute("depoimentos", depoimentos);
+        model.addAttribute("etapas", gerarEtapasPadrao());
+        model.addAttribute("personalizacoes", gerarPersonalizacoesPadrao());
+
+        // CtaFinal dinâmico
+        CtaFinal cta = new CtaFinal();
+        cta.setTitulo("Não Deixe Esse Momento Passar...");
+        cta.setDescricaoHtml("<strong>A vida é feita de momentos únicos.</strong> Que tal transformar o próximo em uma lembrança eterna? Sua " + produto.getTitulo().toLowerCase() + " personalizada está a apenas um clique de distância. <strong>Vamos criar magia juntos?</strong>");
+        cta.setTextoBotaoPrincipal("❤️ SIM! Quero Criar Minha " + produto.getTitulo() + " Agora");
+        cta.setTextoBotaoWhatsapp("📱 Falar no WhatsApp");
+        cta.setInfoEntrega("<strong>Entrega rápida</strong> em 3-5 dias");
+        cta.setInfoSatisfacao("<strong>Satisfação</strong> 100% garantida");
+        cta.setInfoAtendimento("<strong>Atendimento</strong> humanizado");
+        cta.setAlertaPrazo("⚡ <strong>ATENÇÃO:</strong> Devido à alta demanda, estamos com prazo de entrega de 3-5 dias. Garanta já a sua antes que o prazo aumente!");
+
+        model.addAttribute("cta", cta);
         return "produto";
     }
+
+    private List<Personalizacao> gerarPersonalizacoesPadrao() {
+        return List.of(
+                new Personalizacao(
+                        "Para Mães e Avós", "heart", "pink-100", "pink-600",
+                        List.of(
+                                "Datas especiais (nascimento dos filhos/netos)",
+                                "Frases marcantes que toda mãe fala",
+                                "Fotos da família",
+                                "Mensagens de amor dos filhos",
+                                "Desenhos das crianças"
+                        )
+                ),
+                new Personalizacao(
+                        "Casais e Relacionamentos", "users", "blue-100", "blue-600",
+                        List.of(
+                                "Data do primeiro encontro",
+                                "Fotos do casal",
+                                "Frases especiais entre vocês",
+                                "Coordenadas de lugares importantes",
+                                "Linha do tempo do relacionamento"
+                        )
+                ),
+                new Personalizacao(
+                        "Motivacional", "sparkles", "green-100", "green-600",
+                        List.of(
+                                "Frases inspiradoras personalizadas",
+                                "Metas e objetivos",
+                                "Versículos bíblicos",
+                                "Mantras pessoais",
+                                "Conquistas e vitórias"
+                        )
+                ),
+                new Personalizacao(
+                        "Datas Especiais", "gift", "purple-100", "purple-600",
+                        List.of(
+                                "Aniversários únicos",
+                                "Formaturas e conquistas",
+                                "Aposentadoria",
+                                "Nascimento de bebês",
+                                "Bodas e aniversários de casamento"
+                        )
+                ),
+                new Personalizacao(
+                        "Profissional", "coffee", "orange-100", "orange-600",
+                        List.of(
+                                "Logo da empresa",
+                                "Nome e cargo personalizado",
+                                "Brindes corporativos",
+                                "Eventos e convenções",
+                                "Presentes para equipe"
+                        )
+                ),
+                new Personalizacao(
+                        "Arte Personalizada", "palette", "red-100", "red-600",
+                        List.of(
+                                "Ilustrações exclusivas",
+                                "Retratos artísticos",
+                                "Pets e animais de estimação",
+                                "Paisagens especiais",
+                                "Arte abstrata personalizada"
+                        )
+                )
+        );
+    }
+
 }
