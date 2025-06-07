@@ -1,5 +1,3 @@
-
-Gemini
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
 
@@ -401,76 +399,73 @@ Gemini
         </main>
 
         <!-- Footer -->
-        <footer id="contato" class="w-full py-6 bg-burgundy-900">
+        <footer class="bg-beige-800 pt-12 pb-6 border-t border-gray-200">
             <div class="container mx-auto px-4 md:px-6">
-                <div class="grid gap-8 lg:grid-cols-4">
-                    <div class="space-y-4">
-                        <div class="flex items-center space-x-2">
-                            <div class="flex items-center justify-center w-8 h-8 bg-beige-50 rounded-lg">
-                                <i data-lucide="coffee" class="h-5 w-5 text-burgundy-900"></i>
-                            </div>
-                            <span class="text-xl font-bold font-playfair text-beige-50">MugCraft</span>
-                        </div>
-                        <p class="text-sm text-beige-200">
-                            <strong>Transformamos momentos em lembranças eternas.</strong> Cada caneca é feita com amor, carinho e a
-                            dedicação de quem entende que os melhores presentes tocam o coração.
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                    <!-- Brand -->
+                    <div>
+                        <h3 class="font-playfair text-xl font-bold text-burgundy-800 mb-4">Tatiart</h3>
+                        <p class="text-gray-600 mb-4">
+                            Produtos personalizados criados com carinho e atenção aos detalhes.
                         </p>
-                        <div class="flex space-x-4">
-                            <a href="#" class="text-beige-200 hover:text-beige-50">
-                                <i data-lucide="facebook" class="h-5 w-5"></i>
+                    </div>
+
+                    <!-- Navigation -->
+                    <div>
+                        <h3 class="font-playfair text-xl font-bold text-burgundy-800 mb-4">Navegação</h3>
+                        <ul class="space-y-2">
+                            <li><a href="index.html" class="text-gray-600 hover:text-burgundy-700">Home</a></li>
+                            <li><a href="produtos.html" class="text-gray-600 hover:text-burgundy-700">Produtos</a></li>
+                            <li><a href="#" class="text-gray-600 hover:text-burgundy-700">Sobre Nós</a></li>
+                            <li><a href="#" class="text-gray-600 hover:text-burgundy-700">Contato</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Products -->
+                    <div>
+                        <h3 class="font-playfair text-xl font-bold text-burgundy-800 mb-4">Produtos</h3>
+                        <ul class="space-y-2">
+                            <li><a href="produtos.html" class="text-gray-600 hover:text-burgundy-700">Canecas</a></li>
+                            <li><a href="produtos.html" class="text-gray-600 hover:text-burgundy-700">Necessaires</a></li>
+                            <li><a href="produtos.html" class="text-gray-600 hover:text-burgundy-700">Mochilas</a></li>
+                            <li><a href="produtos.html" class="text-gray-600 hover:text-burgundy-700">Linha Baby</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact -->
+                    <div>
+                        <h3 class="font-playfair text-xl font-bold text-burgundy-800 mb-4">Contato</h3>
+                        <ul class="space-y-2">
+                            <li class="flex items-center gap-2">
+                                <i class="far fa-envelope text-burgundy-700"></i>
+                                <a href="mailto:contato@tatiart.com" class="text-gray-600 hover:text-burgundy-700">contato@tatiart.com</a>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-phone text-burgundy-700"></i>
+                                <a href="tel:+5511999999999" class="text-gray-600 hover:text-burgundy-700">(11) 99999-9999</a>
+                            </li>
+                        </ul>
+                        <div class="flex gap-4 mt-4">
+                            <a href="https://instagram.com" target="_blank" class="text-burgundy-700 hover:text-burgundy-900 text-xl">
+                                <i class="fab fa-instagram"></i>
                             </a>
-                            <a href="#" class="text-beige-200 hover:text-beige-50">
-                                <i data-lucide="instagram" class="h-5 w-5"></i>
+                            <a href="https://facebook.com" target="_blank" class="text-burgundy-700 hover:text-burgundy-900 text-xl">
+                                <i class="fab fa-facebook-f"></i>
                             </a>
-                            <a href="#" class="text-beige-200 hover:text-beige-50">
-                                <i data-lucide="mail" class="h-5 w-5"></i>
-                            </a>
-                            <a href="#" class="text-beige-200 hover:text-beige-50">
-                                <i data-lucide="phone" class="h-5 w-5"></i>
+                            <a href="https://pinterest.com" target="_blank" class="text-burgundy-700 hover:text-burgundy-900 text-xl">
+                                <i class="fab fa-pinterest-p"></i>
                             </a>
                         </div>
-                    </div>
-                    <div class="space-y-4">
-                        <h4 class="text-sm font-semibold text-beige-50">Nossos Produtos</h4>
-                        <ul class="space-y-2 text-sm">
-                            <li><a href="#" class="text-beige-200 hover:text-beige-50">Canecas para Mães</a></li>
-                            <li><a href="#" class="text-beige-200 hover:text-beige-50">Canecas Motivacionais</a></li>
-                            <li><a href="#" class="text-beige-200 hover:text-beige-50">Kits Família</a></li>
-                            <li><a href="#" class="text-beige-200 hover:text-beige-50">Brindes Corporativos</a></li>
-                        </ul>
-                    </div>
-                    <div class="space-y-4">
-                        <h4 class="text-sm font-semibold text-beige-50">Empresa</h4>
-                        <ul class="space-y-2 text-sm">
-                            <li><a href="#" class="text-beige-200 hover:text-beige-50">Nossa História</a></li>
-                            <li><a href="#" class="text-beige-200 hover:text-beige-50">Como Funciona</a></li>
-                            <li><a href="#" class="text-beige-200 hover:text-beige-50">Galeria de Trabalhos</a></li>
-                            <li><a href="#" class="text-beige-200 hover:text-beige-50">Depoimentos</a></li>
-                        </ul>
-                    </div>
-                    <div class="space-y-4">
-                        <h4 class="text-sm font-semibold text-beige-50">Atendimento</h4>
-                        <ul class="space-y-2 text-sm">
-                            <li><a href="#" class="text-beige-200 hover:text-beige-50">WhatsApp: (11) 99999-9999</a></li>
-                            <li><a href="#" class="text-beige-200 hover:text-beige-50">Política de Troca</a></li>
-                            <li><a href="#" class="text-beige-200 hover:text-beige-50">Rastreamento</a></li>
-                            <li><a href="#" class="text-beige-200 hover:text-beige-50">Dúvidas Frequentes</a></li>
-                        </ul>
                     </div>
                 </div>
-                <div class="mt-8 pt-8 border-t border-burgundy-700">
-                    <div class="flex flex-col sm:flex-row justify-between items-center">
-                        <p class="text-xs text-beige-200">© 2024 MugCraft. Feito com ❤️ para famílias que se amam.</p>
-                        <div class="flex space-x-4 mt-4 sm:mt-0">
-                            <a href="#" class="text-xs text-beige-200 hover:text-beige-50">Política de Privacidade</a>
-                            <a href="#" class="text-xs text-beige-200 hover:text-beige-50">Termos de Uso</a>
-                            <a href="#" class="text-xs text-beige-200 hover:text-beige-50">Cookies</a>
-                        </div>
-                    </div>
+
+                <div class="border-t border-gray-200 pt-6">
+                    <p class="text-center text-gray-500 text-sm">
+                        © 2025 Tatiart. Todos os direitos reservados.
+                    </p>
                 </div>
             </div>
         </footer>
-
         <!-- JS -->
         <script src="https://unpkg.com/lucide@latest"></script>
         <script>
