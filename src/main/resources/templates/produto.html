@@ -176,9 +176,10 @@
                     <!-- Galeria dinamizada -->
                     <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mb-12">
                         <div th:each="img, iter : ${produto.imagens}" class="space-y-4">
-                            <img th:src="@{${img}}"
+                            <img th:src="@{/images/Produtos/{categoria}/{img}(categoria=${produto.categoria}, img=${img})}"
                                  th:alt="${produto.atributos[iter.index]}"
                                  class="w-full h-80 mx-auto object-cover rounded-lg shadow-lg hover-scale">
+
 
                             <div class="text-center">
                                 <h3 class="font-semibold text-burgundy-900"
