@@ -1,9 +1,6 @@
 package br.com.tatiart.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Produto {
@@ -14,20 +11,24 @@ public class Produto {
 
     private String nome;
     private String descricao;
-    private String imagem;
-    private String fraseCta;      // ex: "❤️ SIM! Quero Criar Minha Caneca Agora"
-    private String frasePrazo;
-    private String categoria;
+    private String urlImagem;
 
-    public Produto(Long id, String nome, String descricao, String imagem, String fraseCta, String frasePrazo) {
-        this.id = id;
-        this.nome = nome;
-        this.descricao = descricao;
-        this.imagem = imagem;
-        this.fraseCta = fraseCta;
-        this.frasePrazo = frasePrazo;
+    public Produto() {
     }
 
+    public Produto(String nome, String descricao, String urlImagem, Categoria categoria) {
+        this.nome = nome;
+        this.descricao = descricao;
+        this.urlImagem = urlImagem;
+        this.categoria = categoria;
+    }
+
+    // Define o relacionamento: Muitos Produtos pertencem a Uma Categoria
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "categoria_id") // Cria a coluna de chave estrangeira
+    private Categoria categoria;
+
+    // Getters e Setters
     public Long getId() {
         return id;
     }
@@ -52,40 +53,19 @@ public class Produto {
         this.descricao = descricao;
     }
 
-    public String getImagem() {
-        return imagem;
+    public String getUrlImagem() {
+        return urlImagem;
     }
 
-    public void setImagem(String imagem) {
-        this.imagem = imagem;
+    public void setUrlImagem(String urlImagem) {
+        this.urlImagem = urlImagem;
     }
 
-    public String getFraseCta() {
-        return fraseCta;
-    }
-
-    public void setFraseCta(String fraseCta) {
-        this.fraseCta = fraseCta;
-    }
-
-    public String getFrasePrazo() {
-        return frasePrazo;
-    }
-
-    public void setFrasePrazo(String frasePrazo) {
-        this.frasePrazo = frasePrazo;
-    }
-
-    public String getCategoria() {
+    public Categoria getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(String categoria) {
+    public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
-
-// ex: "⚡ ATENÇÃO: Devido à alta demanda, estamos com prazo de entrega..."
-    public Produto() {
-    }
-
 }

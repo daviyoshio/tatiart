@@ -11,22 +11,26 @@ public class ProdutoView {
     private String[] atributos;
     private String banner;
     private String categoria;
-
+    private List<Testimonial> depoimentos;
+    private List<Personalizacao> personalizacoes;
     private List<Feature> features;
-
-    // → Novo campo extraInfo
     private String extraInfo;
 
     public ProdutoView() {
     }
 
-    public ProdutoView(String titulo, String descricao, String[] beneficios, String[] imagens, String[] atributos, String banner) {
+    public ProdutoView(String titulo, String descricao, String[] beneficios, String[] imagens, String[] atributos, String banner, String categoria, List<Testimonial> depoimentos, List<Personalizacao> personalizacoes, List<Feature> features, String extraInfo) {
         this.titulo = titulo;
         this.descricao = descricao;
         this.beneficios = beneficios;
         this.imagens = imagens;
         this.atributos = atributos;
         this.banner = banner;
+        this.categoria = categoria;
+        this.depoimentos = depoimentos;
+        this.personalizacoes = personalizacoes;
+        this.features = features;
+        this.extraInfo = extraInfo;
     }
 
     public String getTitulo() {
@@ -77,6 +81,30 @@ public class ProdutoView {
         this.banner = banner;
     }
 
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public List<Testimonial> getDepoimentos() {
+        return depoimentos;
+    }
+
+    public void setDepoimentos(List<Testimonial> depoimentos) {
+        this.depoimentos = depoimentos;
+    }
+
+    public List<Personalizacao> getPersonalizacoes() {
+        return personalizacoes;
+    }
+
+    public void setPersonalizacoes(List<Personalizacao> personalizacoes) {
+        this.personalizacoes = personalizacoes;
+    }
+
     public List<Feature> getFeatures() {
         return features;
     }
@@ -92,13 +120,7 @@ public class ProdutoView {
     public void setExtraInfo(String extraInfo) {
         this.extraInfo = extraInfo;
     }
-
-    public String getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
-    }
+    
+    
 
 }
