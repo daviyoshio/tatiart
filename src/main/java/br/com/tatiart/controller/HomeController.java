@@ -1,38 +1,32 @@
 package br.com.tatiart.controller;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
-/**
- *
- * @author daviyshiy
- */
 import br.com.tatiart.model.Categoria;
 import br.com.tatiart.repository.CategoriaRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.ui.Model; // Importe Model
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class HomeController {
-    
+
     @Autowired
     private CategoriaRepository categoriaRepository;
 
+    // MÉTODO AJUSTADO: Agora passa as categorias para a página inicial (index.html)
     @GetMapping("/")
-    public String index() {
+    public String index(Model model) { // Adicionado 'Model model'
+        List<Categoria> categorias = categoriaRepository.findAll();
+        model.addAttribute("categorias", categorias); // Adicionado categorias ao modelo
         return "index"; // carrega index.html da pasta templates
     }
-    // Certifique-se de que ESTE MÉTODO RETORNA "index"
-    @GetMapping("/produtos") // Este método agora retornará "produtos"
+
+    // Este método está correto e carregará produtos.html para /produtos
+    @GetMapping("/produtos")
     public String produtosOverview(Model model) {
         List<Categoria> categorias = categoriaRepository.findAll();
         model.addAttribute("categorias", categorias);
-        return "produtos"; // <-- ALTERADO PARA RETORNAR "produtos"
+        return "produtos"; // Continua retornando "produtos" para a rota /produtos
     }
 }
-
