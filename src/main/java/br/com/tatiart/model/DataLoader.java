@@ -1,17 +1,18 @@
 package br.com.tatiart.model;
 
+import br.com.tatiart.model.Categoria;
+import br.com.tatiart.model.Depoimento;
+import br.com.tatiart.model.ItemPersonalizacao;
+import br.com.tatiart.model.Produto;
+import br.com.tatiart.model.TipoPersonalizacao;
 import br.com.tatiart.repository.CategoriaRepository;
 import br.com.tatiart.repository.DepoimentoRepository;
 import br.com.tatiart.repository.ProdutoRepository;
 import br.com.tatiart.repository.TipoPersonalizacaoRepository;
-import java.util.Arrays;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-
-
-
-
+import java.util.Arrays;
 
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -40,17 +41,17 @@ public class DataLoader implements CommandLineRunner {
         necessaires.setNomeSingular("Necessaire");
         necessaires.setNomePlural("Necessaires Personalizadas");
         necessaires.setSlug("necessaires");
-        necessaires.setDescricao("Transforme sua rotina com necessaires 100% personalizadas. Cada peça é única, criada especialmente para refletir sua personalidade e organizar seus momentos mais importantes."); // Texto da Hero Section
+        necessaires.setDescricao("Transforme sua rotina com necessaires 100% personalizadas. Cada peça é única, criada especialmente para refletir sua personalidade e organizar seus momentos mais importantes.");
         necessaires.setImagemDestaqueUrl("/images/Produtos/Necessaires/Necessaire Gatinho.jpeg");
         necessaires.setUrlImagemPersonalizacao("/images/Produtos/Necessaires/Necessaire Premium.jpeg");
         // Textos CTA para Necessaires
         necessaires.setCtaTitle("Sua Rotina Merece Essa Transformação...");
         necessaires.setCtaDescription("A organização muda tudo na sua vida. Que tal transformar sua rotina em algo mais prático e estiloso? Sua necessaire personalizada está a apenas um clique de distância. Vamos organizar juntas?");
         necessaires.setCtaAttention("⚡ ATENÇÃO: Devido à alta demanda, estamos com prazo de entrega de 3-5 dias. Garante já a sua antes que o prazo aumente!");
-        necessaires.setCtaButtonText("✨ Criar Minha Necessaire"); // Texto do Botão CTA Final
-        // Textos Hero Section
+        necessaires.setCtaButtonText("✨ SIM! Quero Minha Necessaire Personalizada");
+        // Textos Hero Section para Necessaires
         necessaires.setHeroTitle("Necessaires que Organizam Sua Vida com Estilo");
-        necessaires.setHeroButtonText("💝 Criar Minha Necessaire"); // NOVO TEXTO PARA O BOTÃO HERO
+        necessaires.setHeroButtonText("💝 Criar Minha Necessaire");
         categoriaRepository.save(necessaires);
 
         // Produtos para a categoria Necessaires
@@ -148,12 +149,12 @@ public class DataLoader implements CommandLineRunner {
         canecas.setCtaButtonText("✨ SIM! Quero Minha Caneca Personalizada");
         // Textos Hero Section
         canecas.setHeroTitle("Canecas que Contam Histórias Únicas");
-        canecas.setHeroButtonText("💝 Criar Minha Caneca"); // NOVO TEXTO PARA O BOTÃO HERO
+        canecas.setHeroButtonText("💝 Criar Minha Caneca");
         categoriaRepository.save(canecas);
 
         // Produtos para a categoria Canecas
         Produto c1 = new Produto("Para Mães Guerreiras", "Designs que celebram a maternidade com humor e amor", "/images/Produtos/Caneca/Caneca 1.jpg", canecas);
-        Produto c2 = new Produto("Frases que Arrancam Risadas", "Porque toda mãe merece rir das próprias frases", "/images/caneca-frases-engracadas.jpg", canecas);
+        Produto c2 = new Produto("Frases que Arrancam Risadas", "Porque toda mãe merece rir das próprias frases", "/images/Produtos/Caneca/caneca-frases-engracadas.jpg", canecas); // Caminho corrigido
         Produto c3 = new Produto("Kits Presente Luxuosos", "Embalagens que fazem o presente ainda mais especial", "/images/Produtos/Caneca/Caneca 3.jpg", canecas);
         Produto c4 = new Produto("Mensagens que Inspiram", "Para começar cada dia com esperança e força", "/images/Produtos/Caneca/Caneca Frase Choro.png", canecas);
         Produto c5 = new Produto("Suas Sextas Mais Especiais", "Aquela caneca personalizada que vai fazer seu happy hour único! Seu nome, seu momento!", "/images/Produtos/Caneca/Caneca Heineken Danilo.png", canecas);
@@ -236,26 +237,92 @@ public class DataLoader implements CommandLineRunner {
         bolsas.setNomeSingular("Bolsa");
         bolsas.setNomePlural("Bolsas Personalizadas");
         bolsas.setSlug("bolsas");
-        bolsas.setDescricao("Carregue sua história todos os dias. Cada bolsa tote é uma obra de arte única.");
+        bolsas.setDescricao("Carregue sua história todos os dias. Cada bolsa tote é uma obra de arte única, criada especialmente para expressar sua personalidade e acompanhar seus momentos mais especiais."); // Texto da Hero Section
         bolsas.setImagemDestaqueUrl("/images/Produtos/Bolsa/Bolsa Tote 4 Estilos.jpeg");
         bolsas.setUrlImagemPersonalizacao("/images/Produtos/Bolsa/Tati Preparação Bolsa.png");
+        // Textos CTA para Bolsas
         bolsas.setCtaTitle("Carregue Sua História Com Estilo!");
-        bolsas.setCtaDescription("Sua bolsa tote, sua declaração. Crie uma peça que seja tão única quanto você, combinando praticidade e design exclusivo para o seu dia a dia.");
-        bolsas.setCtaAttention("⚡ ATENÇÃO: Peças personalizadas levam 3-5 dias para serem criadas. Garanta sua bolsa exclusiva com antecedência!");
-        bolsas.setCtaButtonText("✨ SIM! Quero Minha Bolsa Personalizada"); // NOVO TEXTO PARA O BOTÃO
+        bolsas.setCtaDescription("Sua personalidade é única, sua bolsa também deveria ser. Que tal transformar seu dia a dia com uma bolsa tote que conta sua história e expressa quem você realmente é? Vamos criar juntas sua obra de arte pessoal?");
+        bolsas.setCtaAttention("⚡ OPORTUNIDADE LIMITADA: Devido à alta procura por bolsas personalizadas, estamos com lista de espera. Reserve já a sua para não perder!");
+        bolsas.setCtaButtonText("✨ SIM! Quero Minha Bolsa Única Agora");
         // Textos Hero Section para Bolsas
-        bolsas.setHeroTitle("Bolsas que Contam Sua História com Arte!"); // Título da Hero Section
-        bolsas.setHeroButtonText("💝 Criar Minha Bolsa"); // Texto do Botão Hero Section
+        bolsas.setHeroTitle("Bolsas Tote que Falam Sobre Você");
+        bolsas.setHeroButtonText("💝 Criar Minha Bolsa Única");
         categoriaRepository.save(bolsas);
 
         // Produtos para a categoria Bolsas
         Produto b1 = new Produto("Elegância no Dia a Dia", "Bolsas que combinam sofisticação e praticidade", "/images/Produtos/Bolsa/790x770 Bolsas Tote Fundo Branco.png", bolsas);
         Produto b2 = new Produto("Personalidade Vibrante", "Cores que expressam sua energia e desenhos que contam sua história", "/images/Produtos/Bolsa/790x770 Bolsa Vermlha Fundo Branco.png", bolsas);
-        produtoRepository.saveAll(Arrays.asList(b1, b2));
+        Produto b3 = new Produto("Clássico Atemporal", "Design minimalista que nunca sai de moda, perfeita para qualquer ocasião", "/images/Produtos/Bolsa/790x770 Bolsa Branca e Preta fundo Branco.png", bolsas);
+        produtoRepository.saveAll(Arrays.asList(b1, b2, b3));
 
         // Adicione os depoimentos para bolsas
-        Depoimento db1 = new Depoimento("Carla Fernandes", "\"Gente, que bolsa PERFEITA! 😍 As 'Mulheres Poderosas' ficaram lindas demais!\"", "/images/Produtos/Bolsa/790x770 Bolsas Mulheres Poderosas Experience.png", bolsas);
-        depoimentoRepository.save(db1);
+        Depoimento db1 = new Depoimento("Carla Fernandes", "\"Gente, que bolsa PERFEITA! 😍 As 'Mulheres Poderosas' ficaram lindas demais! Recebo elogios todos os dias. É exatamente o que eu sonhava - forte, elegante e única! 💪✨\"", "/images/Produtos/Bolsa/790x770 Bolsas Mulheres Poderosas Experience.png", bolsas);
+        Depoimento db2 = new Depoimento("Marina Silva", "\"Minha bolsa vermelha é TUDO! ❤️ A qualidade é incrível, o tamanho perfeito para o trabalho e o design é simplesmente maravilhoso. Já encomendei outra para minha irmã! 🥰\"", "/images/Produtos/Bolsa/Bolsa Vermelha com Modelo.jpeg", bolsas);
+        Depoimento db3 = new Depoimento("Larissa Costa", "\"Estou APAIXONADA pela minha bolsa tote! O cuidado na embalagem, a qualidade dos materiais... Sinto que carrego um pedaço de arte comigo. Recomendo de olhos fechados! 💝\"", "/images/Produtos/Bolsa/790x770 Bolsas Tote Depoimento.png", bolsas);
+        depoimentoRepository.saveAll(Arrays.asList(db1, db2, db3));
+
+        // TIPOS DE PERSONALIZAÇÃO PARA A CATEGORIA 'BOLSAS'
+        TipoPersonalizacao tipoBolsa1 = new TipoPersonalizacao();
+        tipoBolsa1.setTitulo("Minimalista Elegante");
+        tipoBolsa1.setNomeIcone("heart"); // Ícone original era heart, manter para consistência
+        tipoBolsa1.setCategoria(bolsas);
+        tipoBolsa1.getItens().add(new ItemPersonalizacao("Design clean e sofisticado", tipoBolsa1));
+        tipoBolsa1.getItens().add(new ItemPersonalizacao("Cores neutras e atemporais", tipoBolsa1));
+        tipoBolsa1.getItens().add(new ItemPersonalizacao("Monogramas discretos", tipoBolsa1));
+        tipoBolsa1.getItens().add(new ItemPersonalizacao("Linhas simples e modernas", tipoBolsa1));
+        tipoBolsa1.getItens().add(new ItemPersonalizacao("Perfeita para qualquer ocasião", tipoBolsa1));
+
+        TipoPersonalizacao tipoBolsa2 = new TipoPersonalizacao();
+        tipoBolsa2.setTitulo("Profissional Chic");
+        tipoBolsa2.setNomeIcone("sparkles"); // Ícone original era sparkles
+        tipoBolsa2.setCategoria(bolsas);
+        tipoBolsa2.getItens().add(new ItemPersonalizacao("Ideal para ambiente corporativo", tipoBolsa2));
+        tipoBolsa2.getItens().add(new ItemPersonalizacao("Símbolos da sua profissão", tipoBolsa2));
+        tipoBolsa2.getItens().add(new ItemPersonalizacao("Cores sóbrias e elegantes", tipoBolsa2));
+        tipoBolsa2.getItens().add(new ItemPersonalizacao("Espaço para laptop e documentos", tipoBolsa2));
+        tipoBolsa2.getItens().add(new ItemPersonalizacao("Transmite confiança e sucesso", tipoBolsa2));
+
+        TipoPersonalizacao tipoBolsa3 = new TipoPersonalizacao();
+        tipoBolsa3.setTitulo("Artística Única");
+        tipoBolsa3.setNomeIcone("sparkles"); // Ícone original era sparkles
+        tipoBolsa3.setCategoria(bolsas);
+        tipoBolsa3.getItens().add(new ItemPersonalizacao("Estampas exclusivas autorais", tipoBolsa3));
+        tipoBolsa3.getItens().add(new ItemPersonalizacao("Combinações de cores vibrantes", tipoBolsa3));
+        tipoBolsa3.getItens().add(new ItemPersonalizacao("Elementos artísticos marcantes", tipoBolsa3));
+        tipoBolsa3.getItens().add(new ItemPersonalizacao("Expressão da sua personalidade", tipoBolsa3));
+        tipoBolsa3.getItens().add(new ItemPersonalizacao("Peça de conversação garantida", tipoBolsa3));
+
+        TipoPersonalizacao tipoBolsa4 = new TipoPersonalizacao();
+        tipoBolsa4.setTitulo("Pet Lover");
+        tipoBolsa4.setNomeIcone("heart"); // Ícone original era heart
+        tipoBolsa4.setCategoria(bolsas);
+        tipoBolsa4.getItens().add(new ItemPersonalizacao("Ilustrações dos seus pets", tipoBolsa4));
+        tipoBolsa4.getItens().add(new ItemPersonalizacao("Retratos artísticos personalizados", tipoBolsa4));
+        tipoBolsa4.getItens().add(new ItemPersonalizacao("Nomes e datas especiais", tipoBolsa4));
+        tipoBolsa4.getItens().add(new ItemPersonalizacao("Elementos fofos e carinhosos", tipoBolsa4));
+        tipoBolsa4.getItens().add(new ItemPersonalizacao("Homenagem ao amor incondicional", tipoBolsa4));
+
+        TipoPersonalizacao tipoBolsa5 = new TipoPersonalizacao();
+        tipoBolsa5.setTitulo("Inspiracional");
+        tipoBolsa5.setNomeIcone("sparkles"); // Ícone original era sparkles
+        tipoBolsa5.setCategoria(bolsas);
+        tipoBolsa5.getItens().add(new ItemPersonalizacao("Frases que te motivam", tipoBolsa5));
+        tipoBolsa5.getItens().add(new ItemPersonalizacao("Símbolos de fé e esperança", tipoBolsa5));
+        tipoBolsa5.getItens().add(new ItemPersonalizacao("Mensagens de empoderamento", tipoBolsa5));
+        tipoBolsa5.getItens().add(new ItemPersonalizacao("Elementos que fortalecem sua alma", tipoBolsa5));
+        tipoBolsa5.getItens().add(new ItemPersonalizacao("Energia positiva diária", tipoBolsa5));
+
+        TipoPersonalizacao tipoBolsa6 = new TipoPersonalizacao();
+        tipoBolsa6.setTitulo("Luxo Personalizado");
+        tipoBolsa6.setNomeIcone("sparkles"); // Ícone original era sparkles
+        tipoBolsa6.setCategoria(bolsas);
+        tipoBolsa6.getItens().add(new ItemPersonalizacao("Acabamentos premium especiais", tipoBolsa6));
+        tipoBolsa6.getItens().add(new ItemPersonalizacao("Detalhes em dourado ou prateado", tipoBolsa6));
+        tipoBolsa6.getItens().add(new ItemPersonalizacao("Texturas sofisticadas", tipoBolsa6));
+        tipoBolsa6.getItens().add(new ItemPersonalizacao("Design exclusivo de alta costura", tipoBolsa6));
+        tipoBolsa6.getItens().add(new ItemPersonalizacao("Status symbol personalizado", tipoBolsa6));
+        tipoPersonalizacaoRepository.saveAll(Arrays.asList(tipoBolsa1, tipoBolsa2, tipoBolsa3, tipoBolsa4, tipoBolsa5, tipoBolsa6));
 
         // --- CATEGORIA ESTOJOS ---
         Categoria estojos = new Categoria();
@@ -268,10 +335,9 @@ public class DataLoader implements CommandLineRunner {
         estojos.setCtaTitle("Transforme a Volta às Aulas em um Momento Especial");
         estojos.setCtaDescription("Um estojo personalizado faz toda a diferença. Imagine o sorriso do seu filho ao receber um estojo único, com seu personagem favorito e seu nome. Faça da organização escolar algo divertido e especial!");
         estojos.setCtaAttention("⚡ ATENÇÃO: Garanta já o estojo personalizado do seu filho antes do início das aulas! Faça o pedido com antecedência para receber a tempo.");
-        estojos.setCtaButtonText("✨ SIM! Quero Meu Estojo Personalizado"); // Texto do Botão CTA Final
-        // Textos Hero Section para Estojos
-        estojos.setHeroTitle("Estojos que Encantam e Organizam com Estilo"); // Título da Hero Section
-        estojos.setHeroButtonText("💝 Criar Meu Estojo"); // Texto do Botão Hero Section
+        estojos.setCtaButtonText("✨ SIM! Quero Meu Estojo Personalizado");
+        estojos.setHeroTitle("Estojos que Encantam e Organizam com Estilo");
+        estojos.setHeroButtonText("💝 Criar Meu Estojo");
         categoriaRepository.save(estojos);
 
         // --- Produtos específicos para Estojos ---
@@ -441,7 +507,7 @@ public class DataLoader implements CommandLineRunner {
         mochilas.setCtaButtonText("✨ SIM! Quero Minha Mochila Personalizada");
         // Textos Hero Section para Mochilas
         mochilas.setHeroTitle("Mochilas que te Acompanham em Todas as Aventuras");
-        mochilas.setHeroButtonText("💝 Criar Minha Mochila"); // Texto do Botão Hero Section
+        mochilas.setHeroButtonText("💝 Criar Minha Mochila");
         categoriaRepository.save(mochilas);
 
         // Produtos para a categoria Mochilas
