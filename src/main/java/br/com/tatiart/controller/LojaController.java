@@ -34,14 +34,6 @@ public class LojaController {
     // 3. Injete o novo repositório
     @Autowired
     private TipoPersonalizacaoRepository tipoPersonalizacaoRepository;
-    
-     // NOVO MÉTODO: Para listar todas as categorias
-    @GetMapping("/produtos")
-    public String listarCategorias(Model model) {
-        List<Categoria> categorias = categoriaRepository.findAll();
-        model.addAttribute("categorias", categorias);
-        return "categorias"; // Este será o nome do novo arquivo HTML
-    }
 
     // @GetMapping diz que este método vai responder a requisições GET
     // para a URL "/produtos/{qualquer-coisa}".
