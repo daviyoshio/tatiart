@@ -28,11 +28,11 @@ public class HomeController {
         return "index"; // carrega index.html da pasta templates
     }
     // Certifique-se de que ESTE MÉTODO RETORNA "index"
-    @GetMapping("/produtos")
+    @GetMapping("/produtos") // Este método agora retornará "produtos"
     public String produtosOverview(Model model) {
         List<Categoria> categorias = categoriaRepository.findAll();
         model.addAttribute("categorias", categorias);
-        return "index"; // <-- Este é o ponto crucial. Deve retornar "index"
+        return "produtos"; // <-- ALTERADO PARA RETORNAR "produtos"
     }
 }
 
