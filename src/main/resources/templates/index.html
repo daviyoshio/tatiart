@@ -43,59 +43,17 @@
                 </h2>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 px-4 md:px-16">
-                    <!-- Category 1 - Canecas -->
-                    <div class="group relative overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl w-full max-w-[27rem] mx-auto">
-                        <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-burgundy-900/30 via-burgundy-800/10 to-transparent z-10"></div>
-                        <img src="/images/Home/Caneca - Categoria.png" alt="Canecas Personalizadas" class="w-full h-56 object-cover object-center transition-transform duration-500 group-hover:scale-105">
-                        <div class="absolute bottom-0 left-0 right-0 pb-2 pt-4 px-4 z-20">
-                            <h3 class="font-playfair text-lg font-bold text-white text-center tracking-wide">Canecas Personalizadas</h3>
-                        </div>
-                    </div>
 
-                    <!-- Category 2 - Necessaires -->
-                    <div class="group relative overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl w-full max-w-[27rem] mx-auto">
+                    <a th:each="categoria : ${categorias}" th:href="@{/produtos/{slug}(slug=${categoria.slug})}" class="block group relative overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl w-full max-w-[27rem] mx-auto">
                         <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-burgundy-900/30 via-burgundy-800/10 to-transparent z-10"></div>
-                        <img src="/images/Home/Necessaire - Categoria.png" alt="Necessaires" class="w-full h-56 object-cover object-center transition-transform duration-500 group-hover:scale-105">
-                        <div class="absolute bottom-0 left-0 right-0 pb-2 pt-4 px-4 z-20">
-                            <h3 class="font-playfair text-lg font-bold text-white text-center tracking-wide">Necessaires</h3>
-                        </div>
-                    </div>
 
-                    <!-- Category 3 - Bolsas -->
-                    <div class="group relative overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl w-full max-w-[27rem] mx-auto">
-                        <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-burgundy-900/30 via-burgundy-800/10 to-transparent z-10"></div>
-                        <img src="/images/Home/ChatGPT Image 25 de mai. de 2025, 23_03_04.png" alt="Bolsas" class="w-full h-56 object-cover object-center transition-transform duration-500 group-hover:scale-105">
-                        <div class="absolute bottom-0 left-0 right-0 pb-2 pt-4 px-4 z-20">
-                            <h3 class="font-playfair text-lg font-bold text-white text-center tracking-wide">Bolsas</h3>
-                        </div>
-                    </div>
+                        <img th:src="${categoria.imagemUrlHome}" th:alt="${categoria.nomePlural}" class="w-full h-56 object-cover object-center transition-transform duration-500 group-hover:scale-105">
 
-                    <!-- Category 4 - Mochilas -->
-                    <div class="group relative overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl w-full max-w-[27rem] mx-auto">
-                        <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-burgundy-900/30 via-burgundy-800/10 to-transparent z-10"></div>
-                        <img src="/images/Home/Mochila - Categoria.png" alt="Mochilas" class="w-full h-56 object-cover object-center transition-transform duration-500 group-hover:scale-105">
                         <div class="absolute bottom-0 left-0 right-0 pb-2 pt-4 px-4 z-20">
-                            <h3 class="font-playfair text-lg font-bold text-white text-center tracking-wide">Mochilas</h3>
+                            <h3 class="font-playfair text-lg font-bold text-white text-center tracking-wide" th:text="${categoria.nomePlural}">Nome da Categoria</h3>
                         </div>
-                    </div>
+                    </a>
 
-                    <!-- Category 5 - Estojos -->
-                    <div class="group relative overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl w-full max-w-[27rem] mx-auto">
-                        <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-burgundy-900/30 via-burgundy-800/10 to-transparent z-10"></div>
-                        <img src="/images/Home/KitEstojos - Categoria.jpg" alt="Estojos" class="w-full h-56 object-cover object-center transition-transform duration-500 group-hover:scale-105">
-                        <div class="absolute bottom-0 left-0 right-0 pb-2 pt-4 px-4 z-20">
-                            <h3 class="font-playfair text-lg font-bold text-white text-center tracking-wide">Estojos</h3>
-                        </div>
-                    </div>
-
-                    <!-- Category 6 - Linha Baby -->
-                    <div class="group relative overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl w-full max-w-[27rem] mx-auto">
-                        <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-burgundy-900/30 via-burgundy-800/10 to-transparent z-10"></div>
-                        <img src="/images/Home/LinhaBaby - Categoria.png" alt="Linha Baby" class="w-full h-56 object-cover object-center transition-transform duration-500 group-hover:scale-105">
-                        <div class="absolute bottom-0 left-0 right-0 pb-2 pt-4 px-4 z-20">
-                            <h3 class="font-playfair text-lg font-bold text-white text-center tracking-wide">Linha Baby</h3>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
