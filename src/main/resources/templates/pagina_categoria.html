@@ -4,11 +4,11 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <title th:text="'MugCraft - ' + ${categoriaInfo.nomePlural}">
+        <title th:text="'MugCraft - ' + ${categoria.nomePlural}">
             MugCraft - Título Provisório
         </title>
 
-        <meta name="description" th:content="${categoriaInfo.descricao}" />
+        <meta name="description" th:content="${categoria.descricao}" />
 
         <script src="https://cdn.tailwindcss.com"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -119,98 +119,7 @@
     </head>
 
     <body class="font-sans bg-beige-50">
-        <header
-            class="sticky top-0 z-50 w-full border-b border-beige-200 bg-beige-50/95 backdrop-blur"
-            >
-            <div
-                class="container mx-auto flex h-16 items-center justify-between px-4"
-                >
-                <div class="flex items-center space-x-2">
-                    <div
-                        class="flex items-center justify-center w-8 h-8 bg-burgundy-800 rounded-lg"
-                        >
-                        <i data-lucide="package" class="h-5 w-5 text-beige-50"></i>
-                    </div>
-                    <span class="text-xl font-bold font-playfair text-burgundy-900"
-                          >MugCraft</span
-                    >
-                </div>
-
-                <nav class="desktop-nav hidden md:flex items-center space-x-6">
-                    <a
-                        href="#galeria"
-                        class="text-sm font-medium text-burgundy-800 hover:text-burgundy-900 transition-colors"
-                        >
-                        Galeria
-                    </a>
-                    <a
-                        href="#depoimentos"
-                        class="text-sm font-medium text-burgundy-800 hover:text-burgundy-900 transition-colors"
-                        >
-                        Depoimentos
-                    </a>
-                    <a
-                        href="#precos"
-                        class="text-sm font-medium text-burgundy-800 hover:text-burgundy-900 transition-colors"
-                        >
-                        Preços
-                    </a>
-                    <a
-                        href="#contato"
-                        class="text-sm font-medium text-burgundy-800 hover:text-burgundy-900 transition-colors"
-                        >
-                        Contato
-                    </a>
-                </nav>
-
-                <div class="flex items-center space-x-4">
-                    <button
-                        class="hidden md:inline-flex text-sm font-medium text-burgundy-800 hover:text-burgundy-900 px-3 py-2"
-                        >
-                        Entrar
-                    </button>
-
-                    <button
-                        class="bg-burgundy-800 hover:bg-burgundy-900 text-beige-50 px-4 py-2 rounded-md text-sm font-medium"
-                        >
-                        Quero Minha
-                        <span th:text="${categoriaInfo.nomeSingular}">Necessaire</span>
-                    </button>
-
-                    <button id="mobile-menu-btn" class="md:hidden p-2">
-                        <i data-lucide="menu" class="h-4 w-4"></i>
-                    </button>
-                </div>
-            </div>
-
-            <div
-                id="mobile-menu"
-                class="mobile-menu md:hidden bg-beige-50 border-t border-beige-200"
-                >
-                <nav class="container mx-auto px-4 py-4 space-y-2">
-                    <a
-                        href="#galeria"
-                        class="block text-sm font-medium text-burgundy-800 hover:text-burgundy-900 py-2"
-                        >Galeria</a
-                    >
-                    <a
-                        href="#depoimentos"
-                        class="block text-sm font-medium text-burgundy-800 hover:text-burgundy-900 py-2"
-                        >Depoimentos</a
-                    >
-                    <a
-                        href="#precos"
-                        class="block text-sm font-medium text-burgundy-800 hover:text-burgundy-900 py-2"
-                        >Preços</a
-                    >
-                    <a
-                        href="#contato"
-                        class="block text-sm font-medium text-burgundy-800 hover:text-burgundy-900 py-2"
-                        >Contato</a
-                    >
-                </nav>
-            </div>
-        </header>
+        <div th:replace="~{fragments/navbar :: navbar}"></div>
 
         <main>
             <section class="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-gradient-hero">
@@ -221,7 +130,7 @@
                                 <h1
                                     class="text-4xl font-bold tracking-tight sm:text-6xl xl:text-7xl font-playfair text-burgundy-900"
                                     >
-                                    <span th:text="${categoriaInfo.nomePlural}">Necessaires</span>
+                                    <span th:text="${categoria.nomePlural}">Necessaires</span>
                                     que Organizam
                                     <span class="block text-burgundy-700"
                                           >Sua Vida com Estilo</span
@@ -230,7 +139,7 @@
 
                                 <p
                                     class="max-w-2xl text-burgundy-700 text-xl leading-relaxed"
-                                    th:text="${categoriaInfo.descricao}"
+                                    th:text="${categoria.descricao}"
                                     >
                                     Transforme sua rotina com necessaires 100% personalizadas.
                                     Cada peça é única, criada especialmente para refletir sua
@@ -241,10 +150,10 @@
                                 <div class="flex flex-col gap-3 sm:flex-row">
                                     <a th:href="${'https://wa.me/5511950334870?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20personalizado.'}" target="_blank"
                                        class="h-14 px-8 bg-burgundy-800 hover:bg-burgundy-900 text-beige-50 shadow-lg text-lg rounded-md font-medium flex items-center justify-center">
-                                        <span th:utext="${categoriaInfo.heroButtonText}">Texto do Botão Hero Padrão</span>
+                                        <span th:utext="${categoria.heroButtonText}">Texto do Botão Hero Padrão</span>
                                         <i data-lucide="arrow-right" class="ml-2 h-5 w-5"></i>
                                     </a>
-                                    <a th:href="${'https://wa.me/5511950334870?text=Olá!%20Gostaria%20de%20falar%20no%20WhatsApp%20sobre%20as%20suas%20' + categoriaInfo.nomePlural + '.'}" target="_blank"
+                                    <a th:href="${'https://wa.me/5511950334870?text=Olá!%20Gostaria%20de%20falar%20no%20WhatsApp%20sobre%20as%20suas%20' + categoria.nomePlural + '.'}" target="_blank"
                                        class="h-14 px-8 border border-burgundy-800 text-burgundy-800 hover:bg-burgundy-50 text-lg rounded-md font-medium flex items-center justify-center">
                                         📱 Falar no WhatsApp
                                     </a>
@@ -256,8 +165,8 @@
                         </div>
                         <div class="flex items-center justify-center">
                             <img
-                                th:src="${categoriaInfo.imagemDestaqueUrl}"
-                                th:alt="'Imagem de destaque de ' + ${categoriaInfo.nomePlural}"
+                                th:src="${categoria.imagemDestaqueUrl}"
+                                th:alt="'Imagem de destaque de ' + ${categoria.nomePlural}"
                                 class="mx-auto w-full h-[400px] md:h-[500px] lg:h-[600px] xl:h-[700px] max-w-xl lg:max-w-2xl xl:max-w-3xl overflow-hidden rounded-xl object-cover shadow-custom"
                                 />
                         </div>
@@ -278,12 +187,12 @@
                             class="text-3xl font-bold tracking-tight sm:text-5xl font-playfair text-burgundy-900"
                             >
                             Cada
-                            <span th:text="${categoriaInfo.nomeSingular}">Necessaire</span>
+                            <span th:text="${categoria.nomeSingular}">Necessaire</span>
                             Conta Sua História
                         </h2>
                         <p class="max-w-4xl text-burgundy-700 text-xl">
                             Veja como transformamos ideias simples em
-                            <span th:text="${categoriaInfo.nomePlural}">necessaires</span> que
+                            <span th:text="${categoria.nomePlural}">necessaires</span> que
                             <strong>organizam com amor</strong>. Cada detalhe é pensado para
                             facilitar sua rotina e expressar quem você é.
                         </p>
@@ -338,7 +247,7 @@
                             </h2>
                             <p class="max-w-4xl text-burgundy-700 text-xl">
                                 Entendemos que cada um tem sua essência única. Por isso, criamos
-                                <span th:text="${categoriaInfo.nomePlural}">necessaires</span>
+                                <span th:text="${categoria.nomePlural}">necessaires</span>
                                 que não apenas organizam, mas contam sua história e refletem sua
                                 personalidade em cada detalhe.
                             </p>
@@ -367,7 +276,7 @@
                                 <p class="text-burgundy-700">
                                     <strong
                                         >Cada
-                                        <span th:text="${categoriaInfo.nomeSingular}"
+                                        <span th:text="${categoria.nomeSingular}"
                                               >necessaire</span
                                         >
                                         é uma obra de arte personalizada.</strong
@@ -397,7 +306,7 @@
                                         >Materiais de primeira linha e acabamento impecável.</strong
                                     >
                                     Suas
-                                    <span th:text="${categoriaInfo.nomePlural}">necessaires</span>
+                                    <span th:text="${categoria.nomePlural}">necessaires</span>
                                     vão resistir ao uso diário mantendo a beleza e funcionalidade
                                     por anos.
                                 </p>
@@ -422,7 +331,7 @@
                                 </div>
                                 <p class="text-burgundy-700">
                                     <strong>Compartimentos pensados para sua rotina.</strong> Cada
-                                    <span th:text="${categoriaInfo.nomeSingular}"
+                                    <span th:text="${categoria.nomeSingular}"
                                           >necessaire</span
                                     >
                                     é projetada para maximizar o espaço e facilitar o acesso aos
@@ -539,7 +448,7 @@
                             Não trabalhamos com modelos prontos.
                             <strong
                                 >Cada
-                                <span th:text="${categoriaInfo.nomeSingular}">necessaire</span>
+                                <span th:text="${categoria.nomeSingular}">necessaire</span>
                                 é única</strong
                             >, criada especialmente para você. Desde a primeira ideia até o
                             produto final, tudo é pensado para refletir sua essência.
@@ -568,7 +477,7 @@
                                         profissão e paixões.
                                         <strong
                                             >Nenhuma
-                                            <span th:text="${categoriaInfo.nomeSingular}"
+                                            <span th:text="${categoria.nomeSingular}"
                                                   >necessaire</span
                                             >
                                             é igual à outra.</strong
@@ -617,7 +526,7 @@
                                     <p class="text-burgundy-700">
                                         Nossa equipe trabalha junto com você para entender sua
                                         rotina e criar a
-                                        <span th:text="${categoriaInfo.nomeSingular}"
+                                        <span th:text="${categoria.nomeSingular}"
                                               >necessaire</span
                                         >
                                         perfeita.
@@ -629,8 +538,8 @@
 
                         <div class="relative">
                             <img
-                                th:src="${categoriaInfo.urlImagemPersonalizacao}"
-                                th:alt="${categoriaInfo.nomeSingular} + ' premium personalizada'"
+                                th:src="${categoria.urlImagemPersonalizacao}"
+                                th:alt="${categoria.nomeSingular} + ' premium personalizada'"
                                 class="w-full h-[500px] md:h-[600px] object-cover rounded-lg shadow-lg"
                                 />
                             <div
@@ -654,7 +563,7 @@
                         <p class="text-burgundy-700 max-w-2xl mx-auto">
                             Nosso processo é simples, mas cada etapa é cuidadosamente pensada
                             para garantir que sua
-                            <span th:text="${categoriaInfo.nomeSingular}">necessaire</span>
+                            <span th:text="${categoria.nomeSingular}">necessaire</span>
                             seja perfeita para sua rotina.
                         </p>
                     </div>
@@ -692,7 +601,7 @@
                             </h3>
                             <p class="text-burgundy-700 text-sm leading-relaxed">
                                 Sua
-                                <span th:text="${categoriaInfo.nomeSingular}">necessaire</span>
+                                <span th:text="${categoria.nomeSingular}">necessaire</span>
                                 é produzida com materiais de alta qualidade e técnicas especiais
                                 para garantir durabilidade e beleza.
                             </p>
@@ -712,9 +621,9 @@
                     </div>
 
                     <div class="text-center mt-12">
-                        <a th:href="${'https://wa.me/5511950334870?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20personalizado%20de%20' + categoriaInfo.nomeSingular + '.'}" target="_blank"
+                        <a th:href="${'https://wa.me/5511950334870?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20personalizado%20de%20' + categoria.nomeSingular + '.'}" target="_blank"
                            class="bg-burgundy-800 text-beige-50 hover:bg-burgundy-900 px-8 py-4 rounded-md font-medium">
-                            Começar Minha <span th:text="${categoriaInfo.nomeSingular}">Produto</span> Agora
+                            Começar Minha <span th:text="${categoria.nomeSingular}">Produto</span> Agora
                         </a>
                     </div>
                 </div>
@@ -773,7 +682,7 @@
                         <p class="text-burgundy-700 mb-6">
                             <strong>Não encontrou sua ideia aqui?</strong> Não se preocupe! Criamos qualquer tipo de personalização.
                         </p>
-                        <a th:href="${'https://wa.me/5511950334870?text=Olá!%20Gostaria%20de%20conversar%20sobre%20uma%20ideia%20%C3%BAnica%20para%20minha%20' + categoriaInfo.nomeSingular + '.'}" target="_blank"
+                        <a th:href="${'https://wa.me/5511950334870?text=Olá!%20Gostaria%20de%20conversar%20sobre%20uma%20ideia%20%C3%BAnica%20para%20minha%20' + categoria.nomeSingular + '.'}" target="_blank"
                            class="border border-burgundy-800 text-burgundy-800 hover:bg-burgundy-800 hover:text-beige-50 px-8 py-3 rounded-md font-medium">
                             Falar Sobre Minha Ideia
                         </a>
@@ -785,21 +694,21 @@
                     <div class="flex flex-col items-center justify-center space-y-4 text-center">
                         <div class="space-y-2">
                             <h2 class="text-3xl font-bold tracking-tight sm:text-5xl font-playfair text-beige-50" 
-                                th:text="${categoriaInfo.ctaTitle}">
+                                th:text="${categoria.ctaTitle}">
                                 Título CTA Genérico
                             </h2>
                             <p class="max-w-2xl text-beige-100 text-xl" 
-                               th:utext="${categoriaInfo.ctaDescription}">
+                               th:utext="${categoria.ctaDescription}">
                                 Descrição CTA Genérica
                             </p>
                         </div>
                         <div class="flex flex-col gap-2 sm:flex-row">
-                            <a th:href="${'https://wa.me/5511950334870?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20personalizado%20de%20' + categoriaInfo.nomeSingular + '.'}" target="_blank"
+                            <a th:href="${'https://wa.me/5511950334870?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20personalizado%20de%20' + categoria.nomeSingular + '.'}" target="_blank"
                                class="h-12 px-8 bg-beige-50 hover:bg-beige-100 text-burgundy-900 shadow-lg rounded-md font-medium flex items-center justify-center">
-                                <span th:utext="${categoriaInfo.ctaButtonText}">Texto do Botão CTA Padrão</span>
+                                <span th:utext="${categoria.ctaButtonText}">Texto do Botão CTA Padrão</span>
                                 <i data-lucide="arrow-right" class="ml-2 h-4 w-4"></i>
                             </a>
-                            <a th:href="${'https://wa.me/5511950334870?text=Olá!%20Gostaria%20de%20conversar%20com%20voc%C3%AAs%20sobre%20as%20suas%20' + categoriaInfo.nomePlural + '.'}" target="_blank"
+                            <a th:href="${'https://wa.me/5511950334870?text=Olá!%20Gostaria%20de%20conversar%20com%20voc%C3%AAs%20sobre%20as%20suas%20' + categoria.nomePlural + '.'}" target="_blank"
                                class="h-12 px-8 border border-beige-50 text-beige-50 hover:bg-beige-50 hover:text-burgundy-900 rounded-md font-medium flex items-center justify-center">
                                 📱 Conversar no WhatsApp
                             </a>
@@ -819,7 +728,7 @@
                             </div>
                         </div>
                         <p class="text-xs text-beige-300 max-w-md" 
-                           th:utext="${categoriaInfo.ctaAttention}">
+                           th:utext="${categoria.ctaAttention}">
                             Mensagem de Atenção Genérica
                         </p>
                     </div>
@@ -827,128 +736,7 @@
             </section>
         </main>
         <footer id="contato" class="w-full py-6 bg-burgundy-900">
-            <div class="container mx-auto px-4 md:px-6">
-                <div class="grid gap-8 lg:grid-cols-4">
-                    <div class="space-y-4">
-                        <div class="flex items-center space-x-2">
-                            <div
-                                class="flex items-center justify-center w-8 h-8 bg-beige-50 rounded-lg"
-                                >
-                                <i data-lucide="package" class="h-5 w-5 text-burgundy-900"></i>
-                            </div>
-                            <span class="text-xl font-bold font-playfair text-beige-50"
-                                  >MugCraft</span
-                            >
-                        </div>
-                        <p
-                            class="text-sm text-beige-200"
-                            th:text="${categoriaInfo.descricao}"
-                            >
-                            <strong
-                                >Transformamos sua rotina com necessaires 100%
-                                personalizadas.</strong
-                            >
-                            Cada peça é única, criada especialmente para refletir sua
-                            personalidade e organizar seus momentos mais importantes.
-                        </p>
-                        <div class="flex space-x-4">
-                            <a href="#" class="text-beige-200 hover:text-beige-50">
-                                <i data-lucide="facebook" class="h-5 w-5"></i>
-                            </a>
-                            <a href="#" class="text-beige-200 hover:text-beige-50">
-                                <i data-lucide="instagram" class="h-5 w-5"></i>
-                            </a>
-                            <a href="#" class="text-beige-200 hover:text-beige-50">
-                                <i data-lucide="mail" class="h-5 w-5"></i>
-                            </a>
-                            <a href="#" class="text-beige-200 hover:text-beige-50">
-                                <i data-lucide="phone" class="h-5 w-5"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="space-y-4">
-                        <h4 class="text-sm font-semibold text-beige-50">Nossos Produtos</h4>
-                        <ul class="space-y-2 text-sm">
-                            <li th:each="cat : ${todasAsCategorias}">
-                                <a
-                                    th:href="@{/produtos/{slug}(slug=${cat.slug})}"
-                                    th:text="${cat.nomePlural}"
-                                    class="text-beige-200 hover:text-beige-50"
-                                    ></a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="space-y-4">
-                        <h4 class="text-sm font-semibold text-beige-50">Empresa</h4>
-                        <ul class="space-y-2 text-sm">
-                            <li>
-                                <a href="#" class="text-beige-200 hover:text-beige-50"
-                                   >Nossa História</a
-                                >
-                            </li>
-                            <li>
-                                <a href="#" class="text-beige-200 hover:text-beige-50"
-                                   >Como Funciona</a
-                                >
-                            </li>
-                            <li>
-                                <a href="#" class="text-beige-200 hover:text-beige-50"
-                                   >Galeria de Trabalhos</a
-                                >
-                            </li>
-                            <li>
-                                <a href="#" class="text-beige-200 hover:text-beige-50"
-                                   >Depoimentos</a
-                                >
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="space-y-4">
-                        <h4 class="text-sm font-semibold text-beige-50">Atendimento</h4>
-                        <ul class="space-y-2 text-sm">
-                            <li>
-                                <a href="#" class="text-beige-200 hover:text-beige-50"
-                                   >WhatsApp: (11) 99999-9999</a
-                                >
-                            </li>
-                            <li>
-                                <a href="#" class="text-beige-200 hover:text-beige-50"
-                                   >Política de Troca</a
-                                >
-                            </li>
-                            <li>
-                                <a href="#" class="text-beige-200 hover:text-beige-50"
-                                   >Rastreamento</a
-                                >
-                            </li>
-                            <li>
-                                <a href="#" class="text-beige-200 hover:text-beige-50"
-                                   >Dúvidas Frequentes</a
-                                >
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="mt-8 pt-8 border-t border-burgundy-700">
-                    <div class="flex flex-col sm:flex-row justify-between items-center">
-                        <p class="text-xs text-beige-200">
-                            © 2024 Tatiart. Feito com ❤️ para todos os que merecem o melhor.
-                        </p>
-                        <div class="flex space-x-4 mt-4 sm:mt-0">
-                            <a href="#" class="text-xs text-beige-200 hover:text-beige-50"
-                               >Política de Privacidade</a
-                            >
-                            <a href="#" class="text-xs text-beige-200 hover:text-beige-50"
-                               >Termos de Uso</a
-                            >
-                            <a href="#" class="text-xs text-beige-200 hover:text-beige-50"
-                               >Cookies</a
-                            >
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        <div th:replace="~{fragments/footer :: footer}"></div>
         <script src="script.js"></script>
         <script>
             lucide.createIcons();

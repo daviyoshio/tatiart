@@ -567,73 +567,7 @@
   </section>
 
   <!-- Footer -->
-  <footer class="bg-beige-800 pt-8 md:pt-12 pb-6 border-t border-gray-200">
-    <div class="container mx-auto px-4 md:px-6">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-8 md:mb-12">
-        <!-- Brand -->
-        <div>
-          <h3 class="font-playfair text-lg md:text-xl font-bold text-burgundy-800 mb-4">Tatiart</h3>
-          <p class="text-gray-600 mb-4 text-sm md:text-base">
-            Produtos personalizados criados com carinho e atenção aos detalhes.
-          </p>
-        </div>
-        
-        <!-- Navigation -->
-        <div>
-          <h3 class="font-playfair text-lg md:text-xl font-bold text-burgundy-800 mb-4">Navegação</h3>
-          <ul class="space-y-2">
-            <li><a href="index.html" class="text-gray-600 hover:text-burgundy-700 text-sm md:text-base">Home</a></li>
-            <li><a href="produtos.html" class="text-gray-600 hover:text-burgundy-700 text-sm md:text-base">Produtos</a></li>
-            <li><a href="#" class="text-gray-600 hover:text-burgundy-700 text-sm md:text-base">Sobre Nós</a></li>
-            <li><a href="#" class="text-gray-600 hover:text-burgundy-700 text-sm md:text-base">Contato</a></li>
-          </ul>
-        </div>
-        
-        <!-- Products -->
-        <div>
-          <h3 class="font-playfair text-lg md:text-xl font-bold text-burgundy-800 mb-4">Produtos</h3>
-          <ul class="space-y-2">
-            <li><a href="#" class="text-gray-600 hover:text-burgundy-700 text-sm md:text-base">Canecas</a></li>
-            <li><a href="#" class="text-gray-600 hover:text-burgundy-700 text-sm md:text-base">Necessaires</a></li>
-            <li><a href="#" class="text-gray-600 hover:text-burgundy-700 text-sm md:text-base">Mochilas</a></li>
-            <li><a href="#" class="text-gray-600 hover:text-burgundy-700 text-sm md:text-base">Linha Baby</a></li>
-          </ul>
-        </div>
-        
-        <!-- Contact -->
-        <div>
-          <h3 class="font-playfair text-lg md:text-xl font-bold text-burgundy-800 mb-4">Contato</h3>
-          <ul class="space-y-2">
-            <li class="flex items-center gap-2">
-              <i class="far fa-envelope text-burgundy-700 text-sm"></i>
-              <a href="mailto:contato@tatiart.com" class="text-gray-600 hover:text-burgundy-700 text-sm md:text-base">contato@tatiart.com</a>
-            </li>
-            <li class="flex items-center gap-2">
-              <i class="fas fa-phone text-burgundy-700 text-sm"></i>
-              <a href="tel:+5511999999999" class="text-gray-600 hover:text-burgundy-700 text-sm md:text-base">(11) 99999-9999</a>
-            </li>
-          </ul>
-          <div class="flex gap-4 mt-4">
-            <a href="https://instagram.com" target="_blank" class="text-burgundy-700 hover:text-burgundy-900 text-lg md:text-xl">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://facebook.com" target="_blank" class="text-burgundy-700 hover:text-burgundy-900 text-lg md:text-xl">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="https://pinterest.com" target="_blank" class="text-burgundy-700 hover:text-burgundy-900 text-lg md:text-xl">
-              <i class="fab fa-pinterest-p"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-      
-      <div class="border-t border-gray-200 pt-6">
-        <p class="text-center text-gray-500 text-xs md:text-sm">
-          © 2025 Tatiart. Todos os direitos reservados.
-        </p>
-      </div>
-    </div>
-  </footer>
+  <div th:replace="~{fragments/footer :: footer}"></div>
 
   <script src="produtos.js"></script>
 </body>

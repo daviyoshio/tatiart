@@ -54,9 +54,9 @@ public class LojaController {
 
         // 3. Adiciona os dados encontrados ao "Model".
         // O Model vai carregar esses dados para o nosso arquivo HTML.
-        // Estamos dando os nomes "categoriaInfo" e "produtos" para eles.
+        // Estamos dando os nomes "categoria" e "produtos" para eles.
         // Adiciona tudo ao Model
-        model.addAttribute("categoriaInfo", categoria);
+        model.addAttribute("categoria", categoria);
         model.addAttribute("produtos", produtos);
         model.addAttribute("depoimentos", depoimentos);
         model.addAttribute("todasAsCategorias", todasAsCategorias);
