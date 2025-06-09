@@ -491,7 +491,7 @@ public class DataLoader implements CommandLineRunner {
         );
 
         depoimentoRepository.saveAll(Arrays.asList(depEstojo1, depEstojo2, depEstojo3, depEstojo4, depEstojo5, depEstojo6));
-        
+
         // --- CATEGORIA MOCHILAS ---
         Categoria mochilas = new Categoria();
         mochilas.setNomeSingular("Mochila");
@@ -512,12 +512,13 @@ public class DataLoader implements CommandLineRunner {
         categoriaRepository.save(mochilas);
 
         // Produtos para a categoria Mochilas
-        Produto m1 = new Produto("Para Profissionais Especiais", "Designs que celebram sua profissão com carinho e orgulho", "/images/Produtos/Estojo/960x640 Estojo e Mochila.png", mochilas);
-        Produto m2 = new Produto("Amor pelos Pets", "Porque nossos bichinhos merecem estar sempre conosco", "/images/Produtos/Estojo/960x640 Estojo Homem Aranha.png", mochilas);
-        Produto m3 = new Produto("Kits Coordenados", "Organização completa com estilo e elegância para seu dia a dia", "/images/Produtos/Estojo/960x640 Abelhinas.png", mochilas);
-        Produto m4 = new Produto("Fé que Acompanha", "Designs religiosos que fortalecem sua espiritualidade", "/images/Produtos/Estojo/960x640 Estojo Óculos.png", mochilas);
-        Produto m5 = new Produto("Seus Personagens Favoritos", "Anime, desenhos e tudo que você ama em uma peça única", "/images/Produtos/Estojo/960x640 Estojo Ady.png", mochilas);
-        Produto m6 = new Produto("A estampa que você escolher", "Quer uma estampa personalizada? Nós fazemos isso!", "/images/Produtos/Estojo/960x640 Estojo Gatinhos.png", mochilas);
+        // Na seção de Mochilas, corrija os caminhos:
+        Produto m1 = new Produto("Conjuntos Coordenados", "Estojos e mochilas que combinam.", "/images/Produtos/Mochila/Mochila 1.jpg", mochilas);
+        Produto m2 = new Produto("Heróis Favoritos", "Personagens que inspiram.", "/images/Produtos/Mochila/Mochila 2.jpg", mochilas);
+        Produto m3 = new Produto("Designs Divertidos", "Formatos criativos que trazem alegria.", "/images/Produtos/Mochila/Mochila 3.jpg", mochilas);
+        Produto m4 = new Produto("Proteção para Óculos", "Estojos especiais que protegem.", "/images/Produtos/Mochila/Mochila 4.jpg", mochilas);
+        Produto m5 = new Produto("Nomes Personalizados", "Estojos únicos com o nome.", "/images/Produtos/Mochila/Mochila 5.jpg", mochilas);
+        Produto m6 = new Produto("Estampas Exclusivas", "Padrões únicos que combinam.", "/images/Produtos/Mochila/Mochila 6.jpg", mochilas);
         produtoRepository.saveAll(Arrays.asList(m1, m2, m3, m4, m5, m6));
 
         // Adicione os depoimentos para Mochilas
@@ -590,8 +591,8 @@ public class DataLoader implements CommandLineRunner {
         tipoMochila6.getItens().add(new ItemPersonalizacao("Combinações de cores favoritas", tipoMochila6));
         tipoMochila6.getItens().add(new ItemPersonalizacao("Texturas e efeitos especiais", tipoMochila6));
         tipoPersonalizacaoRepository.saveAll(Arrays.asList(tipoMochila1, tipoMochila2, tipoMochila3, tipoMochila4, tipoMochila5, tipoMochila6));
-        
-           // --- CATEGORIA LINHA BABY (ADICIONADA DE VOLTA) ---
+
+        // --- CATEGORIA LINHA BABY (ADICIONADA DE VOLTA) ---
         Categoria linhaBaby = new Categoria();
         linhaBaby.setNomeSingular("Item Linha Baby");
         linhaBaby.setNomePlural("Linha Baby Personalizada");
