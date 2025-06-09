@@ -31,10 +31,11 @@ public class DataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        tipoPersonalizacaoRepository.deleteAll();
+        depoimentoRepository.deleteAll();
+        produtoRepository.deleteAll();
+        categoriaRepository.deleteAll();
         // VERIFICAÇÃO PARA NÃO DUPLICAR DADOS
-        if (categoriaRepository.count() > 0) {
-            return;
-        }
 
         // --- CATEGORIA NECESSAIRES ---
         Categoria necessaires = new Categoria();
