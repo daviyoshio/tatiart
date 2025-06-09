@@ -1,10 +1,5 @@
 package br.com.tatiart.model;
 
-import br.com.tatiart.model.Categoria;
-import br.com.tatiart.model.Depoimento;
-import br.com.tatiart.model.ItemPersonalizacao;
-import br.com.tatiart.model.Produto;
-import br.com.tatiart.model.TipoPersonalizacao;
 import br.com.tatiart.repository.CategoriaRepository;
 import br.com.tatiart.repository.DepoimentoRepository;
 import br.com.tatiart.repository.ProdutoRepository;
@@ -590,5 +585,22 @@ public class DataLoader implements CommandLineRunner {
         tipoMochila6.getItens().add(new ItemPersonalizacao("Combinações de cores favoritas", tipoMochila6));
         tipoMochila6.getItens().add(new ItemPersonalizacao("Texturas e efeitos especiais", tipoMochila6));
         tipoPersonalizacaoRepository.saveAll(Arrays.asList(tipoMochila1, tipoMochila2, tipoMochila3, tipoMochila4, tipoMochila5, tipoMochila6));
+        
+           // --- CATEGORIA LINHA BABY (ADICIONADA DE VOLTA) ---
+        Categoria linhaBaby = new Categoria();
+        linhaBaby.setNomeSingular("Item Linha Baby");
+        linhaBaby.setNomePlural("Linha Baby Personalizada");
+        linhaBaby.setSlug("linha-baby");
+        linhaBaby.setDescricao("Produtos para bebês personalizados com o máximo de carinho e cuidado em cada detalhe.");
+        linhaBaby.setImagemDestaqueUrl("/images/Produtos/LinhaBaby/Body.png");
+        linhaBaby.setUrlImagemPersonalizacao("/images/Produtos/LinhaBaby/Manta.png");
+        linhaBaby.setImagemUrlHome("/images/Home/LinhaBaby - Categoria.png");
+        linhaBaby.setCtaTitle("O Começo de Uma Nova Vida Merece o Melhor");
+        linhaBaby.setCtaDescription("Celebre a chegada do seu bebê com itens únicos e personalizados. Mantas, bodies, toalhas e muito mais, tudo feito com amor.");
+        linhaBaby.setCtaAttention("🎁 Presenteie com originalidade e carinho. Nossos kits são perfeitos para chás de bebê e maternidade.");
+        linhaBaby.setCtaButtonText("✨ Montar Meu Kit Baby");
+        linhaBaby.setHeroTitle("Carinho em Cada Detalhe para o seu Bebê");
+        linhaBaby.setHeroButtonText("💝 Ver Opções da Linha Baby");
+        categoriaRepository.save(linhaBaby);
     }
 }
