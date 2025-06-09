@@ -1,157 +1,120 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tatiart - Produtos</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-          theme: {
-            extend: {
-              colors: {
-                burgundy: {
-                  50: "#FCF4F4",
-                  100: "#F9E9E9",
-                  200: "#F3D3D3",
-                  300: "#EDBDBD",
-                  400: "#E7A7A7",
-                  500: "#E19191",
-                  600: "#DB7B7B",
-                  700: "#D56565",
-                  800: "#6D1F2F",
-                  900: "#6C1919"
-                },
-                beige: {
-                  50: "#FFFCF5",
-                  100: "#FFF9EB",
-                  200: "#FFF3D6",
-                  300: "#FFEEC2",
-                  400: "#FFE8AD",
-                  500: "#FFE399",
-                  600: "#FFDD84",
-                  700: "#FFD870",
-                  800: "#F5F2EA",
-                  900: "#DCC9A6"
-                }
-              },
-              fontFamily: {
-                'playfair': ['"Playfair Display"', 'serif'],
-                'sans': ['Inter', 'sans-serif'],
-              },
-            }
-          }
-        }
-      </script>
-</head>
-<body class="bg-beige-800 font-sans">
-  <!-- Header/Navigation -->
-   <div th:replace="~{fragments/navbar :: navbar}"></div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tatiart - Produtos</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <link rel="stylesheet" href="styles.css">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="/js/tailwind.config.js"></script>
+    </head>
+    <body class="bg-beige-800 font-sans">
+        <!-- Header/Navigation -->
+        <div th:replace="~{fragments/navbar :: navbar}"></div>
 
-    <!-- Hero Section with background -->
-    <section class="relative h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden">
-        <!-- Background Image with Overlay -->
-        <div class="absolute inset-0">
-            <img src="https://images.unsplash.com/photo-1464699908537-0954e50791ee?w=1920" 
-                 alt="Banner decorativo" 
-                 class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-burgundy-800 bg-opacity-30"></div>
-        </div>
+        <!-- Hero Section with background -->
+        <section class="relative h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden">
+            <!-- Background Image with Overlay -->
+            <div class="absolute inset-0">
+                <img src="https://images.unsplash.com/photo-1464699908537-0954e50791ee?w=1920" 
+                     alt="Banner decorativo" 
+                     class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-burgundy-800 bg-opacity-30"></div>
+            </div>
 
-        <!-- Content -->
-        <div class="container mx-auto px-4 relative z-10">
-            <div class="text-center">
-                <h1 class="text-4xl md:text-6xl font-playfair font-bold mb-6 text-white drop-shadow-lg">
-                    Tati Arantes
-                </h1>
-                <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto text-white drop-shadow-md">
-                    Transformando vidas através da arte e do artesanato personalizado
-                </p>
-                <a href="#gallery-container" 
-                   class="inline-block bg-white text-burgundy-800 px-8 py-3 rounded transition-colors hover:bg-gray-100 font-medium">
-                    Ver Trabalhos
+            <!-- Content -->
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="text-center">
+                    <h1 class="text-4xl md:text-6xl font-playfair font-bold mb-6 text-white drop-shadow-lg">
+                        Tati Arantes
+                    </h1>
+                    <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto text-white drop-shadow-md">
+                        Transformando vidas através da arte e do artesanato personalizado
+                    </p>
+                    <a href="#gallery-container" 
+                       class="inline-block bg-white text-burgundy-800 px-8 py-3 rounded transition-colors hover:bg-gray-100 font-medium">
+                        Ver Trabalhos
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Introduction + Video Section -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h2 class="text-3xl md:text-4xl font-playfair font-bold text-burgundy-800 mb-6 animate-on-scroll">Minha História</h2>
+                    <p class="text-lg mb-12 animate-on-scroll">Conheça um pouco mais sobre minha trajetória, paixão pelo artesanato e como comecei a transformar materiais simples em peças únicas cheias de personalidade.</p>
+
+                    <!-- Video section -->
+                    <div class="mb-16 animate-on-scroll">
+                        <div class="relative pb-[56.25%] h-0 overflow-hidden rounded-lg shadow-xl">
+                            <iframe class="absolute top-0 left-0 w-full h-full" 
+                                    src="https://www.youtube.com/embed/_6zsboCaQQ8" 
+                                    title="Conheça a história da Tati" 
+                                    frameborder="0" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
+                        <p class="mt-4 text-gray-600 italic">Descubra como transformei minha paixão por artesanato em um negócio que toca o coração das pessoas.</p>
+                    </div>
+
+                    <!-- Quote block -->
+                    <div class="bg-beige-800 p-8 rounded-lg mb-12 animate-on-scroll">
+                        <blockquote class="text-xl md:text-2xl font-playfair italic text-burgundy-800">
+                            "Cada peça que crio carrega um pouco da minha história e muito amor. Meu propósito é transformar momentos especiais em memórias tangíveis que durarão para sempre."
+                        </blockquote>
+                        <p class="mt-4 text-right font-medium">— Tati Arantes</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="py-16 px-16 bg-beige-800">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-playfair font-bold text-burgundy-800 mb-4 animate-on-scroll">Galeria de Criações</h2>
+                    <p class="text-lg mb-8 max-w-2xl mx-auto animate-on-scroll">Conheça algumas das minhas criações e deixe-se inspirar pela diversidade de estilos e técnicas.</p>
+                </div>
+
+                <!-- Gallery grid -->
+                <div id="gallery-container" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-12">
+                    <!-- Gallery items will be loaded dynamically via JavaScript -->
+                </div>
+
+                <!-- Gallery buttons -->
+                <div class="text-center space-x-4">
+                    <button id="load-more-btn" class="inline-block bg-burgundy-800 text-white px-6 py-3 rounded-md font-medium hover:bg-burgundy-900 transition-colors animate-on-scroll">
+                        Ver mais fotos
+                    </button>
+                    <button id="show-less-btn" class="hidden inline-block bg-burgundy-800 bg-opacity-80 text-white px-6 py-3 rounded-md font-medium hover:bg-burgundy-900 transition-colors">
+                        Ver menos fotos
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-16 bg-burgundy-800 text-white">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-3xl md:text-4xl font-playfair font-bold mb-6 animate-on-scroll">Transforme Seus Momentos Especiais</h2>
+                <p class="text-lg mb-8 max-w-2xl mx-auto animate-on-scroll">Quer uma peça única e personalizada? Entre em contato e vamos criar algo especial juntos.</p>
+                <a href="https://wa.me/5511950334870?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20personalizado." target="_blank" class="inline-flex items-center bg-white hover:bg-gray-100 text-burgundy-800 px-8 py-3 rounded-md font-medium transition-colors">
+                    <i class="fab fa-whatsapp mr-2 text-lg md:text-xl"></i> Fale comigo pelo WhatsApp
                 </a>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Introduction + Video Section -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-3xl md:text-4xl font-playfair font-bold text-burgundy-800 mb-6 animate-on-scroll">Minha História</h2>
-                <p class="text-lg mb-12 animate-on-scroll">Conheça um pouco mais sobre minha trajetória, paixão pelo artesanato e como comecei a transformar materiais simples em peças únicas cheias de personalidade.</p>
-                
-                <!-- Video section -->
-                <div class="mb-16 animate-on-scroll">
-                    <div class="relative pb-[56.25%] h-0 overflow-hidden rounded-lg shadow-xl">
-                        <iframe class="absolute top-0 left-0 w-full h-full" 
-                            src="https://www.youtube.com/embed/_6zsboCaQQ8" 
-                            title="Conheça a história da Tati" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                    <p class="mt-4 text-gray-600 italic">Descubra como transformei minha paixão por artesanato em um negócio que toca o coração das pessoas.</p>
-                </div>
-                
-                <!-- Quote block -->
-                <div class="bg-beige-800 p-8 rounded-lg mb-12 animate-on-scroll">
-                    <blockquote class="text-xl md:text-2xl font-playfair italic text-burgundy-800">
-                        "Cada peça que crio carrega um pouco da minha história e muito amor. Meu propósito é transformar momentos especiais em memórias tangíveis que durarão para sempre."
-                    </blockquote>
-                    <p class="mt-4 text-right font-medium">— Tati Arantes</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        <!-- Footer -->
+        <div th:replace="~{fragments/footer :: footer}"></div>
+        <!-- JavaScript -->
+        <!-- JavaScript -->
 
-    <!-- Gallery Section -->
-    <section class="py-16 px-16 bg-beige-800">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-playfair font-bold text-burgundy-800 mb-4 animate-on-scroll">Galeria de Criações</h2>
-                <p class="text-lg mb-8 max-w-2xl mx-auto animate-on-scroll">Conheça algumas das minhas criações e deixe-se inspirar pela diversidade de estilos e técnicas.</p>
-            </div>
-            
-            <!-- Gallery grid -->
-            <div id="gallery-container" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-12">
-                <!-- Gallery items will be loaded dynamically via JavaScript -->
-            </div>
-            
-            <!-- Gallery buttons -->
-            <div class="text-center space-x-4">
-                <button id="load-more-btn" class="inline-block bg-burgundy-800 text-white px-6 py-3 rounded-md font-medium hover:bg-burgundy-900 transition-colors animate-on-scroll">
-                    Ver mais fotos
-                </button>
-                <button id="show-less-btn" class="hidden inline-block bg-burgundy-800 bg-opacity-80 text-white px-6 py-3 rounded-md font-medium hover:bg-burgundy-900 transition-colors">
-                    Ver menos fotos
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="py-16 bg-burgundy-800 text-white">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl md:text-4xl font-playfair font-bold mb-6 animate-on-scroll">Transforme Seus Momentos Especiais</h2>
-            <p class="text-lg mb-8 max-w-2xl mx-auto animate-on-scroll">Quer uma peça única e personalizada? Entre em contato e vamos criar algo especial juntos.</p>
-            <a href="https://wa.me/5511950334870?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20personalizado." target="_blank" class="inline-flex items-center bg-white hover:bg-gray-100 text-burgundy-800 px-8 py-3 rounded-md font-medium transition-colors">
-                <i class="fab fa-whatsapp mr-2 text-lg md:text-xl"></i> Fale comigo pelo WhatsApp
-              </a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <div th:replace="~{fragments/footer :: footer}"></div>
-    <!-- JavaScript -->
-    <!-- JavaScript -->
-   
-   <script src="/js/main.js" defer></script>
-   <script src="/js/sobre.js" defer></script>
-</body>
+        <script src="/js/main.js" defer></script>
+        <script src="/js/sobre.js" defer></script>
+    </body>
 </html>
