@@ -59,7 +59,7 @@ public class LojaController {
         model.addAttribute("categoria", categoria);
         model.addAttribute("produtos", produtos);
         model.addAttribute("depoimentos", depoimentos);
-        model.addAttribute("todasAsCategorias", todasAsCategorias);
+        model.addAttribute("categorias", todasAsCategorias);
         model.addAttribute("tiposPersonalizacao", tiposPersonalizacao);;
 
         // 4. Retorna o nome do arquivo de template que deve ser renderizado.
