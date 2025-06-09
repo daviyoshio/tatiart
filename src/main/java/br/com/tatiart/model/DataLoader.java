@@ -246,7 +246,7 @@ public class DataLoader implements CommandLineRunner {
         // Textos Hero Section para Bolsas
         bolsas.setHeroTitle("Bolsas Tote que Falam Sobre Você");
         bolsas.setHeroButtonText("💝 Criar Minha Bolsa Única");
-        bolsas.setImagemUrlHome("/images/Home/Bolsa - Categoria.png");
+        bolsas.setImagemUrlHome("/images/Home/Bolsa Marsala - Categoria.png");
         categoriaRepository.save(bolsas);
 
         // Produtos para a categoria Bolsas
