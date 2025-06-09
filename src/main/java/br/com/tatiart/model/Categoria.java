@@ -29,12 +29,13 @@ public class Categoria {
     private String ctaAttention;
     // NOVO ATRIBUTO PARA O TEXTO DO BOTÃO CTA
     private String ctaButtonText;
-    
+    // Dentro da classe Categoria, adicione este novo campo:
+    private String imagemUrlHome;
+
     // NOVOS ATRIBUTOS PARA A SEÇÃO HERO
     @Column(length = 500) // Título principal da Hero Section
     private String heroTitle;
     private String heroButtonText; // Texto do botão da Hero Section
-
 
     @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Produto> produtos = new ArrayList<>();
@@ -151,7 +152,12 @@ public class Categoria {
         this.produtos = produtos;
     }
 
-    
-    
-    
+    public String getImagemUrlHome() {
+        return imagemUrlHome;
+    }
+
+    public void setImagemUrlHome(String imagemUrlHome) {
+        this.imagemUrlHome = imagemUrlHome;
+    }
+
 }
