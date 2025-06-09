@@ -5,7 +5,7 @@
 
     <div class="container mx-auto px-4 md:px-6">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-            
+
             <div>
                 <h3 th:classappend="${isDark} ? 'text-beige-100' : 'text-burgundy-800'" 
                     class="font-playfair text-xl font-bold mb-4">Tatiart</h3>
@@ -14,7 +14,7 @@
                     Produtos personalizados criados com carinho e atenção aos detalhes.
                 </p>
             </div>
-            
+
             <div>
                 <h3 th:classappend="${isDark} ? 'text-beige-100' : 'text-burgundy-800'" class="font-playfair text-xl font-bold mb-4">Navegação</h3>
                 <ul class="space-y-2">
@@ -24,16 +24,16 @@
                     <li><a href="https://wa.me/5511950334870" target="_blank" th:classappend="${isDark} ? 'text-beige-200 hover:text-white' : 'text-gray-600 hover:text-burgundy-700'">Contato</a></li>
                 </ul>
             </div>
-            
+
             <div>
                 <h3 th:classappend="${isDark} ? 'text-beige-100' : 'text-burgundy-800'" class="font-playfair text-xl font-bold mb-4">Produtos</h3>
-                <ul class="space-y-2">
+                <ul th:if="${categorias != null}" class="space-y-2">
                     <li th:each="cat : ${categorias}">
                         <a th:href="@{/produtos/{slug}(slug=${cat.slug})}" th:text="${cat.nomePlural}" th:classappend="${isDark} ? 'text-beige-200 hover:text-white' : 'text-gray-600 hover:text-burgundy-700'"></a>
                     </li>
                 </ul>
             </div>
-            
+
             <div>
                 <h3 th:classappend="${isDark} ? 'text-beige-100' : 'text-burgundy-800'" class="font-playfair text-xl font-bold mb-4">Contato</h3>
                 <ul class="space-y-2">
@@ -50,10 +50,10 @@
                     <a href="https://www.instagram.com/tatiar.t/" target="_blank" th:classappend="${isDark} ? 'text-beige-200 hover:text-white' : 'text-burgundy-700 hover:text-burgundy-900'" class="text-xl">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    </div>
+                </div>
             </div>
         </div>
-        
+
         <div class="pt-6">
             <p th:classappend="${isDark} ? 'text-beige-300' : 'text-gray-500'" class="text-center text-sm">
                 © 2025 Tatiart. Todos os direitos reservados.
