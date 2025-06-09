@@ -48,6 +48,7 @@ public class DataLoader implements CommandLineRunner {
         // Textos Hero Section para Necessaires
         necessaires.setHeroTitle("Necessaires que Organizam Sua Vida com Estilo");
         necessaires.setHeroButtonText("💝 Criar Minha Necessaire");
+        necessaires.setImagemUrlHome("/images/Home/Necessaire - Categoria.png");
         categoriaRepository.save(necessaires);
 
         // Produtos para a categoria Necessaires
@@ -146,6 +147,7 @@ public class DataLoader implements CommandLineRunner {
         // Textos Hero Section
         canecas.setHeroTitle("Canecas que Contam Histórias Únicas");
         canecas.setHeroButtonText("💝 Criar Minha Caneca");
+        canecas.setImagemUrlHome("/images/Home/Caneca - Categoria.png");
         categoriaRepository.save(canecas);
 
         // Produtos para a categoria Canecas
@@ -244,6 +246,7 @@ public class DataLoader implements CommandLineRunner {
         // Textos Hero Section para Bolsas
         bolsas.setHeroTitle("Bolsas Tote que Falam Sobre Você");
         bolsas.setHeroButtonText("💝 Criar Minha Bolsa Única");
+        bolsas.setImagemUrlHome("/images/Home/Bolsa - Categoria.png");
         categoriaRepository.save(bolsas);
 
         // Produtos para a categoria Bolsas
@@ -334,6 +337,7 @@ public class DataLoader implements CommandLineRunner {
         estojos.setCtaButtonText("✨ SIM! Quero Meu Estojo Personalizado");
         estojos.setHeroTitle("Estojos que Encantam e Organizam com Estilo");
         estojos.setHeroButtonText("💝 Criar Meu Estojo");
+        estojos.setImagemUrlHome("/images/Home/KitEstojos - Categoria.jpg");
         categoriaRepository.save(estojos);
 
         // --- Produtos específicos para Estojos ---
@@ -487,7 +491,7 @@ public class DataLoader implements CommandLineRunner {
         );
 
         depoimentoRepository.saveAll(Arrays.asList(depEstojo1, depEstojo2, depEstojo3, depEstojo4, depEstojo5, depEstojo6));
-
+        
         // --- CATEGORIA MOCHILAS ---
         Categoria mochilas = new Categoria();
         mochilas.setNomeSingular("Mochila");
@@ -504,6 +508,7 @@ public class DataLoader implements CommandLineRunner {
         // Textos Hero Section para Mochilas
         mochilas.setHeroTitle("Mochilas que te Acompanham em Todas as Aventuras");
         mochilas.setHeroButtonText("💝 Criar Minha Mochila");
+        mochilas.setImagemUrlHome("/images/Home/Mochila - Categoria.png");
         categoriaRepository.save(mochilas);
 
         // Produtos para a categoria Mochilas
