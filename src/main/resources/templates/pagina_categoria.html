@@ -4,8 +4,8 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <title th:text="'Tatiart - ' + ${categoria.nomePlural}">
-            MugCraft - Título Provisório
+        <title th:text="#{page.title.prefix} + ${categoria.getNomePlural()}">
+            Tatiart
         </title>
 
         <meta name="description" th:content="${categoria.descricao}" />
@@ -90,102 +90,78 @@
                     <div class="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
                         <div class="flex flex-col justify-center space-y-6">
                             <div class="space-y-4">
-                                <h1
-                                    class="text-4xl font-bold tracking-tight sm:text-6xl xl:text-7xl font-playfair text-burgundy-900"
-                                    >
-                                    <span th:text="${categoria.nomePlural}">Necessaires</span>
-                                    que Organizam
-                                    <span class="block text-burgundy-700"
-                                          >Sua Vida com Estilo</span
-                                    >
+                                <h1 class="text-4xl font-bold tracking-tight sm:text-6xl xl:text-7xl font-playfair text-burgundy-900">
+                                    <span th:text="${categoria.getNomePlural()}">Necessaires</span>
+                                    <span th:text="#{category.hero.organize}">que Organizam</span>
+                                    <span class="block text-burgundy-700" th:text="#{category.hero.withStyle}">Sua Vida com Estilo</span>
                                 </h1>
 
-                                <p
-                                    class="max-w-2xl text-burgundy-700 text-xl leading-relaxed"
-                                    th:text="${categoria.descricao}"
-                                    >
-                                    Transforme sua rotina com necessaires 100% personalizadas.
-                                    Cada peça é única, criada especialmente para refletir sua
-                                    personalidade e organizar seus momentos mais importantes.
+                                <p class="max-w-2xl text-burgundy-700 text-xl leading-relaxed"
+                                   th:text="${categoria.getDescricao()}">
+                                    Transforme sua rotina com necessaires 100% personalizadas...
                                 </p>
                             </div>
                             <div class="flex flex-col gap-3 sm:flex-row">
-                                <div class="flex flex-col gap-3 sm:flex-row">
-                                    <a th:href="${'https://wa.me/5511950334870?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20personalizado.'}" target="_blank"
-                                       class="h-14 px-8 bg-burgundy-800 hover:bg-burgundy-900 text-beige-50 shadow-lg text-lg rounded-md font-medium flex items-center justify-center">
-                                        <span th:utext="${categoria.heroButtonText}">Texto do Botão Hero Padrão</span>
-                                        <i data-lucide="arrow-right" class="ml-2 h-5 w-5"></i>
-                                    </a>
-                                    <a th:href="${'https://wa.me/5511950334870?text=Olá!%20Gostaria%20de%20falar%20no%20WhatsApp%20sobre%20as%20suas%20' + categoria.nomePlural + '.'}" target="_blank"
-                                       class="h-14 px-8 border border-burgundy-800 text-burgundy-800 hover:bg-burgundy-50 text-lg rounded-md font-medium flex items-center justify-center">
-                                        📱 Falar no WhatsApp
-                                    </a>
-                                </div>
+                                <a th:href="${'https://wa.me/5511950334870?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20personalizado.'}" target="_blank"
+                                   class="h-14 px-8 bg-burgundy-800 hover:bg-burgundy-900 text-beige-50 shadow-lg text-lg rounded-md font-medium flex items-center justify-center">
+                                    <span th:utext="${categoria.getHeroButtonText()}">Texto do Botão Hero Padrão</span>
+                                    <i data-lucide="arrow-right" class="ml-2 h-5 w-5"></i>
+                                </a>
+                                <a th:href="${'https://wa.me/5511950334870?text=Olá!%20Gostaria%20de%20falar%20no%20WhatsApp%20sobre%20as%20suas%20' + categoria.nomePlural + '.'}" target="_blank"
+                                   class="h-14 px-8 border border-burgundy-800 text-burgundy-800 hover:bg-burgundy-50 text-lg rounded-md font-medium flex items-center justify-center">
+                                    📱 <span class="ml-2" th:text="#{category.hero.whatsappBtn}">Falar no WhatsApp</span>
+                                </a>
                             </div>
-                            <p class="text-sm text-burgundy-600">
+                            <p class="text-sm text-burgundy-600" th:utext="#{category.hero.deliveryInfo}">
                                 ✨ <strong> Entrega em 3-7 dias • Qualidade premium</strong> ✨
                             </p>
                         </div>
                         <div class="flex items-center justify-center">
-                            <img
-                                th:src="${categoria.imagemDestaqueUrl}"
-                                th:alt="'Imagem de destaque de ' + ${categoria.nomePlural}"
-                                class="mx-auto w-full h-[400px] md:h-[500px] lg:h-[600px] xl:h-[700px] max-w-xl lg:max-w-2xl xl:max-w-3xl overflow-hidden rounded-xl object-cover shadow-custom"
-                                />
+                            <img th:src="${categoria.imagemDestaqueUrl}"
+                                 th:alt="'Imagem de destaque de ' + ${categoria.getNomePlural()}"
+                                 class="mx-auto w-full h-[400px] md:h-[500px] lg:h-[600px] xl:h-[700px] max-w-xl lg:max-w-2xl xl:max-w-3xl overflow-hidden rounded-xl object-cover shadow-custom" />
                         </div>
                     </div>
                 </div>
             </section>
             <section id="galeria" class="w-full py-12 md:py-24 lg:py-32 bg-white">
                 <div class="container mx-auto px-4 md:px-6">
-                    <div
-                        class="flex flex-col items-center justify-center space-y-4 text-center mb-12"
-                        >
-                        <span
-                            class="bg-burgundy-100 text-burgundy-800 px-3 py-1 rounded-full text-sm font-medium"
-                            >
+                    <div class="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+                        <span class="bg-burgundy-100 text-burgundy-800 px-3 py-1 rounded-full text-sm font-medium"
+                              th:text="#{category.gallery.badge}">
                             ✨ Nossos Trabalhos
                         </span>
-                        <h2
-                            class="text-3xl font-bold tracking-tight sm:text-5xl font-playfair text-burgundy-900"
-                            >
-                            Cada
+                        <h2 class="text-3xl font-bold tracking-tight sm:text-5xl font-playfair text-burgundy-900">
+                            <span th:text="#{category.gallery.title.prefix}">Cada</span>
                             <span th:text="${categoria.nomeSingular}">Necessaire</span>
-                            Conta Sua História
+                            <span th:text="#{category.gallery.title.suffix}">Conta Sua História</span>
                         </h2>
                         <p class="max-w-4xl text-burgundy-700 text-xl">
-                            Veja como transformamos ideias simples em
-                            <span th:text="${categoria.nomePlural}">necessaires</span> que
-                            <strong>organizam com amor</strong>. Cada detalhe é pensado para
-                            facilitar sua rotina e expressar quem você é.
+                            <span th:text="#{category.gallery.subtitle.prefix}">Veja como transformamos ideias simples em</span>
+                            <span th:text="${categoria.getNomePlural()}">necessaires</span>
+                            <span th:utext="#{category.gallery.subtitle.suffix}">que <strong>organizam com amor</strong>...</span>
                         </p>
                     </div>
 
                     <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mb-12">
                         <div class="space-y-4" th:each="produto : ${produtos}">
-                            <img
-                                th:src="${produto.urlImagem}"
-                                th:alt="${produto.nome}"
-                                class="w-full h-72 md:h-80 object-cover rounded-lg shadow-lg hover-scale"
-                                />
+                            <img th:src="${produto.urlImagem}"
+                                 th:alt="${produto.nome}"
+                                 class="w-full h-72 md:h-80 object-cover rounded-lg shadow-lg hover-scale" />
                             <div class="text-center">
-                                <h3
-                                    class="font-semibold text-burgundy-900"
-                                    th:text="${produto.nome}"
-                                    >
+                                <h3 class="font-semibold text-burgundy-900"
+                                    th:text="${produto.nome}">
                                     Nome do Produto
                                 </h3>
-                                <p
-                                    class="text-sm text-burgundy-600"
-                                    th:text="${produto.descricao}"
-                                    >
+                                <p class="text-sm text-burgundy-600"
+                                   th:text="${produto.descricao}">
                                     Descrição do produto.
                                 </p>
                             </div>
                         </div>
 
                         <div th:if="${#lists.isEmpty(produtos)}">
-                            <p>
+                            <p th:text="#{category.gallery.noproducts}">
                                 Nenhum produto encontrado nesta categoria ainda. Volte em breve!
                             </p>
                         </div>
@@ -194,136 +170,85 @@
             </section>
             <section class="w-full py-12 md:py-24 lg:py-32 bg-beige-50">
                 <div class="container mx-auto px-4 md:px-6">
-                    <div
-                        class="flex flex-col items-center justify-center space-y-4 text-center"
-                        >
+                    <div class="flex flex-col items-center justify-center space-y-4 text-center">
                         <div class="space-y-2">
-                            <span
-                                class="bg-burgundy-100 text-burgundy-800 px-3 py-1 rounded-full text-sm font-medium"
-                                >
+                            <span class="bg-burgundy-100 text-burgundy-800 px-3 py-1 rounded-full text-sm font-medium"
+                                  th:text="#{category.why.badge}">
                                 💎 Por que Escolher a Tatiart
                             </span>
-                            <h2
-                                class="text-3xl font-bold tracking-tight sm:text-5xl font-playfair text-burgundy-900"
-                                >
+                            <h2 class="text-3xl font-bold tracking-tight sm:text-5xl font-playfair text-burgundy-900"
+                                th:text="#{category.why.title}">
                                 Mais que Organização, é Expressão Pessoal
                             </h2>
                             <p class="max-w-4xl text-burgundy-700 text-xl">
-                                Entendemos que cada um tem sua essência única. Por isso, criamos
-                                <span th:text="${categoria.nomePlural}">necessaires</span>
-                                que não apenas organizam, mas contam sua história e refletem sua
-                                personalidade em cada detalhe.
+                                <span th:text="#{category.why.subtitle.prefix}">Entendemos que cada um tem sua essência única. Por isso, criamos</span>
+                                <span th:text="${categoria.getNomePlural()}">necessaires</span>
+                                <span th:text="#{category.why.subtitle.suffix}">que não apenas organizam, mas contam sua história e refletem sua personalidade em cada detalhe.</span>
                             </p>
                         </div>
                     </div>
-                    <div
-                        class="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-2 lg:gap-12"
-                        >
+                    <div class="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-2 lg:gap-12">
                         <div class="grid gap-6">
-                            <div
-                                class="border border-beige-200 bg-white shadow-lg rounded-lg p-6"
-                                >
+                            <div class="border border-beige-200 bg-white shadow-lg rounded-lg p-6">
                                 <div class="flex items-center space-x-2 mb-4">
-                                    <div
-                                        class="flex items-center justify-center w-10 h-10 bg-burgundy-100 rounded-lg"
-                                        >
-                                        <i
-                                            data-lucide="palette"
-                                            class="h-5 w-5 text-burgundy-800"
-                                            ></i>
+                                    <div class="flex items-center justify-center w-10 h-10 bg-burgundy-100 rounded-lg">
+                                        <i data-lucide="palette" class="h-5 w-5 text-burgundy-800"></i>
                                     </div>
-                                    <h3 class="text-lg font-semibold text-burgundy-900">
+                                    <h3 class="text-lg font-semibold text-burgundy-900" th:text="#{category.why.feature1.title}">
                                         Design que Inspira
                                     </h3>
                                 </div>
                                 <p class="text-burgundy-700">
-                                    <strong
-                                        >Cada
-                                        <span th:text="${categoria.nomeSingular}"
-                                              >necessaire</span
-                                        >
-                                        é uma obra de arte personalizada.</strong
-                                    >
-                                    Nossa equipe de designers trabalha com paixão para transformar
-                                    suas ideias em peças que inspiram sua rotina diária.
+                                    <span th:utext="#{category.why.feature1.description.prefix}"><strong>Cada</span>
+                                    <span th:text="${categoria.nomeSingular}">necessaire</span>
+                                    <span th:utext="#{category.why.feature1.description.middle}">é uma obra de arte personalizada.</strong></span>
+                                    <span th:text="#{category.why.feature1.description.suffix}">Nossa equipe de designers trabalha com paixão para transformar suas ideias em peças que inspiram sua rotina diária.</span>
                                 </p>
                             </div>
-                            <div
-                                class="border border-beige-200 bg-white shadow-lg rounded-lg p-6"
-                                >
+                            <div class="border border-beige-200 bg-white shadow-lg rounded-lg p-6">
                                 <div class="flex items-center space-x-2 mb-4">
-                                    <div
-                                        class="flex items-center justify-center w-10 h-10 bg-burgundy-100 rounded-lg"
-                                        >
-                                        <i
-                                            data-lucide="shield-check"
-                                            class="h-5 w-5 text-burgundy-800"
-                                            ></i>
+                                    <div class="flex items-center justify-center w-10 h-10 bg-burgundy-100 rounded-lg">
+                                        <i data-lucide="shield-check" class="h-5 w-5 text-burgundy-800"></i>
                                     </div>
-                                    <h3 class="text-lg font-semibold text-burgundy-900">
+                                    <h3 class="text-lg font-semibold text-burgundy-900" th:text="#{category.why.feature2.title}">
                                         Qualidade Premium
                                     </h3>
                                 </div>
                                 <p class="text-burgundy-700">
-                                    <strong
-                                        >Materiais de primeira linha e acabamento impecável.</strong
-                                    >
-                                    Suas
-                                    <span th:text="${categoria.nomePlural}">necessaires</span>
-                                    vão resistir ao uso diário mantendo a beleza e funcionalidade
-                                    por anos.
+                                    <span th:utext="#{category.why.feature2.description.prefix}"><strong>Materiais de primeira linha e acabamento impecável.</strong> Suas</span>
+                                    <span th:text="${categoria.getNomePlural()}">necessaires</span>
+                                    <span th:text="#{category.why.feature2.description.suffix}">vão resistir ao uso diário mantendo a beleza e funcionalidade por anos.</span>
                                 </p>
                             </div>
                         </div>
                         <div class="grid gap-6">
-                            <div
-                                class="border border-beige-200 bg-white shadow-lg rounded-lg p-6"
-                                >
+                            <div class="border border-beige-200 bg-white shadow-lg rounded-lg p-6">
                                 <div class="flex items-center space-x-2 mb-4">
-                                    <div
-                                        class="flex items-center justify-center w-10 h-10 bg-burgundy-100 rounded-lg"
-                                        >
-                                        <i
-                                            data-lucide="package"
-                                            class="h-5 w-5 text-burgundy-800"
-                                            ></i>
+                                    <div class="flex items-center justify-center w-10 h-10 bg-burgundy-100 rounded-lg">
+                                        <i data-lucide="package" class="h-5 w-5 text-burgundy-800"></i>
                                     </div>
-                                    <h3 class="text-lg font-semibold text-burgundy-900">
+                                    <h3 class="text-lg font-semibold text-burgundy-900" th:text="#{category.why.feature3.title}">
                                         Organização Inteligente
                                     </h3>
                                 </div>
                                 <p class="text-burgundy-700">
-                                    <strong>Compartimentos pensados para sua rotina.</strong> Cada
-                                    <span th:text="${categoria.nomeSingular}"
-                                          >necessaire</span
-                                    >
-                                    é projetada para maximizar o espaço e facilitar o acesso aos
-                                    seus itens essenciais.
+                                    <span th:utext="#{category.why.feature3.description.prefix}"><strong>Compartimentos pensados para sua rotina.</strong> Cada</span>
+                                    <span th:text="${categoria.nomeSingular}">necessaire</span>
+                                    <span th:text="#{category.why.feature3.description.suffix}">é projetada para maximizar o espaço e facilitar o acesso aos seus itens essenciais.</span>
                                 </p>
                             </div>
-                            <div
-                                class="border border-beige-200 bg-white shadow-lg rounded-lg p-6"
-                                >
+                            <div class="border border-beige-200 bg-white shadow-lg rounded-lg p-6">
                                 <div class="flex items-center space-x-2 mb-4">
-                                    <div
-                                        class="flex items-center justify-center w-10 h-10 bg-burgundy-100 rounded-lg"
-                                        >
-                                        <i
-                                            data-lucide="heart"
-                                            class="h-5 w-5 text-burgundy-800"
-                                            ></i>
+                                    <div class="flex items-center justify-center w-10 h-10 bg-burgundy-100 rounded-lg">
+                                        <i data-lucide="heart" class="h-5 w-5 text-burgundy-800"></i>
                                     </div>
-                                    <h3 class="text-lg font-semibold text-burgundy-900">
+                                    <h3 class="text-lg font-semibold text-burgundy-900" th:text="#{category.why.feature4.title}">
                                         Feito com Amor
                                     </h3>
                                 </div>
                                 <p class="text-burgundy-700">
-                                    <strong
-                                        >Cada peça é tratada como se fosse para nossa
-                                        família.</strong
-                                    >
-                                    Cuidamos de todos os detalhes para que você receba algo
-                                    verdadeiramente especial.
+                                    <span th:utext="#{category.why.feature4.description.prefix}"><strong>Cada peça é tratada como se fosse para nossa família.</strong></span>
+                                    <span th:text="#{category.why.feature4.description.suffix}">Cuidamos de todos os detalhes para que você receba algo verdadeiramente especial.</span>
                                 </p>
                             </div>
                         </div>
@@ -332,67 +257,48 @@
             </section>
             <section id="depoimentos" class="w-full py-12 md:py-24 lg:py-32 bg-white">
                 <div class="container mx-auto px-4 md:px-6">
-                    <div
-                        class="flex flex-col items-center justify-center space-y-4 text-center"
-                        >
+                    <div class="flex flex-col items-center justify-center space-y-4 text-center">
                         <div class="space-y-2">
-                            <span
-                                class="bg-burgundy-100 text-burgundy-800 px-3 py-1 rounded-full text-sm font-medium"
-                                >
+                            <span class="bg-burgundy-100 text-burgundy-800 px-3 py-1 rounded-full text-sm font-medium"
+                                  th:text="#{category.testimonials.badge}">
                                 Depoimentos Reais
                             </span>
-                            <h2
-                                class="text-3xl font-bold tracking-tight sm:text-5xl font-playfair text-burgundy-900"
-                                >
+                            <h2 class="text-3xl font-bold tracking-tight sm:text-5xl font-playfair text-burgundy-900"
+                                th:text="#{category.testimonials.title}">
                                 Mulheres Apaixonadas Compartilham
                             </h2>
-                            <p class="max-w-2xl mx-auto text-burgundy-700 text-xl">
-                                Veja as fotos e mensagens reais que recebemos todos os dias.
-                                Cada sorriso é uma rotina transformada com amor e organização.
+                            <p class="max-w-2xl mx-auto text-burgundy-700 text-xl"
+                               th:text="#{category.testimonials.subtitle}">
+                                Veja as fotos e mensagens reais que recebemos todos os dias. Cada sorriso é uma rotina transformada com amor e organização.
                             </p>
                         </div>
                     </div>
 
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 py-12">
-                        <div
-                            class="bg-white rounded-2xl shadow-lg overflow-hidden testimonial-card flex flex-col"
-                            th:each="depoimento : ${depoimentos}"
-                            >
-                            <div
-                                class="testimonial-text p-4 bg-burgundy-50 border-l-4 border-burgundy-500"
-                                >
+                        <div class="bg-white rounded-2xl shadow-lg overflow-hidden testimonial-card flex flex-col"
+                             th:each="depoimento : ${depoimentos}">
+                            <div class="testimonial-text p-4 bg-burgundy-50 border-l-4 border-burgundy-500">
                                 <div class="flex items-center space-x-2 mb-2">
-                                    <div
-                                        class="w-8 h-8 bg-burgundy-800 rounded-full flex items-center justify-center"
-                                        >
-                                        <span
-                                            class="text-white text-xs font-bold"
-                                            th:text="${#strings.substring(depoimento.nomeCliente, 0, 1)}"
-                                            ></span>
+                                    <div class="w-8 h-8 bg-burgundy-800 rounded-full flex items-center justify-center">
+                                        <span class="text-white text-xs font-bold"
+                                              th:text="${#strings.substring(depoimento.nomeCliente, 0, 1)}"></span>
                                     </div>
-                                    <span
-                                        class="text-sm font-medium text-gray-700"
-                                        th:text="${depoimento.nomeCliente}"
-                                        ></span>
+                                    <span class="text-sm font-medium text-gray-700"
+                                          th:text="${depoimento.nomeCliente}"></span>
                                 </div>
-                                <p
-                                    class="text-sm text-gray-700 italic"
-                                    th:text="${depoimento.texto}"
-                                    ></p>
+                                <p class="text-sm text-gray-700 italic"
+                                   th:text="${depoimento.texto}"></p>
                             </div>
                             <div class="flex-grow">
-                                <img
-                                    th:src="${depoimento.urlImagem}"
-                                    th:alt="'Depoimento de ' + ${depoimento.nomeCliente}"
-                                    class="w-full h-full object-cover"
-                                    />
+                                <img th:src="${depoimento.urlImagem}"
+                                     th:alt="'Depoimento de ' + ${depoimento.nomeCliente}"
+                                     class="w-full h-full object-cover" />
                             </div>
                         </div>
 
                         <div th:if="${#lists.isEmpty(depoimentos)}">
-                            <p>
-                                Ainda não temos depoimentos para esta categoria. Seja o
-                                primeiro!
+                            <p th:text="#{category.testimonials.notestimonials}">
+                                Ainda não temos depoimentos para esta categoria. Seja o primeiro!
                             </p>
                         </div>
                     </div>
@@ -401,114 +307,86 @@
             <section class="w-full py-12 md:py-24 lg:py-32 bg-beige-50">
                 <div class="container mx-auto px-4 md:px-6">
                     <div class="text-center mb-16">
-                        <p class="text-burgundy-600 font-medium mb-2">100% Personalizado</p>
-                        <h2
-                            class="text-3xl font-bold tracking-tight sm:text-5xl font-playfair text-burgundy-900 mb-4"
-                            >
+                        <p class="text-burgundy-600 font-medium mb-2" th:text="#{category.imagination.badge}">100% Personalizado</p>
+                        <h2 class="text-3xl font-bold tracking-tight sm:text-5xl font-playfair text-burgundy-900 mb-4"
+                            th:text="#{category.imagination.title}">
                             Sua Imaginação é o Limite
                         </h2>
                         <p class="text-burgundy-700 max-w-3xl mx-auto text-lg">
-                            Não trabalhamos com modelos prontos.
-                            <strong
-                                >Cada
-                                <span th:text="${categoria.nomeSingular}">necessaire</span>
-                                é única</strong
-                            >, criada especialmente para você. Desde a primeira ideia até o
-                            produto final, tudo é pensado para refletir sua essência.
+                            <span th:text="#{category.imagination.subtitle.prefix}">Não trabalhamos com modelos prontos.</span>
+                            <span th:utext="#{category.imagination.subtitle.middle}"><strong>Cada</span>
+                            <span th:text="${categoria.nomeSingular}">necessaire</span>
+                            <span th:utext="#{category.imagination.subtitle.middle2}">é única</strong>, criada especialmente para você. Desde a primeira ideia até o produto final, tudo é pensado para refletir sua essência.</span>
                         </p>
                     </div>
 
                     <div class="grid lg:grid-cols-2 gap-12 items-center">
                         <div class="space-y-8">
                             <div class="flex items-start space-x-4">
-                                <div
-                                    class="w-12 h-12 bg-burgundy-100 rounded-full flex items-center justify-center flex-shrink-0"
-                                    >
-                                    <i
-                                        data-lucide="palette"
-                                        class="h-6 w-6 text-burgundy-800"
-                                        ></i>
+                                <div class="w-12 h-12 bg-burgundy-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="palette" class="h-6 w-6 text-burgundy-800"></i>
                                 </div>
                                 <div>
-                                    <h3
-                                        class="text-xl font-playfair font-semibold text-burgundy-900 mb-2"
-                                        >
+                                    <h3 class="text-xl font-playfair font-semibold text-burgundy-900 mb-2"
+                                        th:text="#{category.imagination.feature1.title}">
                                         Design Exclusivo
                                     </h3>
                                     <p class="text-burgundy-700">
-                                        Criamos o design do zero baseado na sua personalidade,
-                                        profissão e paixões.
-                                        <strong
-                                            >Nenhuma
-                                            <span th:text="${categoria.nomeSingular}"
-                                                  >necessaire</span
-                                            >
-                                            é igual à outra.</strong
-                                        >
+                                        <span th:utext="#{category.imagination.feature1.description}">Criamos o design do zero baseado na sua personalidade, profissão e paixões. <strong>Nenhuma</span>
+                                        <span th:text="${categoria.nomeSingular}">necessaire</span>
+                                        <span th:utext="#{category.imagination.feature1.description2}">é igual à outra.</strong></span>
                                     </p>
                                 </div>
                             </div>
-
                             <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-burgundy-100 rounded-full flex items-center justify-center flex-shrink-0 invisible">
+                                </div>
                                 <div>
-                                    <h3
-                                        class="text-xl font-playfair font-semibold text-burgundy-900 mb-2"
-                                        >
+                                    <h3 class="text-xl font-playfair font-semibold text-burgundy-900 mb-2"
+                                        th:text="#{category.imagination.feature2.title}">
                                         Significado Pessoal
                                     </h3>
-                                    <p class="text-burgundy-700">
-                                        Seus pets, sua fé, seus personagens favoritos, sua
-                                        profissão. Transformamos o que você ama em arte funcional
-                                        que te acompanha sempre.
+                                    <p class="text-burgundy-700" th:text="#{category.imagination.feature2.description}">
+                                        Seus pets, sua fé, seus personagens favoritos, sua profissão...
                                     </p>
                                 </div>
                             </div>
-
                             <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-burgundy-100 rounded-full flex items-center justify-center flex-shrink-0 invisible">
+                                </div>
                                 <div>
-                                    <h3
-                                        class="text-xl font-playfair font-semibold text-burgundy-900 mb-2"
-                                        >
+                                    <h3 class="text-xl font-playfair font-semibold text-burgundy-900 mb-2"
+                                        th:text="#{category.imagination.feature3.title}">
                                         Detalhes Únicos
                                     </h3>
-                                    <p class="text-burgundy-700">
-                                        Cores favoritas, nomes especiais, símbolos significativos.
-                                        Cada elemento tem um propósito e conta parte da sua história
-                                        pessoal.
+                                    <p class="text-burgundy-700" th:text="#{category.imagination.feature3.description}">
+                                        Cores favoritas, nomes especiais, símbolos significativos...
                                     </p>
                                 </div>
                             </div>
-
                             <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-burgundy-100 rounded-full flex items-center justify-center flex-shrink-0 invisible">
+                                </div>
                                 <div>
-                                    <h3
-                                        class="text-xl font-playfair font-semibold text-burgundy-900 mb-2"
-                                        >
+                                    <h3 class="text-xl font-playfair font-semibold text-burgundy-900 mb-2"
+                                        th:text="#{category.imagination.feature4.title}">
                                         Consultoria Pessoal
                                     </h3>
                                     <p class="text-burgundy-700">
-                                        Nossa equipe trabalha junto com você para entender sua
-                                        rotina e criar a
-                                        <span th:text="${categoria.nomeSingular}"
-                                              >necessaire</span
-                                        >
-                                        perfeita.
-                                        <strong>Você participa de todo o processo.</strong>
+                                        <span th:text="#{category.imagination.feature4.description}">Nossa equipe trabalha junto com você para entender sua rotina e criar a</span>
+                                        <span th:text="${categoria.nomeSingular}">necessaire</span>
+                                        <span th:utext="#{category.imagination.feature4.description2}">perfeita. <strong>Você participa de todo o processo.</strong></span>
                                     </p>
                                 </div>
                             </div>
                         </div>
 
                         <div class="relative">
-                            <img
-                                th:src="${categoria.urlImagemPersonalizacao}"
-                                th:alt="${categoria.nomeSingular} + ' premium personalizada'"
-                                class="w-full h-[500px] md:h-[600px] object-cover rounded-lg shadow-lg"
-                                />
-                            <div
-                                class="absolute -bottom-4 -left-4 bg-burgundy-800 text-beige-50 px-4 py-2 rounded-lg shadow-lg"
-                                >
-                                <p class="text-sm font-medium">✨ 100% Única</p>
+                            <img th:src="${categoria.urlImagemPersonalizacao}"
+                                 th:alt="${categoria.nomeSingular} + ' premium personalizada'"
+                                 class="w-full h-[500px] md:h-[600px] object-cover rounded-lg shadow-lg" />
+                            <div class="absolute -bottom-4 -left-4 bg-burgundy-800 text-beige-50 px-4 py-2 rounded-lg shadow-lg">
+                                <p class="text-sm font-medium" th:text="#{category.imagination.overlay}">✨ 100% Única</p>
                             </div>
                         </div>
                     </div>
@@ -517,68 +395,61 @@
             <section class="w-full py-12 md:py-24 lg:py-32 bg-white">
                 <div class="container mx-auto px-4 md:px-6">
                     <div class="text-center mb-16">
-                        <p class="text-burgundy-600 font-medium mb-2">Como Funciona</p>
-                        <h2
-                            class="text-3xl font-bold tracking-tight sm:text-5xl font-playfair text-burgundy-900 mb-4"
-                            >
+                        <p class="text-burgundy-600 font-medium mb-2" th:text="#{category.howitworks.badge}">Como Funciona</p>
+                        <h2 class="text-3xl font-bold tracking-tight sm:text-5xl font-playfair text-burgundy-900 mb-4"
+                            th:text="#{category.howitworks.title}">
                             Do Sonho à Realidade em 4 Passos
                         </h2>
                         <p class="text-burgundy-700 max-w-2xl mx-auto">
-                            Nosso processo é simples, mas cada etapa é cuidadosamente pensada
-                            para garantir que sua
+                            <span th:text="#{category.howitworks.subtitle.prefix}">Nosso processo é simples, mas cada etapa é cuidadosamente pensada para garantir que sua</span>
                             <span th:text="${categoria.nomeSingular}">necessaire</span>
-                            seja perfeita para sua rotina.
+                            <span th:text="#{category.howitworks.subtitle.suffix}">seja perfeita para sua rotina.</span>
                         </p>
                     </div>
 
                     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                         <div class="text-center">
-                            <h3
-                                class="text-xl font-playfair font-semibold text-burgundy-900 mb-3"
-                                >
+                            <h3 class="text-xl font-playfair font-semibold text-burgundy-900 mb-3"
+                                th:text="#{category.howitworks.step1.title}">
                                 Conte Sua História
                             </h3>
-                            <p class="text-burgundy-700 text-sm leading-relaxed">
-                                Compartilhe conosco suas paixões, sua rotina, fotos dos seus
-                                pets, profissão ou qualquer inspiração que você tenha.
+                            <p class="text-burgundy-700 text-sm leading-relaxed"
+                               th:text="#{category.howitworks.step1.description}">
+                                Compartilhe conosco suas paixões, sua rotina...
                             </p>
                         </div>
 
                         <div class="text-center">
-                            <h3
-                                class="text-xl font-playfair font-semibold text-burgundy-900 mb-3"
-                                >
+                            <h3 class="text-xl font-playfair font-semibold text-burgundy-900 mb-3"
+                                th:text="#{category.howitworks.step2.title}">
                                 Criamos o Design
                             </h3>
-                            <p class="text-burgundy-700 text-sm leading-relaxed">
-                                Nossa equipe de designers cria um projeto exclusivo baseado na
-                                sua personalidade. Você aprova antes da produção.
+                            <p class="text-burgundy-700 text-sm leading-relaxed"
+                               th:text="#{category.howitworks.step2.description}">
+                                Nossa equipe de designers cria um projeto exclusivo...
                             </p>
                         </div>
 
                         <div class="text-center">
-                            <h3
-                                class="text-xl font-playfair font-semibold text-burgundy-900 mb-3"
-                                >
+                            <h3 class="text-xl font-playfair font-semibold text-burgundy-900 mb-3"
+                                th:text="#{category.howitworks.step3.title}">
                                 Produção Premium
                             </h3>
                             <p class="text-burgundy-700 text-sm leading-relaxed">
-                                Sua
+                                <span th:text="#{category.howitworks.step3.description.prefix}">Sua</span>
                                 <span th:text="${categoria.nomeSingular}">necessaire</span>
-                                é produzida com materiais de alta qualidade e técnicas especiais
-                                para garantir durabilidade e beleza.
+                                <span th:text="#{category.howitworks.step3.description.suffix}">é produzida com materiais de alta qualidade...</span>
                             </p>
                         </div>
 
                         <div class="text-center">
-                            <h3
-                                class="text-xl font-playfair font-semibold text-burgundy-900 mb-3"
-                                >
+                            <h3 class="text-xl font-playfair font-semibold text-burgundy-900 mb-3"
+                                th:text="#{category.howitworks.step4.title}">
                                 Entrega Especial
                             </h3>
-                            <p class="text-burgundy-700 text-sm leading-relaxed">
-                                Embalamos com carinho e enviamos para você. Sua nova companheira
-                                de organização chegará em casa!
+                            <p class="text-burgundy-700 text-sm leading-relaxed"
+                               th:text="#{category.howitworks.step4.description}">
+                                Embalamos com carinho e enviamos para você...
                             </p>
                         </div>
                     </div>
@@ -586,7 +457,9 @@
                     <div class="text-center mt-12">
                         <a th:href="${'https://wa.me/5511950334870?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20personalizado%20de%20' + categoria.nomeSingular + '.'}" target="_blank"
                            class="bg-burgundy-800 text-beige-50 hover:bg-burgundy-900 px-8 py-4 rounded-md font-medium">
-                            Começar Minha <span th:text="${categoria.nomeSingular}">Produto</span> Agora
+                            <span th:text="#{category.howitworks.button.prefix}">Começar Minha</span>
+                            <span th:text="${categoria.nomeSingular}">Produto</span>
+                            <span th:text="#{category.howitworks.button.suffix}">Agora</span>
                         </a>
                     </div>
                 </div>
@@ -594,47 +467,34 @@
             <section class="w-full py-12 md:py-24 lg:py-32 bg-beige-50">
                 <div class="container mx-auto px-4 md:px-6">
                     <div class="text-center mb-16">
-                        <p class="text-burgundy-600 font-medium mb-2">
+                        <p class="text-burgundy-600 font-medium mb-2" th:text="#{category.types.badge}">
                             Tipos de Personalização
                         </p>
-                        <h2
-                            class="text-3xl font-bold tracking-tight sm:text-5xl font-playfair text-burgundy-900 mb-4"
-                            >
+                        <h2 class="text-3xl font-bold tracking-tight sm:text-5xl font-playfair text-burgundy-900 mb-4"
+                            th:text="#{category.types.title}">
                             Infinitas Possibilidades
                         </h2>
-                        <p class="text-burgundy-700 max-w-2xl mx-auto">
-                            Não importa qual seja sua paixão ou necessidade, nós transformamos
-                            em realidade. Veja alguns dos tipos mais populares.
+                        <p class="text-burgundy-700 max-w-2xl mx-auto"
+                           th:text="#{category.types.subtitle}">
+                            Não importa qual seja sua paixão ou necessidade, nós transformamos em realidade. Veja alguns dos tipos mais populares.
                         </p>
                     </div>
 
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <div
-                            class="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white rounded-lg p-6"
-                            th:each="tipo : ${tiposPersonalizacao}"
-                            >
+                        <div class="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white rounded-lg p-6"
+                             th:each="tipo : ${tiposPersonalizacao}">
                             <div class="text-center mb-4">
-                                <div
-                                    class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4"
-                                    >
-                                    <i
-                                        th:data-lucide="${tipo.nomeIcone}"
-                                        class="h-8 w-8 text-pink-600"
-                                        ></i>
+                                <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <i th:data-lucide="${tipo.nomeIcone}" class="h-8 w-8 text-pink-600"></i>
                                 </div>
-                                <h3
-                                    class="text-burgundy-900 font-playfair font-semibold"
-                                    th:text="${tipo.titulo}"
-                                    >
+                                <h3 class="text-burgundy-900 font-playfair font-semibold"
+                                    th:text="${tipo.titulo}">
                                     Título do Tipo
                                 </h3>
                             </div>
-
                             <ul class="space-y-2 text-sm text-burgundy-700">
-                                <li
-                                    th:each="item : ${tipo.itens}"
-                                    th:text="'• ' + ${item.texto}"
-                                    >
+                                <li th:each="item : ${tipo.itens}"
+                                    th:text="'• ' + ${item.texto}">
                                     Item da lista de exemplo
                                 </li>
                             </ul>
@@ -642,11 +502,12 @@
                     </div>
 
                     <div class="text-center mt-12">
-                        <p class="text-burgundy-700 mb-6">
+                        <p class="text-burgundy-700 mb-6" th:utext="#{category.types.notfound}">
                             <strong>Não encontrou sua ideia aqui?</strong> Não se preocupe! Criamos qualquer tipo de personalização.
                         </p>
                         <a th:href="${'https://wa.me/5511950334870?text=Olá!%20Gostaria%20de%20conversar%20sobre%20uma%20ideia%20%C3%BAnica%20para%20minha%20' + categoria.nomeSingular + '.'}" target="_blank"
-                           class="border border-burgundy-800 text-burgundy-800 hover:bg-burgundy-800 hover:text-beige-50 px-8 py-3 rounded-md font-medium">
+                           class="border border-burgundy-800 text-burgundy-800 hover:bg-burgundy-800 hover:text-beige-50 px-8 py-3 rounded-md font-medium"
+                           th:text="#{category.types.button}">
                             Falar Sobre Minha Ideia
                         </a>
                     </div>
@@ -673,21 +534,21 @@
                             </a>
                             <a th:href="${'https://wa.me/5511950334870?text=Olá!%20Gostaria%20de%20conversar%20com%20voc%C3%AAs%20sobre%20as%20suas%20' + categoria.nomePlural + '.'}" target="_blank"
                                class="h-12 px-8 border border-beige-50 text-beige-50 hover:bg-beige-50 hover:text-burgundy-900 rounded-md font-medium flex items-center justify-center">
-                                📱 Conversar no WhatsApp
+                                📱 <span class="ml-2" th:text="#{category.finalcta.whatsappBtn}">Conversar no WhatsApp</span>
                             </a>
                         </div>
                         <div class="flex flex-wrap items-center justify-center gap-4 text-sm text-beige-200">
                             <div class="flex items-center space-x-1">
                                 <i data-lucide="clock" class="h-4 w-4 text-green-400"></i>
-                                <span><strong>Entrega rápida</strong> em 3-7 dias</span>
+                                <span th:utext="#{category.finalcta.info1}"><strong>Entrega rápida</strong> em 3-7 dias</span>
                             </div>
                             <div class="flex items-center space-x-1">
                                 <i data-lucide="heart" class="h-4 w-4 text-red-400"></i>
-                                <span><strong>Qualidade</strong> 100% garantida</span>
+                                <span th:utext="#{category.finalcta.info2}"><strong>Qualidade</strong> 100% garantida</span>
                             </div>
                             <div class="flex items-center space-x-1">
                                 <i data-lucide="sparkles" class="h-4 w-4 text-yellow-400"></i>
-                                <span><strong>Design</strong> exclusivo</span>
+                                <span th:utext="#{category.finalcta.info3}"><strong>Design</strong> exclusivo</span>
                             </div>
                         </div>
                         <p class="text-xs text-beige-300 max-w-md" 
@@ -699,53 +560,68 @@
             </section>
         </main>
         <footer id="contato" class="w-full py-6 bg-burgundy-900">
-        <div th:replace="~{fragments/footer :: footer(theme='dark')}"></div>
-        <script src="script.js"></script>
-        <script>
-            lucide.createIcons();
-            // Mobile menu toggle
-            const mobileMenuBtn = document.getElementById("mobile-menu-btn");
-            const mobileMenu = document.getElementById("mobile-menu");
+            <div th:replace="~{fragments/footer :: footer(theme='dark')}"></div>
+            <script th:src="@{/js/main.js}"></script>
+            <script>
+                // CORRIGIDO: Espera o HTML carregar completamente antes de rodar o script
+                document.addEventListener('DOMContentLoaded', function () {
 
-            mobileMenuBtn.addEventListener("click", () => {
-                mobileMenu.classList.toggle("active");
-            });
+                    lucide.createIcons();
 
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-                anchor.addEventListener("click", function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute("href"));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: "smooth",
-                            block: "start",
+                    // Mobile menu toggle
+                    const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+                    const mobileMenu = document.getElementById("mobile-menu");
+
+                    // CORRIGIDO: Adiciona uma verificação para garantir que os elementos existem
+                    if (mobileMenuBtn && mobileMenu) {
+                        mobileMenuBtn.addEventListener("click", () => {
+                            mobileMenu.classList.toggle("active");
                         });
-                        // Close mobile menu if open
-                        mobileMenu.classList.remove("active");
                     }
-                });
-            });
 
-            // Add scroll effect to header
-            window.addEventListener("scroll", () => {
-                const header = document.querySelector("header");
-                if (window.scrollY > 100) {
-                    header.style.backgroundColor = "rgba(255, 252, 245, 0.98)";
-                } else {
-                    header.style.backgroundColor = "rgba(255, 252, 245, 0.95)";
-                }
-            });
+                    // Smooth scrolling for anchor links
+                    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+                        anchor.addEventListener("click", function (e) {
+                            e.preventDefault();
+                            const target = document.querySelector(this.getAttribute("href"));
+                            if (target) {
+                                target.scrollIntoView({
+                                    behavior: "smooth",
+                                    block: "start",
+                                });
 
-            // Add hover effects to cards
-            document.querySelectorAll(".hover-scale").forEach((element) => {
-                element.addEventListener("mouseenter", () => {
-                    element.style.transform = "scale(1.05)";
+                                // Close mobile menu if open (Verifica se 'mobileMenu' existe)
+                                if (mobileMenu) {
+                                    mobileMenu.classList.remove("active");
+                                }
+                            }
+                        });
+                    });
+
+                    // Add scroll effect to header
+                    window.addEventListener("scroll", () => {
+                        const header = document.querySelector("header");
+                        // Adicionada verificação para o header também, por segurança
+                        if (header) {
+                            if (window.scrollY > 100) {
+                                header.style.backgroundColor = "rgba(255, 252, 245, 0.98)";
+                            } else {
+                                header.style.backgroundColor = "rgba(255, 252, 245, 0.95)";
+                            }
+                        }
+                    });
+
+                    // Add hover effects to cards
+                    document.querySelectorAll(".hover-scale").forEach((element) => {
+                        element.addEventListener("mouseenter", () => {
+                            element.style.transform = "scale(1.05)";
+                        });
+                        element.addEventListener("mouseleave", () => {
+                            element.style.transform = "scale(1)";
+                        });
+                    });
+
                 });
-                element.addEventListener("mouseleave", () => {
-                    element.style.transform = "scale(1)";
-                });
-            });
-        </script>
+            </script>
     </body>
 </html>

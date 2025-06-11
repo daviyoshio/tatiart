@@ -1,29 +1,38 @@
-<!-- fragments/navbar.html -->
 <div th:fragment="navbar">
-  <!-- Header/Navigation -->
   <header class="sticky top-0 bg-white z-50 shadow-sm">
     <div class="container mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
       <a href="/" class="text-burgundy-800 font-playfair text-2xl md:text-3xl font-bold">Tatiart</a>
 
-      <button id="mobile-menu-button" class="md:hidden text-burgundy-800">
-        <i class="fas fa-bars text-xl"></i>
-      </button>
+      <div class="flex items-center">
+        <nav class="hidden md:flex space-x-8">
+          <a th:href="@{/}" th:text="#{navbar.home}" class="text-burgundy-800 hover:text-burgundy-600 font-medium">Home</a>
+          <a th:href="@{/produtos}" th:text="#{navbar.products}" class="text-burgundy-800 hover:text-burgundy-600 font-medium">Produtos</a>
+          <a th:href="@{/sobre}" th:text="#{navbar.about}" class="text-burgundy-800 hover:text-burgundy-600 font-medium">Sobre Nós</a>
+          <a href="https://wa.me/5511950334870" th:text="#{navbar.contact}" class="text-burgundy-800 hover:text-burgundy-600 font-medium" target="_blank">Contato</a>
+        </nav>
 
-      <nav class="hidden md:flex space-x-8">
-        <a href="/" class="text-burgundy-800 hover:text-burgundy-600 font-medium">Home</a>
-        <a href="/produtos" class="text-burgundy-800 hover:text-burgundy-600 font-medium">Produtos</a>
-        <a href="/sobre" class="text-burgundy-800 hover:text-burgundy-600 font-medium">Sobre Nós</a>
-        <a href="https://wa.me/5511950334870" class="text-burgundy-800 hover:text-burgundy-600 font-medium" target="_blank">Contato</a>
-      </nav>
+        <div class="hidden md:flex items-center space-x-3 ml-6">
+            <a th:href="@{?lang=pt-BR}" title="Português" class="opacity-75 hover:opacity-100 transition-opacity">🇧🇷</a>
+            <a th:href="@{?lang=en}" title="English" class="opacity-75 hover:opacity-100 transition-opacity">🇺🇸</a>
+        </div>
+
+        <button id="mobile-menu-button" class="md:hidden text-burgundy-800 ml-4">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+      </div>
     </div>
 
-    <!-- Mobile Menu -->
     <div id="mobile-menu" class="md:hidden hidden bg-white w-full">
       <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
-        <a href="/" class="text-burgundy-800 hover:text-burgundy-600 font-medium py-2">Home</a>
-        <a href="/produtos" class="text-burgundy-800 hover:text-burgundy-600 font-medium py-2">Produtos</a>
-        <a href="/sobre" class="text-burgundy-800 hover:text-burgundy-600 font-medium py-2">Sobre Nós</a>
-        <a href="https://wa.me/5511950334870" class="text-burgundy-800 hover:text-burgundy-600 font-medium py-2" target="_blank">Contato</a>
+        <a th:href="@{/}" th:text="#{navbar.home}" class="text-burgundy-800 hover:text-burgundy-600 font-medium py-2">Home</a>
+        <a th:href="@{/produtos}" th:text="#{navbar.products}" class="text-burgundy-800 hover:text-burgundy-600 font-medium py-2">Produtos</a>
+        <a th:href="@{/sobre}" th:text="#{navbar.about}" class="text-burgundy-800 hover:text-burgundy-600 font-medium py-2">Sobre Nós</a>
+        <a href="https://wa.me/5511950334870" th:text="#{navbar.contact}" class="text-burgundy-800 hover:text-burgundy-600 font-medium py-2" target="_blank">Contato</a>
+        
+        <div class="flex space-x-4 pt-4 border-t mt-2">
+            <a th:href="@{?lang=pt-BR}" title="Português" class="text-burgundy-800">🇧🇷 PT-BR</a>
+            <a th:href="@{?lang=en}" title="English" class="text-burgundy-800">🇺🇸 EN</a>
+        </div>
       </div>
     </div>
   </header>

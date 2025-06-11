@@ -9,55 +9,70 @@
             <div>
                 <h3 th:classappend="${isDark} ? 'text-beige-100' : 'text-burgundy-800'" 
                     class="font-playfair text-xl font-bold mb-4">Tatiart</h3>
-                <p th:classappend="${isDark} ? 'text-beige-200' : 'text-gray-600'" 
+                <p th:text="#{footer.description}"
+                   th:classappend="${isDark} ? 'text-beige-200' : 'text-gray-600'" 
                    class="mb-4">
                     Produtos personalizados criados com carinho e atenção aos detalhes.
                 </p>
             </div>
 
             <div>
-                <h3 th:classappend="${isDark} ? 'text-beige-100' : 'text-burgundy-800'" class="font-playfair text-xl font-bold mb-4">Navegação</h3>
+                <h3 th:text="#{footer.navigation.title}"
+                    th:classappend="${isDark} ? 'text-beige-100' : 'text-burgundy-800'" class="font-playfair text-xl font-bold mb-4">Navegação</h3>
                 <ul class="space-y-2">
-                    <li><a th:href="@{/}" th:classappend="${isDark} ? 'text-beige-200 hover:text-white' : 'text-gray-600 hover:text-burgundy-700'">Home</a></li>
-                    <li><a th:href="@{/produtos}" th:classappend="${isDark} ? 'text-beige-200 hover:text-white' : 'text-gray-600 hover:text-burgundy-700'">Produtos</a></li>
-                    <li><a th:href="@{/sobre}" th:classappend="${isDark} ? 'text-beige-200 hover:text-white' : 'text-gray-600 hover:text-burgundy-700'">Sobre Nós</a></li>
-                    <li><a href="https://wa.me/5511950334870" target="_blank" th:classappend="${isDark} ? 'text-beige-200 hover:text-white' : 'text-gray-600 hover:text-burgundy-700'">Contato</a></li>
+                    <li><a th:href="@{/}" th:text="#{navbar.home}" th:classappend="${isDark} ? 'text-beige-200 hover:text-white' : 'text-gray-600 hover:text-burgundy-700'">Home</a></li>
+                    <li><a th:href="@{/produtos}" th:text="#{navbar.products}" th:classappend="${isDark} ? 'text-beige-200 hover:text-white' : 'text-gray-600 hover:text-burgundy-700'">Produtos</a></li>
+                    <li><a th:href="@{/sobre}" th:text="#{navbar.about}" th:classappend="${isDark} ? 'text-beige-200 hover:text-white' : 'text-gray-600 hover:text-burgundy-700'">Sobre Nós</a></li>
+                    <li><a href="https://wa.me/5511950334870" target="_blank" th:text="#{navbar.contact}" th:classappend="${isDark} ? 'text-beige-200 hover:text-white' : 'text-gray-600 hover:text-burgundy-700'">Contato</a></li>
                 </ul>
             </div>
 
             <div>
-                <h3 th:classappend="${isDark} ? 'text-beige-100' : 'text-burgundy-800'" class="font-playfair text-xl font-bold mb-4">Produtos</h3>
+                <h3 th:text="#{footer.products.title}"
+                    th:classappend="${isDark} ? 'text-beige-100' : 'text-burgundy-800'" class="font-playfair text-xl font-bold mb-4">Produtos</h3>
                 <ul th:if="${categorias != null}" class="space-y-2">
                     <li th:each="cat : ${categorias}">
-                        <a th:href="@{/produtos/{slug}(slug=${cat.slug})}" th:text="${cat.nomePlural}" th:classappend="${isDark} ? 'text-beige-200 hover:text-white' : 'text-gray-600 hover:text-burgundy-700'"></a>
+                        <a th:href="@{/produtos/{slug}(slug=${cat.slug})}" th:text="${cat.getNomePlural()}" th:classappend="${isDark} ? 'text-beige-200 hover:text-white' : 'text-gray-600 hover:text-burgundy-700'"></a>
                     </li>
                 </ul>
             </div>
 
             <div>
-                <h3 th:classappend="${isDark} ? 'text-beige-100' : 'text-burgundy-800'" class="font-playfair text-xl font-bold mb-4">Contato</h3>
+                <h3 th:text="#{footer.contact.title}"
+                    th:classappend="${isDark} ? 'text-beige-100' : 'text-burgundy-800'"
+                    class="font-playfair text-xl font-bold mb-4">Contato</h3>
                 <ul class="space-y-2">
                     <li class="flex items-center gap-2">
-                        <i class="far fa-envelope" th:classappend="${isDark} ? 'text-beige-200' : 'text-burgundy-700'"></i>
-                        <a href="mailto:contato@tatiart.com" th:classappend="${isDark} ? 'text-beige-200 hover:text-white' : 'text-gray-600 hover:text-burgundy-700'">contato@tatiart.com</a>
+                        <i class="far fa-envelope"
+                           th:classappend="${isDark} ? 'text-beige-200' : 'text-burgundy-700'"></i>
+                        <a href="mailto:contato@tatiart.com"
+                           th:classappend="${isDark} ? 'text-beige-200 hover:text-white' : 'text-gray-600 hover:text-burgundy-700'">contato@tatiart.com</a>
                     </li>
                     <li class="flex items-center gap-2">
-                        <i class="fas fa-phone" th:classappend="${isDark} ? 'text-beige-200' : 'text-burgundy-700'"></i>
-                        <a href="tel:+5511950334870" th:classappend="${isDark} ? 'text-beige-200 hover:text-white' : 'text-gray-600 hover:text-burgundy-700'">(11) 95033-4870</a>
+                        <i class="fas fa-phone"
+                           th:classappend="${isDark} ? 'text-beige-200' : 'text-burgundy-700'"></i>
+                        <a href="tel:+5511950334870"
+                           th:classappend="${isDark} ? 'text-beige-200 hover:text-white' : 'text-gray-600 hover:text-burgundy-700'">(11) 95033-4870</a>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fab fa-instagram"
+                           th:classappend="${isDark} ? 'text-beige-200' : 'text-burgundy-700'"></i>
+                        <a href="https://www.instagram.com/tatiar.t/" target="_blank"
+                           th:classappend="${isDark} ? 'text-beige-200 hover:text-white' : 'text-gray-600 hover:text-burgundy-700'">tatiar.t</a>
                     </li>
                 </ul>
-                <div class="flex gap-4 mt-4">
-                    <a href="https://www.instagram.com/tatiar.t/" target="_blank" th:classappend="${isDark} ? 'text-beige-200 hover:text-white' : 'text-burgundy-700 hover:text-burgundy-900'" class="text-xl">
-                        <i class="fab fa-instagram"></i>
-                    </a>
+            </div>
+            <div class="pt-6 border-t" th:classappend="${isDark} ? 'border-burgundy-800' : 'border-gray-300'">
+                <div class="flex flex-col sm:flex-row justify-between items-center text-center sm:text-left">
+                    <p th:text="#{footer.copyright}"
+                       th:classappend="${isDark} ? 'text-beige-300' : 'text-gray-500'" class="text-sm mb-4 sm:mb-0">
+                        © 2025 Tatiart. Todos os direitos reservados.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a th:href="@{?lang=pt-BR}" title="Português" th:classappend="${isDark} ? 'text-beige-200 hover:text-white' : 'text-gray-600 hover:text-burgundy-700'">🇧🇷 PT-BR</a>
+                        <a th:href="@{?lang=en}" title="English" th:classappend="${isDark} ? 'text-beige-200 hover:text-white' : 'text-gray-600 hover:text-burgundy-700'">🇺🇸 EN</a>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <div class="pt-6">
-            <p th:classappend="${isDark} ? 'text-beige-300' : 'text-gray-500'" class="text-center text-sm">
-                © 2025 Tatiart. Todos os direitos reservados.
-            </p>
-        </div>
-    </div>
 </footer>

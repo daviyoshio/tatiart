@@ -1,9 +1,10 @@
 package br.com.tatiart.model;
 
-import br.com.tatiart.model.Produto;
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import org.springframework.context.i18n.LocaleContextHolder;
 
 @Entity
 public class Categoria {
@@ -12,152 +13,103 @@ public class Categoria {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nomeSingular;
-    private String nomePlural;
+    // Campos que NÃO são traduzidos permanecem aqui
+    @Column(unique = true, nullable = false)
     private String slug;
-
-    @Column(length = 500)
-    private String descricao;
-
+    private String imagemUrlHome;
     private String imagemDestaqueUrl;
     private String urlImagemPersonalizacao;
 
-    private String ctaTitle;
-    @Column(length = 500)
-    private String ctaDescription;
-    @Column(length = 500)
-    private String ctaAttention;
-    // NOVO ATRIBUTO PARA O TEXTO DO BOTÃO CTA
-    private String ctaButtonText;
-    // Dentro da classe Categoria, adicione este novo campo:
-    private String imagemUrlHome;
+    // Relacionamento com a nova tabela de traduções
+    @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private List<CategoriaTranslation> translations = new ArrayList<>();
 
-    // NOVOS ATRIBUTOS PARA A SEÇÃO HERO
-    @Column(length = 500) // Título principal da Hero Section
-    private String heroTitle;
-    private String heroButtonText; // Texto do botão da Hero Section
-
-    @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "categoria", fetch = FetchType.LAZY)
     private List<Produto> produtos = new ArrayList<>();
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
+    // --- MÉTODOS AUXILIARES (GETTERS TRADUZIDOS) ---
+    // Estes métodos pegam a tradução correta para você
+    
+    @Transient
     public String getNomeSingular() {
-        return nomeSingular;
+        return getTranslation().map(CategoriaTranslation::getNomeSingular).orElse("Item");
     }
 
-    public void setNomeSingular(String nomeSingular) {
-        this.nomeSingular = nomeSingular;
-    }
-
+    @Transient
     public String getNomePlural() {
-        return nomePlural;
+        return getTranslation().map(CategoriaTranslation::getNomePlural).orElse("Categoria");
     }
 
-    public void setNomePlural(String nomePlural) {
-        this.nomePlural = nomePlural;
-    }
-
-    public String getSlug() {
-        return slug;
-    }
-
-    public void setSlug(String slug) {
-        this.slug = slug;
-    }
-
+    @Transient
     public String getDescricao() {
-        return descricao;
+        return getTranslation().map(CategoriaTranslation::getDescricao).orElse("Descrição não disponível");
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public String getImagemDestaqueUrl() {
-        return imagemDestaqueUrl;
-    }
-
-    public void setImagemDestaqueUrl(String imagemDestaqueUrl) {
-        this.imagemDestaqueUrl = imagemDestaqueUrl;
-    }
-
-    public String getUrlImagemPersonalizacao() {
-        return urlImagemPersonalizacao;
-    }
-
-    public void setUrlImagemPersonalizacao(String urlImagemPersonalizacao) {
-        this.urlImagemPersonalizacao = urlImagemPersonalizacao;
-    }
-
+    @Transient
     public String getCtaTitle() {
-        return ctaTitle;
+        return getTranslation().map(CategoriaTranslation::getCtaTitle).orElse("");
     }
-
-    public void setCtaTitle(String ctaTitle) {
-        this.ctaTitle = ctaTitle;
-    }
-
+    
+    // --- MÉTODOS QUE FALTAVAM ---
+    @Transient
     public String getCtaDescription() {
-        return ctaDescription;
+        return getTranslation().map(CategoriaTranslation::getCtaDescription).orElse("");
     }
-
-    public void setCtaDescription(String ctaDescription) {
-        this.ctaDescription = ctaDescription;
-    }
-
+    
+    @Transient
     public String getCtaAttention() {
-        return ctaAttention;
+        return getTranslation().map(CategoriaTranslation::getCtaAttention).orElse("");
     }
-
-    public void setCtaAttention(String ctaAttention) {
-        this.ctaAttention = ctaAttention;
-    }
-
+    
+    @Transient
     public String getCtaButtonText() {
-        return ctaButtonText;
+        return getTranslation().map(CategoriaTranslation::getCtaButtonText).orElse("");
     }
-
-    public void setCtaButtonText(String ctaButtonText) {
-        this.ctaButtonText = ctaButtonText;
-    }
-
+    
+    @Transient
     public String getHeroTitle() {
-        return heroTitle;
+        return getTranslation().map(CategoriaTranslation::getHeroTitle).orElse("");
     }
-
-    public void setHeroTitle(String heroTitle) {
-        this.heroTitle = heroTitle;
-    }
-
+    
+    @Transient
     public String getHeroButtonText() {
-        return heroButtonText;
+        return getTranslation().map(CategoriaTranslation::getHeroButtonText).orElse("");
+    }
+    // --- FIM DOS MÉTODOS QUE FALTAVAM ---
+
+    /**
+     * Lógica central para encontrar a tradução.
+     */
+    @Transient
+    private Optional<CategoriaTranslation> getTranslation() {
+        String locale = LocaleContextHolder.getLocale().toLanguageTag();
+        String defaultLocale = "pt-BR";
+        
+        return translations.stream()
+                .filter(t -> t.getLocale().equalsIgnoreCase(locale))
+                .findFirst()
+                .or(() -> translations.stream()
+                        .filter(t -> t.getLocale().equalsIgnoreCase(locale.split("-")[0]))
+                        .findFirst())
+                .or(() -> translations.stream()
+                        .filter(t -> t.getLocale().equalsIgnoreCase(defaultLocale))
+                        .findFirst())
+                .or(() -> translations.stream().findFirst());
     }
 
-    public void setHeroButtonText(String heroButtonText) {
-        this.heroButtonText = heroButtonText;
-    }
-
-    public List<Produto> getProdutos() {
-        return produtos;
-    }
-
-    public void setProdutos(List<Produto> produtos) {
-        this.produtos = produtos;
-    }
-
-    public String getImagemUrlHome() {
-        return imagemUrlHome;
-    }
-
-    public void setImagemUrlHome(String imagemUrlHome) {
-        this.imagemUrlHome = imagemUrlHome;
-    }
-
+    // --- GETTERS E SETTERS PADRÃO ---
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+    public String getSlug() { return slug; }
+    public void setSlug(String slug) { this.slug = slug; }
+    public String getImagemUrlHome() { return imagemUrlHome; }
+    public void setImagemUrlHome(String imagemUrlHome) { this.imagemUrlHome = imagemUrlHome; }
+    public String getImagemDestaqueUrl() { return imagemDestaqueUrl; }
+    public void setImagemDestaqueUrl(String imagemDestaqueUrl) { this.imagemDestaqueUrl = imagemDestaqueUrl; }
+    public String getUrlImagemPersonalizacao() { return urlImagemPersonalizacao; }
+    public void setUrlImagemPersonalizacao(String urlImagemPersonalizacao) { this.urlImagemPersonalizacao = urlImagemPersonalizacao; }
+    public List<CategoriaTranslation> getTranslations() { return translations; }
+    public void setTranslations(List<CategoriaTranslation> translations) { this.translations = translations; }
+    public List<Produto> getProdutos() { return produtos; }
+    public void setProdutos(List<Produto> produtos) { this.produtos = produtos; }
 }
