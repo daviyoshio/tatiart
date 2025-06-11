@@ -1,6 +1,6 @@
 # 🎨 Tatiart - Aplicação Web de Produtos Personalizados
 
-Uma aplicação web de e-commerce e institucional para a marca Tatiart, especializada em produtos personalizados. O projeto foi desenvolvido com foco em uma identidade visual elegante, moderna e funcional.
+Uma aplicação web institucional para a marca Tatiart, especializada em produtos personalizados. O projeto foi desenvolvido com foco em uma identidade visual elegante, moderna e funcional.
 
 | Badge | Tecnologia |
 | --- | --- |
