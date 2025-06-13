@@ -14,7 +14,16 @@
         <div th:replace="~{fragments/navbar :: navbar}"></div>
 
         <section class="bg-burgundy-800 py-20 md:py-32 lg:py-44 relative">
-            <div class="container mx-auto px-4 md:px-6 text-center text-white">
+            <!-- Adicionar overlay para garantir legibilidade do texto -->
+            <div class="absolute inset-0 bg-burgundy-900/30 z-10"></div>
+            
+            <!-- Imagem de fundo -->
+            <div class="absolute inset-0">
+                <img src="/images/Pagina Produtos/Tati Preparação Bolsa.png" alt="Banner Produtos Tatiart" class="w-full h-full object-cover">
+            </div>
+            
+            <!-- Conteúdo -->
+            <div class="container mx-auto px-4 md:px-6 text-center text-white relative z-20">
                 <h1 class="font-playfair text-2xl md:text-4xl lg:text-6xl font-bold mb-4 md:mb-6"
                     th:text="#{products.hero.title}">
                     Nossos Produtos Personalizados
@@ -189,16 +198,16 @@
                             <div class="relative">
                                 <div class="flex overflow-x-auto gap-4 carousel-container pb-4" id="canecas-carousel" style="scroll-snap-type: x mandatory; scrollbar-width: none; -ms-overflow-style: none;">
                                     <div class="min-w-[200px] md:min-w-[250px] bg-white rounded-lg overflow-hidden shadow-md flex-shrink-0" style="scroll-snap-align: start;">
-                                        <img src="/images/Produtos/Caneca/Caneca 1.jpg" alt="Caneca branca simples" class="w-full h-48 md:h-64 object-cover">
+                                        <img src="/images/Pagina Produtos/Canecas/800x800 Canecas Torre Hobbit.png" alt="Caneca Torre Hobbit" class="w-full h-48 md:h-64 object-cover">
                                     </div>
                                     <div class="min-w-[200px] md:min-w-[250px] bg-white rounded-lg overflow-hidden shadow-md flex-shrink-0" style="scroll-snap-align: start;">
-                                        <img src="/images/Produtos/Caneca/Caneca 5.jpg" alt="Caneca preta com design" class="w-full h-48 md:h-64 object-cover">
+                                        <img src="/images/Pagina Produtos/Canecas/800x800 Caneca Bicho Preguiça.png" alt="Caneca Bicho Preguiça" class="w-full h-48 md:h-64 object-cover">
                                     </div>
                                     <div class="min-w-[200px] md:min-w-[250px] bg-white rounded-lg overflow-hidden shadow-md flex-shrink-0" style="scroll-snap-align: start;">
-                                        <img src="/images/Produtos/Caneca/Caneca 3.jpg" alt="Caneca temática" class="w-full h-48 md:h-64 object-cover">
+                                        <img src="/images/Pagina Produtos/Canecas/800x800 Caneca Mae é Flor.png" alt="Caneca Mãe é Flor" class="w-full h-48 md:h-64 object-cover">
                                     </div>
                                     <div class="min-w-[200px] md:min-w-[250px] bg-white rounded-lg overflow-hidden shadow-md flex-shrink-0" style="scroll-snap-align: start;">
-                                        <img src="/images/Produtos/Caneca/Caneca 4.jpg" alt="Caneca colorida" class="w-full h-48 md:h-64 object-cover">
+                                        <img src="/images/Pagina Produtos/Canecas/800x800 Caneca Mae de 3.jpg" alt="Caneca Mãe de 3" class="w-full h-48 md:h-64 object-cover">
                                     </div>
                                 </div>
                                 <button class="hidden md:block absolute left-2 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow-md text-burgundy-800 hover:text-burgundy-600 carousel-prev z-10">
@@ -228,16 +237,16 @@
                             <div class="relative">
                                 <div class="flex overflow-x-auto gap-4 carousel-container pb-4" id="necessaires-carousel" style="scroll-snap-type: x mandatory; scrollbar-width: none; -ms-overflow-style: none;">
                                     <div class="min-w-[200px] md:min-w-[250px] bg-white rounded-lg overflow-hidden shadow-md flex-shrink-0" style="scroll-snap-align: start;">
-                                        <img src="/images/Produtos/Necessaires/Necessaire 1.jpg" alt="Necessaire floral" class="w-full h-48 md:h-64 object-cover">
+                                        <img src="/images/Pagina Produtos/Necessaires/800x800 Necessaire Mae.png" alt="Necessaire Mãe" class="w-full h-48 md:h-64 object-cover">
                                     </div>
                                     <div class="min-w-[200px] md:min-w-[250px] bg-white rounded-lg overflow-hidden shadow-md flex-shrink-0" style="scroll-snap-align: start;">
-                                        <img src="/images/Produtos/Necessaires/Necessaire 5.jpg" alt="Kit necessaire personalizada" class="w-full h-48 md:h-64 object-cover">
+                                        <img src="/images/Pagina Produtos/Necessaires/Necessaire Estampa Tatiarte.jpeg" alt="Necessaire Estampa Tatiarte" class="w-full h-48 md:h-64 object-cover">
                                     </div>
                                     <div class="min-w-[200px] md:min-w-[250px] bg-white rounded-lg overflow-hidden shadow-md flex-shrink-0" style="scroll-snap-align: start;">
-                                        <img src="/images/Produtos/Necessaires/Necessaire 3.jpg" alt="Necessaire com estampa" class="w-full h-48 md:h-64 object-cover">
+                                        <img src="/images/Pagina Produtos/Necessaires/800x800 Necessaire Mae Jesus.jpg" alt="Necessaire Mãe Jesus" class="w-full h-48 md:h-64 object-cover">
                                     </div>
                                     <div class="min-w-[200px] md:min-w-[250px] bg-white rounded-lg overflow-hidden shadow-md flex-shrink-0" style="scroll-snap-align: start;">
-                                        <img src="/images/Produtos/Necessaires/Necessaire 4.jpg" alt="Necessaire premium" class="w-full h-48 md:h-64 object-cover">
+                                        <img src="/images/Pagina Produtos/Necessaires/800x800 Necessaire Luiza.jpg" alt="Necessaire Luiza" class="w-full h-48 md:h-64 object-cover">
                                     </div>
                                 </div>
                                 <button class="hidden md:block absolute left-2 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow-md text-burgundy-800 hover:text-burgundy-600 carousel-prev z-10">
@@ -255,9 +264,9 @@
                 <div class="mb-16 md:mb-24">
                     <div class="flex flex-col lg:flex-row items-start lg:items-center gap-6 md:gap-8 mb-8">
                         <div class="lg:w-1/3 w-full">
-                            <h3 class="font-playfair text-2xl md:text-3xl font-bold text-burgundy-800 mb-4" th:text="#{products.category.backpacks.title}">Mochilas Personalizadas</h3>
+                            <h3 class="font-playfair text-2xl md:text-3xl font-bold text-burgundy-800 mb-4" th:text="#{products.category.backpacks.title}">Mochilas e Lancheiras Infantis</h3>
                             <p class="text-gray-600 mb-6 text-sm md:text-base" th:text="#{products.category.backpacks.description}">
-                                Nossas mochilas personalizadas combinam funcionalidade e estilo para o dia a dia. Com vários tamanhos e modelos, são ideais para escola, trabalho ou viagens, e podem ser customizadas com nomes, estampas ou designs exclusivos.
+                                Nossas mochilas e lancheiras infantis são perfeitas para o dia a dia das crianças. Com temas encantadores como unicórnios, dinossauros, bichos-preguiça e frutas, cada peça é feita com materiais resistentes e seguros. As mochilas são ideais para a escola, com compartimentos organizados e alças confortáveis, enquanto as lancheiras mantêm o lanche organizado e fresco. Todas podem ser personalizadas com o nome da criança, tornando-as únicas e fáceis de identificar.
                             </p>
                             <a th:href="@{/produtos/mochilas}" class="inline-flex items-center text-burgundy-700 hover:text-burgundy-900 font-medium text-sm md:text-base">
                                 <span th:text="#{products.category.mugs.button}">Ver mais opções</span> <i class="fas fa-arrow-right ml-2"></i>
@@ -267,16 +276,16 @@
                             <div class="relative">
                                 <div class="flex overflow-x-auto gap-4 carousel-container pb-4" id="mochilas-carousel" style="scroll-snap-type: x mandatory; scrollbar-width: none; -ms-overflow-style: none;">
                                     <div class="min-w-[200px] md:min-w-[250px] bg-white rounded-lg overflow-hidden shadow-md flex-shrink-0" style="scroll-snap-align: start;">
-                                        <img src="/images/Produtos/Mochila/Mochila 5.jpg" alt="Mochila rosa" class="w-full h-48 md:h-64 object-cover">
+                                        <img src="/images/Pagina Produtos/Mochilas/800x800 Mochila Preguiça (MT).png" alt="Mochila Preguiça" class="w-full h-48 md:h-64 object-cover">
                                     </div>
                                     <div class="min-w-[200px] md:min-w-[250px] bg-white rounded-lg overflow-hidden shadow-md flex-shrink-0" style="scroll-snap-align: start;">
-                                        <img src="/images/Produtos/Mochila/Mochila 2.jpg" alt="Mochila azul" class="w-full h-48 md:h-64 object-cover">
+                                        <img src="/images/Pagina Produtos/Mochilas/800x800 Lancheira Frutas.png" alt="Lancheira Frutas" class="w-full h-48 md:h-64 object-cover">
                                     </div>
                                     <div class="min-w-[200px] md:min-w-[250px] bg-white rounded-lg overflow-hidden shadow-md flex-shrink-0" style="scroll-snap-align: start;">
-                                        <img src="/images/Produtos/Mochila/Mochila 3.jpg" alt="Mochila preta" class="w-full h-48 md:h-64 object-cover">
+                                        <img src="/images/Pagina Produtos/Mochilas/800x800 Mochila Unicórnio (MT).png" alt="Mochila Unicórnio" class="w-full h-48 md:h-64 object-cover">
                                     </div>
                                     <div class="min-w-[200px] md:min-w-[250px] bg-white rounded-lg overflow-hidden shadow-md flex-shrink-0" style="scroll-snap-align: start;">
-                                        <img src="/images/Produtos/Mochila/Mochila 4.jpg" alt="Mochila infantil" class="w-full h-48 md:h-64 object-cover">
+                                        <img src="/images/Pagina Produtos/Mochilas/800x800 Kit Mochilas Dinossauro (MT).png" alt="Kit Mochilas Dinossauro" class="w-full h-48 md:h-64 object-cover">
                                     </div>
                                 </div>
                                 <button class="hidden md:block absolute left-2 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow-md text-burgundy-800 hover:text-burgundy-600 carousel-prev z-10">
@@ -306,16 +315,16 @@
                             <div class="relative">
                                 <div class="flex overflow-x-auto gap-4 carousel-container pb-4" id="bolsas-carousel" style="scroll-snap-type: x mandatory; scrollbar-width: none; -ms-overflow-style: none;">
                                     <div class="min-w-[200px] md:min-w-[250px] bg-white rounded-lg overflow-hidden shadow-md flex-shrink-0" style="scroll-snap-align: start;">
-                                        <img src="/images/Produtos/Bolsa/Bolsa 1.jpg" alt="Bolsa na piscina" class="w-full h-48 md:h-64 object-cover">
+                                        <img src="/images/Pagina Produtos/Bolsas/790x770 Bolsas Tote Depoimento.png" alt="Bolsa Tote Depoimento" class="w-full h-48 md:h-64 object-cover">
                                     </div>
                                     <div class="min-w-[200px] md:min-w-[250px] bg-white rounded-lg overflow-hidden shadow-md flex-shrink-0" style="scroll-snap-align: start;">
-                                        <img src="/images/Produtos/Bolsa/Bolsa 2.jpg" alt="Brinquedos de bebê" class="w-full h-48 md:h-64 object-cover">
+                                        <img src="/images/Pagina Produtos/Bolsas/790x770 Bolsas Tote Fundo Branco.png" alt="Bolsa Tote Fundo Branco" class="w-full h-48 md:h-64 object-cover">
                                     </div>
                                     <div class="min-w-[200px] md:min-w-[250px] bg-white rounded-lg overflow-hidden shadow-md flex-shrink-0" style="scroll-snap-align: start;">
-                                        <img src="/images/Produtos/Bolsa/Bolsa 3.jpg" alt="Bolsa com roupinha de urso" class="w-full h-48 md:h-64 object-cover">
+                                        <img src="/images/Pagina Produtos/Bolsas/800x800 Bolsa Vermelha.jpg" alt="Bolsa Vermelha" class="w-full h-48 md:h-64 object-cover">
                                     </div>
                                     <div class="min-w-[200px] md:min-w-[250px] bg-white rounded-lg overflow-hidden shadow-md flex-shrink-0" style="scroll-snap-align: start;">
-                                        <img src="/images/Produtos/Bolsa/Bolsa 4.png" alt="Bolsa premium" class="w-full h-48 md:h-64 object-cover">
+                                        <img src="/images/Pagina Produtos/Bolsas/800x800 Bolsa Mao Preto e Branca.jpg" alt="Bolsa Mão Preto e Branca" class="w-full h-48 md:h-64 object-cover">
                                     </div>
                                 </div>
                                 <button class="hidden md:block absolute left-2 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow-md text-burgundy-800 hover:text-burgundy-600 carousel-prev z-10">
@@ -345,16 +354,16 @@
                             <div class="relative">
                                 <div class="flex overflow-x-auto gap-4 carousel-container pb-4" id="estojos-carousel" style="scroll-snap-type: x mandatory; scrollbar-width: none; -ms-overflow-style: none;">
                                     <div class="min-w-[200px] md:min-w-[250px] bg-white rounded-lg overflow-hidden shadow-md flex-shrink-0" style="scroll-snap-align: start;">
-                                        <img src="/images/Produtos/Estojo/estojo 5.jpg" alt="Estojo colorido" class="w-full h-48 md:h-64 object-cover">
+                                        <img src="/images/Pagina Produtos/Estojos/800x800 Estojo Bento.png" alt="Estojo Bento" class="w-full h-48 md:h-64 object-cover">
                                     </div>
                                     <div class="min-w-[200px] md:min-w-[250px] bg-white rounded-lg overflow-hidden shadow-md flex-shrink-0" style="scroll-snap-align: start;">
-                                        <img src="/images/Produtos/Estojo/Estojo 2.jpg" alt="Estojo com código" class="w-full h-48 md:h-64 object-cover">
+                                        <img src="/images/Pagina Produtos/Estojos/800x800 Estojo Óculos.png" alt="Estojo Óculos" class="w-full h-48 md:h-64 object-cover">
                                     </div>
                                     <div class="min-w-[200px] md:min-w-[250px] bg-white rounded-lg overflow-hidden shadow-md flex-shrink-0" style="scroll-snap-align: start;">
-                                        <img src="/images/Produtos/Estojo/Estojo 6.jpg" alt="Estojo com biscoitos" class="w-full h-48 md:h-64 object-cover">
+                                        <img src="/images/Pagina Produtos/Estojos/800x800 Estojo Ady.jpg" alt="Estojo Ady" class="w-full h-48 md:h-64 object-cover">
                                     </div>
                                     <div class="min-w-[200px] md:min-w-[250px] bg-white rounded-lg overflow-hidden shadow-md flex-shrink-0" style="scroll-snap-align: start;">
-                                        <img src="/images/Produtos/Estojo/Estojo 4.jpg" alt="Estojo temático" class="w-full h-48 md:h-64 object-cover">
+                                        <img src="/images/Pagina Produtos/Estojos/800x800 Estojo Abelhas.jpg" alt="Estojo Abelhas" class="w-full h-48 md:h-64 object-cover">
                                     </div>
                                 </div>
                                 <button class="hidden md:block absolute left-2 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow-md text-burgundy-800 hover:text-burgundy-600 carousel-prev z-10">
@@ -384,16 +393,16 @@
                             <div class="relative">
                                 <div class="flex overflow-x-auto gap-4 carousel-container pb-4" id="baby-carousel" style="scroll-snap-type: x mandatory; scrollbar-width: none; -ms-overflow-style: none;">
                                     <div class="min-w-[200px] md:min-w-[250px] bg-white rounded-lg overflow-hidden shadow-md flex-shrink-0" style="scroll-snap-align: start;">
-                                        <img src="/images/Produtos/Linha Baby/Linha Baby 1.jpg" alt="Bebê na piscina" class="w-full h-48 md:h-64 object-cover">
+                                        <img src="/images/Pagina Produtos/Linha Baby/800x800 Saquinhos Roupa Suja e Limpa.png" alt="Saquinhos Roupa Suja e Limpa" class="w-full h-48 md:h-64 object-cover">
                                     </div>
                                     <div class="min-w-[200px] md:min-w-[250px] bg-white rounded-lg overflow-hidden shadow-md flex-shrink-0" style="scroll-snap-align: start;">
-                                        <img src="/images/Produtos/Linha Baby/Linha Baby 6.jpg" alt="Brinquedos de bebê" class="w-full h-48 md:h-64 object-cover">
+                                        <img src="/images/Pagina Produtos/Linha Baby/800x800 Kit Higiene Bucal.jpg" alt="Kit Higiene Bucal" class="w-full h-48 md:h-64 object-cover">
                                     </div>
                                     <div class="min-w-[200px] md:min-w-[250px] bg-white rounded-lg overflow-hidden shadow-md flex-shrink-0" style="scroll-snap-align: start;">
-                                        <img src="/images/Produtos/Linha Baby/Linha Baby 3.jpg" alt="Bebê com roupinha de urso" class="w-full h-48 md:h-64 object-cover">
+                                        <img src="/images/Pagina Produtos/Linha Baby/800x800 Carteirinha.jpg" alt="Carteirinha" class="w-full h-48 md:h-64 object-cover">
                                     </div>
                                     <div class="min-w-[200px] md:min-w-[250px] bg-white rounded-lg overflow-hidden shadow-md flex-shrink-0" style="scroll-snap-align: start;">
-                                        <img src="/images/Produtos/Linha Baby/Linha Baby 4.jpg" alt="Linha baby premium" class="w-full h-48 md:h-64 object-cover">
+                                        <img src="/images/Pagina Produtos/Linha Baby/800x800 Kit Helena.jpg" alt="Kit Helena" class="w-full h-48 md:h-64 object-cover">
                                     </div>
                                 </div>
                                 <button class="hidden md:block absolute left-2 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow-md text-burgundy-800 hover:text-burgundy-600 carousel-prev z-10">
@@ -428,10 +437,10 @@
                 <div class="max-w-3xl mx-auto space-y-4 md:space-y-6">
                     <div class="bg-white rounded-lg shadow-md overflow-hidden">
                         <button class="flex justify-between items-center w-full px-4 md:px-6 py-3 md:py-4 text-left focus:outline-none faq-toggle hover:bg-gray-50 transition-colors duration-200">
-                            <span class="font-playfair font-bold text-burgundy-800 text-sm md:text-base pr-4" th:text="#{products.faq.q1}">Qual o prazo de produção dos itens personalizados?</span>
+                            <span class="font-playfair font-bold text-burgundy-800 text-sm md:text-base pr-4" th:text="#{products.faq.q1}">Qual o prazo de produção dos itens personalizados?????</span>
                             <i class="fas fa-chevron-down text-burgundy-700 flex-shrink-0"></i>
                         </button>
-                        <div class="px-4 md:px-6 pb-3 md:pb-4 faq-content">
+                        <div class="px-4 md:px-6 pb-3 md:pb-4 faq-content hidden">
                             <p class="text-gray-600 text-sm md:text-base" th:text="#{products.faq.a1}">
                                 O prazo médio é de 7 a 10 dias úteis, dependendo da complexidade do produto e da personalização desejada. Para grandes quantidades, o prazo pode ser maior.
                             </p>
@@ -522,6 +531,6 @@
         <!-- Footer -->
         <div th:replace="~{fragments/footer :: footer(theme='light')}"></div>
 
-        <script src="produtos.js"></script>
+        <script src="/js/produtos.js"></script>
     </body>
 </html>

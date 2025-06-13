@@ -79,100 +79,135 @@ public class DataLoader implements CommandLineRunner {
         Produto prodN1 = new Produto("/images/Produtos/Necessaires/Necessaire 6.jpg", necessaires);
         ProdutoTranslation ptProdN1 = new ProdutoTranslation();
         ptProdN1.setLocale("pt-BR");
-        ptProdN1.setNome("Para Profissionais Especiais");
-        ptProdN1.setDescricao("Designs que celebram sua profissão com carinho e orgulho");
         ptProdN1.setProduto(prodN1);
+        ptProdN1.setNome("Para Heróis do Dia a Dia");
+        ptProdN1.setDescricao("Porque você quem cuida merece ser cuidado com o mesmo carinho. Uma homenagem à sua dedicação!");
         ProdutoTranslation enProdN1 = new ProdutoTranslation();
         enProdN1.setLocale("en");
-        enProdN1.setNome("For Special Professionals");
-        enProdN1.setDescricao("Designs that celebrate your profession with care and pride");
         enProdN1.setProduto(prodN1);
+        enProdN1.setNome("For Everyday Heroes");
+        enProdN1.setDescricao("Because those who care deserve to be cared for with the same affection. A tribute to your dedication!");
         prodN1.getTranslations().addAll(Arrays.asList(ptProdN1, enProdN1));
-        produtoRepository.save(prodN1);
 
 // Produto 2
         Produto prodN2 = new Produto("/images/Produtos/Necessaires/Necessaire Cachorrinho.png", necessaires);
         ProdutoTranslation ptProdN2 = new ProdutoTranslation();
         ptProdN2.setLocale("pt-BR");
-        ptProdN2.setNome("Amor pelos Pets");
-        ptProdN2.setDescricao("Porque nossos bichinhos merecem estar sempre conosco");
         ptProdN2.setProduto(prodN2);
+        ptProdN2.setNome("Patinhas no Coração");
+        ptProdN2.setDescricao("Carregue seu melhor amigo para todo lugar! Personalize com a foto do seu pet ou escolha um desenho que represente esse amor incondicional.");
         ProdutoTranslation enProdN2 = new ProdutoTranslation();
         enProdN2.setLocale("en");
-        enProdN2.setNome("Love for Pets");
-        enProdN2.setDescricao("Because our little animals deserve to be with us always");
         enProdN2.setProduto(prodN2);
+        enProdN2.setNome("Paws in Heart");
+        enProdN2.setDescricao("Carry your best friend everywhere! Customize with your pet's photo or choose a design that represents this unconditional love.");
         prodN2.getTranslations().addAll(Arrays.asList(ptProdN2, enProdN2));
-        produtoRepository.save(prodN2);
 
 // Produto 3
         Produto prodN3 = new Produto("/images/Produtos/Necessaires/Necessaire Agatha.jpeg", necessaires);
         ProdutoTranslation ptProdN3 = new ProdutoTranslation();
         ptProdN3.setLocale("pt-BR");
-        ptProdN3.setNome("Kits Coordenados");
-        ptProdN3.setDescricao("Organização completa com estilo e elegância para seu dia a dia");
         ptProdN3.setProduto(prodN3);
+        ptProdN3.setNome("Kits Coordenados");
+        ptProdN3.setDescricao("Organize seu dia com elegância e seu próprio estilo. Cada peça é pensada para fazer parte da sua rotina de forma única e especial.");
         ProdutoTranslation enProdN3 = new ProdutoTranslation();
         enProdN3.setLocale("en");
-        enProdN3.setNome("Coordinated Kits");
-        enProdN3.setDescricao("Complete organization with style and elegance for your daily life");
         enProdN3.setProduto(prodN3);
+        enProdN3.setNome("Coordinated Sets");
+        enProdN3.setDescricao("Organize your day with elegance and your own style. Each piece is designed to be part of your routine in a unique and special way.");
         prodN3.getTranslations().addAll(Arrays.asList(ptProdN3, enProdN3));
-        produtoRepository.save(prodN3);
-        // --- Produtos para a categoria Necessaires (CORRIGIDO - Parte 2) ---
 
 // Produto 4
         Produto prodN4 = new Produto("/images/Produtos/Necessaires/Necessaire Religiosa.jpeg", necessaires);
         ProdutoTranslation ptProdN4 = new ProdutoTranslation();
         ptProdN4.setLocale("pt-BR");
-        ptProdN4.setNome("Fé que Acompanha");
-        ptProdN4.setDescricao("Designs religiosos que fortalecem sua espiritualidade");
         ptProdN4.setProduto(prodN4);
+        ptProdN4.setNome("Fé que Acompanha");
+        ptProdN4.setDescricao("Sua devoção te acompanha em cada pequeno momento do dia. Um jeito especial de manter sua fé sempre pertinho, lembrando que você nunca está sozinho em sua jornada.");
         ProdutoTranslation enProdN4 = new ProdutoTranslation();
         enProdN4.setLocale("en");
-        enProdN4.setNome("Faith that Accompanies");
-        enProdN4.setDescricao("Religious designs that strengthen your spirituality");
         enProdN4.setProduto(prodN4);
+        enProdN4.setNome("Faith that Accompanies");
+        enProdN4.setDescricao("Your devotion accompanies you in every small moment of the day. A special way to keep your faith always close, remembering that you are never alone on your journey.");
         prodN4.getTranslations().addAll(Arrays.asList(ptProdN4, enProdN4));
-        produtoRepository.save(prodN4);
 
 // Produto 5
-        Produto prodN5 = new Produto("/images/Produtos/Necessaires/Necessaire One Piece.jpeg", necessaires);
+        Produto prodN5 = new Produto("/images/Produtos/Necessaires/960x640 Necessaire a paz esta dentro de voce.png", necessaires);
         ProdutoTranslation ptProdN5 = new ProdutoTranslation();
         ptProdN5.setLocale("pt-BR");
-        ptProdN5.setNome("Seus Personagens Favoritos");
-        ptProdN5.setDescricao("Anime, desenhos e tudo que você ama em uma peça única");
         ptProdN5.setProduto(prodN5);
+        ptProdN5.setNome("Palavras que Abraçam");
+        ptProdN5.setDescricao("Um lembrete carinhoso de que você é mais forte do que imagina. Mensagens escolhidas com amor para te inspirar e te dar força nos momentos em que você mais precisa.");
         ProdutoTranslation enProdN5 = new ProdutoTranslation();
         enProdN5.setLocale("en");
-        enProdN5.setNome("Your Favorite Characters");
-        enProdN5.setDescricao("Anime, cartoons, and everything you love in a single piece");
         enProdN5.setProduto(prodN5);
+        enProdN5.setNome("Words that Embrace");
+        enProdN5.setDescricao("A loving reminder that you are stronger than you imagine. Messages chosen with love to inspire you and give you strength in the moments you need it most.");
         prodN5.getTranslations().addAll(Arrays.asList(ptProdN5, enProdN5));
-        produtoRepository.save(prodN5);
 
 // Produto 6
         Produto prodN6 = new Produto("/images/Produtos/Necessaires/Necessaire Estampa Tatiarte.jpeg", necessaires);
         ProdutoTranslation ptProdN6 = new ProdutoTranslation();
         ptProdN6.setLocale("pt-BR");
-        ptProdN6.setNome("A estampa que você escolher");
-        ptProdN6.setDescricao("Quer uma estampa personalizada? Nós fazemos isso!");
         ptProdN6.setProduto(prodN6);
+        ptProdN6.setNome("Sua Imaginação é o Limite");
+        ptProdN6.setDescricao("Conte-nos sua ideia e vamos criar juntos a estampa perfeita para você. Seu estilo, sua personalidade, sua necessaire única!");
         ProdutoTranslation enProdN6 = new ProdutoTranslation();
         enProdN6.setLocale("en");
-        enProdN6.setNome("The Print of Your Choice");
-        enProdN6.setDescricao("Want a custom print? We can do that!");
         enProdN6.setProduto(prodN6);
+        enProdN6.setNome("Your Imagination is the Limit");
+        enProdN6.setDescricao("Tell us your idea and let's create together the perfect pattern for you. Your style, your personality, your unique pouch!");
         prodN6.getTranslations().addAll(Arrays.asList(ptProdN6, enProdN6));
+        produtoRepository.save(prodN1);
+        produtoRepository.save(prodN2);
+        produtoRepository.save(prodN3);
+        produtoRepository.save(prodN4);
+        produtoRepository.save(prodN5);
         produtoRepository.save(prodN6);
 
         // Depoimentos para a categoria Necessaires
-        Depoimento depN1 = new Depoimento("Tati Oliveira", "\"Gente, que necessaire LINDA! 😍 A Rita ficou emocionada com a personagem. Ficou exatamente como a foto que a Tati me mostrou! Achei incrível! 🥰\"", "/images/Produtos/Necessaires/Necessaire Rita 395x385 .png", necessaires);
-        Depoimento depN2 = new Depoimento("Ana Paula", "\"Me sinto abraçado por Jesus toda vez que uso 🙏✨ Tornou meus domingos ainda mais especiais!\". O acabamento é impecável e o material é super resistente! Amei demais! ❤️\"", "/images/Produtos/Necessaires/Necessaire Bolsa Jesus.jpeg", necessaires);
-        Depoimento depN3 = new Depoimento("Agatha Mendes", "\"Meu kit de necessaires chegou! Que organização PERFEITA! Cada tamanho para uma função. Recomendo muito! 🥰\"", "/images/Produtos/Necessaires/Necessaire Maria Maris.jpeg", necessaires);
-        Depoimento depN4 = new Depoimento("Luciana Consentino", "\"A necessaire que pedi ficou incrível! Dei te presente de dia das mães e ela amou! Disse que vai usar sempre, muito obrigada Tati!💕\"", "/images/Produtos/Necessaires/Necessaire Mae 395x385 .png", necessaires);
-        Depoimento depN5 = new Depoimento("Bruna Chanes", "\"A necessaire do Frozen ficou perfeita! Todos os personagens perfeitos. Minha filha amou que veio junto o nome dela, deixou ainda mais especial!🥰\"", "/images/Produtos/Necessaires/Necessaire Frozen.jpeg", necessaires);
-        Depoimento depN6 = new Depoimento("Carla Medeiros", "\"Necessaire premium para executivas! Organização total para viagens de trabalho. Qualidade excepcional, recomendo para todas as profissionais!\"", "/images/Produtos/Necessaires/Necessaire Premium Aberta 395x385 .png", necessaires);
+        Depoimento depN1 = new Depoimento(
+                "Tati Oliveira",
+                "\"Gente, que necessaire LINDA! 😍 A Rita ficou emocionada com a personagem. Ficou exatamente como a foto que a Tati me mostrou! Achei incrível! 🥰\"",
+                "/images/Produtos/Necessaires/Necessaire Rita 395x385 .png",
+                necessaires
+        );
+
+        Depoimento depN2 = new Depoimento(
+                "Ana Paula",
+                "\"Me sinto abraçado por Jesus toda vez que uso 🙏✨ Tornou meus domingos ainda mais especiais!\". O acabamento é impecável e o material é super resistente! Amei demais! ❤️\"",
+                "/images/Produtos/Necessaires/790x770 Necessaire Jesus.png",
+                necessaires
+        );
+
+        Depoimento depN3 = new Depoimento(
+                "Agatha Mendes",
+                "\"Meu kit de necessaires chegou! Que organização PERFEITA! Cada tamanho para uma função. Recomendo muito! 🥰\"",
+                "/images/Produtos/Necessaires/Necessaire Maria Maris.jpeg",
+                necessaires
+        );
+
+        Depoimento depN4 = new Depoimento(
+                "Luciana Consentino",
+                "\"A necessaire que pedi ficou incrível! Dei te presente de dia das mães e ela amou! Disse que vai usar sempre, muito obrigada Tati!💕\"",
+                "/images/Produtos/Necessaires/Necessaire Mae 395x385 .png",
+                necessaires
+        );
+
+        Depoimento depN5 = new Depoimento(
+                "Bruna Chanes",
+                "\"Comprei uma necessaire para cada uma das minhas filhas! Cada uma com a estampa que elas escolheram. Agora cada uma tem seu cantinho organizado! 💕\"",
+                "/images/Produtos/Necessaires/790x770 Necessaire Marilia e Thais.png",
+                necessaires
+        );
+
+        Depoimento depN6 = new Depoimento(
+                "Carla Medeiros",
+                "\"Necessaire premium para executivas! Organização total para viagens de trabalho. Qualidade excepcional, recomendo para todas as profissionais!\"",
+                "/images/Produtos/Necessaires/Necessaire Premium Aberta 395x385 .png",
+                necessaires
+        );
+
         depoimentoRepository.saveAll(Arrays.asList(depN1, depN2, depN3, depN4, depN5, depN6));
 
         // TIPOS DE PERSONALIZAÇÃO PARA A CATEGORIA 'NECESSAIRES'
@@ -719,9 +754,9 @@ public class DataLoader implements CommandLineRunner {
         Categoria canecas = new Categoria();
 // 1. Defina os campos que NÃO são traduzidos
         canecas.setSlug("canecas");
-        canecas.setImagemDestaqueUrl("/images/Produtos/Caneca/Caneca 2.jpg");
-        canecas.setUrlImagemPersonalizacao("/images/Produtos/Caneca/Copo Stanley.jpeg");
-        canecas.setImagemUrlHome("/images/Home/Caneca - Categoria.png");
+        canecas.setImagemDestaqueUrl("/images/Produtos/Caneca/Caneca Frases de mae.jpg");
+        canecas.setUrlImagemPersonalizacao("/images/Produtos/Caneca/Caneca 1.jpg");
+        canecas.setImagemUrlHome("/images/Home/960x640 Caneca Espresso Patronum.png");
 
 // 2. Crie a tradução para Português (pt-BR)
         CategoriaTranslation ptCanecas = new CategoriaTranslation();
@@ -757,67 +792,67 @@ public class DataLoader implements CommandLineRunner {
 
         // --- Produtos para a categoria Canecas (CORRIGIDO) ---
 // Produto 1
-        Produto c1 = new Produto("/images/Produtos/Caneca/Caneca 1.jpg", canecas);
+        Produto c1 = new Produto("/images/Produtos/Caneca/960x640 Caneca Mae Coracao Quentinho.png", canecas);
         ProdutoTranslation ptC1 = new ProdutoTranslation();
         ptC1.setLocale("pt-BR");
-        ptC1.setNome("Para Mães Guerreiras");
-        ptC1.setDescricao("Designs que celebram a maternidade com humor e amor");
+        ptC1.setNome("Aquele Cafézinho com Amor de Mãe");
+        ptC1.setDescricao("Porque nada é mais acolhedor que um café quentinho com a mamãe");
         ptC1.setProduto(c1);
         ProdutoTranslation enC1 = new ProdutoTranslation();
         enC1.setLocale("en");
-        enC1.setNome("For Warrior Moms");
-        enC1.setDescricao("Designs that celebrate motherhood with humor and love");
+        enC1.setNome("That Coffee with Mother's Love");
+        enC1.setDescricao("Because nothing is more comforting than a warm coffee with mom");
         enC1.setProduto(c1);
         c1.getTranslations().addAll(Arrays.asList(ptC1, enC1));
         produtoRepository.save(c1);
 
 // Produto 2
-        Produto c2 = new Produto("/images/Produtos/Caneca/caneca-frases-engracadas.jpg", canecas);
+        Produto c2 = new Produto("/images/Produtos/Caneca/960x640 Caneca Espresso Patronum.png", canecas);
         ProdutoTranslation ptC2 = new ProdutoTranslation();
         ptC2.setLocale("pt-BR");
-        ptC2.setNome("Frases que Arrancam Risadas");
-        ptC2.setDescricao("Porque toda mãe merece rir das próprias frases");
+        ptC2.setNome("Para Fãs de Histórias Mágicas");
+        ptC2.setDescricao("Transforme seu café em pura magia com nossas canecas inspiradas em filmes ou séries");
         ptC2.setProduto(c2);
         ProdutoTranslation enC2 = new ProdutoTranslation();
         enC2.setLocale("en");
-        enC2.setNome("Quotes that Make You Laugh");
-        enC2.setDescricao("Because every mom deserves to laugh at her own sayings");
+        enC2.setNome("For Magical Stories Fans");
+        enC2.setDescricao("Transform your coffee into pure magic with our mugs inspired by movies or series");
         enC2.setProduto(c2);
         c2.getTranslations().addAll(Arrays.asList(ptC2, enC2));
         produtoRepository.save(c2);
 
 // Produto 3
-        Produto c3 = new Produto("/images/Produtos/Caneca/Caneca 3.jpg", canecas);
+        Produto c3 = new Produto("/images/Produtos/Caneca/960x640 kit Caneca Mae Avó.png", canecas);
         ProdutoTranslation ptC3 = new ProdutoTranslation();
         ptC3.setLocale("pt-BR");
-        ptC3.setNome("Kits Presente Luxuosos");
-        ptC3.setDescricao("Embalagens que fazem o presente ainda mais especial");
+        ptC3.setNome("Kits que Contam Histórias de Família");
+        ptC3.setDescricao("Celebre o amor que passa de geração em geração com nossas canecas personalizadas");
         ptC3.setProduto(c3);
         ProdutoTranslation enC3 = new ProdutoTranslation();
         enC3.setLocale("en");
-        enC3.setNome("Luxurious Gift Kits");
-        enC3.setDescricao("Packaging that makes the gift even more special");
+        enC3.setNome("Kits that Tell Family Stories");
+        enC3.setDescricao("Celebrate the love that passes from generation to generation with our custom mugs");
         enC3.setProduto(c3);
         c3.getTranslations().addAll(Arrays.asList(ptC3, enC3));
         produtoRepository.save(c3);
 
 // Produto 4
-        Produto c4 = new Produto("/images/Produtos/Caneca/Caneca Frase Choro.png", canecas);
+        Produto c4 = new Produto("/images/Produtos/Caneca/960x640 Caneca Frase Inspiradora.png", canecas);
         ProdutoTranslation ptC4 = new ProdutoTranslation();
         ptC4.setLocale("pt-BR");
-        ptC4.setNome("Mensagens que Inspiram");
-        ptC4.setDescricao("Para começar cada dia com esperança e força");
+        ptC4.setNome("Mensagens que Florescem no Coração");
+        ptC4.setDescricao("Palavras delicadas que transformam sua manhã em algo especial");
         ptC4.setProduto(c4);
         ProdutoTranslation enC4 = new ProdutoTranslation();
         enC4.setLocale("en");
-        enC4.setNome("Inspiring Messages");
-        enC4.setDescricao("To start each day with hope and strength");
+        enC4.setNome("Messages that Bloom in the Heart");
+        enC4.setDescricao("Delicate words that transform your morning into something special");
         enC4.setProduto(c4);
         c4.getTranslations().addAll(Arrays.asList(ptC4, enC4));
         produtoRepository.save(c4);
 
 // Produto 5
-        Produto c5 = new Produto("/images/Produtos/Caneca/Caneca Heineken Danilo.png", canecas);
+        Produto c5 = new Produto("/images/Produtos/Caneca/960X640 Caneca Cerveja Rafael.png", canecas);
         ProdutoTranslation ptC5 = new ProdutoTranslation();
         ptC5.setLocale("pt-BR");
         ptC5.setNome("Suas Sextas Mais Especiais");
@@ -847,12 +882,36 @@ public class DataLoader implements CommandLineRunner {
         produtoRepository.save(c6);
 
         // Depoimentos para a categoria Canecas
-        Depoimento dc1 = new Depoimento("Maria Santos", "\"Gente, olha que PERFEITA ficou a caneca da minha mãe! 😭❤️ Ela chorou quando viu. Muito obrigada, ficou exatamente como eu imaginei!\"", "/images/Produtos/Caneca/Depoimento 1.png", canecas);
-        Depoimento dc2 = new Depoimento("Ana Clara", "\"Minha sogra AMOU as frases! Disse que finalmente alguém entende ela 😂 Qualidade incrível!\"", "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=200&fit=crop&crop=center", canecas);
-        Depoimento dc3 = new Depoimento("Juliana Madalena", "\"Gente, que caneca MARAVILHOSA! 100% personalizada, exatamente como eu queria. Recomendo demais! 🥰\"", "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop&crop=center", canecas);
-        Depoimento dc4 = new Depoimento("Carla Mendes", "\"O kit ficou LINDO! A embalagem, o cuidado com cada detalhe... Minha mãe se emocionou muito ❤️\"", "/images/Produtos/Caneca/caneca mae avo etc.jpeg", canecas);
-        Depoimento dc5 = new Depoimento("Roberta Lima", "\"Fiz um vídeo mostrando como ficou perfeita! Cada detalhe pensado com carinho. Nota 1000!\"", "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=200&fit=crop&crop=center", canecas);
-        Depoimento dc6 = new Depoimento("Empresa TechCorp", "\"Fizemos 100 canecas personalizadas para o Dia das Mães. Todas as funcionárias ficaram emocionadas! Qualidade excepcional.\"", "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=300&h=200&fit=crop&crop=center", canecas);
+        Depoimento dc1 = new Depoimento("Maria Santos", 
+            "\"Gente, olha que PERFEITA ficou a caneca da minha mãe! Ela chorou quando viu. Muito obrigada, ficou exatamente como eu imaginei!\"", 
+            "/images/Produtos/Caneca/790x770 Caneca Mae Flor que Floresce.png", 
+            canecas);
+
+        Depoimento dc2 = new Depoimento("Ana Clara", 
+            "\"Meu sogro AMOU essa caneca! Disse que finalmente alguém entende ele 😂 Qualidade incrível!\"", 
+            "/images/Produtos/Caneca/790x770 Caneca Copao Cerveja.png", 
+            canecas);
+
+        Depoimento dc3 = new Depoimento("Juliana Madalena", 
+            "\"Finalmente uma caneca que representa nós, mães de pets! Minha bebê aparece até na foto fazendo pose. Amei demais! 🐾\"", 
+            "/images/Produtos/Caneca/790x770 Caneca Mae de Pet.png", 
+            canecas);
+
+        Depoimento dc4 = new Depoimento("Carla Mendes", 
+            "\"O kit ficou LINDO! A embalagem, o cuidado com cada detalhe... Minha mãe se emocionou muito ❤️\"", 
+            "/images/Produtos/Caneca/790x770 Caneca kit presente 90 anos.png", 
+            canecas);
+
+        Depoimento dc5 = new Depoimento("Roberta Lima", 
+            "\"Gente, que caneca linda! 100% personalizada pro meu filho, exatamente como eu pedi pra Tati. Recomendo demais! 🥰\"", 
+            "/images/Produtos/Caneca/790x770 Caneca Engenharia por Amor.png", 
+            canecas);
+
+        Depoimento dc6 = new Depoimento("Empresa TechCorp", 
+            "\"A qualidade dessa torre de canecas é incrivel e ainda são perfeitas pra decorar meu cantinho do café. Todo mundo que vem em casa elogia! 💝\"", 
+            "/images/Produtos/Caneca/790x770 Caneca Torre de Canecas.png", 
+            canecas);
+
         depoimentoRepository.saveAll(Arrays.asList(dc1, dc2, dc3, dc4, dc5, dc6));
 
         // --- TIPOS DE PERSONALIZAÇÃO PARA A CATEGORIA 'CANECAS' (CORRIGIDO) ---
@@ -1368,8 +1427,8 @@ public class DataLoader implements CommandLineRunner {
 // 1. Defina os campos que NÃO são traduzidos
         bolsas.setSlug("bolsas");
         bolsas.setImagemDestaqueUrl("/images/Produtos/Bolsa/Bolsa Tote 4 Estilos.jpeg");
-        bolsas.setUrlImagemPersonalizacao("/images/Produtos/Bolsa/Tati Preparação Bolsa.png");
-        bolsas.setImagemUrlHome("/images/Home/Bolsa Marsala - Categoria.png");
+        bolsas.setUrlImagemPersonalizacao("/images/Produtos/Bolsa/800x800 Foto Tati Bolsa.png");
+        bolsas.setImagemUrlHome("/images/Home/960x640 Bolsas Tote.png");
 
 // 2. Crie a tradução para Português (pt-BR)
         CategoriaTranslation ptBolsas = new CategoriaTranslation();
@@ -1377,12 +1436,12 @@ public class DataLoader implements CommandLineRunner {
         ptBolsas.setCategoria(bolsas);
         ptBolsas.setNomeSingular("Bolsa");
         ptBolsas.setNomePlural("Bolsas Personalizadas");
-        ptBolsas.setDescricao("Carregue sua história todos os dias. Cada bolsa tote é uma obra de arte única, criada especialmente para expressar sua personalidade e acompanhar seus momentos mais especiais.");
+        ptBolsas.setDescricao("Carregue sua história todos os dias. Cada bolsa é uma obra de arte única, criada especialmente para expressar sua personalidade e acompanhar seus momentos mais especiais.");
         ptBolsas.setCtaTitle("Carregue Sua História Com Estilo!");
-        ptBolsas.setCtaDescription("Sua personalidade é única, sua bolsa também deveria ser. Que tal transformar seu dia a dia com uma bolsa tote que conta sua história e expressa quem você realmente é? Vamos criar juntas sua obra de arte pessoal?");
+        ptBolsas.setCtaDescription("Sua personalidade é única, sua bolsa também deveria ser. Que tal transformar seu dia a dia com uma bolsa que conta sua história e expressa quem você realmente é? Vamos criar juntas sua obra de arte pessoal?");
         ptBolsas.setCtaAttention("⚡ OPORTUNIDADE LIMITADA: Devido à alta procura por bolsas personalizadas, estamos com lista de espera. Reserve já a sua para não perder!");
         ptBolsas.setCtaButtonText("✨ SIM! Quero Minha Bolsa Única Agora");
-        ptBolsas.setHeroTitle("Bolsas Tote que Falam Sobre Você");
+        ptBolsas.setHeroTitle("Bolsas Personalizadas que Falam Sobre Você");
         ptBolsas.setHeroButtonText("💝 Criar Minha Bolsa Única");
 
 // 3. Crie a tradução para Inglês (en)
@@ -1391,12 +1450,12 @@ public class DataLoader implements CommandLineRunner {
         enBolsas.setCategoria(bolsas);
         enBolsas.setNomeSingular("Bag");
         enBolsas.setNomePlural("Custom Bags");
-        enBolsas.setDescricao("Carry your story every day. Each tote bag is a unique work of art, specially created to express your personality and accompany your most special moments.");
+        enBolsas.setDescricao("Carry your story every day. Each bag is a unique work of art, specially created to express your personality and accompany your most special moments.");
         enBolsas.setCtaTitle("Carry Your Story With Style!");
-        enBolsas.setCtaDescription("Your personality is unique, and your bag should be too. How about transforming your day-to-day with a tote bag that tells your story and expresses who you truly are? Let's create your personal masterpiece together?");
+        enBolsas.setCtaDescription("Your personality is unique, and your bag should be too. How about transforming your day-to-day with a bag that tells your story and expresses who you truly are? Let's create your personal masterpiece together?");
         enBolsas.setCtaAttention("⚡ LIMITED OPPORTUNITY: Due to high demand for custom bags, we have a waiting list. Reserve yours now so you don't miss out!");
         enBolsas.setCtaButtonText("✨ YES! I Want My Unique Bag Now");
-        enBolsas.setHeroTitle("Tote Bags that Speak About You");
+        enBolsas.setHeroTitle("Personalized Bags that Speak About You");
         enBolsas.setHeroButtonText("💝 Create My Unique Bag");
 
 // 4. Adicione as traduções à categoria e salve
@@ -1410,7 +1469,7 @@ public class DataLoader implements CommandLineRunner {
         ProdutoTranslation ptB1 = new ProdutoTranslation();
         ptB1.setLocale("pt-BR");
         ptB1.setNome("Elegância no Dia a Dia");
-        ptB1.setDescricao("Bolsas que combinam sofisticação e praticidade");
+        ptB1.setDescricao("Bolsas Tote que combinam sofisticação e praticidade da mulher moderna");
         ptB1.setProduto(b1);
         ProdutoTranslation enB1 = new ProdutoTranslation();
         enB1.setLocale("en");
@@ -1968,7 +2027,7 @@ public class DataLoader implements CommandLineRunner {
         Categoria estojos = new Categoria();
 // 1. Defina os campos que NÃO são traduzidos
         estojos.setSlug("estojos");
-        estojos.setImagemDestaqueUrl("/images/Produtos/Estojo/Estojo Tatiart.jpeg");
+        estojos.setImagemDestaqueUrl("/images/Produtos/Estojo/960x640 Estojo Tatiart.png");
         estojos.setUrlImagemPersonalizacao("/images/Produtos/Estojo/Estojo Turma Animais.jpeg");
         estojos.setImagemUrlHome("/images/Home/KitEstojos - Categoria.jpg");
 
@@ -2653,35 +2712,35 @@ public class DataLoader implements CommandLineRunner {
         mochilas.setSlug("mochilas");
         mochilas.setImagemDestaqueUrl("/images/Produtos/Mochila/Mochila Hero.jpg");
         mochilas.setUrlImagemPersonalizacao("/images/Produtos/Mochila/Mochila 4.jpg");
-        mochilas.setImagemUrlHome("/images/Home/Mochila - Categoria.png");
+        mochilas.setImagemUrlHome("/images/Home/420x260 Mochilas Home.png");
 
 // 2. Crie a tradução para Português (pt-BR)
         CategoriaTranslation ptMochilas = new CategoriaTranslation();
         ptMochilas.setLocale("pt-BR");
         ptMochilas.setCategoria(mochilas);
         ptMochilas.setNomeSingular("Mochila");
-        ptMochilas.setNomePlural("Mochilas Personalizadas");
-        ptMochilas.setDescricao("Transforme sua rotina com mochilas 100% personalizadas. Cada peça é única, criada especialmente para refletir sua personalidade e organizar seus momentos mais importantes.");
-        ptMochilas.setCtaTitle("Prepare-se Para Aventura com Sua Mochila Perfeita!");
-        ptMochilas.setCtaDescription("Sua mochila é mais que um acessório, é sua companheira de jornada. Crie uma peça única que reflita sua personalidade e organize suas aventuras com estilo. Do dia a dia à grandes viagens.");
-        ptMochilas.setCtaAttention("⚡ ATENÇÃO: Devido à alta demanda, garanta sua mochila personalizada agora para receber a tempo! Qualidade e design exclusivos.");
-        ptMochilas.setCtaButtonText("✨ SIM! Quero Minha Mochila Personalizada");
-        ptMochilas.setHeroTitle("Mochilas que te Acompanham em Todas as Aventuras");
-        ptMochilas.setHeroButtonText("💝 Criar Minha Mochila");
+        ptMochilas.setNomePlural("Mochilas e Lancheiras Infantis");
+        ptMochilas.setDescricao("Nossas mochilas e lancheiras infantis são perfeitas para o dia a dia das crianças. Com temas encantadores como unicórnios, dinossauros, animais ou qualquer outro tema que você imaginar, cada peça é feita com materiais resistentes e seguros. As mochilas são ideais para a escola, com compartimentos organizados e alças confortáveis, enquanto as lancheiras mantêm o lanche organizado e fresco. Todas podem ser personalizadas com o nome da criança, tornando-as únicas e fáceis de identificar.");
+        ptMochilas.setCtaTitle("Prepare-se Para Aventura com Sua Mochila ou Lancheira Perfeita!");
+        ptMochilas.setCtaDescription("Sua mochila ou lancheira é mais que um acessório, é sua companheira de jornada. Crie uma peça única que reflita sua personalidade e organize suas aventuras com estilo. Do dia a dia à escola.");
+        ptMochilas.setCtaAttention("⚡ ATENÇÃO: Devido à alta demanda, garanta sua mochila ou lancheira personalizada agora para receber a tempo! Qualidade e design exclusivos.");
+        ptMochilas.setCtaButtonText("✨ SIM! Quero Minha Mochila ou Lancheira Personalizada");
+        ptMochilas.setHeroTitle("Mochilas e Lancheiras que Acompanham Todas as Aventuras");
+        ptMochilas.setHeroButtonText("💝 Criar Minha Mochila ou Lancheira");
 
 // 3. Crie a tradução para Inglês (en)
         CategoriaTranslation enMochilas = new CategoriaTranslation();
         enMochilas.setLocale("en");
         enMochilas.setCategoria(mochilas);
         enMochilas.setNomeSingular("Backpack");
-        enMochilas.setNomePlural("Custom Backpacks");
-        enMochilas.setDescricao("Transform your routine with 100% custom backpacks. Each piece is unique, specially created to reflect your personality and organize your most important moments.");
-        enMochilas.setCtaTitle("Get Ready for Adventure with Your Perfect Backpack!");
-        enMochilas.setCtaDescription("Your backpack is more than an accessory; it's your travel companion. Create a unique piece that reflects your personality and organizes your adventures with style. From daily life to grand journeys.");
-        enMochilas.setCtaAttention("⚡ ATTENTION: Due to high demand, secure your custom backpack now to receive it on time! Exclusive quality and design.");
-        enMochilas.setCtaButtonText("✨ YES! I Want My Custom Backpack");
-        enMochilas.setHeroTitle("Backpacks that Accompany You on All Adventures");
-        enMochilas.setHeroButtonText("💝 Create My Backpack");
+        enMochilas.setNomePlural("Kids Backpacks & Lunch Boxes");
+        enMochilas.setDescricao("Our kids backpacks and lunch boxes are perfect for children's daily activities. With enchanting themes like unicorns, dinosaurs, sloths, and fruits, each piece is made with durable and safe materials. The backpacks are ideal for school, with organized compartments and comfortable straps, while the lunch boxes keep snacks organized and fresh. All can be personalized with the child's name, making them unique and easy to identify.");
+        enMochilas.setCtaTitle("Get Ready for Adventure with Your Perfect Backpack or Lunch Box!");
+        enMochilas.setCtaDescription("Your backpack or lunch box is more than an accessory; it's your travel companion. Create a unique piece that reflects your personality and organizes your adventures with style. From daily life to school.");
+        enMochilas.setCtaAttention("⚡ ATTENTION: Due to high demand, secure your custom backpack or lunch box now to receive it on time! Exclusive quality and design.");
+        enMochilas.setCtaButtonText("✨ YES! I Want My Custom Backpack or Lunch Box");
+        enMochilas.setHeroTitle("Backpacks and Lunch Boxes that Accompany All Adventures");
+        enMochilas.setHeroButtonText("💝 Create My Backpack or Lunch Box");
 
 // 4. Adicione as traduções à categoria e salve
         mochilas.getTranslations().addAll(Arrays.asList(ptMochilas, enMochilas));

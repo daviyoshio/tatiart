@@ -40,14 +40,14 @@
             <div class="container mx-auto px-4 md:px-6">
                 <h2 class="font-playfair text-3xl md:text-4xl font-bold text-burgundy-800 mb-12 text-center"
                     th:text="#{index.categories.title}">
-                    Conheça Nossas Categorias
+                    Conheça Nossos Produtos
                 </h2>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 px-4 md:px-16">
 
                     <a th:each="categoria : ${categorias}" th:href="@{/produtos/{slug}(slug=${categoria.slug})}" class="block group relative overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl w-full max-w-[27rem] mx-auto">
                         <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-burgundy-900/30 via-burgundy-800/10 to-transparent z-10"></div>
-                        <img th:src="${categoria.imagemUrlHome}" th:alt="${categoria.nomePlural}" class="w-full h-56 object-cover object-center transition-transform duration-500 group-hover:scale-105">
+                        <img th:src="${categoria.imagemUrlHome}" th:alt="${categoria.nomePlural}" class="w-full h-56 md:h-64 object-cover object-center transition-transform duration-500 group-hover:scale-105">
                         <div class="absolute bottom-0 left-0 right-0 pb-2 pt-4 px-4 z-20">
                             <h3 class="font-playfair text-lg font-bold text-white text-center tracking-wide" th:text="${categoria.nomePlural}">Nome da Categoria</h3>
                         </div>
@@ -61,7 +61,7 @@
             <div class="container mx-auto px-4 md:px-6">
                 <div class="flex flex-col lg:flex-row items-center gap-12">
                     <div class="w-full lg:w-1/2">
-                        <img src="https://images.unsplash.com/photo-1616046229478-9901c5536a45?q=80&w=1000" alt="Nossa Essência Artesanal" class="rounded-lg shadow-lg w-full h-auto">
+                        <img src="/images/Home/800x800 Foto Tati.png" alt="Nossa Essência Artesanal" class="rounded-lg shadow-lg w-full h-auto">
                     </div>
                     <div class="w-full lg:w-1/2">
                         <h2 class="font-playfair text-3xl md:text-5xl font-bold text-burgundy-800 mb-6 text-center"
@@ -189,7 +189,7 @@
         </section>
 
         <!-- Elfsight Instagram Feed -->
-        <<section class="py-16 md:py-20 px-4 md:px-10 bg-beige-800">
+        <section class="py-16 md:py-20 px-4 md:px-10 bg-beige-800">
             <div class="container mx-auto">
                 <h2 class="font-playfair text-3xl md:text-5xl font-bold text-burgundy-800 mb-4 text-center"
                     th:text="#{index.instagram.title}">
