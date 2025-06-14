@@ -867,16 +867,16 @@ public class DataLoader implements CommandLineRunner {
         produtoRepository.save(c5);
 
 // Produto 6
-        Produto c6 = new Produto("/images/Produtos/Caneca/caneca com colher pet.jpeg", canecas);
+        Produto c6 = new Produto("/images/Produtos/Caneca/960x640 Caneca Amor.png", canecas);
         ProdutoTranslation ptC6 = new ProdutoTranslation();
         ptC6.setLocale("pt-BR");
-        ptC6.setNome("Amor de Pet em Cada Gole");
-        ptC6.setDescricao("Eternize momentos especiais com seu melhor amigo. Colher exclusiva para deixar seu café ainda mais doce!");
+        ptC6.setNome("Laços de Amor em Cada Café");
+        ptC6.setDescricao("Celebre os pequenos gestos de carinho no dia a dia! Perfeito para compartilhar momentos especiais e fortalecer laços com quem você ama.");
         ptC6.setProduto(c6);
         ProdutoTranslation enC6 = new ProdutoTranslation();
         enC6.setLocale("en");
-        enC6.setNome("Pet Love in Every Sip");
-        enC6.setDescricao("Eternalize special moments with your best friend. Exclusive spoon to make your coffee even sweeter!");
+        enC6.setNome("Love Loops in Every Cup");
+        enC6.setDescricao("Celebrate the little gestures of love every day! Perfect for sharing special moments and strengthening bonds with those you love.");
         enC6.setProduto(c6);
         c6.getTranslations().addAll(Arrays.asList(ptC6, enC6));
         produtoRepository.save(c6);
@@ -2710,8 +2710,8 @@ public class DataLoader implements CommandLineRunner {
         Categoria mochilas = new Categoria();
 // 1. Defina os campos que NÃO são traduzidos
         mochilas.setSlug("mochilas");
-        mochilas.setImagemDestaqueUrl("/images/Produtos/Mochila/Mochila Hero.jpg");
-        mochilas.setUrlImagemPersonalizacao("/images/Produtos/Mochila/Mochila 4.jpg");
+        mochilas.setImagemDestaqueUrl("/images/Produtos/Mochila/800x800 Mochilas Animais.jpeg");
+        mochilas.setUrlImagemPersonalizacao("/images/Produtos/Mochila/800x800 Lancheira Frutas.png");
         mochilas.setImagemUrlHome("/images/Home/420x260 Mochilas Home.png");
 
 // 2. Crie a tradução para Português (pt-BR)
@@ -2719,28 +2719,28 @@ public class DataLoader implements CommandLineRunner {
         ptMochilas.setLocale("pt-BR");
         ptMochilas.setCategoria(mochilas);
         ptMochilas.setNomeSingular("Mochila");
-        ptMochilas.setNomePlural("Mochilas e Lancheiras Infantis");
-        ptMochilas.setDescricao("Nossas mochilas e lancheiras infantis são perfeitas para o dia a dia das crianças. Com temas encantadores como unicórnios, dinossauros, animais ou qualquer outro tema que você imaginar, cada peça é feita com materiais resistentes e seguros. As mochilas são ideais para a escola, com compartimentos organizados e alças confortáveis, enquanto as lancheiras mantêm o lanche organizado e fresco. Todas podem ser personalizadas com o nome da criança, tornando-as únicas e fáceis de identificar.");
+        ptMochilas.setNomePlural("Mochilas e Lancheiras que Fazem Cada Dia mais Divertido");
+        ptMochilas.setDescricao("Transforme o dia a dia escolar do seu filho com mochilas e lancheiras 100% personalizadas. Cada peça é única, criada especialmente para refletir a personalidade da sua criança e tornar a ida à escola uma aventura incrível.");
         ptMochilas.setCtaTitle("Prepare-se Para Aventura com Sua Mochila ou Lancheira Perfeita!");
         ptMochilas.setCtaDescription("Sua mochila ou lancheira é mais que um acessório, é sua companheira de jornada. Crie uma peça única que reflita sua personalidade e organize suas aventuras com estilo. Do dia a dia à escola.");
-        ptMochilas.setCtaAttention("⚡ ATENÇÃO: Devido à alta demanda, garanta sua mochila ou lancheira personalizada agora para receber a tempo! Qualidade e design exclusivos.");
+        ptMochilas.setCtaAttention("✨ Entrega em 3-7 dias • Material super resistente • Design divertido ✨");
         ptMochilas.setCtaButtonText("✨ SIM! Quero Minha Mochila ou Lancheira Personalizada");
-        ptMochilas.setHeroTitle("Mochilas e Lancheiras que Acompanham Todas as Aventuras");
-        ptMochilas.setHeroButtonText("💝 Criar Minha Mochila ou Lancheira");
+        ptMochilas.setHeroTitle("Mochilas e Lancheiras que Fazem Cada Dia mais Divertido");
+        ptMochilas.setHeroButtonText("🎒 Criar a Mochila Perfeita");
 
 // 3. Crie a tradução para Inglês (en)
         CategoriaTranslation enMochilas = new CategoriaTranslation();
         enMochilas.setLocale("en");
         enMochilas.setCategoria(mochilas);
         enMochilas.setNomeSingular("Backpack");
-        enMochilas.setNomePlural("Kids Backpacks & Lunch Boxes");
-        enMochilas.setDescricao("Our kids backpacks and lunch boxes are perfect for children's daily activities. With enchanting themes like unicorns, dinosaurs, sloths, and fruits, each piece is made with durable and safe materials. The backpacks are ideal for school, with organized compartments and comfortable straps, while the lunch boxes keep snacks organized and fresh. All can be personalized with the child's name, making them unique and easy to identify.");
+        enMochilas.setNomePlural("Backpacks & Lunch Boxes that Make Every Day More Fun");
+        enMochilas.setDescricao("Transform your child's school days with 100% custom backpacks and lunch boxes. Each piece is unique, specially created to reflect your child's personality and make going to school an amazing adventure.");
         enMochilas.setCtaTitle("Get Ready for Adventure with Your Perfect Backpack or Lunch Box!");
         enMochilas.setCtaDescription("Your backpack or lunch box is more than an accessory; it's your travel companion. Create a unique piece that reflects your personality and organizes your adventures with style. From daily life to school.");
-        enMochilas.setCtaAttention("⚡ ATTENTION: Due to high demand, secure your custom backpack or lunch box now to receive it on time! Exclusive quality and design.");
+        enMochilas.setCtaAttention("✨ Delivery in 3-7 days • Super resistant material • Fun design ✨");
         enMochilas.setCtaButtonText("✨ YES! I Want My Custom Backpack or Lunch Box");
-        enMochilas.setHeroTitle("Backpacks and Lunch Boxes that Accompany All Adventures");
-        enMochilas.setHeroButtonText("💝 Create My Backpack or Lunch Box");
+        enMochilas.setHeroTitle("Backpacks and Lunch Boxes that Make Every Day More Fun");
+        enMochilas.setHeroButtonText("🎒 Create the Perfect Backpack");
 
 // 4. Adicione as traduções à categoria e salve
         mochilas.getTranslations().addAll(Arrays.asList(ptMochilas, enMochilas));
@@ -2749,105 +2749,122 @@ public class DataLoader implements CommandLineRunner {
         // Na seção de Mochilas, corrija os caminhos:
         // --- Produtos para a categoria Mochilas (CORRIGIDO) ---
 
-// Produto 1
-        Produto m1 = new Produto("/images/Produtos/Mochila/Mochila 1.jpg", mochilas);
+// Produto 1 - Sereia
+        Produto m1 = new Produto("/images/Produtos/Mochila/960x640 Mochila Rodinha Sereia.png", mochilas);
         ProdutoTranslation ptM1 = new ProdutoTranslation();
         ptM1.setLocale("pt-BR");
-        ptM1.setNome("Conjuntos Coordenados");
-        ptM1.setDescricao("Estojos e mochilas que combinam.");
+        ptM1.setNome("Para Pequenas Sereias Sonhadoras");
+        ptM1.setDescricao("Transforme o dia a dia escolar em um conto de fadas! Sereia, unicórnio ou o que imaginar: criamos do jeitinho que vocês quiserem!");
         ptM1.setProduto(m1);
         ProdutoTranslation enM1 = new ProdutoTranslation();
         enM1.setLocale("en");
-        enM1.setNome("Coordinated Sets");
-        enM1.setDescricao("Matching pencil cases and backpacks.");
+        enM1.setNome("For Little Dreamer Mermaids");
+        enM1.setDescricao("Turn school days into a fairy tale! Mermaid, unicorn, or whatever you imagine: we create it just the way you want!");
         enM1.setProduto(m1);
         m1.getTranslations().addAll(Arrays.asList(ptM1, enM1));
         produtoRepository.save(m1);
 
-// Produto 2
-        Produto m2 = new Produto("/images/Produtos/Mochila/Mochila 2.jpg", mochilas);
+// Produto 2 - Lancheira Jesus
+        Produto m2 = new Produto("/images/Produtos/Mochila/960x640 Lancheira Jesus.png", mochilas);
         ProdutoTranslation ptM2 = new ProdutoTranslation();
         ptM2.setLocale("pt-BR");
-        ptM2.setNome("Heróis Favoritos");
-        ptM2.setDescricao("Personagens que inspiram.");
+        ptM2.setNome("Fé e Carinho em Cada Lanche");
+        ptM2.setDescricao("Para famílias que querem levar proteção e amor para a escola. Ideal para quem valoriza fé e carinho no dia a dia.");
         ptM2.setProduto(m2);
         ProdutoTranslation enM2 = new ProdutoTranslation();
         enM2.setLocale("en");
-        enM2.setNome("Favorite Heroes");
-        enM2.setDescricao("Inspiring characters.");
+        enM2.setNome("Faith and Care in Every Snack");
+        enM2.setDescricao("For families who want to bring protection and love to school. Perfect for those who value faith and care every day.");
         enM2.setProduto(m2);
         m2.getTranslations().addAll(Arrays.asList(ptM2, enM2));
         produtoRepository.save(m2);
 
-// Produto 3
-        Produto m3 = new Produto("/images/Produtos/Mochila/Mochila 3.jpg", mochilas);
+// Produto 3 - Capivara
+        Produto m3 = new Produto("/images/Produtos/Mochila/960x640 Mochila Roda Capivara.png", mochilas);
         ProdutoTranslation ptM3 = new ProdutoTranslation();
         ptM3.setLocale("pt-BR");
-        ptM3.setNome("Designs Divertidos");
-        ptM3.setDescricao("Formatos criativos que trazem alegria.");
+        ptM3.setNome("Aventura com a Capivara Mais Fofa");
+        ptM3.setDescricao("A mochila perfeita para crianças que amam animais e querem se destacar! Com os animais mais fofos do Brasil, seu filho vai para a escola com muito estilo!");
         ptM3.setProduto(m3);
         ProdutoTranslation enM3 = new ProdutoTranslation();
         enM3.setLocale("en");
-        enM3.setNome("Fun Designs");
-        enM3.setDescricao("Creative shapes that bring joy.");
+        enM3.setNome("Adventure with the Cutest Capybara");
+        enM3.setDescricao("The perfect backpack for kids who love animals and want to stand out! With the cutest animals from Brazil, your child goes to school in style!");
         enM3.setProduto(m3);
         m3.getTranslations().addAll(Arrays.asList(ptM3, enM3));
         produtoRepository.save(m3);
 
-// Produto 4
-        Produto m4 = new Produto("/images/Produtos/Mochila/Mochila 4.jpg", mochilas);
+// Produto 4 - Futebol
+        Produto m4 = new Produto("/images/Produtos/Mochila/960x640 Lancheira Futebol.png", mochilas);
         ProdutoTranslation ptM4 = new ProdutoTranslation();
         ptM4.setLocale("pt-BR");
-        ptM4.setNome("Proteção para Óculos");
-        ptM4.setDescricao("Estojos especiais que protegem.");
+        ptM4.setNome("Para os Craques do Recreio");
+        ptM4.setDescricao("Futebol, esportes ou qualquer paixão: criamos lancheiras e mochilas para acompanhar toda a energia das crianças. Personalize do seu jeito!");
         ptM4.setProduto(m4);
         ProdutoTranslation enM4 = new ProdutoTranslation();
         enM4.setLocale("en");
-        enM4.setNome("Protection for Glasses");
-        enM4.setDescricao("Special cases that provide protection.");
+        enM4.setNome("For the Playground Stars");
+        enM4.setDescricao("Soccer, sports, or any passion: we create lunch boxes and backpacks to match all the kids' energy. Personalize your way!");
         enM4.setProduto(m4);
         m4.getTranslations().addAll(Arrays.asList(ptM4, enM4));
         produtoRepository.save(m4);
 
-// Produto 5
-        Produto m5 = new Produto("/images/Produtos/Mochila/Mochila 5.jpg", mochilas);
+// Produto 5 - Kit Dinossauro
+        Produto m5 = new Produto("/images/Produtos/Mochila/960x640 Mochila Kit Inteiro Dinossauro.png", mochilas);
         ProdutoTranslation ptM5 = new ProdutoTranslation();
         ptM5.setLocale("pt-BR");
-        ptM5.setNome("Nomes Personalizados");
-        ptM5.setDescricao("Estojos únicos com o nome.");
+        ptM5.setNome("Kit Dino: Diversão e Organização");
+        ptM5.setDescricao("O combo perfeito! Mochila, lancheira e estojo combinando, com detalhes que encantam! Seu filho vai adorar mostrar esse kit para os amigos e você vai amar a praticidade.");
         ptM5.setProduto(m5);
         ProdutoTranslation enM5 = new ProdutoTranslation();
         enM5.setLocale("en");
-        enM5.setNome("Custom Names");
-        enM5.setDescricao("Unique cases with the name.");
+        enM5.setNome("Dino Kit: Fun and Organization");
+        enM5.setDescricao("The perfect combo! Backpack, lunch box, and pencil case matching, with charming details! Your child will love showing this kit to friends and you'll love the practicality.");
         enM5.setProduto(m5);
         m5.getTranslations().addAll(Arrays.asList(ptM5, enM5));
         produtoRepository.save(m5);
 
-// Produto 6
-        Produto m6 = new Produto("/images/Produtos/Mochila/Mochila 6.jpg", mochilas);
+// Produto 6 - Anime
+        Produto m6 = new Produto("/images/Produtos/Mochila/960x640 Lancheira One Piece.png", mochilas);
         ProdutoTranslation ptM6 = new ProdutoTranslation();
         ptM6.setLocale("pt-BR");
-        ptM6.setNome("Estampas Exclusivas");
-        ptM6.setDescricao("Padrões únicos que combinam.");
+        ptM6.setNome("Aventura de Anime Todo Dia");
+        ptM6.setDescricao("Anime, filmes, séries ou qualquer universo: transforme a mochila e lancheira em algo só dele com o nome do seu filho bordado!");
         ptM6.setProduto(m6);
         ProdutoTranslation enM6 = new ProdutoTranslation();
         enM6.setLocale("en");
-        enM6.setNome("Exclusive Prints");
-        enM6.setDescricao("Unique patterns that match.");
+        enM6.setNome("Anime Adventure Every Day");
+        enM6.setDescricao("Anime, movies, series, or any universe: turn the backpack and lunch box into something unique with your child's name embroidered!");
         enM6.setProduto(m6);
         m6.getTranslations().addAll(Arrays.asList(ptM6, enM6));
         produtoRepository.save(m6);
 
-        // Adicione os depoimentos para Mochilas
-        Depoimento dm1 = new Depoimento("Tati Oliveira", "\"Gente, que mochila LINDA! 😍 A Rita ficou emocionada com a personagem. Ficou exatamente como a foto que a Tati me mostrou! Achei incrível! 🥰\"", "/images/Produtos/Estojo/790x770 Estojo Among.png", mochilas);
-        Depoimento dm2 = new Depoimento("Ana Paula", "\"Me sinto abraçado por Jesus toda vez que uso 🙏✨ Tornou meus domingos ainda mais especiais!\". O acabamento é impecável e o material é super resistente! Amei demais! ❤️\"", "/images/Produtos/Estojo/790x770 Estojo Bento.png", mochilas);
-        Depoimento dm3 = new Depoimento("Agatha Mendes", "\"Minha mochila chegou! Que organização PERFEITA! Cada tamanho para uma função. Recomendo muito! 🥰\"", "/images/Produtos/Estojo/790x770 Estojo Mickey.png", mochilas);
-        Depoimento dm4 = new Depoimento("Luciana Consentino", "\"A mochila que pedi ficou incrível! Dei de presente de dia das mães e ela amou! Disse que vai usar sempre, muito obrigada Tati!💕\"", "/images/Produtos/Estojo/790x770 Estojo Kit Unicornio.png", mochilas);
-        Depoimento dm5 = new Depoimento("Bruna Chanes", "\"A mochila do Frozen ficou perfeita! Todos os personagens perfeitos. Minha filha amou que veio junto o nome dela, deixou ainda mais especial!🥰\"", "/images/Produtos/Estojo/790x770 Estojo Celsa Schimidtz.png", mochilas);
-        Depoimento dm6 = new Depoimento("Carla Medeiros", "\"Mochila premium para executivas! Organização total para viagens de trabalho. Qualidade excepcional, recomendo para todas as profissionais!\"", "/images/Produtos/Estojo/790x770 Estojo Bob Esponja.png", mochilas);
-        depoimentoRepository.saveAll(Arrays.asList(dm1, dm2, dm3, dm4, dm5, dm6));
+        // Depoimento 1
+        Depoimento dm1 = new Depoimento(
+        "Renata",
+        "Tenho três filhos e cada um escolheu um animal diferente. Quando chegaram, foi uma festa aqui em casa! Eles amaram tanto que até dormiram abraçados com as mochilas na primeira noite. Nunca vi eles tão animados para ir à escola!🥰",
+        "/images/Produtos/Mochila/790x770 Mochila Turma dos Animais.png",
+        mochilas
+        );
 
+        // Depoimento 2
+        Depoimento dm2 = new Depoimento(
+        "Juliana",
+        "O Sonic sempre foi o desenho favorito do meu filho, então ver o brilho nos olhos dele ao receber a mochila foi inesquecível! Ele faz questão de mostrar para todo mundo na escola. A qualidade é incrível!",
+        "/images/Produtos/Mochila/790x770 Mochila Sonic.png",
+        mochilas
+        );
+
+        // Depoimento 3
+        Depoimento dm3 = new Depoimento(
+        "Camila",
+        "Pedi o kit de unicórnio com a mochila, lancheira e estojo e minha filha amou! Agora todas as amigas querem igual e ela se sente super especial. Obrigada Tatiart! 🩷",
+        "/images/Produtos/Mochila/790x770 Mochila Kit Unicornio.png",
+        mochilas
+        );
+
+        depoimentoRepository.saveAll(Arrays.asList(dm1, dm2, dm3));
+        
         // --- TIPOS DE PERSONALIZAÇÃO PARA A CATEGORIA 'MOCHILAS' (CORRIGIDO) ---
         TipoPersonalizacao tipoMochila1 = new TipoPersonalizacao();
         tipoMochila1.setNomeIcone("heart");

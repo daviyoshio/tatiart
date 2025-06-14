@@ -11,29 +11,27 @@ window.onload = function() {
         if (!gallery || !loadMoreBtn || !showLessBtn) return;
 
         const images = [
-            { url: 'https://images.unsplash.com/photo-1616046229478-9901c5536a45?w=500', alt: 'Projeto artesanal 1' },
-            { url: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=500', alt: 'Projeto artesanal 2' },
-            { url: 'https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?w=500', alt: 'Projeto artesanal 3' },
-            { url: 'https://images.unsplash.com/photo-1500673922987-e212871fec22?w=500', alt: 'Projeto artesanal 4' },
-            { url: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=500', alt: 'Projeto artesanal 5' },
-            { url: 'https://images.unsplash.com/photo-1510832198440-a52376950479?w=500', alt: 'Projeto artesanal 6' },
-            { url: 'https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=500', alt: 'Projeto artesanal 7' },
-            { url: 'https://images.unsplash.com/photo-1618220179428-22790b461013?w=500', alt: 'Projeto artesanal 8' },
-            // Segunda página
-            { url: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=500', alt: 'Projeto artesanal 9' },
-            { url: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=500', alt: 'Projeto artesanal 10 - Artesanato' },
-            { url: 'https://images.unsplash.com/photo-1604014237800-1c9102c219da?w=500', alt: 'Projeto artesanal 11 - Trabalho Manual' },
-            { url: 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=500', alt: 'Projeto artesanal 12' },
-            // Terceira página (novas imagens)
-            { url: 'https://images.unsplash.com/photo-1528605105345-5344ea20e269?w=500', alt: 'Projeto artesanal 13' },
-            { url: 'https://images.unsplash.com/photo-1490312278390-ab64016e0aa9?w=500', alt: 'Projeto artesanal 14' },
-            { url: 'https://images.unsplash.com/photo-1516981442399-a91139e20ff8?w=500', alt: 'Projeto artesanal 15' },
-            { url: 'https://images.unsplash.com/photo-1595341888016-a392ef81b7de?w=500', alt: 'Projeto artesanal 16' },
-            { url: 'https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=500', alt: 'Projeto artesanal 17' },
-            { url: 'https://images.unsplash.com/photo-1516727003284-a96541e51e9c?w=500', alt: 'Projeto artesanal 18' },
-            { url: 'https://images.unsplash.com/photo-1464699908537-0954e50791ee?w=500', alt: 'Projeto artesanal 19' },
-            { url: 'https://images.unsplash.com/photo-1464699908537-0954e50791ee?w=500', alt: 'Projeto artesanal 20' }
-        ];
+            { url: '/images/Sobre-Tati/800x800 Caneca do Amor (1).png', alt: 'Caneca do Amor (1)' },
+            { url: '/images/Sobre-Tati/800x800 Caneca do Amor.png', alt: 'Caneca do Amor' },
+            { url: '/images/Sobre-Tati/800x800 Bolsa Tote Verde.png', alt: 'Bolsa Tote Verde' },
+            { url: '/images/Sobre-Tati/800x800 Bolsa Mulheres Experience.png', alt: 'Bolsa Mulheres Experience' },
+            { url: '/images/Sobre-Tati/800x800 Bolsa Pequena Couro.png', alt: 'Bolsa Pequena Couro' },
+            { url: '/images/Sobre-Tati/800x800 Estojo Ady.png', alt: 'Estojo Ady' },
+            { url: '/images/Sobre-Tati/800x800 Estojo Abelhinnha.png', alt: 'Estojo Abelhinnha' },
+            { url: '/images/Sobre-Tati/800x800 Lancheira Frozen.png', alt: 'Lancheira Frozen' },
+            { url: '/images/Sobre-Tati/800x800 Necessaire Dra Aniledys.png', alt: 'Necessaire Dra Aniledys' },
+            { url: '/images/Sobre-Tati/800x800 Necessaire Jesus.png', alt: 'Necessaire Jesus' },
+            { url: '/images/Sobre-Tati/800x800 Necessaire Estampada.png', alt: 'Necessaire Estampada' },
+            { url: '/images/Sobre-Tati/800x800 Linha Baby Helena.png', alt: 'Linha Baby Helena' },
+            { url: '/images/Sobre-Tati/800x800 Linha Baby Violeta.png', alt: 'Linha Baby Violeta' },
+            { url: '/images/Sobre-Tati/800x800 Mochila Tigrinho.png', alt: 'Mochila Tigrinho' },
+            { url: '/images/Sobre-Tati/800x800 Mochila e Estojo Unicórnio.png', alt: 'Mochila e Estojo Unicórnio' },
+            { url: '/images/Sobre-Tati/800x800 Canecas Mae Avó (1).png', alt: 'Canecas Mae Avó (1)' },
+            { url: '/images/Sobre-Tati/800x800 Canecas Mae Avó.png', alt: 'Canecas Mae Avó' },
+            { url: '/images/Sobre-Tati/800x800 Canecas Tiago e Fernando.png', alt: 'Canecas Tiago e Fernando' },
+            { url: '/images/Sobre-Tati/800x800 Necessaire Premium Aberta.png', alt: 'Necessaire Premium Aberta' },
+            { url: '/images/Sobre-Tati/800x800 Mochila Kit Mickey.png', alt: 'Mochila Kit Mickey' }
+          ];
 
         let currentPage = 0;
         const imagesPerPage = 8;
