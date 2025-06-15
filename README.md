@@ -1,6 +1,6 @@
-# 🎨 Tatiart - Aplicação Web de Produtos Personalizados
+# 🎨 Tatiart - Catálogo de Produtos Personalizados
 
-Uma aplicação web institucional para a marca Tatiart, especializada em produtos personalizados. O projeto foi desenvolvido com foco em uma identidade visual elegante, moderna e funcional.
+Uma aplicação web institucional e catálogo online para a marca Tatiart, especializada na apresentação de produtos personalizados. O projeto foi desenvolvido com foco em uma identidade visual elegante e funcional, e otimizado com técnicas de SEO para garantir maior visibilidade online.
 
 | Badge | Tecnologia |
 | --- | --- |
@@ -12,29 +12,33 @@ Uma aplicação web institucional para a marca Tatiart, especializada em produto
 
 ## 📖 Sobre o Projeto
 
-**Tatiart** é uma plataforma para a venda de produtos personalizados, incluindo canecas, bolsas, nécessaires, estojos e itens da linha baby. A aplicação foi construída utilizando **Spring Boot** para garantir uma base de código robusta, escalável e de fácil manutenção.
+**Tatiart** é uma plataforma para a exibição e divulgação de produtos personalizados, incluindo canecas, bolsas, nécessaires, estojos e itens da linha baby. A aplicação foi construída utilizando **Spring Boot** para garantir uma base de código robusta e escalável, servindo como um portfólio digital para que clientes possam conhecer os produtos e entrar em contato.
 
-## ✨ Funcionalidades Principais
+---
 
-* **Catálogo de Produtos:** Exibição de produtos organizados por categorias.
-* **Páginas de Categoria:** Cada categoria possui sua própria página com produtos, depoimentos e detalhes de personalização.
-* **Internacionalização (i18n):** Suporte completo para Português e Inglês.
-* **Design Responsivo:** Interface adaptável para desktops e dispositivos móveis.
-* **Páginas Institucionais:** Seções "Sobre" e "Produtos" para apresentar a marca.
+## ✨ Otimizações de SEO Implementadas
 
-## 🌐 Internacionalização (i18n)
+Para garantir que o site seja facilmente encontrado e bem ranqueado em mecanismos de busca como o Google, foram implementadas as seguintes estratégias de SEO:
 
-A aplicação possui suporte a múltiplos idiomas (inglês e português) para alcançar um público global. A implementação foi feita utilizando os recursos nativos do Spring Boot.
+### 1. Base Técnica para Indexação
+* **Sitemap Dinâmico (`sitemap.xml`):** Foi criado um endpoint que gera automaticamente um `sitemap.xml`. Este mapa do site lista todas as páginas estáticas (Home, Sobre, Produtos) e dinâmicas (cada categoria de produto), garantindo que os buscadores descubram e indexem todo o conteúdo de forma eficiente.
+* **Arquivo de Orientações (`robots.txt`):** O arquivo `robots.txt` foi configurado para instruir os robôs de busca sobre como rastrear o site, permitindo a indexação completa e apontando a localização do sitemap.
 
-* **Como funciona?** A troca de idioma é feita através do parâmetro `lang` na URL.
-    * Para visualizar em português: `http://localhost:8080/?lang=pt_BR`
-    * Para visualizar em inglês: `http://localhost:8080/?lang=en`
+### 2. Otimização On-Page
+* **Títulos e Metadados Otimizados:** Todas as páginas principais (`index`, `sobre`, `produtos` e `pagina_categoria`) agora possuem:
+    * **Títulos (`<title>`) e Descrições (`<meta name="description">`)** únicos e relevantes para o conteúdo.
+    * **Tags Open Graph** para garantir que os links sejam exibidos de forma atraente quando compartilhados em redes sociais.
+    * **Links Canônicos (`<link rel="canonical">`)** para evitar problemas de conteúdo duplicado.
+* **Conteúdo Dinâmico e SEO:** Nas páginas de categoria, os títulos e descrições são gerados dinamicamente com base na categoria visualizada, criando conteúdo altamente relevante para cada seção do site.
 
-* **Arquivos de Tradução:** As traduções estão centralizadas nos arquivos `messages.properties`:
-    * `src/main/resources/messages_pt_BR.properties` (Português)
-    * `src/main/resources/messages_en.properties` (Inglês)
+### 3. Semântica e Estrutura de Conteúdo
+* **Hierarquia de Títulos:** A estrutura de títulos foi revisada para seguir as melhores práticas de SEO, como o uso correto da tag `<h1>` para o título principal de cada página.
+* **URLs Amigáveis:** A estrutura das URLs foi melhorada para ser mais semântica e descritiva (ex: `/produtos/canecas`), o que facilita a compreensão tanto para usuários quanto para os buscadores.
 
-* **Configuração:** A lógica de interceptação e resolução do idioma está configurada na classe `br.com.tatiart.config.InternationalizationConfig.java`, que define o `LocaleChangeInterceptor` e o `SessionLocaleResolver`.
+### 4. SEO Multilíngue
+* **Integração com i18n:** Todas as otimizações de títulos e descrições foram integradas ao sistema de internacionalização, permitindo que o SEO seja eficaz tanto em português quanto em inglês.
+
+---
 
 ## 🚀 Tecnologias Utilizadas
 
@@ -64,14 +68,14 @@ Siga os passos abaixo para executar o projeto em seu ambiente local.
     ```
 
 2.  **Execute a aplicação com o Maven Wrapper:**
-    *No Linux/macOS:*
-    ```bash
-    ./mvnw spring-boot:run
-    ```
-    *No Windows:*
-    ```bash
-    mvnw.cmd spring-boot:run
-    ```
+    * No Linux/macOS:
+        ```bash
+        ./mvnw spring-boot:run
+        ```
+    * No Windows:
+        ```bash
+        mvnw.cmd spring-boot:run
+        ```
 
 3.  **Acesse a aplicação:**
     A aplicação estará disponível em `http://localhost:8080`.
