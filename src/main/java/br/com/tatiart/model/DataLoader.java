@@ -98,6 +98,10 @@ public class DataLoader implements CommandLineRunner {
                 "Necessaires que Organizam Sua Vida com Estilo");
         ptNecessaires.setHeroButtonText(
                 "💝 Criar Minha Necessaire");
+        ptNecessaires.setGaleriaTitle(
+                "Cada Necessaire Conta Sua História");
+        ptNecessaires.setGaleriaDescricao(
+                "Veja como transformamos ideias simples em necessaires que organizam com amor. Cada detalhe é pensado para facilitar sua rotina e expressar quem você é.");
 
 // 3. Crie a tradução para Inglês (en)
         CategoriaTranslation enNecessaires = new CategoriaTranslation();
@@ -124,6 +128,10 @@ public class DataLoader implements CommandLineRunner {
                 "Pouches that Organize Your Life with Style");
         enNecessaires.setHeroButtonText(
                 "💝 Create My Pouch");
+        enNecessaires.setGaleriaTitle(
+                "Each Pouch Tells Your Story");
+        enNecessaires.setGaleriaDescricao(
+                "See how we transform simple ideas into pouches that organize with love. Each detail is designed to make your routine easier and express who you are.");
 
 // 4. Adicione as traduções à categoria e salve
         necessaires.getTranslations()
@@ -1271,9 +1279,13 @@ public class DataLoader implements CommandLineRunner {
         ptCanecas.setCtaButtonText(
                 "✨ SIM! Quero Minha Caneca Personalizada");
         ptCanecas.setHeroTitle(
-                "Canecas que Contam Histórias Únicas");
+                "Canecas que Deixam Manhãs Mais Especiais");
         ptCanecas.setHeroButtonText(
                 "💝 Criar Minha Caneca");
+        ptCanecas.setGaleriaTitle(
+                "Cada Caneca Tem Seu Significado Único");
+                ptCanecas.setGaleriaDescricao(
+                        "Transforme o café da manhã em algo especial com nossas canecas personalizadas. Cada detalhe é pensado para expressar quem você é, e refletir um momento especial.");
 
 // 3. Crie a tradução para Inglês (en)
         CategoriaTranslation enCanecas = new CategoriaTranslation();
@@ -1300,6 +1312,10 @@ public class DataLoader implements CommandLineRunner {
                 "Mugs that Tell Unique Stories");
         enCanecas.setHeroButtonText(
                 "💝 Create My Mug");
+        enCanecas.setGaleriaTitle(
+                "Each Mug Has a Special Meaning");
+        enCanecas.setGaleriaDescricao(
+                "Transform the morning coffee into something special with our personalized mugs. Each detail is designed to express who you are and reflect a special moment.");
 
 // 4. Adicione as traduções à categoria e salve
         canecas.getTranslations()
@@ -2399,6 +2415,10 @@ public class DataLoader implements CommandLineRunner {
                 "Bolsas Personalizadas que Falam Sobre Você");
         ptBolsas.setHeroButtonText(
                 "💝 Criar Minha Bolsa Única");
+        ptBolsas.setGaleriaTitle(
+                "Cada Bolsa é uma Obra de Arte Feita para Você");
+        ptBolsas.setGaleriaDescricao(
+                "Veja como transformamos sonhos em bolsas de luxo personalizado. Cada detalhe é pensado para refletir sua essência e elevar seu estilo diário.");
 
 // 3. Crie a tradução para Inglês (en)
         CategoriaTranslation enBolsas = new CategoriaTranslation();
@@ -2425,6 +2445,10 @@ public class DataLoader implements CommandLineRunner {
                 "Personalized Bags that Speak About You");
         enBolsas.setHeroButtonText(
                 "💝 Create My Unique Bag");
+        enBolsas.setGaleriaTitle(
+                "Each Bag is a Work of Art Made for You");
+        enBolsas.setGaleriaDescricao(
+                "See how we transform dreams into luxury bags. Each detail is designed to reflect your essence and elevate your daily style.");
 
 // 4. Adicione as traduções à categoria e salve
         bolsas.getTranslations()
@@ -2519,21 +2543,21 @@ public class DataLoader implements CommandLineRunner {
         TipoPersonalizacao tipoBolsa1 = new TipoPersonalizacao();
 
         tipoBolsa1.setNomeIcone(
-                "heart");
+                "palette");
         tipoBolsa1.setCategoria(bolsas);
         TipoPersonalizacaoTranslation ptTransB1 = new TipoPersonalizacaoTranslation();
 
         ptTransB1.setLocale(
                 "pt-BR");
         ptTransB1.setTitulo(
-                "Minimalista Elegante");
+                "Cores do Tecido");
         ptTransB1.setTipoPersonalizacao(tipoBolsa1);
         TipoPersonalizacaoTranslation enTransB1 = new TipoPersonalizacaoTranslation();
 
         enTransB1.setLocale(
                 "en");
         enTransB1.setTitulo(
-                "Elegant Minimalist");
+                "Colors of the Fabric");
         enTransB1.setTipoPersonalizacao(tipoBolsa1);
 
         tipoBolsa1.getTranslations()
@@ -2549,14 +2573,14 @@ public class DataLoader implements CommandLineRunner {
         ptItemB1_1.setLocale(
                 "pt-BR");
         ptItemB1_1.setTexto(
-                "Design clean e sofisticado");
+                "Diversas opções de cores exclusivas");
         ptItemB1_1.setItemPersonalizacao(itemB1_1);
         ItemPersonalizacaoTranslation enItemB1_1 = new ItemPersonalizacaoTranslation();
 
         enItemB1_1.setLocale(
                 "en");
         enItemB1_1.setTexto(
-                "Clean and sophisticated design");
+                "Exclusive color options");
         enItemB1_1.setItemPersonalizacao(itemB1_1);
 
         itemB1_1.getTranslations()
@@ -2573,14 +2597,14 @@ public class DataLoader implements CommandLineRunner {
         ptItemB1_2.setLocale(
                 "pt-BR");
         ptItemB1_2.setTexto(
-                "Cores neutras e atemporais");
+                "Combine tons para criar sua bolsa única");
         ptItemB1_2.setItemPersonalizacao(itemB1_2);
         ItemPersonalizacaoTranslation enItemB1_2 = new ItemPersonalizacaoTranslation();
 
         enItemB1_2.setLocale(
                 "en");
         enItemB1_2.setTexto(
-                "Neutral and timeless colors");
+                "Combine tones to create your unique bag");
         enItemB1_2.setItemPersonalizacao(itemB1_2);
 
         itemB1_2.getTranslations()
@@ -2597,14 +2621,14 @@ public class DataLoader implements CommandLineRunner {
         ptItemB1_3.setLocale(
                 "pt-BR");
         ptItemB1_3.setTexto(
-                "Monogramas discretos");
+                "Escolha a cor que mais combina com você");
         ptItemB1_3.setItemPersonalizacao(itemB1_3);
         ItemPersonalizacaoTranslation enItemB1_3 = new ItemPersonalizacaoTranslation();
 
         enItemB1_3.setLocale(
                 "en");
         enItemB1_3.setTexto(
-                "Discreet monograms");
+                "Choose the color that best matches you");
         enItemB1_3.setItemPersonalizacao(itemB1_3);
 
         itemB1_3.getTranslations()
@@ -2612,77 +2636,28 @@ public class DataLoader implements CommandLineRunner {
         tipoBolsa1.getItens()
                 .add(itemB1_3);
 
-// Item 4
-        ItemPersonalizacao itemB1_4 = new ItemPersonalizacao();
-
-        itemB1_4.setTipoPersonalizacao(tipoBolsa1);
-        ItemPersonalizacaoTranslation ptItemB1_4 = new ItemPersonalizacaoTranslation();
-
-        ptItemB1_4.setLocale(
-                "pt-BR");
-        ptItemB1_4.setTexto(
-                "Linhas simples e modernas");
-        ptItemB1_4.setItemPersonalizacao(itemB1_4);
-        ItemPersonalizacaoTranslation enItemB1_4 = new ItemPersonalizacaoTranslation();
-
-        enItemB1_4.setLocale(
-                "en");
-        enItemB1_4.setTexto(
-                "Simple and modern lines");
-        enItemB1_4.setItemPersonalizacao(itemB1_4);
-
-        itemB1_4.getTranslations()
-                .addAll(Arrays.asList(ptItemB1_4, enItemB1_4));
-        tipoBolsa1.getItens()
-                .add(itemB1_4);
-
-// Item 5
-        ItemPersonalizacao itemB1_5 = new ItemPersonalizacao();
-
-        itemB1_5.setTipoPersonalizacao(tipoBolsa1);
-        ItemPersonalizacaoTranslation ptItemB1_5 = new ItemPersonalizacaoTranslation();
-
-        ptItemB1_5.setLocale(
-                "pt-BR");
-        ptItemB1_5.setTexto(
-                "Perfeita para qualquer ocasião");
-        ptItemB1_5.setItemPersonalizacao(itemB1_5);
-        ItemPersonalizacaoTranslation enItemB1_5 = new ItemPersonalizacaoTranslation();
-
-        enItemB1_5.setLocale(
-                "en");
-        enItemB1_5.setTexto(
-                "Perfect for any occasion");
-        enItemB1_5.setItemPersonalizacao(itemB1_5);
-
-        itemB1_5.getTranslations()
-                .addAll(Arrays.asList(ptItemB1_5, enItemB1_5));
-        tipoBolsa1.getItens()
-                .add(itemB1_5);
 
         TipoPersonalizacao tipoBolsa2 = new TipoPersonalizacao();
-
         tipoBolsa2.setNomeIcone(
-                "sparkles");
+                "star");
         tipoBolsa2.setCategoria(bolsas);
         TipoPersonalizacaoTranslation ptTransB2 = new TipoPersonalizacaoTranslation();
 
         ptTransB2.setLocale(
                 "pt-BR");
         ptTransB2.setTitulo(
-                "Profissional Chic");
+                "Escolha o acabamento");
         ptTransB2.setTipoPersonalizacao(tipoBolsa2);
         TipoPersonalizacaoTranslation enTransB2 = new TipoPersonalizacaoTranslation();
 
         enTransB2.setLocale(
                 "en");
         enTransB2.setTitulo(
-                "Professional Chic");
+                "Choose the finish");
         enTransB2.setTipoPersonalizacao(tipoBolsa2);
 
         tipoBolsa2.getTranslations()
                 .addAll(Arrays.asList(ptTransB2, enTransB2));
-        // --- Itens para "Profissional Chic" com tradução ---
 
 // Item 1
         ItemPersonalizacao itemB2_1 = new ItemPersonalizacao();
@@ -2693,14 +2668,14 @@ public class DataLoader implements CommandLineRunner {
         ptItemB2_1.setLocale(
                 "pt-BR");
         ptItemB2_1.setTexto(
-                "Ideal para ambiente corporativo");
+                "Escolha entre ferragens prata ou ouro");
         ptItemB2_1.setItemPersonalizacao(itemB2_1);
         ItemPersonalizacaoTranslation enItemB2_1 = new ItemPersonalizacaoTranslation();
 
         enItemB2_1.setLocale(
                 "en");
         enItemB2_1.setTexto(
-                "Ideal for a corporate environment");
+                "Choose between silver or gold hardware");
         enItemB2_1.setItemPersonalizacao(itemB2_1);
 
         itemB2_1.getTranslations()
@@ -2717,14 +2692,14 @@ public class DataLoader implements CommandLineRunner {
         ptItemB2_2.setLocale(
                 "pt-BR");
         ptItemB2_2.setTexto(
-                "Símbolos da sua profissão");
+                "Detalhes que valorizam sua bolsa");
         ptItemB2_2.setItemPersonalizacao(itemB2_2);
         ItemPersonalizacaoTranslation enItemB2_2 = new ItemPersonalizacaoTranslation();
 
         enItemB2_2.setLocale(
                 "en");
         enItemB2_2.setTexto(
-                "Symbols of your profession");
+                "Details that value your bag");
         enItemB2_2.setItemPersonalizacao(itemB2_2);
 
         itemB2_2.getTranslations()
@@ -2741,14 +2716,14 @@ public class DataLoader implements CommandLineRunner {
         ptItemB2_3.setLocale(
                 "pt-BR");
         ptItemB2_3.setTexto(
-                "Cores sóbrias e elegantes");
+                "Acabamento sofisticado e durável");
         ptItemB2_3.setItemPersonalizacao(itemB2_3);
         ItemPersonalizacaoTranslation enItemB2_3 = new ItemPersonalizacaoTranslation();
 
         enItemB2_3.setLocale(
                 "en");
         enItemB2_3.setTexto(
-                "Sober and elegant colors");
+                "Sophisticated and durable finish");
         enItemB2_3.setItemPersonalizacao(itemB2_3);
 
         itemB2_3.getTranslations()
@@ -2756,72 +2731,25 @@ public class DataLoader implements CommandLineRunner {
         tipoBolsa2.getItens()
                 .add(itemB2_3);
 
-// Item 4
-        ItemPersonalizacao itemB2_4 = new ItemPersonalizacao();
-
-        itemB2_4.setTipoPersonalizacao(tipoBolsa2);
-        ItemPersonalizacaoTranslation ptItemB2_4 = new ItemPersonalizacaoTranslation();
-
-        ptItemB2_4.setLocale(
-                "pt-BR");
-        ptItemB2_4.setTexto(
-                "Espaço para laptop e documentos");
-        ptItemB2_4.setItemPersonalizacao(itemB2_4);
-        ItemPersonalizacaoTranslation enItemB2_4 = new ItemPersonalizacaoTranslation();
-
-        enItemB2_4.setLocale(
-                "en");
-        enItemB2_4.setTexto(
-                "Space for laptop and documents");
-        enItemB2_4.setItemPersonalizacao(itemB2_4);
-
-        itemB2_4.getTranslations()
-                .addAll(Arrays.asList(ptItemB2_4, enItemB2_4));
-        tipoBolsa2.getItens()
-                .add(itemB2_4);
-
-// Item 5
-        ItemPersonalizacao itemB2_5 = new ItemPersonalizacao();
-
-        itemB2_5.setTipoPersonalizacao(tipoBolsa2);
-        ItemPersonalizacaoTranslation ptItemB2_5 = new ItemPersonalizacaoTranslation();
-
-        ptItemB2_5.setLocale(
-                "pt-BR");
-        ptItemB2_5.setTexto(
-                "Transmite confiança e sucesso");
-        ptItemB2_5.setItemPersonalizacao(itemB2_5);
-        ItemPersonalizacaoTranslation enItemB2_5 = new ItemPersonalizacaoTranslation();
-
-        enItemB2_5.setLocale(
-                "en");
-        enItemB2_5.setTexto(
-                "Conveys confidence and success");
-        enItemB2_5.setItemPersonalizacao(itemB2_5);
-
-        itemB2_5.getTranslations()
-                .addAll(Arrays.asList(ptItemB2_5, enItemB2_5));
-        tipoBolsa2.getItens()
-                .add(itemB2_5);
 
         TipoPersonalizacao tipoBolsa3 = new TipoPersonalizacao();
 
         tipoBolsa3.setNomeIcone(
-                "sparkles");
+                "briefcase");
         tipoBolsa3.setCategoria(bolsas);
         TipoPersonalizacaoTranslation ptTransB3 = new TipoPersonalizacaoTranslation();
 
         ptTransB3.setLocale(
                 "pt-BR");
         ptTransB3.setTitulo(
-                "Artística Única");
+                "Modelo da Bolsa");
         ptTransB3.setTipoPersonalizacao(tipoBolsa3);
         TipoPersonalizacaoTranslation enTransB3 = new TipoPersonalizacaoTranslation();
 
         enTransB3.setLocale(
                 "en");
         enTransB3.setTitulo(
-                "Unique Artistic");
+                "Bag Model");
         enTransB3.setTipoPersonalizacao(tipoBolsa3);
 
         tipoBolsa3.getTranslations()
@@ -2837,14 +2765,14 @@ public class DataLoader implements CommandLineRunner {
         ptItemB3_1.setLocale(
                 "pt-BR");
         ptItemB3_1.setTexto(
-                "Estampas exclusivas autorais");
+                "Tamanho perfeito para caber o que você precisa");
         ptItemB3_1.setItemPersonalizacao(itemB3_1);
         ItemPersonalizacaoTranslation enItemB3_1 = new ItemPersonalizacaoTranslation();
 
         enItemB3_1.setLocale(
                 "en");
         enItemB3_1.setTexto(
-                "Exclusive original prints");
+                "Perfect size to fit what you need");
         enItemB3_1.setItemPersonalizacao(itemB3_1);
 
         itemB3_1.getTranslations()
@@ -2861,14 +2789,14 @@ public class DataLoader implements CommandLineRunner {
         ptItemB3_2.setLocale(
                 "pt-BR");
         ptItemB3_2.setTexto(
-                "Combinações de cores vibrantes");
+                "Opções de alça e compartimentos");
         ptItemB3_2.setItemPersonalizacao(itemB3_2);
         ItemPersonalizacaoTranslation enItemB3_2 = new ItemPersonalizacaoTranslation();
 
         enItemB3_2.setLocale(
                 "en");
         enItemB3_2.setTexto(
-                "Vibrant color combinations");
+                "Options for handles and compartments");
         enItemB3_2.setItemPersonalizacao(itemB3_2);
 
         itemB3_2.getTranslations()
@@ -2885,14 +2813,14 @@ public class DataLoader implements CommandLineRunner {
         ptItemB3_3.setLocale(
                 "pt-BR");
         ptItemB3_3.setTexto(
-                "Elementos artísticos marcantes");
+                "Modelos para diferentes ocasiões");
         ptItemB3_3.setItemPersonalizacao(itemB3_3);
         ItemPersonalizacaoTranslation enItemB3_3 = new ItemPersonalizacaoTranslation();
 
         enItemB3_3.setLocale(
                 "en");
         enItemB3_3.setTexto(
-                "Striking artistic elements");
+                "Options for different occasions");
         enItemB3_3.setItemPersonalizacao(itemB3_3);
 
         itemB3_3.getTranslations()
@@ -2900,488 +2828,10 @@ public class DataLoader implements CommandLineRunner {
         tipoBolsa3.getItens()
                 .add(itemB3_3);
 
-// Item 4
-        ItemPersonalizacao itemB3_4 = new ItemPersonalizacao();
 
-        itemB3_4.setTipoPersonalizacao(tipoBolsa3);
-        ItemPersonalizacaoTranslation ptItemB3_4 = new ItemPersonalizacaoTranslation();
-
-        ptItemB3_4.setLocale(
-                "pt-BR");
-        ptItemB3_4.setTexto(
-                "Expressão da sua personalidade");
-        ptItemB3_4.setItemPersonalizacao(itemB3_4);
-        ItemPersonalizacaoTranslation enItemB3_4 = new ItemPersonalizacaoTranslation();
-
-        enItemB3_4.setLocale(
-                "en");
-        enItemB3_4.setTexto(
-                "Expression of your personality");
-        enItemB3_4.setItemPersonalizacao(itemB3_4);
-
-        itemB3_4.getTranslations()
-                .addAll(Arrays.asList(ptItemB3_4, enItemB3_4));
-        tipoBolsa3.getItens()
-                .add(itemB3_4);
-
-// Item 5
-        ItemPersonalizacao itemB3_5 = new ItemPersonalizacao();
-
-        itemB3_5.setTipoPersonalizacao(tipoBolsa3);
-        ItemPersonalizacaoTranslation ptItemB3_5 = new ItemPersonalizacaoTranslation();
-
-        ptItemB3_5.setLocale(
-                "pt-BR");
-        ptItemB3_5.setTexto(
-                "Peça de conversação garantida");
-        ptItemB3_5.setItemPersonalizacao(itemB3_5);
-        ItemPersonalizacaoTranslation enItemB3_5 = new ItemPersonalizacaoTranslation();
-
-        enItemB3_5.setLocale(
-                "en");
-        enItemB3_5.setTexto(
-                "Guaranteed conversation piece");
-        enItemB3_5.setItemPersonalizacao(itemB3_5);
-
-        itemB3_5.getTranslations()
-                .addAll(Arrays.asList(ptItemB3_5, enItemB3_5));
-        tipoBolsa3.getItens()
-                .add(itemB3_5);
-
-        TipoPersonalizacao tipoBolsa4 = new TipoPersonalizacao();
-
-        tipoBolsa4.setNomeIcone(
-                "heart");
-        tipoBolsa4.setCategoria(bolsas);
-        TipoPersonalizacaoTranslation ptTransB4 = new TipoPersonalizacaoTranslation();
-
-        ptTransB4.setLocale(
-                "pt-BR");
-        ptTransB4.setTitulo(
-                "Pet Lover");
-        ptTransB4.setTipoPersonalizacao(tipoBolsa4);
-        TipoPersonalizacaoTranslation enTransB4 = new TipoPersonalizacaoTranslation();
-
-        enTransB4.setLocale(
-                "en");
-        enTransB4.setTitulo(
-                "Pet Lover");
-        enTransB4.setTipoPersonalizacao(tipoBolsa4);
-
-        tipoBolsa4.getTranslations()
-                .addAll(Arrays.asList(ptTransB4, enTransB4));
-        // --- Itens para "Pet Lover" com tradução ---
-
-// Item 1
-        ItemPersonalizacao itemB4_1 = new ItemPersonalizacao();
-
-        itemB4_1.setTipoPersonalizacao(tipoBolsa4);
-        ItemPersonalizacaoTranslation ptItemB4_1 = new ItemPersonalizacaoTranslation();
-
-        ptItemB4_1.setLocale(
-                "pt-BR");
-        ptItemB4_1.setTexto(
-                "Ilustrações dos seus pets");
-        ptItemB4_1.setItemPersonalizacao(itemB4_1);
-        ItemPersonalizacaoTranslation enItemB4_1 = new ItemPersonalizacaoTranslation();
-
-        enItemB4_1.setLocale(
-                "en");
-        enItemB4_1.setTexto(
-                "Illustrations of your pets");
-        enItemB4_1.setItemPersonalizacao(itemB4_1);
-
-        itemB4_1.getTranslations()
-                .addAll(Arrays.asList(ptItemB4_1, enItemB4_1));
-        tipoBolsa4.getItens()
-                .add(itemB4_1);
-
-// Item 2
-        ItemPersonalizacao itemB4_2 = new ItemPersonalizacao();
-
-        itemB4_2.setTipoPersonalizacao(tipoBolsa4);
-        ItemPersonalizacaoTranslation ptItemB4_2 = new ItemPersonalizacaoTranslation();
-
-        ptItemB4_2.setLocale(
-                "pt-BR");
-        ptItemB4_2.setTexto(
-                "Retratos artísticos personalizados");
-        ptItemB4_2.setItemPersonalizacao(itemB4_2);
-        ItemPersonalizacaoTranslation enItemB4_2 = new ItemPersonalizacaoTranslation();
-
-        enItemB4_2.setLocale(
-                "en");
-        enItemB4_2.setTexto(
-                "Custom artistic portraits");
-        enItemB4_2.setItemPersonalizacao(itemB4_2);
-
-        itemB4_2.getTranslations()
-                .addAll(Arrays.asList(ptItemB4_2, enItemB4_2));
-        tipoBolsa4.getItens()
-                .add(itemB4_2);
-
-// Item 3
-        ItemPersonalizacao itemB4_3 = new ItemPersonalizacao();
-
-        itemB4_3.setTipoPersonalizacao(tipoBolsa4);
-        ItemPersonalizacaoTranslation ptItemB4_3 = new ItemPersonalizacaoTranslation();
-
-        ptItemB4_3.setLocale(
-                "pt-BR");
-        ptItemB4_3.setTexto(
-                "Nomes e datas especiais");
-        ptItemB4_3.setItemPersonalizacao(itemB4_3);
-        ItemPersonalizacaoTranslation enItemB4_3 = new ItemPersonalizacaoTranslation();
-
-        enItemB4_3.setLocale(
-                "en");
-        enItemB4_3.setTexto(
-                "Special names and dates");
-        enItemB4_3.setItemPersonalizacao(itemB4_3);
-
-        itemB4_3.getTranslations()
-                .addAll(Arrays.asList(ptItemB4_3, enItemB4_3));
-        tipoBolsa4.getItens()
-                .add(itemB4_3);
-
-// Item 4
-        ItemPersonalizacao itemB4_4 = new ItemPersonalizacao();
-
-        itemB4_4.setTipoPersonalizacao(tipoBolsa4);
-        ItemPersonalizacaoTranslation ptItemB4_4 = new ItemPersonalizacaoTranslation();
-
-        ptItemB4_4.setLocale(
-                "pt-BR");
-        ptItemB4_4.setTexto(
-                "Elementos fofos e carinhosos");
-        ptItemB4_4.setItemPersonalizacao(itemB4_4);
-        ItemPersonalizacaoTranslation enItemB4_4 = new ItemPersonalizacaoTranslation();
-
-        enItemB4_4.setLocale(
-                "en");
-        enItemB4_4.setTexto(
-                "Cute and affectionate elements");
-        enItemB4_4.setItemPersonalizacao(itemB4_4);
-
-        itemB4_4.getTranslations()
-                .addAll(Arrays.asList(ptItemB4_4, enItemB4_4));
-        tipoBolsa4.getItens()
-                .add(itemB4_4);
-
-// Item 5
-        ItemPersonalizacao itemB4_5 = new ItemPersonalizacao();
-
-        itemB4_5.setTipoPersonalizacao(tipoBolsa4);
-        ItemPersonalizacaoTranslation ptItemB4_5 = new ItemPersonalizacaoTranslation();
-
-        ptItemB4_5.setLocale(
-                "pt-BR");
-        ptItemB4_5.setTexto(
-                "Homenagem ao amor incondicional");
-        ptItemB4_5.setItemPersonalizacao(itemB4_5);
-        ItemPersonalizacaoTranslation enItemB4_5 = new ItemPersonalizacaoTranslation();
-
-        enItemB4_5.setLocale(
-                "en");
-        enItemB4_5.setTexto(
-                "A tribute to unconditional love");
-        enItemB4_5.setItemPersonalizacao(itemB4_5);
-
-        itemB4_5.getTranslations()
-                .addAll(Arrays.asList(ptItemB4_5, enItemB4_5));
-        tipoBolsa4.getItens()
-                .add(itemB4_5);
-
-        TipoPersonalizacao tipoBolsa5 = new TipoPersonalizacao();
-
-        tipoBolsa5.setNomeIcone(
-                "sparkles");
-        tipoBolsa5.setCategoria(bolsas);
-        TipoPersonalizacaoTranslation ptTransB5 = new TipoPersonalizacaoTranslation();
-
-        ptTransB5.setLocale(
-                "pt-BR");
-        ptTransB5.setTitulo(
-                "Inspiracional");
-        ptTransB5.setTipoPersonalizacao(tipoBolsa5);
-        TipoPersonalizacaoTranslation enTransB5 = new TipoPersonalizacaoTranslation();
-
-        enTransB5.setLocale(
-                "en");
-        enTransB5.setTitulo(
-                "Inspirational");
-        enTransB5.setTipoPersonalizacao(tipoBolsa5);
-
-        tipoBolsa5.getTranslations()
-                .addAll(Arrays.asList(ptTransB5, enTransB5));
-        // --- Itens para "Inspiracional" com tradução ---
-
-// Item 1
-        ItemPersonalizacao itemB5_1 = new ItemPersonalizacao();
-
-        itemB5_1.setTipoPersonalizacao(tipoBolsa5);
-        ItemPersonalizacaoTranslation ptItemB5_1 = new ItemPersonalizacaoTranslation();
-
-        ptItemB5_1.setLocale(
-                "pt-BR");
-        ptItemB5_1.setTexto(
-                "Frases que te motivam");
-        ptItemB5_1.setItemPersonalizacao(itemB5_1);
-        ItemPersonalizacaoTranslation enItemB5_1 = new ItemPersonalizacaoTranslation();
-
-        enItemB5_1.setLocale(
-                "en");
-        enItemB5_1.setTexto(
-                "Quotes that motivate you");
-        enItemB5_1.setItemPersonalizacao(itemB5_1);
-
-        itemB5_1.getTranslations()
-                .addAll(Arrays.asList(ptItemB5_1, enItemB5_1));
-        tipoBolsa5.getItens()
-                .add(itemB5_1);
-
-// Item 2
-        ItemPersonalizacao itemB5_2 = new ItemPersonalizacao();
-
-        itemB5_2.setTipoPersonalizacao(tipoBolsa5);
-        ItemPersonalizacaoTranslation ptItemB5_2 = new ItemPersonalizacaoTranslation();
-
-        ptItemB5_2.setLocale(
-                "pt-BR");
-        ptItemB5_2.setTexto(
-                "Símbolos de fé e esperança");
-        ptItemB5_2.setItemPersonalizacao(itemB5_2);
-        ItemPersonalizacaoTranslation enItemB5_2 = new ItemPersonalizacaoTranslation();
-
-        enItemB5_2.setLocale(
-                "en");
-        enItemB5_2.setTexto(
-                "Symbols of faith and hope");
-        enItemB5_2.setItemPersonalizacao(itemB5_2);
-
-        itemB5_2.getTranslations()
-                .addAll(Arrays.asList(ptItemB5_2, enItemB5_2));
-        tipoBolsa5.getItens()
-                .add(itemB5_2);
-
-// Item 3
-        ItemPersonalizacao itemB5_3 = new ItemPersonalizacao();
-
-        itemB5_3.setTipoPersonalizacao(tipoBolsa5);
-        ItemPersonalizacaoTranslation ptItemB5_3 = new ItemPersonalizacaoTranslation();
-
-        ptItemB5_3.setLocale(
-                "pt-BR");
-        ptItemB5_3.setTexto(
-                "Mensagens de empoderamento");
-        ptItemB5_3.setItemPersonalizacao(itemB5_3);
-        ItemPersonalizacaoTranslation enItemB5_3 = new ItemPersonalizacaoTranslation();
-
-        enItemB5_3.setLocale(
-                "en");
-        enItemB5_3.setTexto(
-                "Empowerment messages");
-        enItemB5_3.setItemPersonalizacao(itemB5_3);
-
-        itemB5_3.getTranslations()
-                .addAll(Arrays.asList(ptItemB5_3, enItemB5_3));
-        tipoBolsa5.getItens()
-                .add(itemB5_3);
-
-// Item 4
-        ItemPersonalizacao itemB5_4 = new ItemPersonalizacao();
-
-        itemB5_4.setTipoPersonalizacao(tipoBolsa5);
-        ItemPersonalizacaoTranslation ptItemB5_4 = new ItemPersonalizacaoTranslation();
-
-        ptItemB5_4.setLocale(
-                "pt-BR");
-        ptItemB5_4.setTexto(
-                "Elementos que fortalecem sua alma");
-        ptItemB5_4.setItemPersonalizacao(itemB5_4);
-        ItemPersonalizacaoTranslation enItemB5_4 = new ItemPersonalizacaoTranslation();
-
-        enItemB5_4.setLocale(
-                "en");
-        enItemB5_4.setTexto(
-                "Elements that strengthen your soul");
-        enItemB5_4.setItemPersonalizacao(itemB5_4);
-
-        itemB5_4.getTranslations()
-                .addAll(Arrays.asList(ptItemB5_4, enItemB5_4));
-        tipoBolsa5.getItens()
-                .add(itemB5_4);
-
-// Item 5
-        ItemPersonalizacao itemB5_5 = new ItemPersonalizacao();
-
-        itemB5_5.setTipoPersonalizacao(tipoBolsa5);
-        ItemPersonalizacaoTranslation ptItemB5_5 = new ItemPersonalizacaoTranslation();
-
-        ptItemB5_5.setLocale(
-                "pt-BR");
-        ptItemB5_5.setTexto(
-                "Energia positiva diária");
-        ptItemB5_5.setItemPersonalizacao(itemB5_5);
-        ItemPersonalizacaoTranslation enItemB5_5 = new ItemPersonalizacaoTranslation();
-
-        enItemB5_5.setLocale(
-                "en");
-        enItemB5_5.setTexto(
-                "Daily positive energy");
-        enItemB5_5.setItemPersonalizacao(itemB5_5);
-
-        itemB5_5.getTranslations()
-                .addAll(Arrays.asList(ptItemB5_5, enItemB5_5));
-        tipoBolsa5.getItens()
-                .add(itemB5_5);
-
-        TipoPersonalizacao tipoBolsa6 = new TipoPersonalizacao();
-
-        tipoBolsa6.setNomeIcone(
-                "sparkles");
-        tipoBolsa6.setCategoria(bolsas);
-        TipoPersonalizacaoTranslation ptTransB6 = new TipoPersonalizacaoTranslation();
-
-        ptTransB6.setLocale(
-                "pt-BR");
-        ptTransB6.setTitulo(
-                "Luxo Personalizado");
-        ptTransB6.setTipoPersonalizacao(tipoBolsa6);
-        TipoPersonalizacaoTranslation enTransB6 = new TipoPersonalizacaoTranslation();
-
-        enTransB6.setLocale(
-                "en");
-        enTransB6.setTitulo(
-                "Custom Luxury");
-        enTransB6.setTipoPersonalizacao(tipoBolsa6);
-
-        tipoBolsa6.getTranslations()
-                .addAll(Arrays.asList(ptTransB6, enTransB6));
-        // --- Itens para "Luxo Personalizado" com tradução ---
-
-// Item 1
-        ItemPersonalizacao itemB6_1 = new ItemPersonalizacao();
-
-        itemB6_1.setTipoPersonalizacao(tipoBolsa6);
-        ItemPersonalizacaoTranslation ptItemB6_1 = new ItemPersonalizacaoTranslation();
-
-        ptItemB6_1.setLocale(
-                "pt-BR");
-        ptItemB6_1.setTexto(
-                "Acabamentos premium especiais");
-        ptItemB6_1.setItemPersonalizacao(itemB6_1);
-        ItemPersonalizacaoTranslation enItemB6_1 = new ItemPersonalizacaoTranslation();
-
-        enItemB6_1.setLocale(
-                "en");
-        enItemB6_1.setTexto(
-                "Special premium finishes");
-        enItemB6_1.setItemPersonalizacao(itemB6_1);
-
-        itemB6_1.getTranslations()
-                .addAll(Arrays.asList(ptItemB6_1, enItemB6_1));
-        tipoBolsa6.getItens()
-                .add(itemB6_1);
-
-// Item 2
-        ItemPersonalizacao itemB6_2 = new ItemPersonalizacao();
-
-        itemB6_2.setTipoPersonalizacao(tipoBolsa6);
-        ItemPersonalizacaoTranslation ptItemB6_2 = new ItemPersonalizacaoTranslation();
-
-        ptItemB6_2.setLocale(
-                "pt-BR");
-        ptItemB6_2.setTexto(
-                "Detalhes em dourado ou prateado");
-        ptItemB6_2.setItemPersonalizacao(itemB6_2);
-        ItemPersonalizacaoTranslation enItemB6_2 = new ItemPersonalizacaoTranslation();
-
-        enItemB6_2.setLocale(
-                "en");
-        enItemB6_2.setTexto(
-                "Gold or silver details");
-        enItemB6_2.setItemPersonalizacao(itemB6_2);
-
-        itemB6_2.getTranslations()
-                .addAll(Arrays.asList(ptItemB6_2, enItemB6_2));
-        tipoBolsa6.getItens()
-                .add(itemB6_2);
-
-// Item 3
-        ItemPersonalizacao itemB6_3 = new ItemPersonalizacao();
-
-        itemB6_3.setTipoPersonalizacao(tipoBolsa6);
-        ItemPersonalizacaoTranslation ptItemB6_3 = new ItemPersonalizacaoTranslation();
-
-        ptItemB6_3.setLocale(
-                "pt-BR");
-        ptItemB6_3.setTexto(
-                "Texturas sofisticadas");
-        ptItemB6_3.setItemPersonalizacao(itemB6_3);
-        ItemPersonalizacaoTranslation enItemB6_3 = new ItemPersonalizacaoTranslation();
-
-        enItemB6_3.setLocale(
-                "en");
-        enItemB6_3.setTexto(
-                "Sophisticated textures");
-        enItemB6_3.setItemPersonalizacao(itemB6_3);
-
-        itemB6_3.getTranslations()
-                .addAll(Arrays.asList(ptItemB6_3, enItemB6_3));
-        tipoBolsa6.getItens()
-                .add(itemB6_3);
-
-// Item 4
-        ItemPersonalizacao itemB6_4 = new ItemPersonalizacao();
-
-        itemB6_4.setTipoPersonalizacao(tipoBolsa6);
-        ItemPersonalizacaoTranslation ptItemB6_4 = new ItemPersonalizacaoTranslation();
-
-        ptItemB6_4.setLocale(
-                "pt-BR");
-        ptItemB6_4.setTexto(
-                "Design exclusivo de alta costura");
-        ptItemB6_4.setItemPersonalizacao(itemB6_4);
-        ItemPersonalizacaoTranslation enItemB6_4 = new ItemPersonalizacaoTranslation();
-
-        enItemB6_4.setLocale(
-                "en");
-        enItemB6_4.setTexto(
-                "Exclusive high-fashion design");
-        enItemB6_4.setItemPersonalizacao(itemB6_4);
-
-        itemB6_4.getTranslations()
-                .addAll(Arrays.asList(ptItemB6_4, enItemB6_4));
-        tipoBolsa6.getItens()
-                .add(itemB6_4);
-
-// Item 5
-        ItemPersonalizacao itemB6_5 = new ItemPersonalizacao();
-
-        itemB6_5.setTipoPersonalizacao(tipoBolsa6);
-        ItemPersonalizacaoTranslation ptItemB6_5 = new ItemPersonalizacaoTranslation();
-
-        ptItemB6_5.setLocale(
-                "pt-BR");
-        ptItemB6_5.setTexto(
-                "Status symbol personalizado");
-        ptItemB6_5.setItemPersonalizacao(itemB6_5);
-        ItemPersonalizacaoTranslation enItemB6_5 = new ItemPersonalizacaoTranslation();
-
-        enItemB6_5.setLocale(
-                "en");
-        enItemB6_5.setTexto(
-                "Custom status symbol");
-        enItemB6_5.setItemPersonalizacao(itemB6_5);
-
-        itemB6_5.getTranslations()
-                .addAll(Arrays.asList(ptItemB6_5, enItemB6_5));
-        tipoBolsa6.getItens()
-                .add(itemB6_5);
 
 // Salva todos os tipos de personalização para 'Bolsas' de uma vez
-        tipoPersonalizacaoRepository.saveAll(Arrays.asList(tipoBolsa1, tipoBolsa2, tipoBolsa3, tipoBolsa4, tipoBolsa5, tipoBolsa6));
+        tipoPersonalizacaoRepository.saveAll(Arrays.asList(tipoBolsa1, tipoBolsa2, tipoBolsa3));
 
     }
     // --- CATEGORIA ESTOJOS ---
@@ -3425,6 +2875,10 @@ public class DataLoader implements CommandLineRunner {
                 "Estojos que Encantam e Organizam com Estilo");
         ptEstojos.setHeroButtonText(
                 "💝 Criar Meu Estojo");
+        ptEstojos.setGaleriaTitle(
+                "Crianças Felizes, Pais Satisfeitos");
+        ptEstojos.setGaleriaDescricao(
+                "Veja o que as famílias estão dizendo sobre nossos estojos personalizados. Cada sorriso é uma criança mais organizada e feliz com seu material escolar!");
 
 // 3. Crie a tradução para Inglês (en)
         CategoriaTranslation enEstojos = new CategoriaTranslation();
@@ -3451,7 +2905,10 @@ public class DataLoader implements CommandLineRunner {
                 "Pencil Cases that Delight and Organize with Style");
         enEstojos.setHeroButtonText(
                 "💝 Create My Pencil Case");
-
+        enEstojos.setGaleriaTitle(
+                "Happy Children, Satisfied Parents");
+        enEstojos.setGaleriaDescricao(
+                "See what families are saying about our personalized pencil cases. Each smile is a happier, more organized child!");
 // 4. Adicione as traduções à categoria e salve
         estojos.getTranslations()
                 .addAll(Arrays.asList(ptEstojos, enEstojos));
@@ -4546,7 +4003,7 @@ public class DataLoader implements CommandLineRunner {
         ptMochilas.setNomeSingular(
                 "Mochila");
         ptMochilas.setNomePlural(
-                "Mochilas e Lancheiras que Fazem Cada Dia mais Divertido");
+                "Mochilas e Lancheiras");
         ptMochilas.setDescricao(
                 "Transforme o dia a dia escolar do seu filho com mochilas e lancheiras 100% personalizadas. Cada peça é única, criada especialmente para refletir a personalidade da sua criança e tornar a ida à escola uma aventura incrível.");
         ptMochilas.setCtaTitle(
@@ -4561,6 +4018,10 @@ public class DataLoader implements CommandLineRunner {
                 "Mochilas e Lancheiras que Fazem Cada Dia mais Divertido");
         ptMochilas.setHeroButtonText(
                 "🎒 Criar a Mochila Perfeita");
+        ptMochilas.setGaleriaTitle(
+                "Mochilas e Lancheiras Com Os Temas Favoritos do Seu Filho");
+        ptMochilas.setGaleriaDescricao(
+                "Inspire-se com alguns modelos que já criamos! Aqui, cada mochila e lancheira é feita sob medida para o seu filho. Personalize do seu jeito: o tema, o nome, as cores e tudo mais!");
 
 // 3. Crie a tradução para Inglês (en)
         CategoriaTranslation enMochilas = new CategoriaTranslation();
@@ -4587,6 +4048,10 @@ public class DataLoader implements CommandLineRunner {
                 "Backpacks and Lunch Boxes that Make Every Day More Fun");
         enMochilas.setHeroButtonText(
                 "🎒 Create the Perfect Backpack");
+        enMochilas.setGaleriaTitle(
+                "Backpacks and Lunch Boxes with Your Child's Favorite Themes");
+        enMochilas.setGaleriaDescricao(
+                "Get inspired by some models we've already created! Here, each backpack and lunch box is made to measure for your child. Personalize it your way: the theme, the name, the colors, and everything else!");
 
 // 4. Adicione as traduções à categoria e salve
         mochilas.getTranslations()
@@ -5678,6 +5143,10 @@ public class DataLoader implements CommandLineRunner {
                 "Organização e Carinho em Cada Detalhe Para o Seu Bebê");
         ptLinhaBaby.setHeroButtonText(
                 "💝 Criar Meu Kit Baby");
+        ptLinhaBaby.setGaleriaTitle(
+                "Feito para Facilitar a Vida das Mamães");
+        ptLinhaBaby.setGaleriaDescricao(
+                "Sabemos que a rotina de uma mãe de recém-nascido é cheia de desafios. Por isso, cada item da Linha Baby é pensado para trazer mais praticidade, organização e tranquilidade para o seu dia a dia. E o melhor: tudo 100% personalizável, para deixar esse momento ainda mais especial e único.");
 
         CategoriaTranslation enLinhaBaby = new CategoriaTranslation();
 
@@ -5703,6 +5172,10 @@ public class DataLoader implements CommandLineRunner {
                 "Organization and Care in Every Detail For Your Baby");
         enLinhaBaby.setHeroButtonText(
                 "💝 Create My Baby Kit");
+        enLinhaBaby.setGaleriaTitle(
+                "Made to Make Moms' Lives Easier");
+        enLinhaBaby.setGaleriaDescricao(
+                "We know that a mom's routine with a newborn is full of challenges. That's why each item in the Baby Line is designed to bring more practicality, organization, and tranquility to your daily life. And the best part: everything is 100% customizable, to make this moment even more special and unique.");
 
         linhaBaby.getTranslations()
                 .addAll(Arrays.asList(ptLinhaBaby, enLinhaBaby));

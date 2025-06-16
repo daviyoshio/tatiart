@@ -39,6 +39,12 @@ public class CategoriaTranslation {
 
     private String heroButtonText;
     
+    @Column(length = 500)
+    private String galeriaTitle;
+
+    @Column(length = 500)
+    private String galeriaDescricao;
+    
     // Relacionamento de volta para a Categoria principal
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "categoria_id", nullable = false)
@@ -132,6 +138,22 @@ public class CategoriaTranslation {
 
     public void setHeroButtonText(String heroButtonText) {
         this.heroButtonText = heroButtonText;
+    }
+
+    public String getGaleriaTitle() {
+        return galeriaTitle;
+    }
+
+    public void setGaleriaTitle(String galeriaTitle) {
+        this.galeriaTitle = galeriaTitle;
+    }
+
+    public String getGaleriaDescricao() {
+        return galeriaDescricao;
+    }
+
+    public void setGaleriaDescricao(String galeriaDescricao) {
+        this.galeriaDescricao = galeriaDescricao;
     }
 
     public Categoria getCategoria() {

@@ -92,9 +92,7 @@
                         <div class="flex flex-col justify-center space-y-6">
                             <div class="space-y-4">
                                 <h1 class="text-4xl font-bold tracking-tight sm:text-6xl xl:text-7xl font-playfair text-burgundy-900">
-                                    <span th:text="${categoria.getNomePlural()}">Necessaires</span>
-                                    <span th:text="#{category.hero.organize}">que Organizam</span>
-                                    <span class="block text-burgundy-700" th:text="#{category.hero.withStyle}">Sua Vida com Estilo</span>
+                                    <span th:text="${categoria.getHeroTitle()}">Título do Banner</span>
                                 </h1>
 
                                 <p class="max-w-2xl text-burgundy-700 text-xl leading-relaxed"
@@ -134,14 +132,10 @@
                             ✨ Nossos Trabalhos
                         </span>
                         <h2 class="text-3xl font-bold tracking-tight sm:text-5xl font-playfair text-burgundy-900">
-                            <span th:text="#{category.gallery.title.prefix}">Cada</span>
-                            <span th:text="${categoria.nomeSingular}">Necessaire</span>
-                            <span th:text="#{category.gallery.title.suffix}">Conta Sua História</span>
+                            <span th:text="${categoria.getGaleriaTitle()}">Título da Galeria</span>
                         </h2>
-                        <p class="max-w-4xl text-burgundy-700 text-xl">
-                            <span th:text="#{category.gallery.subtitle.prefix}">Veja como transformamos ideias simples em</span>
-                            <span th:text="${categoria.getNomePlural()}">necessaires</span>
-                            <span th:utext="#{category.gallery.subtitle.suffix}">que <strong>organizam com amor</strong>...</span>
+                        <p class="max-w-4xl text-burgundy-700 text-xl" th:text="${categoria.getGaleriaDescricao()}">
+                            Descrição da Galeria
                         </p>
                     </div>
 
@@ -228,7 +222,7 @@
                             <div class="border border-beige-200 bg-white shadow-lg rounded-lg p-6">
                                 <div class="flex items-center space-x-2 mb-4">
                                     <div class="flex items-center justify-center w-10 h-10 bg-burgundy-100 rounded-lg">
-                                        <i data-lucide="package" class="h-5 w-5 text-burgundy-800"></i>
+                                        <i data-lucide="gift" class="h-5 w-5 text-burgundy-800"></i>
                                     </div>
                                     <h3 class="text-lg font-semibold text-burgundy-900" th:text="#{category.why.feature3.title}">
                                         Organização Inteligente

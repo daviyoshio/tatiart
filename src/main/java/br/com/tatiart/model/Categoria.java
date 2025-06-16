@@ -75,6 +75,16 @@ public class Categoria {
     public String getHeroButtonText() {
         return getTranslation().map(CategoriaTranslation::getHeroButtonText).orElse("");
     }
+    
+    @Transient
+    public String getGaleriaTitle() {
+        return getTranslation().map(CategoriaTranslation::getGaleriaTitle).orElse("Galeria de Inspirações");
+    }
+
+    @Transient
+    public String getGaleriaDescricao() {
+        return getTranslation().map(CategoriaTranslation::getGaleriaDescricao).orElse("Inspire-se com alguns dos trabalhos que já criamos com muito carinho.");
+    }
     // --- FIM DOS MÉTODOS QUE FALTAVAM ---
 
     /**
