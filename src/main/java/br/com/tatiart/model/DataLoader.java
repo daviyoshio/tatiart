@@ -1374,7 +1374,7 @@ public class DataLoader implements CommandLineRunner {
         produtoRepository.save(c2);
 
 // Produto 3
-        Produto c3 = new Produto("/images/Produtos/Caneca/960x640 kit Caneca Mae Avó.png", canecas);
+        Produto c3 = new Produto("/images/Produtos/Caneca/960x640 kit Caneca Mae Avo.png", canecas);
         ProdutoTranslation ptC3 = new ProdutoTranslation();
 
         ptC3.setLocale(
@@ -2991,7 +2991,7 @@ public class DataLoader implements CommandLineRunner {
         produtoRepository.save(estojo3);
 
 // Produto 4
-        Produto estojo4 = new Produto("/images/Produtos/Estojo/960x640 Estojo Óculos.png", estojos);
+        Produto estojo4 = new Produto("/images/Produtos/Estojo/960x640 Estojo Oculos.png", estojos);
         ProdutoTranslation ptEstojo4 = new ProdutoTranslation();
 
         ptEstojo4.setLocale(
@@ -5251,7 +5251,7 @@ public class DataLoader implements CommandLineRunner {
         pBB3.getTranslations()
                 .addAll(Arrays.asList(ptPBB3, enPBB3));
 
-        Produto pBB4 = new Produto("/images/Produtos/Linha Baby/960x640 Linha Baby Aurora Carteira Pediátrica.png", linhaBaby);
+        Produto pBB4 = new Produto("/images/Produtos/Linha Baby/960x640 Linha Baby Aurora Carteira Pediatrica.png", linhaBaby);
         ProdutoTranslation ptPBB4 = new ProdutoTranslation();
 
         ptPBB4.setLocale(
