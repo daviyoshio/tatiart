@@ -25,9 +25,9 @@ window.onload = function() {
             { url: '/images/Sobre-Tati/800x800 Linha Baby Helena.png', alt: 'Linha Baby Helena' },
             { url: '/images/Sobre-Tati/800x800 Linha Baby Violeta.png', alt: 'Linha Baby Violeta' },
             { url: '/images/Sobre-Tati/800x800 Mochila Tigrinho.png', alt: 'Mochila Tigrinho' },
-            { url: '/images/Sobre-Tati/800x800 Mochila e Estojo Unicórnio.png', alt: 'Mochila e Estojo Unicórnio' },
-            { url: '/images/Sobre-Tati/800x800 Canecas Mae Avó (1).png', alt: 'Canecas Mae Avó (1)' },
-            { url: '/images/Sobre-Tati/800x800 Canecas Mae Avó.png', alt: 'Canecas Mae Avó' },
+            { url: '/images/Sobre-Tati/800x800 Mochila e Estojo Unicornio.png', alt: 'Mochila e Estojo Unicórnio' },
+            { url: '/images/Sobre-Tati/800x800 Canecas Mae Avo (1).png', alt: 'Canecas Mae Avó (1)' },
+            { url: '/images/Sobre-Tati/800x800 Canecas Mae Avo.png', alt: 'Canecas Mae Avó' },
             { url: '/images/Sobre-Tati/800x800 Canecas Tiago e Fernando.png', alt: 'Canecas Tiago e Fernando' },
             { url: '/images/Sobre-Tati/800x800 Necessaire Premium Aberta.png', alt: 'Necessaire Premium Aberta' },
             { url: '/images/Sobre-Tati/800x800 Mochila Kit Mickey.png', alt: 'Mochila Kit Mickey' }
