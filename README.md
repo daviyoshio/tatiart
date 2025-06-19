@@ -12,7 +12,7 @@ Uma aplicação web institucional e catálogo online para a marca Tatiart, espec
 
 ## 📖 Sobre o Projeto
 
-**Tatiart** é uma plataforma para a exibição e divulgação de produtos personalizados, incluindo canecas, bolsas, nécessaires, estojos e itens da linha baby. A aplicação foi construída utilizando **Spring Boot** para garantir uma base de código robusta e escalável, servindo como um portfólio digital para que clientes possam conhecer os produtos e entrar em contato.
+**Tatiart** é uma plataforma para a exibição e divulgação de produtos personalizados, incluindo canecas, bolsas, necessaires, estojos e itens da linha baby. A aplicação foi construída utilizando **Spring Boot** para garantir uma base de código robusta e escalável, servindo como um portfólio digital para que clientes possam conhecer os produtos e entrar em contato.
 
 ---
 
